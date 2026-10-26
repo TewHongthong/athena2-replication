@@ -7,14 +7,14 @@ records of every run, the benchmark files, and the scripts and outputs of the an
 ## Contents
 
 - HYPOTHESES_v2.md: the registered hypotheses and analysis plan; its hash is stored in every freeze file.
-- ADDENDUM_v2.md: the analysis steps added after the freeze (A1 to A6).
+- ADDENDUM_v2.md: the analysis steps added after the freeze (A1 to A8).
 - athena-sim/: the harness; packs/ (human and LLM-drafted ontologies, core rules, the prompt used to draft them);
   frozen_*.json and their ledgers; runs/ (test_*, canary_*, pilot_*); the analysis scripts; tests/.
 - athena-corpus/: pins/ (commit, path and git blob identifier of every file), curation/ (including
   tools/fetch_corpus_pins.py and tools/export_tasks.py), corpus_index.tsv.
 - models/: model_pins.json (request settings of the hosted models, file hashes of the local models) and README.md.
 - ontology/, standards/: the ontology schema and loader, and the pinned standard documents with their licenses.
-- benchmark/: the benchmark of each pack (100 tasks per pack: 30 development, 70 test).
+- benchmark/: the benchmark of each pack (100 tasks per pack: 30 development, 70 test). The curation report is benchmark/CURATION_REPORT.md.
 - analysis/: outputs of the analyses (renames.csv, renames_all.csv, h6.md, dose.md, dose.json, and the tables).
 - LICENSE, THIRD_PARTY_NOTICES.md, SHA256SUMS.txt.
 
@@ -63,3 +63,9 @@ its build script is in the same folder.
 
 Code: MIT (LICENSE). Ontologies and standard documents: the license of the source document, and code excerpts: the
 license of their repository (THIRD_PARTY_NOTICES.md).
+
+## Additional analyses after the freeze
+ADDENDUM_v2.md records every step taken after the freeze (A1-A8). Two of them have their own scripts:
+  python3 count_godot_prefix.py runs/test_godot_*_meta    (A8)
+  python3 make_blind_sheet.py --out-dir DIR    and    python3 score_blind.py --sheet SHEET --key KEY --report REPORT    (A7)
+The files of the review of the verdicts of core_ok are in analysis/blind*/. Only the third round is used as evidence; the first two rounds are kept for the record (ADDENDUM_v2.md, A7).

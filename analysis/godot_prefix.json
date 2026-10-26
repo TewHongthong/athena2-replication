@@ -1,0 +1,10 @@
+{
+  "counted": 1574,
+  "skipped": {
+    "other_kind": 3456,
+    "no_name": 10
+  },
+  "miss_core_ok": 130,
+  "core_ok": 1567,
+  "miss_all": 137
+}

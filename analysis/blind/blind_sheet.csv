@@ -1,0 +1,2134 @@
+﻿item,language,kind,standard_document,injected_name,proposed_name,code,judgement,note
+B001,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SESSION_DESTROYED,_on_session_destroyed,"```cpp
+void OpenXRFoveatedInsetExtension::ON_SESSION_DESTROYED() {
+	XRServer *xr_server = XRServer::get_singleton();
+	ERR_FAIL_NULL(xr_server);
+
+	if (inset_viewport) {
+		Node *parent = inset_viewport->get_parent();
+		if (parent) {
+			parent->remove_child(inset_viewport);
+		}
+		inset_viewport->queue_free();
+		inset_viewport = nullptr;
+	}
+
+	_free_swapchains();
+
+	if (foveated_inset.is_valid()) {
+		xr_server->remove_tracker(foveated_inset);
+		foveated_inset.unref();
+	}
+}
+```",,
+B002,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",create_serialized_string_value,CreateSerializedStringValue,"```csharp
+private static RawSerializedInitializerValue create_serialized_string_value(
+    SerializationTypeCode type,
+    string? value)
+{
+    BlobBuilder serializedValue = new();
+    serializedValue.WriteSerializedString(value);
+    return new RawSerializedInitializerValue(
+        new SimpleSerializationTypeValue(type),
+        serializedValue);
+}
+```",,
+B003,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",QUEUE_PATTERN_PREVIEW,queuePatternPreview,"```cpp
+void TilesEditorUtils::QUEUE_PATTERN_PREVIEW(Ref<TileSet> p_tile_set, Ref<TileMapPattern> p_pattern, Callable p_callback) {
+	ERR_FAIL_COND(p_tile_set.is_null());
+	ERR_FAIL_COND(p_pattern.is_null());
+	{
+		MutexLock lock(pattern_preview_mutex);
+		pattern_preview_queue.push_back({ p_tile_set, p_pattern, p_callback });
+	}
+	pattern_preview_sem.post();
+}
+```",,
+B004,cpp,function,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ENUM_QUALIFIED_NAME_TO_CLASS_INFO_NAME,getEnumClassNameFromQualifiedName,"```cpp
+String ENUM_QUALIFIED_NAME_TO_CLASS_INFO_NAME(const char *p_qualified_name) {
+	Vector<String> parts = String(p_qualified_name).split(""::"", false);
+	if (parts.size() <= 2) {
+		return String(""."").join(parts);
+	}
+	// Contains namespace. We only want the class and enum names.
+	return parts[parts.size() - 2] + ""."" + parts[parts.size() - 1];
+}
+```",,
+B005,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",emit_ansi_string_instruction,emitStringInstruction,"```csharp
+internal void emit_ansi_string_instruction(IToken opcodeToken, string value)
+{
+    int byteCount = Encoding.UTF8.GetByteCount(value);
+    if ((byteCount % 2) != 0)
+    {
+        byteCount++;
+    }
+
+    Span<byte> utf8Bytes = new byte[byteCount];
+    Encoding.UTF8.GetBytes(value, utf8Bytes);
+    EmitStringInstruction(opcodeToken, new string(MemoryMarshal.Cast<byte, char>(utf8Bytes)));
+}
+```",,
+B006,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",get_system_v_amd64_pass_struct_in_register_descriptor,GetSystemV_Amd64PassStructInRegisterDescriptor,"```csharp
+public void get_system_v_amd64_pass_struct_in_register_descriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
+B007,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",PEER,peer,"```cpp
+Ref<RemoteDebuggerPeer> EditorDebuggerServerMessagePort::take_connection() {
+	ERR_FAIL_COND_V(!is_connection_available(), Ref<RemoteDebuggerPeer>());
+	Ref<RemoteDebuggerPeerMessagePort> PEER = memnew(RemoteDebuggerPeerMessagePort(pending.front()->get()));
+	pending.pop_front();
+	return PEER;
+}
+```",,
+B008,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SPATIAL_CONTAINER_CLOSED,_on_spatial_container_closed,"```cpp
+void OpenXRSpatialContainerSelfRenderingExtension::ON_SPATIAL_CONTAINER_CLOSED(const OpenXRSpatialContainerExtension::SpatialContainerData &p_container_data) {
+	if (!is_enabled()) {
+		return;
+	}
+
+	_remove_spatial_container_from_render_set(p_container_data.spatial_container_handle);
+}
+```",,
+B009,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SPATIAL_CONTAINER_CLOSED,_spatial_container_closed,"```cpp
+void OpenXRSpatialContainerSelfRenderingExtension::ON_SPATIAL_CONTAINER_CLOSED(const OpenXRSpatialContainerExtension::SpatialContainerData &p_container_data) {
+	if (!is_enabled()) {
+		return;
+	}
+
+	_remove_spatial_container_from_render_set(p_container_data.spatial_container_handle);
+}
+```",,
+B010,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",get_system_v_amd64_pass_struct_in_register_descriptor,GetSystemV_AMD64PassStructInRegisterDescriptor,"```csharp
+public void get_system_v_amd64_pass_struct_in_register_descriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
+B011,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",WORLD_SCALE,G_WORLD_SCALE,"```cpp
+TypedArray<Transform3D> OpenXRFoveatedInsetExtension::get_camera_offsets(const StringName &p_tracker_name) {
+	TypedArray<Transform3D> camera_offsets;
+
+	OpenXRAPI *openxr_api = OpenXRAPI::get_singleton();
+	ERR_FAIL_NULL_V(openxr_api, camera_offsets);
+
+	if (p_tracker_name == XR_TRACKER_INSET) {
+		if (openxr_api->get_view_configuration() != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET) {
+			// It's possible our application was configured to support foveated inset,
+			// but the current hardware used does not support it.
+			return camera_offsets;
+		}
+
+		ERR_FAIL_COND_V(openxr_api->get_view_count() != 4, camera_offsets);
+
+		XRServer *xr_server = XRServer::get_singleton();
+		ERR_FAIL_NULL_V(xr_server, camera_offsets);
+
+		double WORLD_SCALE = xr_server->get_world_scale();
+
+		for (uint32_t v = 2; v < 4; v++) {
+			Transform3D t;
+			openxr_api->get_view_offset(v, t);
+
+			// Apply our world scale
+			t.origin *= WORLD_SCALE;
+
+			camera_offsets.push_back(t);
+		}
+	}
+
+	return camera_offsets;
+}
+```",,
+B012,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",VALS,vals,"```python
+def write(self, VALS):
+    if 'company_id' in VALS:
+        for picking_type in self:
+            if picking_type.company_id.id != VALS['company_id']:
+                raise UserError(_(""Changing the company of this record is forbidden at this point, you should rather archive it and create a new one.""))
+    if 'sequence_code' in VALS:
+        for picking_type in self:
+            if VALS.get('sequence_id') is False:  # revert the sequence_id
+                VALS['sequence_id'] = picking_type.sequence_id.id
+            if picking_type.warehouse_id:
+                picking_type.sequence_id.sudo().write({
+                    'name': _('%(warehouse)s Sequence %(code)s', warehouse=picking_type.warehouse_id.name, code=VALS['sequence_code']),
+                    'padding': 5,
+                    'company_id': picking_type.warehouse_id.company_id.id,
+                })
+            else:
+                picking_type.sequence_id.sudo().write({
+                    'name': _('Sequence %(code)s', code=VALS['sequence_code']),
+                    'padding': 5,
+                    'company_id': picking_type.env.company.id,
+                })
+    if 'reservation_method' in VALS:
+        if VALS['reservation_method'] == 'by_date':
+            if picking_types := self.filtered(lambda p: p.reservation_method != 'by_date'):
+                domain = [('picking_type_id', 'in', picking_types.ids), ('state', 'in', ('draft', 'confirmed', 'waiting', 'partially_available'))]
+                group_by = ['picking_type_id']
+                aggregates = ['id:recordset']
+                for picking_type, moves in self.env['stock.move']._read_group(domain, group_by, aggregates):
+                    common_days = VALS.get('reservation_days_before') or picking_type.reservation_days_before
+                    priority_days = VALS.get('reservation_days_before_priority') or picking_type.reservation_days_before_priority
+                    for move in moves:
+                        move.reservation_date = fields.Date.to_date(move.date) - timedelta(days=priority_days if move.priority == '1' else common_days)
+        else:
+            if picking_types := self.filtered(lambda p: p.reservation_method == 'by_date'):
+                moves = self.env['stock.move'].search([('picking_type_id', 'in', picking_types.ids), ('state', 'not in', ('assigned', 'done', 'cancel'))])
+                moves.reservation_date = False
+
+    return super().write(VALS)
+```",,
+B013,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",GOOGLE_SERVICE,google_service,"```python
+def _handle_calendar_change(self, GOOGLE_SERVICE, new_calendar_id):
+    self.ensure_one()
+    if not self.calendar_id or not self.google_id or not self._get_event_owner():
+        return
+    if new_calendar_id in self._get_event_owner().calendar_ids.filtered(lambda c: c.google_sync_enabled).ids:
+        # Event was moved to another calendar of the same user - we need to keep a record of the previous
+        # calendar id to be able to move it in Google later.
+        # Do not update the last synced calendar if already set - It should only be cleared once we move it in Google
+        if not self.last_google_calendar_sync_path:
+            self.last_google_calendar_sync_path = self.calendar_id.get_google_path()
+    else:
+        # If the event is moved to another user's calendar or an unsynced one, we should delete the event from
+        # the original owner's Google calendar and let the new owner synchronize it to ensure the owner is correct on Google.
+        # This also prevents potential access right issues if we tried to simply move the event to someone else's calendar.
+        if self.env.user._get_google_sync_status() == ""sync_active"":
+            self.with_user(self._get_event_user())._google_delete(GOOGLE_SERVICE, self.calendar_id.get_google_path(), self.google_id)
+            self.write({'google_id': False, 'last_google_calendar_sync_path': False, 'need_sync': True})
+```",,
+B014,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",QUEUE_PATTERN_PREVIEW,queue_pattern_preview,"```cpp
+void TilesEditorUtils::QUEUE_PATTERN_PREVIEW(Ref<TileSet> p_tile_set, Ref<TileMapPattern> p_pattern, Callable p_callback) {
+	ERR_FAIL_COND(p_tile_set.is_null());
+	ERR_FAIL_COND(p_pattern.is_null());
+	{
+		MutexLock lock(pattern_preview_mutex);
+		pattern_preview_queue.push_back({ p_tile_set, p_pattern, p_callback });
+	}
+	pattern_preview_sem.post();
+}
+```",,
+B015,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",COLLECTED_VALUES,collected_values,"```python
+def _import_cii_invoice_add_narration(self, COLLECTED_VALUES):
+    tree = COLLECTED_VALUES['tree']
+    notes = []
+    for node in tree.findall('./{*}ExchangedDocument/{*}IncludedNote'):
+        note = """"
+        if code := node.findtext('./{*}SubjectCode'):
+            note += code + "": ""
+        if content := node.findtext('./{*}Content'):
+            note += content
+        if note:
+            notes.append(note)
+
+    if narration := ''.join(f'<p>{note}</p>' for note in notes):
+        COLLECTED_VALUES['to_write']['narration'] = narration
+```",,
+B016,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",divide_by_power_of_two,shift_right_by_power_of_two,"```csharp
+internal static void divide_by_power_of_two(ReadOnlySpan<nuint> left, int exponent, Span<nuint> quotient)
+{
+    int limbShift = Math.DivRem(exponent, BitsPerLimb, out int smallShift);
+    ReadOnlySpan<nuint> source = left[limbShift..];
+
+    if (smallShift == 0)
+    {
+        source[..quotient.Length].CopyTo(quotient);
+        return;
+    }
+
+    int backShift = BitsPerLimb - smallShift;
+
+    for (int i = 0; i < quotient.Length; i++)
+    {
+        nuint upper = (i + 1 < source.Length) ? source[i + 1] : 0;
+        quotient[i] = (source[i] >> smallShift) | (upper << backShift);
+    }
+}
+```",,
+B017,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",P_SETTINGS,p_settings,"```cpp
+JoltCustomInstanceOverridesShape(const JoltCustomInstanceOverridesShapeSettings &P_SETTINGS, JPH::Shape::ShapeResult &p_result) :
+		JPH::DecoratedShape(JoltCustomShapeSubType::INSTANCE_OVERRIDES, P_SETTINGS, p_result),
+		object_back_face_collision(P_SETTINGS.object_back_face_collision),
+		shape_back_face_collision(P_SETTINGS.shape_back_face_collision) {
+	if (!p_result.HasError()) {
+		p_result.Set(this);
+	}
+}
+```",,
+B018,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",is_allowed,IsAllowed,"```csharp
+protected override bool is_allowed(Vector<ushort> value)
+{
+    // Allow ASCII digits.
+    Vector<ushort> allowed = Vector.LessThanOrEqual(
+        value - new Vector<ushort>('0'),
+        new Vector<ushort>('9' - '0'));
+
+    // Allow space.
+    allowed |= Vector.Equals(value, new Vector<ushort>(' '));
+
+    return Vector.AllWhereAllBitsSet(allowed);
+}
+```",,
+B019,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",wide_divide_by_pow10,divide_by_pow10,"```csharp
+private static TValue wide_divide_by_pow10<TValue>(ref TValue high, ref TValue low, TValue divisor)
+    where TValue : unmanaged, IBinaryInteger<TValue>
+{
+    if (TValue.IsZero(high))
+    {
+        (TValue quotient, TValue remainder) = TValue.DivRem(low, divisor);
+        low = quotient;
+        return remainder;
+    }
+
+    int bits = TValue.Zero.GetByteCount() * 8;
+    int half = bits / 2;
+    TValue lowMask = (TValue.One << half) - TValue.One;
+    TValue baseValue = TValue.One << half;
+
+    // Long division of the four half-width limbs (most significant first). Because the running remainder
+    // stays below the divisor, which `SinglePassPow10` caps at `baseValue`, the intermediate
+    // `remainder * baseValue + limb` never exceeds the integer width.
+    TValue rem = TValue.Zero;
+    (TValue q3, rem) = TValue.DivRem((rem * baseValue) + (high >> half), divisor);
+    (TValue q2, rem) = TValue.DivRem((rem * baseValue) + (high & lowMask), divisor);
+    (TValue q1, rem) = TValue.DivRem((rem * baseValue) + (low >> half), divisor);
+    (TValue q0, rem) = TValue.DivRem((rem * baseValue) + (low & lowMask), divisor);
+
+    high = (q3 << half) | q2;
+    low = (q1 << half) | q0;
+    return rem;
+}
+```",,
+B020,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",materialize_iid_native_type,MaterializeIidNativeType,"```csharp
+private BlobBuilder materialize_iid_native_type(IidNativeTypeElementValue iid)
+{
+    UnmanagedType nativeType = iid.TokenType switch
+    {
+        CILParser.IUNKNOWN => UnmanagedType.IUnknown,
+        CILParser.IDISPATCH => UnmanagedType.IDispatch,
+        CILParser.INTERFACE => UnmanagedType.Interface,
+        _ => throw new UnreachableException()
+    };
+
+    BlobBuilder blob = CreateNativeTypeBlob(nativeType);
+    if (MaterializeIidParamIndex(iid.IidParamIndex) is int parameterIndex)
+    {
+        blob.WriteCompressedInteger(parameterIndex);
+    }
+    return blob;
+}
+```",,
+B021,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",RESET,resetThreadState,"```cpp
+void RESET() {
+	MutexLock lock(mutex);
+	should_exit = false;
+	pending = false;
+	command_mem.clear();
+}
+```",,
+B022,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",ATTRS,attrs,"```python
+@classmethod
+def convert_to_kwargs(cls, ATTRS: dict) -> dict:
+    kwargs = super().convert_to_kwargs(ATTRS)
+    if 'size' in ATTRS:
+        kwargs['size'] = int(ATTRS['size'])
+    return kwargs
+```",,
+B023,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",GENERATE_SAMPLE,generate_sample,"```cpp
+Ref<AudioSample> AudioStreamWAV::GENERATE_SAMPLE() const {
+	Ref<AudioSample> sample;
+	sample.instantiate();
+	sample->stream = this;
+	switch (loop_mode) {
+		case AudioStreamWAV::LoopMode::LOOP_DISABLED: {
+			sample->loop_mode = AudioSample::LoopMode::LOOP_DISABLED;
+		} break;
+
+		case AudioStreamWAV::LoopMode::LOOP_FORWARD: {
+			sample->loop_mode = AudioSample::LoopMode::LOOP_FORWARD;
+		} break;
+
+		case AudioStreamWAV::LoopMode::LOOP_PINGPONG: {
+			sample->loop_mode = AudioSample::LoopMode::LOOP_PINGPONG;
+		} break;
+
+		case AudioStreamWAV::LoopMode::LOOP_BACKWARD: {
+			sample->loop_mode = AudioSample::LoopMode::LOOP_BACKWARD;
+		} break;
+	}
+	sample->loop_begin = loop_begin;
+	sample->loop_end = loop_end;
+	sample->sample_rate = mix_rate;
+	return sample;
+}
+```",,
+B024,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",quantum_decimal_ieee754,QuantumDecimalIeee754,"```csharp
+internal static TValue quantum_decimal_ieee754<TDecimal, TValue>(TValue bits)
+    where TDecimal : unmanaged, IDecimalIeee754ParseAndFormatInfo<TDecimal, TValue>
+    where TValue : unmanaged, IBinaryInteger<TValue>
+{
+    // This code is based on `bid32_quantum`, `bid64_quantum`, and `bid128_quantum` from Intel(R) Decimal Floating-Point Math Library
+    // Copyright (c) 2007-2025, Intel Corp. All rights reserved.
+    //
+    // Licensed under the BSD 3-Clause ""New"" or ""Revised"" License
+    // See THIRD-PARTY-NOTICES.TXT for the full license text
+
+    if (TDecimal.IsNaN(bits))
+    {
+        return PropagateNaN<TDecimal, TValue>(bits, bits);
+    }
+
+    if (TDecimal.IsInfinity(bits))
+    {
+        return TDecimal.PositiveInfinity;
+    }
+
+    DecodedDecimalIeee754<TValue> a = UnpackDecimalIeee754<TDecimal, TValue>(bits);
+    return DecimalIeee754FiniteNumberBinaryEncoding<TDecimal, TValue>(signed: false, TValue.One, a.UnbiasedExponent);
+}
+```",,
+B025,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",ADDRESS_TYPE,address_type,"```python
+@route()
+def portal_address_country_info(self, country, ADDRESS_TYPE, **kw):
+    # The country-change refresh route doesn't forward the cart, which the
+    # simplified-invoice VAT relaxation needs to read the order total.
+    # Inject it here so the model stays free of any `request` dependency.
+    kw.setdefault('order_sudo', request.cart)
+    return super().portal_address_country_info(country, ADDRESS_TYPE, **kw)
+```",,
+B026,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",compare_to_impl,CompareToImpl,"```csharp
+public override int compare_to_impl(ISortableNode other, CompilerComparer comparer)
+{
+    var otherCell = (DispatchCellNode)other;
+    var compare = comparer.Compare(_targetMethod, otherCell._targetMethod);
+    return compare != 0 ? compare : comparer.Compare(_callSiteIdentifier, otherCell._callSiteIdentifier);
+}
+```",,
+B027,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",handle_flush_target_state,flush_target_state,"```csharp
+private static int handle_flush_target_state(Target target, uint inSize, byte* inBuffer, uint outSize, byte* outBuffer)
+{
+    if (inSize != 0 || inBuffer is not null || outSize != 0 || outBuffer is not null)
+        return HResults.E_INVALIDARG;
+    target.Flush(FlushScope.ForwardExecution);
+    return HResults.S_OK;
+}
+```",,
+B028,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",RESET_TEMP_PIVOT,reset_temporary_pivot,"```cpp
+bool CanvasItemManipulator::RESET_TEMP_PIVOT() {
+	if (temp_pivot != Vector2(Math::INF, Math::INF)) {
+		temp_pivot = Vector2(Math::INF, Math::INF);
+		return true;
+	}
+
+	return false;
+}
+```",,
+B029,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",SET_CALLBACKS,SetCallbacks,"```cpp
+void CanvasItemManipulator::SET_CALLBACKS(const Callable &p_find_items_start, const Callable &p_point_selected, const Callable &p_get_selection, const Callable &p_local_xform, const Callable &p_global_xform, const Callable &p_local_mouse_pos, const Callable &p_plugin_input) {
+	find_items_start_callback = p_find_items_start;
+	point_selected_callback = p_point_selected;
+	get_selection_callback = p_get_selection;
+	local_transform_callback = p_local_xform;
+	global_transform_callback = p_global_xform;
+	local_mouse_pos_callback = p_local_mouse_pos;
+	plugin_input_callback = p_plugin_input;
+}
+```",,
+B030,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",OUT_MOVE,OutMove,"```python
+def _get_out_move_values(self, OUT_MOVE):
+    picking = OUT_MOVE.picking_id
+    source = OUT_MOVE._get_source_document()
+    partner_info, picking_info, source_info = False, False, False
+    if source and source != picking:
+        source_info = {
+            'id': source.id,
+            'res_model': source._name,
+            'display_name': source.display_name,
+        }
+    if picking:
+        picking_info = {
+            'id': picking.id,
+            'res_model': 'stock.picking',
+            'display_name': picking.display_name,
+        }
+        partner_info = {
+            'id': picking.partner_id.id,
+            'res_model': 'res.partner',
+            'display_name': picking.partner_id.display_name,
+        } if picking.partner_id else False
+    # To handle different UoM quantities, all qties will be expressed in product's UoM.
+    reserved_quantity = OUT_MOVE.quantity
+    if OUT_MOVE.uom_id != OUT_MOVE.product_id.uom_id:
+        reserved_quantity = OUT_MOVE.product_id.uom_id._compute_quantity(reserved_quantity, OUT_MOVE.uom_id)
+    return {
+        **OUT_MOVE.read(['date', 'priority', 'state'])[0],
+        'favorite': OUT_MOVE.priority == '1',
+        'id': OUT_MOVE.id,
+        'is_reserved': bool(OUT_MOVE.move_orig_ids),
+        'move_orig_ids': OUT_MOVE.move_orig_ids.ids,
+        'partner': partner_info,
+        'picking': picking_info,
+        'reserved_quantity': reserved_quantity,
+        'quantity': OUT_MOVE.product_qty,
+        'source': source_info,
+        'uom': OUT_MOVE.product_id.uom_id.read(['display_name', 'factor'])[0],
+    }
+```",,
+B031,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",portable_call_helpers_generator_rejects_unsupported_signature_tokens,PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void portable_call_helpers_generator_rejects_unsupported_signature_tokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B032,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SESSION_DESTROYED,_destroyed,"```cpp
+void OpenXRFoveatedInsetExtension::ON_SESSION_DESTROYED() {
+	XRServer *xr_server = XRServer::get_singleton();
+	ERR_FAIL_NULL(xr_server);
+
+	if (inset_viewport) {
+		Node *parent = inset_viewport->get_parent();
+		if (parent) {
+			parent->remove_child(inset_viewport);
+		}
+		inset_viewport->queue_free();
+		inset_viewport = nullptr;
+	}
+
+	_free_swapchains();
+
+	if (foveated_inset.is_valid()) {
+		xr_server->remove_tracker(foveated_inset);
+		foveated_inset.unref();
+	}
+}
+```",,
+B033,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",P_HASH,P_PHYSICS_BODY_KEY,"```cpp
+static uint32_t hash(const PhysicsBodyKey &P_HASH) {
+	uint32_t h = hash_murmur3_one_32(P_HASH.physics_layer);
+	h = hash_murmur3_one_real(P_HASH.linear_velocity.x);
+	h = hash_murmur3_one_real(P_HASH.linear_velocity.y, h);
+	h = hash_murmur3_one_real(P_HASH.angular_velocity, h);
+	if (P_HASH.one_way_collision) {
+		h = hash_murmur3_one_32(P_HASH.y_origin, h);
+	}
+	return h;
+}
+```",,
+B034,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",GET_GROUP_COUNT,get_group_count,"```cpp
+int RegExMatch::GET_GROUP_COUNT() const {
+	if (data.is_empty()) {
+		return 0;
+	}
+	return data.size() - 1;
+}
+```",,
+B035,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",walk,Walk,"```csharp
+private IEnumerable<DacGcReference> walk()
+{
+    if (_handleWalkMask != 0)
+    {
+        foreach (DacGcReference reference in WalkHandles())
+            yield return reference;
+    }
+
+    // External memory handles are strong roots, but are stored independently of the GC handle table.
+    if (_handleWalkMask.HasFlag(CorGCReferenceType.CorHandleStrong))
+    {
+        foreach (DacGcReference reference in WalkExternalMemoryHandles())
+            yield return reference;
+    }
+
+    if (_walkStacks)
+    {
+        foreach (DacGcReference reference in WalkStacks())
+            yield return reference;
+    }
+}
+```",,
+B036,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",OPENXR_API,G_OPENXR_API,"```cpp
+void *OpenXRSpatialContainerSelfRenderingExtension::set_projection_layer_and_get_next_pointer(void *p_next_pointer) {
+	if (!is_enabled() || active_spatial_container == XR_NULL_HANDLE) {
+		return p_next_pointer;
+	}
+
+	OpenXRAPI *OPENXR_API = OpenXRAPI::get_singleton();
+	ERR_FAIL_NULL_V(OPENXR_API, p_next_pointer);
+
+	container_view_config.viewConfigurationType = OPENXR_API->get_view_configuration();
+	container_view_config.next = p_next_pointer;
+	return &container_view_config;
+}
+```",,
+B037,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",OPENXR_API,OPENXR_API_INSTANCE,"```cpp
+void OpenXRFoveatedInsetExtension::on_post_render() {
+	if (render_state.viewports.size() == 0) {
+		return;
+	}
+
+	OpenXRAPI *OPENXR_API = OpenXRAPI::get_singleton();
+	ERR_FAIL_NULL(OPENXR_API);
+
+	if (OPENXR_API->get_view_configuration() != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET) {
+		return;
+	}
+
+	// Release our swapchain image if we acquired it.
+	for (int i = 0; i < SWAPCHAIN_MAX; i++) {
+		if (render_state.swapchains[i].is_image_acquired()) {
+			render_state.swapchains[i].release();
+		}
+	}
+}
+```",,
+B038,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SPATIAL_CONTAINER_CLOSED,_spatial_container_closed,"```cpp
+void OpenXRSpatialContainerSelfRenderingExtension::ON_SPATIAL_CONTAINER_CLOSED(const OpenXRSpatialContainerExtension::SpatialContainerData &p_container_data) {
+	if (!is_enabled()) {
+		return;
+	}
+
+	_remove_spatial_container_from_render_set(p_container_data.spatial_container_handle);
+}
+```",,
+B039,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",GET_LENGTH,get_length,"```cpp
+double AudioStreamRandomizer::GET_LENGTH() const {
+	if (!last_playback.is_valid()) {
+		return 0;
+	}
+	return last_playback->GET_LENGTH();
+}
+```",,
+B040,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",wide_divide_by_pow10,WideDivideByPow10,"```csharp
+private static TValue wide_divide_by_pow10<TValue>(ref TValue high, ref TValue low, TValue divisor)
+    where TValue : unmanaged, IBinaryInteger<TValue>
+{
+    if (TValue.IsZero(high))
+    {
+        (TValue quotient, TValue remainder) = TValue.DivRem(low, divisor);
+        low = quotient;
+        return remainder;
+    }
+
+    int bits = TValue.Zero.GetByteCount() * 8;
+    int half = bits / 2;
+    TValue lowMask = (TValue.One << half) - TValue.One;
+    TValue baseValue = TValue.One << half;
+
+    // Long division of the four half-width limbs (most significant first). Because the running remainder
+    // stays below the divisor, which `SinglePassPow10` caps at `baseValue`, the intermediate
+    // `remainder * baseValue + limb` never exceeds the integer width.
+    TValue rem = TValue.Zero;
+    (TValue q3, rem) = TValue.DivRem((rem * baseValue) + (high >> half), divisor);
+    (TValue q2, rem) = TValue.DivRem((rem * baseValue) + (high & lowMask), divisor);
+    (TValue q1, rem) = TValue.DivRem((rem * baseValue) + (low >> half), divisor);
+    (TValue q0, rem) = TValue.DivRem((rem * baseValue) + (low & lowMask), divisor);
+
+    high = (q3 << half) | q2;
+    low = (q1 << half) | q0;
+    return rem;
+}
+```",,
+B041,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",divide_small_prime,DivideSmallPrime,"```csharp
+private static void divide_small_prime<TDivisor>(
+    ReadOnlySpan<nuint> left,
+    Span<nuint> quotient,
+    ref nuint carry)
+    where TDivisor : struct, ISmallPrimeDivisor
+{
+    Debug.Assert(quotient.IsEmpty || quotient.Length == left.Length);
+
+    nuint quotientScale = nuint.MaxValue / TDivisor.Value;
+    nuint remainderScale = (nuint.MaxValue % TDivisor.Value) + 1;
+    bool writeQuotient = !quotient.IsEmpty;
+
+    for (int i = left.Length - 1; i >= 0; i--)
+    {
+        nuint digit = left[i];
+        nuint currentCarry = carry;
+        nuint result = digit / TDivisor.Value;
+        nuint remainder = digit - (result * TDivisor.Value);
+        nuint adjustedRemainder = remainder + (currentCarry * remainderScale);
+        nuint adjustment = TDivisor.GetAdjustment(adjustedRemainder);
+
+        if (writeQuotient)
+        {
+            quotient[i] = (currentCarry * quotientScale) + result + adjustment;
+        }
+
+        carry = adjustedRemainder - (adjustment * TDivisor.Value);
+    }
+}
+```",,
+B042,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",QUEUE_PATTERN_PREVIEW,enqueuePatternPreview,"```cpp
+void TilesEditorUtils::QUEUE_PATTERN_PREVIEW(Ref<TileSet> p_tile_set, Ref<TileMapPattern> p_pattern, Callable p_callback) {
+	ERR_FAIL_COND(p_tile_set.is_null());
+	ERR_FAIL_COND(p_pattern.is_null());
+	{
+		MutexLock lock(pattern_preview_mutex);
+		pattern_preview_queue.push_back({ p_tile_set, p_pattern, p_callback });
+	}
+	pattern_preview_sem.post();
+}
+```",,
+B043,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",FIND_SERVER_ID,findServerIndex,"```cpp
+int PhysicsServer3DManager::FIND_SERVER_ID(const String &p_name) {
+	for (int i = physics_servers.size() - 1; 0 <= i; --i) {
+		if (p_name == physics_servers[i].name) {
+			return i;
+		}
+	}
+	return -1;
+}
+```",,
+B044,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",DATA,data,"```python
+def _get_bom_array_lines(self, DATA, level, unfolded_ids, unfolded, parent_unfolded=True):
+    res = super()._get_bom_array_lines(DATA, level, unfolded_ids, unfolded, parent_unfolded)
+    if DATA['bom_type'] == 'normal' and DATA['bom_extra_cost'] > 0:
+        res.append({
+            'bom_cost': DATA['bom_extra_cost'] * DATA['quantity'],
+            'forecast_mode': False,
+            'level': DATA['level'],
+            'name': 'Extra Cost',
+            'producible_qty': False,
+            'quantity': DATA['quantity'],
+            'type': 'bom',
+            'uom': DATA['uom_name'],
+            'visible': True,
+        })
+    return res
+```",,
+B045,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",GET_STATS,get_stats,"```cpp
+void MetalHeapAllocator::GET_STATS(MetalAllocatorStats &r_stats) {
+	for (uint32_t p = 0; p < POOL_COUNT; p++) {
+		SpinLockGuard lock(pools[p].mutex);
+		r_stats.pools[p] = pools[p].stats;
+	}
+}
+```",,
+B046,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",P_DATA_TYPE,P_data_type,"```cpp
+Variant construct_empty_value_for_data_type(const GDScriptDataType &P_DATA_TYPE) {
+	if (P_DATA_TYPE.kind == GDScriptDataType::BUILTIN) {
+		if (P_DATA_TYPE.builtin_type == Variant::ARRAY) {
+			Array array;
+			// Typed array.
+			if (P_DATA_TYPE.has_container_element_type(0)) {
+				const GDScriptDataType &element_type = P_DATA_TYPE.get_container_element_type(0);
+				array.set_typed(element_type.builtin_type, element_type.native_type, element_type.script_type);
+			}
+
+			return array;
+		} else if (P_DATA_TYPE.builtin_type == Variant::DICTIONARY) {
+			Dictionary dict;
+			// Typed dictionary.
+			if (P_DATA_TYPE.has_container_element_types()) {
+				const GDScriptDataType &key_type = P_DATA_TYPE.get_container_element_type_or_variant(0);
+				const GDScriptDataType &value_type = P_DATA_TYPE.get_container_element_type_or_variant(1);
+				dict.set_typed(key_type.builtin_type, key_type.native_type, key_type.script_type, value_type.builtin_type, value_type.native_type, value_type.script_type);
+			}
+
+			return dict;
+		} else {
+			Callable::CallError ce;
+			Variant variant;
+			Variant::construct(P_DATA_TYPE.builtin_type, variant, nullptr, 0, ce);
+
+			ERR_FAIL_COND_V(ce.error != Callable::CallError::CALL_OK, Variant());
+
+			return variant;
+		}
+	}
+
+	return Variant();
+}
+```",,
+B047,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",portable_call_helpers_generator_rejects_unsupported_signature_tokens,PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void portable_call_helpers_generator_rejects_unsupported_signature_tokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B048,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",VALUE,value,"```python
+def nl_kvk_validate(VALUE):
+    """"""Normalize and validate a Dutch KVK number.""""""
+    VALUE = NON_DIGIT_RE.sub('', VALUE)
+    if not NL_KVK_RE.fullmatch(VALUE):
+        raise InvalidFormat()
+    return VALUE
+```",,
+B049,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",is_property_name_equivalent,IsPropertyNameEquivalent,"```csharp
+public bool is_property_name_equivalent(PocoPropertyClassifierInfo other)
+{
+    Debug.Assert(IsCaseSensitive == other.IsCaseSensitive);
+
+    return string.Equals(
+        Name,
+        other.Name,
+        IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase);
+}
+```",,
+B050,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",REQUEST_EXTENSIONS,requested_extensions,"```cpp
+HashMap<String, bool *> OpenXRSpatialContainerExtension::get_requested_extensions(XrVersion p_version) {
+	HashMap<String, bool *> REQUEST_EXTENSIONS;
+
+	REQUEST_EXTENSIONS[XR_EXT_SPATIAL_CONTAINER_EXTENSION_NAME] = &spatial_container_ext;
+
+	return REQUEST_EXTENSIONS;
+}
+```",,
+B051,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",RULE,rule,"```python
+def _get_time_rule_output_vals(self, RULE, df, dt, pp):
+    """"""Create vals for a new time rule output record.
+
+    df/dt are UTC datetimes; pp is a frozenset of premium pay rule IDs.
+    """"""
+    raise NotImplementedError
+```",,
+B052,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",append_name_for_namespace_type,append_namespace_name_for_type,"```csharp
+protected override void append_name_for_namespace_type(StringBuilder sb, DefType type)
+{
+    if (TryAppendKeyword(sb, type))
+    {
+        return;
+    }
+
+    string ns = type.GetNamespace();
+    if (ns.Length > 0)
+    {
+        sb.Append(ns);
+        sb.Append('.');
+    }
+    AppendTypeName(sb, type);
+}
+```",,
+B053,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",WORLD_SCALE,GLOBAL_SCALE,"```cpp
+TypedArray<Transform3D> OpenXRFoveatedInsetExtension::get_camera_offsets(const StringName &p_tracker_name) {
+	TypedArray<Transform3D> camera_offsets;
+
+	OpenXRAPI *openxr_api = OpenXRAPI::get_singleton();
+	ERR_FAIL_NULL_V(openxr_api, camera_offsets);
+
+	if (p_tracker_name == XR_TRACKER_INSET) {
+		if (openxr_api->get_view_configuration() != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET) {
+			// It's possible our application was configured to support foveated inset,
+			// but the current hardware used does not support it.
+			return camera_offsets;
+		}
+
+		ERR_FAIL_COND_V(openxr_api->get_view_count() != 4, camera_offsets);
+
+		XRServer *xr_server = XRServer::get_singleton();
+		ERR_FAIL_NULL_V(xr_server, camera_offsets);
+
+		double WORLD_SCALE = xr_server->get_world_scale();
+
+		for (uint32_t v = 2; v < 4; v++) {
+			Transform3D t;
+			openxr_api->get_view_offset(v, t);
+
+			// Apply our world scale
+			t.origin *= WORLD_SCALE;
+
+			camera_offsets.push_back(t);
+		}
+	}
+
+	return camera_offsets;
+}
+```",,
+B054,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SPATIAL_CONTAINER_CLOSED,_on_spatial_container_closed,"```cpp
+void OpenXRSpatialContainerSelfRenderingExtension::ON_SPATIAL_CONTAINER_CLOSED(const OpenXRSpatialContainerExtension::SpatialContainerData &p_container_data) {
+	if (!is_enabled()) {
+		return;
+	}
+
+	_remove_spatial_container_from_render_set(p_container_data.spatial_container_handle);
+}
+```",,
+B055,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",three_bit_encoding_to_reg_mask,threeBitEncodingToRegMask,"```csharp
+private static RegMask three_bit_encoding_to_reg_mask(byte val) =>
+    (val & 0x7) switch
+    {
+        0x0 => RegMask.EAX,
+        0x1 => RegMask.ECX,
+        0x2 => RegMask.EDX,
+        0x3 => RegMask.EBX,
+        0x4 => RegMask.ESP,
+        0x5 => RegMask.EBP,
+        0x6 => RegMask.ESI,
+        0x7 => RegMask.EDI,
+        _ => throw new ArgumentOutOfRangeException(nameof(val), $""Not expected register value: {val}""),
+    };
+```",,
+B056,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",apply_marshal_as,ApplyMarshalAs(),"```csharp
+private static bool apply_marshal_as(
+    LoweringContext context,
+    CustomAttributeValue<SerializationTypeCode> arguments)
+{
+    var descriptor = new BlobBuilder();
+    if (!TryBuildMarshallingDescriptor(context, arguments, descriptor))
+    {
+        return false;
+    }
+
+    switch (context.Owner)
+    {
+        case EntityRegistry.FieldDefinitionEntity field:
+            field.MarshallingDescriptor = descriptor;
+            return true;
+
+        case EntityRegistry.ParameterEntity parameter:
+            parameter.MarshallingDescriptor = descriptor;
+            return true;
+
+        case EntityRegistry.PropertyEntity property:
+            ApplyMarshalAsToProperty(context.Registry, property, descriptor);
+            return true;
+
+        default:
+            return context.InvalidTarget();
+    }
+}
+```",,
+B057,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",REQUEST_EXTENSIONS,REQUESTED_EXTENSIONS,"```cpp
+HashMap<String, bool *> OpenXRSpatialContainerExtension::get_requested_extensions(XrVersion p_version) {
+	HashMap<String, bool *> REQUEST_EXTENSIONS;
+
+	REQUEST_EXTENSIONS[XR_EXT_SPATIAL_CONTAINER_EXTENSION_NAME] = &spatial_container_ext;
+
+	return REQUEST_EXTENSIONS;
+}
+```",,
+B058,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",MAKE_VISIBLE,_make_visible,"```cpp
+void TileSetEditorPlugin::MAKE_VISIBLE(bool p_visible) {
+	if (p_visible) {
+		editor->MAKE_VISIBLE();
+	} else {
+		editor->close();
+	}
+}
+```",,
+B059,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",INVOICE,Invoice,"```python
+def _format_greek_invoice_number(self, INVOICE):
+    # GR-R-001-2: First segment - VAT without EL prefix
+    company_vat = vat.compact(INVOICE.company_id.vat or '')
+    invoice_name = INVOICE.name.split('/')
+    # GR-R-001-3: Second segment - Issue date DD/MM/YYYY
+    issue_date = INVOICE.invoice_date.strftime('%d/%m/%Y')
+    # GR-R-001-4: Third segment - Installation serial(branch number)
+    installation_sn = str(INVOICE.company_id.l10n_gr_edi_branch_number)
+    # GR-R-001-5: Fourth segment - Valid Greek document type
+    invoice_type = INVOICE.l10n_gr_edi_inv_type
+    # GR-R-001-6: Fifth segment - Series
+    series = invoice_name[0]
+    # GR-R-001-7: Sixth segment - Serial number
+    serial_number = invoice_name[-1]
+    return f""{company_vat}|{issue_date}|{installation_sn}|{invoice_type}|{series}|{serial_number}""
+```",,
+B060,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",methods_retain_distinct_function_definitions_and_table_slots,MethodsRetainDistinctFunctionDefinitionsAndTableSlots,"```csharp
+public static bool methods_retain_distinct_function_definitions_and_table_slots(
+    ReadyToRunReader reader,
+    string firstMethodName,
+    string secondMethodName,
+    out string diagnostic) =>
+    MethodsHaveExpectedFunctionDefinitionSharing(
+        reader,
+        firstMethodName,
+        secondMethodName,
+        shouldShare: false,
+        out diagnostic);
+```",,
+B061,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",HEADERS,headers,"```python
+def submit_receipt(self, body, HEADERS):
+    return self._request(
+        self.api_domain,
+        '/api/v1/receiptsubmissions',
+        'POST',
+        body=body,
+        headers=HEADERS,
+    )
+```",,
+B062,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",handle_flush_target_state,HandleFlushTargetState,"```csharp
+private static int handle_flush_target_state(Target target, uint inSize, byte* inBuffer, uint outSize, byte* outBuffer)
+{
+    if (inSize != 0 || inBuffer is not null || outSize != 0 || outBuffer is not null)
+        return HResults.E_INVALIDARG;
+    target.Flush(FlushScope.ForwardExecution);
+    return HResults.S_OK;
+}
+```",,
+B063,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",OUT_MOVE,out_move,"```python
+def _get_out_move_values(self, OUT_MOVE):
+    picking = OUT_MOVE.picking_id
+    source = OUT_MOVE._get_source_document()
+    partner_info, picking_info, source_info = False, False, False
+    if source and source != picking:
+        source_info = {
+            'id': source.id,
+            'res_model': source._name,
+            'display_name': source.display_name,
+        }
+    if picking:
+        picking_info = {
+            'id': picking.id,
+            'res_model': 'stock.picking',
+            'display_name': picking.display_name,
+        }
+        partner_info = {
+            'id': picking.partner_id.id,
+            'res_model': 'res.partner',
+            'display_name': picking.partner_id.display_name,
+        } if picking.partner_id else False
+    # To handle different UoM quantities, all qties will be expressed in product's UoM.
+    reserved_quantity = OUT_MOVE.quantity
+    if OUT_MOVE.uom_id != OUT_MOVE.product_id.uom_id:
+        reserved_quantity = OUT_MOVE.product_id.uom_id._compute_quantity(reserved_quantity, OUT_MOVE.uom_id)
+    return {
+        **OUT_MOVE.read(['date', 'priority', 'state'])[0],
+        'favorite': OUT_MOVE.priority == '1',
+        'id': OUT_MOVE.id,
+        'is_reserved': bool(OUT_MOVE.move_orig_ids),
+        'move_orig_ids': OUT_MOVE.move_orig_ids.ids,
+        'partner': partner_info,
+        'picking': picking_info,
+        'reserved_quantity': reserved_quantity,
+        'quantity': OUT_MOVE.product_qty,
+        'source': source_info,
+        'uom': OUT_MOVE.product_id.uom_id.read(['display_name', 'factor'])[0],
+    }
+```",,
+B064,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",LOT,lot,"```python
+def _prepare_label_values(self, LOT, copies):
+    label = super()._prepare_label_values(LOT, copies)
+    if LOT.use_expiration_date:
+        label.update({
+            'use_date': format_date(self.env, LOT.use_date),
+            'expiration_date': format_date(self.env, LOT.expiration_date),
+        })
+    return label
+```",,
+B065,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",OPENXR_API,OPENXR_API_INSTANCE,"```cpp
+void OpenXRFoveatedInsetExtension::on_post_render() {
+	if (render_state.viewports.size() == 0) {
+		return;
+	}
+
+	OpenXRAPI *OPENXR_API = OpenXRAPI::get_singleton();
+	ERR_FAIL_NULL(OPENXR_API);
+
+	if (OPENXR_API->get_view_configuration() != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET) {
+		return;
+	}
+
+	// Release our swapchain image if we acquired it.
+	for (int i = 0; i < SWAPCHAIN_MAX; i++) {
+		if (render_state.swapchains[i].is_image_acquired()) {
+			render_state.swapchains[i].release();
+		}
+	}
+}
+```",,
+B066,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",P_SHAPE,p_shape,"```cpp
+void PhysicsShapeQueryParameters2D::set_shape_rid(const RID &P_SHAPE) {
+	if (parameters.shape_rid != P_SHAPE) {
+		shape_ref = Ref<Resource>();
+		parameters.shape_rid = P_SHAPE;
+	}
+}
+```",,
+B067,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",labeled_expand,expand_labeled_info,"```csharp
+protected void labeled_expand(
+    ReadOnlySpan<byte> prk,
+    ReadOnlySpan<byte> label,
+    ReadOnlySpan<byte> info,
+    Span<byte> output)
+{
+    Debug.Assert(KeyDerivationKdf.IsTwoStage);
+    Debug.Assert(prk.Length == KeyDerivationKdf.Nh);
+    Debug.Assert(output.Length <= ushort.MaxValue);
+
+    ReadOnlySpan<byte> suiteId = Suite.KemMetadata.SuiteId;
+    int labeledInfoLength =
+        checked(sizeof(ushort) + VersionLabel.Length + suiteId.Length + label.Length + info.Length);
+    const int MaxStackLabeledInfoLength = 512;
+    Span<byte> labeledInfoBuffer = stackalloc byte[MaxStackLabeledInfoLength];
+    Span<byte> destination = labeledInfoBuffer.Slice(0, labeledInfoLength);
+    BinaryPrimitives.WriteUInt16BigEndian(destination, checked((ushort)output.Length));
+    int offset = sizeof(ushort);
+    VersionLabel.CopyTo(destination.Slice(offset));
+    offset += VersionLabel.Length;
+    suiteId.CopyTo(destination.Slice(offset));
+    offset += suiteId.Length;
+    label.CopyTo(destination.Slice(offset));
+    offset += label.Length;
+    info.CopyTo(destination.Slice(offset));
+
+    HKDF.Expand(KeyDerivationKdf.HkdfHashAlgorithm, prk, output, destination);
+}
+```",,
+B068,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",SET_CALLBACKS,setCallbacks,"```cpp
+void CanvasItemManipulator::SET_CALLBACKS(const Callable &p_find_items_start, const Callable &p_point_selected, const Callable &p_get_selection, const Callable &p_local_xform, const Callable &p_global_xform, const Callable &p_local_mouse_pos, const Callable &p_plugin_input) {
+	find_items_start_callback = p_find_items_start;
+	point_selected_callback = p_point_selected;
+	get_selection_callback = p_get_selection;
+	local_transform_callback = p_local_xform;
+	global_transform_callback = p_global_xform;
+	local_mouse_pos_callback = p_local_mouse_pos;
+	plugin_input_callback = p_plugin_input;
+}
+```",,
+B069,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SPATIAL_CONTAINER_CLOSED,_on_spatial_container_closed,"```cpp
+void OpenXRSpatialContainerSelfRenderingExtension::ON_SPATIAL_CONTAINER_CLOSED(const OpenXRSpatialContainerExtension::SpatialContainerData &p_container_data) {
+	if (!is_enabled()) {
+		return;
+	}
+
+	_remove_spatial_container_from_render_set(p_container_data.spatial_container_handle);
+}
+```",,
+B070,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",GENERATE_SAMPLE,generate_sample,"```cpp
+Ref<AudioSample> AudioStream::GENERATE_SAMPLE() const {
+	ERR_FAIL_COND_V_MSG(!can_be_sampled(), nullptr, ""Cannot generate a sample for a stream that cannot be sampled."");
+	Ref<AudioSample> sample;
+	sample.instantiate();
+	sample->stream = this;
+	return sample;
+}
+```",,
+B071,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",is_allowed,IsAllowed,"```csharp
+protected override bool is_allowed(Vector<ushort> value)
+{
+    // Allow ASCII digits.
+    Vector<ushort> allowed = Vector.LessThanOrEqual(
+        value - new Vector<ushort>('0'),
+        new Vector<ushort>('9' - '0'));
+
+    // Allow space.
+    allowed |= Vector.Equals(value, new Vector<ushort>(' '));
+
+    return Vector.AllWhereAllBitsSet(allowed);
+}
+```",,
+B072,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",SET_SAMPLE_PLAYBACK,setSamplePlayback,"```cpp
+void AudioStreamPlaybackPolyphonic::SET_SAMPLE_PLAYBACK(const Ref<AudioSamplePlayback> &p_playback) {
+	sample_playback = p_playback;
+	if (sample_playback.is_valid()) {
+		sample_playback->stream_playback = Ref<AudioStreamPlayback>(this);
+	}
+}
+```",,
+B073,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",PEER,peer,"```cpp
+Ref<RemoteDebuggerPeer> EditorDebuggerServerMessagePort::take_connection() {
+	ERR_FAIL_COND_V(!is_connection_available(), Ref<RemoteDebuggerPeer>());
+	Ref<RemoteDebuggerPeerMessagePort> PEER = memnew(RemoteDebuggerPeerMessagePort(pending.front()->get()));
+	pending.pop_front();
+	return PEER;
+}
+```",,
+B074,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",apply_attribute,ApplyAttribute,"```csharp
+private static T apply_attribute<T>(
+    T current,
+    CILParser.AttributeValue<T> attribute)
+    where T : struct, Enum
+{
+    if (!attribute.ShouldAppend)
+    {
+        return attribute.Value;
+    }
+
+    int currentValue = Convert.ToInt32(current);
+    int groupMask = Convert.ToInt32(attribute.GroupMask);
+    int attributeValue = Convert.ToInt32(attribute.Value);
+    return (T)Enum.ToObject(
+        typeof(T),
+        (currentValue & ~groupMask) | attributeValue);
+}
+```",,
+B075,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",INVOICE_LINE,invoice_line,"```python
+def _affects_qty_invoiced(self, INVOICE_LINE):
+    """"""Price adjustment credit / debit notes are to adjust total amounts
+    and should not affect quantity invoiced""""""
+    return (
+        super()._affects_qty_invoiced(INVOICE_LINE)
+        and INVOICE_LINE.move_id.l10n_in_adjustment_type != 'price_adjustment'
+    )
+```",,
+B076,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",CHECK,check,"```cpp
+Error GDScriptLinter::lint() {
+	// We use the fact that all nodes form a linked list for memory management purposes to iterate all nodes without actually walking the tree.
+	// The iteration order is undefined, this should not matter since the tree is immutable for the linter.
+	GDScriptParser::Node *curr = tree->list;
+	for (; curr != nullptr; curr = curr->next) {
+		if (curr->start_line == -1) {
+			// Sometimes we allocate synthetic nodes with no correspondence in code e.g. identifiers containing the synthetic names of getter functions.
+			// We shouldn't analyze those nodes directly, since suppressing them with `@warning_ignore` would be impossible.
+			continue;
+		}
+		for (CallbackWithValidation *CHECK : checks) {
+			CHECK(curr, *tree);
+		}
+	}
+
+	tree->apply_pending_warnings();
+	return tree->get_errors().is_empty() ? OK : ERR_PARSE_ERROR;
+}
+```",,
+B077,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",create_raw_owned_custom_attribute,CreateRawOwnedCustomAttribute,"```csharp
+internal CustomAttributeDescriptorValue create_raw_owned_custom_attribute(
+    OwnerTypeValue owner,
+    MethodReferenceValue constructor,
+    ImmutableArray<byte> value)
+    => CreateCustomAttributeDescriptor(
+        constructor,
+        new RawCustomAttributeBlobValue(CreateRawBlob(value)),
+        owner);
+```",,
+B078,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",from_exact_type,fromExactType,"```csharp
+internal SignatureTypeInfo from_exact_type(ITypeHandle exactType)
+{
+    ReadOnlySpan<ITypeHandle> exactArguments = _rts.GetInstantiation(exactType);
+    ImmutableArray<SignatureTypeInfo>.Builder typeArguments =
+        ImmutableArray.CreateBuilder<SignatureTypeInfo>(exactArguments.Length);
+    for (int i = 0; i < exactArguments.Length; i++)
+    {
+        typeArguments.Add(from_exact_type(exactArguments[i]));
+    }
+
+    return new SignatureTypeInfo(
+        _rts.GetSignatureCorElementType(exactType),
+        exactType,
+        genericTypeDefinition: null,
+        typeArguments.MoveToImmutable());
+}
+```",,
+B079,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",try_get_unwind_data,TryGetUnwindData,"```csharp
+public bool try_get_unwind_data(uint functionTableIndex, out TargetPointer unwindDataAddress)
+{
+    unwindDataAddress = TargetPointer.Null;
+    Data.FunctionTableIndexRangeSection? section = FindSection(functionTableIndex);
+    if (section is null)
+        return false;
+
+    Data.ReadyToRunInfo r2rInfo = GetReadyToRunInfo(section);
+    uint localIndex = functionTableIndex - section.MinFunctionTableIndex;
+    Data.RuntimeFunction runtimeFunction = GetRuntimeFunction(r2rInfo, localIndex);
+    unwindDataAddress = new TargetPointer(r2rInfo.LoadedImageBase.Value + runtimeFunction.UnwindData);
+    return true;
+}
+```",,
+B080,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",narrow_vectors_are_not_multi_slot,NarrowVectorsAreNotMultiSlot,"```csharp
+[Theory]
+[InlineData(Vector64OfT, 8, ""vllp"")]
+[InlineData(Vector128OfT, 16, ""vlVp"")]
+public void narrow_vectors_are_not_multi_slot(string vectorType, int expectedSize, string expectedSignature)
+{
+    ReadyToRunCompilerContext context = CreateWasmContext();
+    DefType vector = InstantiateVector(context, vectorType, WellKnownType.Int32);
+
+    Assert.Equal(expectedSize, vector.InstanceFieldSize.AsInt);
+    Assert.False(WasmLowering.TryGetMultiSegmentLayout(vector, out _, out _));
+
+    MethodSignature signature = MakeStaticVoidSignature(
+        context, context.GetWellKnownType(WellKnownType.Int64), vector);
+
+    Assert.Equal(expectedSignature, WasmLowering.GetSignature(signature, WasmLowering.LoweringFlags.None).SignatureString);
+}
+```",,
+B081,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",INTERVALS,intervals,"```python
+def _dates_to_day_intervals(self, INTERVALS):
+    dates = set()
+    for interval in INTERVALS:
+        start_dt = interval[0]
+        if start_dt.time() == datetime.max.time():
+            start_dt += relativedelta(days=1)
+        start_day = start_dt.date()
+        stop_dt = interval[1]
+        if stop_dt.time() == datetime.min.time():
+            stop_dt -= relativedelta(days=1)
+        stop_day = stop_dt.date()
+        if stop_day < start_day:
+            continue
+        for day in rrule(
+            freq=DAILY,
+            dtstart=datetime.combine(start_day, datetime.min.time()),
+            until=datetime.combine(stop_day, datetime.max.time()),
+        ):
+            dates.add(day.date())
+    return Intervals([
+        (
+            datetime.combine(date, datetime.min.time()),
+            datetime.combine(date, datetime.max.time()),
+            self.env['resource.calendar'],
+        )
+        for date in dates
+    ], keep_distinct=True)
+```",,
+B082,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",KWARGS,kwargs,"```python
+def __init__(self, mean: float, std: float, **KWARGS):
+    """"""
+    :param mean: Mean of the distribution
+    :param std: Standard deviation (must be > 0)
+    """"""
+    super().__init__(**KWARGS)
+    if std <= 0:
+        raise ValueError(f""Standard deviation must be positive, get {std} instead."", std)
+
+    self.mean = mean
+    self.std = std
+```",,
+B083,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",QUEUE_PATTERN_PREVIEW,queuePatternPreview,"```cpp
+void TilesEditorUtils::QUEUE_PATTERN_PREVIEW(Ref<TileSet> p_tile_set, Ref<TileMapPattern> p_pattern, Callable p_callback) {
+	ERR_FAIL_COND(p_tile_set.is_null());
+	ERR_FAIL_COND(p_pattern.is_null());
+	{
+		MutexLock lock(pattern_preview_mutex);
+		pattern_preview_queue.push_back({ p_tile_set, p_pattern, p_callback });
+	}
+	pattern_preview_sem.post();
+}
+```",,
+B084,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",GET_STATS,get_stats,"```cpp
+void MetalHeapAllocator::GET_STATS(MetalAllocatorStats &r_stats) {
+	for (uint32_t p = 0; p < POOL_COUNT; p++) {
+		SpinLockGuard lock(pools[p].mutex);
+		r_stats.pools[p] = pools[p].stats;
+	}
+}
+```",,
+B085,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",CREATE_FROM_STRING,create_from_string,"```cpp
+Ref<RegEx> RegEx::CREATE_FROM_STRING(const String &p_pattern, bool p_show_error) {
+	Ref<RegEx> ret;
+	ret.instantiate();
+	ret->compile(p_pattern, p_show_error);
+	return ret;
+}
+```",,
+B086,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",CREATE_DATE,create_date,"```python
+@api.model
+def _l10n_tw_edi_set_invoice_month(self, CREATE_DATE):
+    """"""Calculate the Taiwanese invoice billing period string.
+
+    In Taiwan, electronic uniform invoices are issued based on the
+    Minguo calendar and grouped into bimonthly periods.
+
+    1. Year: The Minguo year is calculated by subtracting 1911 from the
+       Western year (e.g., 2026 - 1911 = 115年(year)).
+    2. Bimonthly Periods: Invoices are declared in fixed 2-month clusters:
+       - Jan/Feb, Mar/Apr, May/Jun, Jul/Aug, Sep/Oct, Nov/Dec.
+       - Even months round backward (e.g., February belongs to 1-2月(month)).
+       - Odd months round forward (e.g., May belongs to 5-6月(month)).
+
+    :param str CREATE_DATE: UTC timestamp string (""YYYY-MM-DD HH:MM:SS"")
+    :return str: Formatted period (e.g., ""115年5-6月"")
+    """"""
+    invoice_create_date = datetime.datetime.strptime(CREATE_DATE, ""%Y-%m-%d %H:%M:%S"")
+    # Define the month range for every two months
+    if invoice_create_date.month % 2 == 0:
+        invoice_month = f""{invoice_create_date.year - 1911}年{invoice_create_date.month - 1}-{invoice_create_date.month}月""
+    else:
+        invoice_month = f""{invoice_create_date.year - 1911}年{invoice_create_date.month}-{invoice_create_date.month + 1}月""
+
+    return invoice_month
+```",,
+B087,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",SEQ,seq,"```python
+def choice[T](self, SEQ: Sequence[T]) -> T:
+    """"""Pick one element from a sequence.""""""
+    if not SEQ:
+        msg = ""Cannot choose from an empty sequence""
+        raise IndexError(msg)
+
+    if len(SEQ) == 1:
+        return SEQ[0]
+
+    idx = self.sample_discrete(0, len(SEQ) - 1)
+    assert 0 <= idx <= len(SEQ) - 1
+    return SEQ[idx]
+```",,
+B088,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",get_system_v_amd64_pass_struct_in_register_descriptor,GetSystemV_AMD64PassStructInRegisterDescriptor,"```csharp
+public void get_system_v_amd64_pass_struct_in_register_descriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
+B089,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",VALS,record_vals,"```python
+def _cii_get_specified_trade_settlement_header_monetary_summary_node(self, VALS):
+    node = {}
+    sub_vals = {
+        **VALS,
+        'monetary_summation_node': node,
+    }
+    self._cii_add_monetary_summation_line_total_amount_node(sub_vals)
+    self._cii_add_monetary_summation_tax_basis_total_amount_node(sub_vals)
+    self._cii_add_monetary_summation_tax_total_amount_node(sub_vals)
+    self._cii_add_monetary_summation_rounding_amount_node(sub_vals)
+    self._cii_add_monetary_summation_grand_total_amount_node(sub_vals)
+    self._cii_add_monetary_summation_total_prepaid_amount(sub_vals)
+    self._cii_add_monetary_summation_due_payable_amount_node(sub_vals)
+    return node
+```",,
+B090,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",portable_call_helpers_generator_rejects_unsupported_signature_tokens,PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void portable_call_helpers_generator_rejects_unsupported_signature_tokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B091,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",clamp_native,clamp,"```csharp
+public static Decimal32 clamp_native(Decimal32 value, Decimal32 min, Decimal32 max)
+{
+    if (min > max)
+    {
+        Math.ThrowMinMaxException(min, max);
+    }
+    return MinNative(MaxNative(value, min), max);
+}
+```",,
+B092,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",decrypt_cek,_decryptCek,"```csharp
+internal byte[]? decrypt_cek(X509Certificate2 cert, out Exception? exception)
+{
+    string kemAlgorithm = _asn.Kem.Algorithm;
+
+    if (PkcsHelpers.IsCompositeMLKemAlgorithm(kemAlgorithm))
+    {
+        exception = new PlatformNotSupportedException(
+            SR.Format(SR.Cryptography_AlgorithmNotSupported, nameof(CompositeMLKem)));
+
+        return null;
+    }
+
+    if (PkcsHelpers.IsMLKemAlgorithm(kemAlgorithm))
+    {
+        using (MLKem? certificatePrivateKey = cert.GetMLKemPrivateKey())
+        {
+            if (certificatePrivateKey is null)
+            {
+                exception = new CryptographicException(SR.Cryptography_Cms_Signing_RequiresPrivateKey);
+                return null;
+            }
+
+            return decrypt_cek(certificatePrivateKey, out exception);
+        }
+    }
+
+    exception = new CryptographicException(SR.Cryptography_Cms_UnknownAlgorithm, kemAlgorithm);
+    return null;
+}
+```",,
+B093,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",COLLECTED_VALUES,collected_values,"```python
+def _import_cii_invoice_add_narration(self, COLLECTED_VALUES):
+    tree = COLLECTED_VALUES['tree']
+    notes = []
+    for node in tree.findall('./{*}ExchangedDocument/{*}IncludedNote'):
+        note = """"
+        if code := node.findtext('./{*}SubjectCode'):
+            note += code + "": ""
+        if content := node.findtext('./{*}Content'):
+            note += content
+        if note:
+            notes.append(note)
+
+    if narration := ''.join(f'<p>{note}</p>' for note in notes):
+        COLLECTED_VALUES['to_write']['narration'] = narration
+```",,
+B094,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",KWARGS,kwargs,"```python
+def __init__(self, min: float, max: float, mode: float, **KWARGS):
+    """"""
+    :param min: Minimum value
+    :param max: Maximum value
+    :param mode: Most likely value (peak of distribution)
+    """"""
+    super().__init__(**KWARGS)
+    if not (min <= mode <= max):
+        raise ValueError(
+            f""`mode` must be between `min` and `max`, ""
+            f""got min={min}, max={max}, mode={mode} instead."",
+        )
+
+    self.min = min
+    self.max = max
+    self.mode = mode
+```",,
+B095,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",divide_small_prime,DivideSmallPrime,"```csharp
+private static void divide_small_prime<TDivisor>(
+    ReadOnlySpan<nuint> left,
+    int shift,
+    Span<nuint> quotient,
+    ref nuint carry)
+    where TDivisor : struct, ISmallPrimeDivisor
+{
+    if (shift == 0)
+    {
+        DivideSmallPrime<TDivisor>(left, quotient, ref carry);
+        return;
+    }
+
+    Debug.Assert(quotient.IsEmpty || quotient.Length == left.Length);
+
+    nuint quotientScale = nuint.MaxValue / TDivisor.Value;
+    nuint remainderScale = (nuint.MaxValue % TDivisor.Value) + 1;
+    bool writeQuotient = !quotient.IsEmpty;
+    nuint leading = carry;
+    carry >>= shift;
+
+    for (int i = left.Length - 1; i >= 0; i--)
+    {
+        nuint digit = GetShiftedDigit(left, i, shift, leading);
+        nuint currentCarry = carry;
+        nuint result = digit / TDivisor.Value;
+        nuint remainder = digit - (result * TDivisor.Value);
+        nuint adjustedRemainder = remainder + (currentCarry * remainderScale);
+        nuint adjustment = TDivisor.GetAdjustment(adjustedRemainder);
+
+        if (writeQuotient)
+        {
+            quotient[i] = (currentCarry * quotientScale) + result + adjustment;
+        }
+
+        carry = adjustedRemainder - (adjustment * TDivisor.Value);
+    }
+
+    carry = RestoreShiftedRemainder(left, carry, shift);
+}
+```",,
+B096,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",compute_vtable,ComputeVtable,"```csharp
+private (MethodDesc Slot, MethodDesc Implementation)[] compute_vtable(TypeDesc type)
+{
+    // Do not recompute the same things for all the generics
+    Debug.Assert(type.IsTypeDefinition);
+
+    var result = new ArrayBuilder<(MethodDesc Slot, MethodDesc Implementation)>(3 /* At least Equals/GetHashCode/ToString */);
+
+    foreach (MethodDesc slotDecl in base.ComputeAllVirtualSlots(type))
+    {
+        result.Add((slotDecl, base.FindVirtualFunctionTargetMethodOnObjectType(slotDecl, type)));
+    }
+
+    return result.ToArray();
+}
+```",,
+B097,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",notify_on_thread_pool,NotifyOnThreadPool,"```csharp
+private void notify_on_thread_pool()
+{
+    ThreadPool.UnsafeQueueUserWorkItem(static s =>
+    {
+        var op = (Operation)s!;
+        var result = op._state == State.Canceled ? OnCompletedResult.Canceled : OnCompletedResult.Aborted;
+        op.OnCompleted(result);
+    }, this);
+}
+```",,
+B098,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",portable_call_helpers_generator_rejects_unsupported_signature_tokens,PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void portable_call_helpers_generator_rejects_unsupported_signature_tokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B099,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",export_encapsulation_key_core,ExportEncapsulationKeyCore,"```csharp
+protected override void export_encapsulation_key_core(Span<byte> destination)
+{
+    _ = destination;
+    Debug.Fail(""Platform validation should not permit this call."");
+    throw new CryptographicException();
+}
+```",,
+B100,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",ON_SPATIAL_CONTAINER_CLOSED,_on_spatial_container_closed,"```cpp
+void OpenXRSpatialContainerSelfRenderingExtension::ON_SPATIAL_CONTAINER_CLOSED(const OpenXRSpatialContainerExtension::SpatialContainerData &p_container_data) {
+	if (!is_enabled()) {
+		return;
+	}
+
+	_remove_spatial_container_from_render_set(p_container_data.spatial_container_handle);
+}
+```",,
+B101,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",GET_NODE,getNode,"```cpp
+Ref<VisualShaderNode> ShaderGraph::GET_NODE(int p_id) const {
+	if (!nodes.has(p_id)) {
+		return Ref<VisualShaderNode>();
+	}
+	ERR_FAIL_COND_V(!nodes.has(p_id), Ref<VisualShaderNode>());
+	return nodes[p_id].node;
+}
+```",,
+B102,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",create_raw_owned_custom_attribute,createRawOwnedCustomAttribute,"```csharp
+internal CustomAttributeDescriptorValue create_raw_owned_custom_attribute(
+    OwnerTypeValue owner,
+    MethodReferenceValue constructor,
+    ImmutableArray<byte> value)
+    => CreateCustomAttributeDescriptor(
+        constructor,
+        new RawCustomAttributeBlobValue(CreateRawBlob(value)),
+        owner);
+```",,
+B103,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",OUT_MOVE,OutMove,"```python
+def _get_out_move_values(self, OUT_MOVE):
+    picking = OUT_MOVE.picking_id
+    source = OUT_MOVE._get_source_document()
+    partner_info, picking_info, source_info = False, False, False
+    if source and source != picking:
+        source_info = {
+            'id': source.id,
+            'res_model': source._name,
+            'display_name': source.display_name,
+        }
+    if picking:
+        picking_info = {
+            'id': picking.id,
+            'res_model': 'stock.picking',
+            'display_name': picking.display_name,
+        }
+        partner_info = {
+            'id': picking.partner_id.id,
+            'res_model': 'res.partner',
+            'display_name': picking.partner_id.display_name,
+        } if picking.partner_id else False
+    # To handle different UoM quantities, all qties will be expressed in product's UoM.
+    reserved_quantity = OUT_MOVE.quantity
+    if OUT_MOVE.uom_id != OUT_MOVE.product_id.uom_id:
+        reserved_quantity = OUT_MOVE.product_id.uom_id._compute_quantity(reserved_quantity, OUT_MOVE.uom_id)
+    return {
+        **OUT_MOVE.read(['date', 'priority', 'state'])[0],
+        'favorite': OUT_MOVE.priority == '1',
+        'id': OUT_MOVE.id,
+        'is_reserved': bool(OUT_MOVE.move_orig_ids),
+        'move_orig_ids': OUT_MOVE.move_orig_ids.ids,
+        'partner': partner_info,
+        'picking': picking_info,
+        'reserved_quantity': reserved_quantity,
+        'quantity': OUT_MOVE.product_qty,
+        'source': source_info,
+        'uom': OUT_MOVE.product_id.uom_id.read(['display_name', 'factor'])[0],
+    }
+```",,
+B104,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",wide_divide_by_pow10,divideByPow10,"```csharp
+private static TValue wide_divide_by_pow10<TValue>(ref TValue high, ref TValue low, TValue divisor)
+    where TValue : unmanaged, IBinaryInteger<TValue>
+{
+    if (TValue.IsZero(high))
+    {
+        (TValue quotient, TValue remainder) = TValue.DivRem(low, divisor);
+        low = quotient;
+        return remainder;
+    }
+
+    int bits = TValue.Zero.GetByteCount() * 8;
+    int half = bits / 2;
+    TValue lowMask = (TValue.One << half) - TValue.One;
+    TValue baseValue = TValue.One << half;
+
+    // Long division of the four half-width limbs (most significant first). Because the running remainder
+    // stays below the divisor, which `SinglePassPow10` caps at `baseValue`, the intermediate
+    // `remainder * baseValue + limb` never exceeds the integer width.
+    TValue rem = TValue.Zero;
+    (TValue q3, rem) = TValue.DivRem((rem * baseValue) + (high >> half), divisor);
+    (TValue q2, rem) = TValue.DivRem((rem * baseValue) + (high & lowMask), divisor);
+    (TValue q1, rem) = TValue.DivRem((rem * baseValue) + (low >> half), divisor);
+    (TValue q0, rem) = TValue.DivRem((rem * baseValue) + (low & lowMask), divisor);
+
+    high = (q3 << half) | q2;
+    low = (q1 << half) | q0;
+    return rem;
+}
+```",,
+B105,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",SIZE,size,"```python
+def read(self, SIZE: int = -1):
+    if SIZE == -1:
+        buff = memoryview(bytearray(RECV_SIZE))
+        result = bytearray()
+        while count := self.readinto(buff):
+            result.extend(buff[:count])
+        return bytes(result)
+
+    if self._buffered:
+        result, self._buffered = self._buffered[:SIZE], self._buffered[SIZE:]
+        return bytes(result)
+
+    buff = memoryview(bytearray(SIZE))
+    count = self.readinto(buff)
+    return bytes(buff[:count])
+```",,
+B106,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",enumerate_all_segments,EnumerateAllSegments,"```csharp
+public static class IGCExtensions
+{
+    public static IEnumerable<(GCHeapSegmentInfo Segment, GCHeapData Heap)> enumerate_all_segments(this IGC gc)
+    {
+        string[] gcIdentifiers = gc.GetGCIdentifiers();
+        bool isWorkstation = gcIdentifiers.Contains(GCIdentifiers.Workstation);
+        foreach (GCHeapData heap in EnumerateHeaps(gc, isWorkstation))
+        {
+            foreach (GCHeapSegmentInfo seg in gc.EnumerateHeapSegments(heap))
+            {
+                yield return (seg, heap);
+            }
+        }
+    }
+
+    private static IEnumerable<GCHeapData> EnumerateHeaps(IGC gc, bool isWorkstation)
+    {
+        if (isWorkstation)
+        {
+            yield return gc.GetHeapData();
+        }
+        else
+        {
+            foreach (TargetPointer heapAddress in gc.GetGCHeaps())
+                yield return gc.GetHeapData(heapAddress);
+        }
+    }
+}
+```",,
+B107,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",MODEL_AND_IDS,MODEL_IDS,"```python
+class IrAttachment(models.Model):
+    _inherit = 'ir.attachment'
+
+    @api.ondelete(at_uninstall=False)
+    def _prevent_delete_from_submitted_expense(self):
+        expense_attachments = self.filtered(lambda a: a.res_model == 'hr.expense' and a.res_id)
+        expenses = self.env['hr.expense'].browse(expense_attachments.mapped('res_id'))
+        if not all(
+            (expense.exists() and expense.state in {'draft', 'submitted'} and expense.has_access('write')) or self.env.su
+            for expense in expenses
+        ):
+            raise AccessError(self.env._(""You can't delete attachments from an expense once it has been submitted.""))
+
+    def _inaccessible_comodel_records(self, MODEL_AND_IDS: dict[str, Collection[int]], operation: str):
+        expense_ids = list(filter(None, MODEL_AND_IDS.get('hr.expense', [])))
+        expenses = self.env['hr.expense'].browse(expense_ids)
+        accessible_user_expense_ids = set(expenses._filtered_access('read').filtered(
+            lambda e: e.state in {'draft', 'submitted'} and e.employee_id.user_id == self.env.user
+        ).ids)
+        blocked_expense_ids = []
+        if operation != 'read' and not self.env.su:
+            blocked_expense_ids = expenses.filtered(  # Attachments cannot be added/modified once an expense has been posted
+                lambda e: not (e.id in accessible_user_expense_ids or (e.state in {'draft', 'submitted'} and e.has_access('write'))),
+            ).ids
+            for expense_id in blocked_expense_ids:
+                yield 'hr.expense', expense_id
+
+        MODEL_AND_IDS = {
+            **MODEL_AND_IDS,
+            'hr.expense': [id_ for id_ in expense_ids if id_ not in blocked_expense_ids and id_ not in accessible_user_expense_ids],
+        }
+        yield from super()._inaccessible_comodel_records(MODEL_AND_IDS, operation)
+
+    def _has_attachments_ownership(self, attachment_tokens):
+        expense_attachments = self.filtered(lambda a: a.has_access('read') and a.res_model == 'hr.expense' and a.res_id)
+        expenses = self.env['hr.expense'].browse(expense_attachments.mapped('res_id'))
+        if expenses.filtered(lambda e: e.state == 'submitted' and e.employee_id.user_id == self.env.user) and not self.env.su:
+            return False
+        return super()._has_attachments_ownership(attachment_tokens)
+```",,
+B108,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",portable_call_helpers_generator_rejects_unsupported_signature_tokens,PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void portable_call_helpers_generator_rejects_unsupported_signature_tokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B109,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",max_magnitude_decimal_ieee754,MaxMagnitudeDecimalIeee754,"```csharp
+internal static TValue max_magnitude_decimal_ieee754<TDecimal, TValue>(TValue x, TValue y)
+    where TDecimal : unmanaged, IDecimalIeee754ParseAndFormatInfo<TDecimal, TValue>
+    where TValue : unmanaged, IBinaryInteger<TValue>
+{
+    TValue ax = AbsDecimalIeee754<TDecimal, TValue>(x);
+    TValue ay = AbsDecimalIeee754<TDecimal, TValue>(y);
+
+    if (GreaterThanDecimalIeee754<TDecimal, TValue>(ax, ay) || TDecimal.IsNaN(ax))
+    {
+        return CanonicalizeIfNaN<TDecimal, TValue>(x);
+    }
+
+    if (EqualsDecimalIeee754<TDecimal, TValue>(ax, ay))
+    {
+        return TDecimal.IsNegative(x) ? y : x;
+    }
+
+    return CanonicalizeIfNaN<TDecimal, TValue>(y);
+}
+```",,
+B110,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",apply_marshal_as,ApplyMarshalAs(),"```csharp
+private static bool apply_marshal_as(
+    LoweringContext context,
+    CustomAttributeValue<SerializationTypeCode> arguments)
+{
+    var descriptor = new BlobBuilder();
+    if (!TryBuildMarshallingDescriptor(context, arguments, descriptor))
+    {
+        return false;
+    }
+
+    switch (context.Owner)
+    {
+        case EntityRegistry.FieldDefinitionEntity field:
+            field.MarshallingDescriptor = descriptor;
+            return true;
+
+        case EntityRegistry.ParameterEntity parameter:
+            parameter.MarshallingDescriptor = descriptor;
+            return true;
+
+        case EntityRegistry.PropertyEntity property:
+            ApplyMarshalAsToProperty(context.Registry, property, descriptor);
+            return true;
+
+        default:
+            return context.InvalidTarget();
+    }
+}
+```",,
+B111,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",from_exact_type,fromExactType,"```csharp
+internal SignatureTypeInfo from_exact_type(ITypeHandle exactType)
+{
+    ReadOnlySpan<ITypeHandle> exactArguments = _rts.GetInstantiation(exactType);
+    ImmutableArray<SignatureTypeInfo>.Builder typeArguments =
+        ImmutableArray.CreateBuilder<SignatureTypeInfo>(exactArguments.Length);
+    for (int i = 0; i < exactArguments.Length; i++)
+    {
+        typeArguments.Add(from_exact_type(exactArguments[i]));
+    }
+
+    return new SignatureTypeInfo(
+        _rts.GetSignatureCorElementType(exactType),
+        exactType,
+        genericTypeDefinition: null,
+        typeArguments.MoveToImmutable());
+}
+```",,
+B112,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",get_system_v_amd64_pass_struct_in_register_descriptor,GetSystemV_AMD64PassStructInRegisterDescriptor,"```csharp
+public void get_system_v_amd64_pass_struct_in_register_descriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
+B113,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",create_key,createKey,"```csharp
+internal static ZipCryptoKeys create_key(ReadOnlySpan<char> password)
+{
+    // Initialize keys with standard ZipCrypto initial values
+    uint key0 = 305419896;
+    uint key1 = 591751049;
+    uint key2 = 878082192;
+
+    // Feed the password's UTF-8 bytes into the key schedule. UTF-8 (rather than ASCII)
+    // preserves non-ASCII passwords; interop with tools that assume a different code page
+    // is documented as a caveat.
+    byte[] passwordBytes = ArrayPool<byte>.Shared.Rent(Encoding.UTF8.GetMaxByteCount(password.Length));
+    try
+    {
+        int byteCount = Encoding.UTF8.GetBytes(password, passwordBytes);
+        for (int i = 0; i < byteCount; i++)
+        {
+            UpdateKeys(ref key0, ref key1, ref key2, passwordBytes[i]);
+        }
+    }
+    finally
+    {
+        ClearSensitiveData(passwordBytes);
+        ArrayPool<byte>.Shared.Return(passwordBytes);
+    }
+
+    return new ZipCryptoKeys(key0, key1, key2);
+}
+```",,
+B114,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",write_async_core,_WriteAsyncCore,"```csharp
+private async ValueTask write_async_core(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken)
+{
+    cancellationToken.ThrowIfCancellationRequested();
+    ThrowIfNotWritable();
+    if (!_headerWritten)
+    {
+        await WriteHeaderAsync(cancellationToken).ConfigureAwait(false);
+    }
+
+    byte[] workBuffer = GetWriteWorkBuffer();
+
+    while (!buffer.IsEmpty)
+    {
+        int bytesToProcess = Math.Min(buffer.Length, workBuffer.Length);
+
+        buffer[..bytesToProcess].CopyTo(workBuffer);
+        ProcessBlock(workBuffer.AsSpan(0, bytesToProcess));
+        await _baseStream.WriteAsync(workBuffer.AsMemory(0, bytesToProcess), cancellationToken).ConfigureAwait(false);
+
+        buffer = buffer[bytesToProcess..];
+    }
+}
+```",,
+B115,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",TEXT,text,"```python
+class PosSession(models.Model):
+    _inherit = ""pos.session""
+
+    def l10n_tw_edi_check_mobile_barcode(self, TEXT):
+        self.ensure_one()
+        json_data = {
+            ""MerchantID"": self.company_id.sudo().l10n_tw_edi_ecpay_merchant_id,
+            ""BarCode"": TEXT,
+        }
+        response_data = call_ecpay_api(""/CheckBarcode"", json_data, self.company_id)
+        if response_data.get(""RtnCode"") != 1 or response_data.get(""IsExist"") != ""Y"":
+            raise UserError(self.env._(""Mobile barcode is invalid!""))
+
+    def l10n_tw_edi_check_love_code(self, TEXT):
+        self.ensure_one()
+        json_data = {
+            ""MerchantID"": self.company_id.sudo().l10n_tw_edi_ecpay_merchant_id,
+            ""LoveCode"": TEXT,
+        }
+
+        response_data = call_ecpay_api(""/CheckLoveCode"", json_data, self.company_id)
+        if response_data.get(""RtnCode"") != 1 or response_data.get(""IsExist"") != ""Y"":
+            raise UserError(self.env._(""Love code is invalid!""))
+```",,
+B116,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",WRITE,write_amount,"```cpp
+bool FileAccessPackedByteArray::store_buffer(const uint8_t *p_src, uint64_t p_length) {
+	if (!p_length) {
+		return true;
+	}
+
+	ERR_FAIL_NULL_V(p_src, false);
+
+	uint64_t left = data.size() - pos;
+	uint64_t WRITE = MIN(p_length, left);
+
+	memcpy(data.ptrw() + pos, p_src, WRITE);
+	pos += WRITE;
+
+	ERR_FAIL_COND_V_MSG(WRITE < p_length, false, ""Writing less data than requested."");
+
+	return true;
+}
+```",,
+B117,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",should_emit_cell,ShouldEmitCell,"```csharp
+public class InterfaceDispatchCellSectionNode : DispatchCellSectionNode
+{
+    protected override bool should_emit_cell(DispatchCellNode cell) => !cell.TargetMethod.HasInstantiation;
+
+    public override void AppendMangledName(NameMangler nameMangler, Utf8StringBuilder sb)
+        => sb.Append(nameMangler.CompilationUnitPrefix).Append(""__InterfaceDispatchCellSection_Start""u8);
+
+    public override int ClassCode => (int)ObjectNodeOrder.InterfaceDispatchCellSection;
+}
+```",,
+B118,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",portable_call_helpers_generator_rejects_unsupported_signature_tokens,PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void portable_call_helpers_generator_rejects_unsupported_signature_tokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B119,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",max,Max,"```csharp
+public static T? max<T>(this ReadOnlySpan<T> span, IComparer<T>? comparer)
+{
+    if (comparer is null || comparer == Comparer<T>.Default)
+    {
+        return max(span);
+    }
+
+    return MinMax<T, MaxDirection>(span, comparer);
+}
+```",,
+B120,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",SET_CALLBACKS,SetCallbacks,"```cpp
+void CanvasItemManipulator::SET_CALLBACKS(const Callable &p_find_items_start, const Callable &p_point_selected, const Callable &p_get_selection, const Callable &p_local_xform, const Callable &p_global_xform, const Callable &p_local_mouse_pos, const Callable &p_plugin_input) {
+	find_items_start_callback = p_find_items_start;
+	point_selected_callback = p_point_selected;
+	get_selection_callback = p_get_selection;
+	local_transform_callback = p_local_xform;
+	global_transform_callback = p_global_xform;
+	local_mouse_pos_callback = p_local_mouse_pos;
+	plugin_input_callback = p_plugin_input;
+}
+```",,

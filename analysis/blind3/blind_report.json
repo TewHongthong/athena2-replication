@@ -1,0 +1,20 @@
+{
+ "seed": "athena2-blind-v3",
+ "runs_glob": "runs/test_*_meta",
+ "frame_size": 14805,
+ "stratum_sizes": {
+  "pass": 14784,
+  "fail": 21
+ },
+ "sample_sizes": {
+  "pass": 20,
+  "fail": 20
+ },
+ "skipped": {
+  "no_metrics": 0,
+  "no_name": 75,
+  "no_code": 0,
+  "error": 68
+ },
+ "excluded_earlier": 240
+}

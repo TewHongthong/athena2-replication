@@ -1,0 +1,849 @@
+﻿item,language,kind,standard_document,name_to_judge,question,code_with_name,judgement,note
+B001,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",last_end,Does the name last_end comply with the naming rules of the standard for a variable in cpp? Judge this name only.,"```cpp
+TypedArray<RegExMatch> RegEx::search_all(const String &p_subject, int p_offset, int p_end) const {
+	ERR_FAIL_COND_V_MSG(p_offset < 0, TypedArray<RegExMatch>(), ""RegEx search offset must be >= 0"");
+
+	int last_end = 0;
+	TypedArray<RegExMatch> result;
+	Ref<RegExMatch> match = search(p_subject, p_offset, p_end);
+
+	while (match.is_valid()) {
+		last_end = match->get_end(0);
+		if (match->get_start(0) == last_end) {
+			last_end++;
+		}
+
+		result.push_back(match);
+		match = search(p_subject, last_end, p_end);
+	}
+	return result;
+}
+```",,
+B002,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",P_KEY,Does the name P_KEY comply with the naming rules of the standard for a parameter in cpp? Judge this name only.,"```cpp
+static uint32_t hash(const PhysicsBodyKey &P_KEY) {
+	uint32_t h = hash_murmur3_one_32(P_KEY.physics_layer);
+	h = hash_murmur3_one_real(P_KEY.linear_velocity.x);
+	h = hash_murmur3_one_real(P_KEY.linear_velocity.y, h);
+	h = hash_murmur3_one_real(P_KEY.angular_velocity, h);
+	if (P_KEY.one_way_collision) {
+		h = hash_murmur3_one_32(P_KEY.y_origin, h);
+	}
+	return h;
+}
+```",,
+B003,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",P_settings,Does the name P_settings comply with the naming rules of the standard for a parameter in cpp? Judge this name only.,"```cpp
+JoltCustomInstanceOverridesShape(const JoltCustomInstanceOverridesShapeSettings &P_settings, JPH::Shape::ShapeResult &p_result) :
+		JPH::DecoratedShape(JoltCustomShapeSubType::INSTANCE_OVERRIDES, P_settings, p_result),
+		object_back_face_collision(P_settings.object_back_face_collision),
+		shape_back_face_collision(P_settings.shape_back_face_collision) {
+	if (!p_result.HasError()) {
+		p_result.Set(this);
+	}
+}
+```",,
+B004,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",GetSystemV_Amd64PassStructInRegisterDescriptor,Does the name GetSystemV_Amd64PassStructInRegisterDescriptor comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+public void GetSystemV_Amd64PassStructInRegisterDescriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
+B005,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",OutMove,Does the name OutMove comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+def _get_out_move_values(self, OutMove):
+    picking = OutMove.picking_id
+    source = OutMove._get_source_document()
+    partner_info, picking_info, source_info = False, False, False
+    if source and source != picking:
+        source_info = {
+            'id': source.id,
+            'res_model': source._name,
+            'display_name': source.display_name,
+        }
+    if picking:
+        picking_info = {
+            'id': picking.id,
+            'res_model': 'stock.picking',
+            'display_name': picking.display_name,
+        }
+        partner_info = {
+            'id': picking.partner_id.id,
+            'res_model': 'res.partner',
+            'display_name': picking.partner_id.display_name,
+        } if picking.partner_id else False
+    # To handle different UoM quantities, all qties will be expressed in product's UoM.
+    reserved_quantity = OutMove.quantity
+    if OutMove.uom_id != OutMove.product_id.uom_id:
+        reserved_quantity = OutMove.product_id.uom_id._compute_quantity(reserved_quantity, OutMove.uom_id)
+    return {
+        **OutMove.read(['date', 'priority', 'state'])[0],
+        'favorite': OutMove.priority == '1',
+        'id': OutMove.id,
+        'is_reserved': bool(OutMove.move_orig_ids),
+        'move_orig_ids': OutMove.move_orig_ids.ids,
+        'partner': partner_info,
+        'picking': picking_info,
+        'reserved_quantity': reserved_quantity,
+        'quantity': OutMove.product_qty,
+        'source': source_info,
+        'uom': OutMove.product_id.uom_id.read(['display_name', 'factor'])[0],
+    }
+```",,
+B006,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",find_server_id,Does the name find_server_id comply with the naming rules of the standard for a method in cpp? Judge this name only.,"```cpp
+int PhysicsServer3DManager::find_server_id(const String &p_name) {
+	for (int i = physics_servers.size() - 1; 0 <= i; --i) {
+		if (p_name == physics_servers[i].name) {
+			return i;
+		}
+	}
+	return -1;
+}
+```",,
+B007,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",GetStringBytes,Does the name GetStringBytes comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+internal ReadOnlySpan<byte> GetStringBytes(out bool isNull)
+{
+    byte packedLengthBegin = PeekData(sizeof(byte))[0];
+
+    // Check if the embedded string indicates a 'null' string (0xff).
+    if (packedLengthBegin == 0xff) // ECMA 335- II.23.3
+    {
+        // Consume the indicator.
+        ReadData(1);
+        isNull = true;
+        return default;
+    }
+
+    isNull = false;
+    int length = GetPackedLength(packedLengthBegin);
+    return ReadData(length);
+}
+```",,
+B008,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",kwargs,Does the name kwargs comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+class Formatter(logging.Formatter):
+    default_format = '%(asctime)s %(process)s %(levelname)s %(dbname)s %(name)s: %(message)s'
+
+    def __init__(self, fmt=None, **kwargs):
+        if fmt is None:
+            fmt = self.default_format
+        super().__init__(fmt=fmt, **kwargs)
+```",,
+B009,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",'invoice_line',Does the name 'invoice_line' comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+def _affects_qty_invoiced(self, 'invoice_line'):
+    """"""Price adjustment credit / debit notes are to adjust total amounts
+    and should not affect quantity invoiced""""""
+    return (
+        super()._affects_qty_invoiced('invoice_line')
+        and 'invoice_line'.move_id.l10n_in_adjustment_type != 'price_adjustment'
+    )
+```",,
+B010,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",setId,Does the name setId comply with the naming rules of the standard for a method in cpp? Judge this name only.,"```cpp
+void TileSetAtlasSourceEditor::TileSetAtlasSourceProxyObject::setId(int p_id) {
+	ERR_FAIL_COND(p_id < 0);
+	if (source_id == p_id) {
+		return;
+	}
+	ERR_FAIL_COND_MSG(tile_set->has_source(p_id), vformat(""Cannot change TileSet Atlas Source ID. Another source exists with id %d."", p_id));
+
+	int previous_source = source_id;
+	source_id = p_id; // source_id must be updated before, because it's used by the source list update.
+	tile_set->set_source_id(previous_source, p_id);
+	emit_signal(CoreStringName(changed), ""id"");
+}
+```",,
+B011,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",GetSystemV_Amd64PassStructInRegisterDescriptor,Does the name GetSystemV_Amd64PassStructInRegisterDescriptor comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+public void GetSystemV_Amd64PassStructInRegisterDescriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
+B012,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",ApplyAttribute,Does the name ApplyAttribute comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+private static T ApplyAttribute<T>(
+    T current,
+    CILParser.AttributeValue<T> attribute)
+    where T : struct, Enum
+{
+    if (!attribute.ShouldAppend)
+    {
+        return attribute.Value;
+    }
+
+    int currentValue = Convert.ToInt32(current);
+    int groupMask = Convert.ToInt32(attribute.GroupMask);
+    int attributeValue = Convert.ToInt32(attribute.Value);
+    return (T)Enum.ToObject(
+        typeof(T),
+        (currentValue & ~groupMask) | attributeValue);
+}
+```",,
+B013,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",control,Does the name control comply with the naming rules of the standard for a parameter in cpp? Judge this name only.,"```cpp
+void add_control_over_atlas_tiles(Control *control, bool scaled = true) {
+	if (scaled) {
+		base_tiles_drawing_root->add_child(control);
+	} else {
+		base_tiles_root_control->add_child(control);
+	}
+	control->set_anchors_and_offsets_preset(Control::PRESET_FULL_RECT);
+	control->set_mouse_filter(Control::MOUSE_FILTER_PASS);
+}
+```",,
+B014,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",addImplementation,Does the name addImplementation comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+private static void addImplementation(
+    INamedTypeSymbol implementationType,
+    ISymbol interfaceMember,
+    HashSet<ISymbol> entries)
+{
+    if (interfaceMember is IPropertySymbol property)
+    {
+        if (property.GetMethod is not null)
+            addImplementation(implementationType, property.GetMethod, entries);
+        if (property.SetMethod is not null)
+            addImplementation(implementationType, property.SetMethod, entries);
+    }
+    else if (implementationType.FindImplementationForInterfaceMember(interfaceMember)
+                 is IMethodSymbol implementation &&
+             SymbolEqualityComparer.Default.Equals(
+                 implementation.ContainingAssembly,
+                 implementationType.ContainingAssembly))
+    {
+        IMethodSymbol entryPoint =
+            GenericDispatch.FindVirtualImplementation(
+                implementationType,
+                implementation) ?? implementation;
+        entries.Add(entryPoint.OriginalDefinition);
+    }
+}
+```",,
+B015,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",Deserialize,Does the name Deserialize comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+public override JsonModelItem Deserialize(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+{
+    switch (reader.TokenType)
+    {
+        case JsonTokenType.String:
+            string? stringItem = reader.GetString();
+            if (stringItem is null || stringItem.Length == 0)
+            {
+                throw new JsonException(""deserialized json string item was null or the empty string"");
+            }
+
+            return new JsonModelItem(stringItem, metadata: null);
+
+        case JsonTokenType.StartObject:
+            Dictionary<string, string>? dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(ref reader, options);
+            if (dictionary is null)
+            {
+                return null!;
+            }
+
+            var caseInsensitiveDictionary = new Dictionary<string, string>(dictionary, StringComparer.OrdinalIgnoreCase);
+            if (!caseInsensitiveDictionary.TryGetValue(""Identity"", out string? identity))
+            {
+                throw new JsonException(""deserialized json dictionary item did not have a non-empty Identity metadata"");
+            }
+
+            if (identity is null || identity.Length == 0)
+            {
+                throw new JsonException(""deserialized json dictionary item did not have a non-empty Identity metadata"");
+            }
+
+            caseInsensitiveDictionary.Remove(""Identity"");
+            return new JsonModelItem(identity, caseInsensitiveDictionary);
+
+        default:
+            throw new NotSupportedException();
+    }
+}
+```",,
+B016,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",Test_verify_lowering,Does the name Test_verify_lowering comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+[Theory]
+[MemberData(nameof(DiscoverSwiftTypes))]
+public void Test_verify_lowering(string typeName, EcmaType type, CORINFO_SWIFT_LOWERING expectedLowering)
+{
+    _ = typeName;
+
+    Assert.Equal(expectedLowering, SwiftPhysicalLowering.LowerTypeForSwiftSignature(type));
+}
+```",,
+B017,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",ClosedStaticDelegateSignaturePreservesHiddenArguments,Does the name ClosedStaticDelegateSignaturePreservesHiddenArguments comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+[Theory]
+[InlineData(WasmLowering.LoweringFlags.None, ""viiS16p"", 5)]
+[InlineData(WasmLowering.LoweringFlags.HasGenericContextArg, ""viiiS16p"", 6)]
+[InlineData(WasmLowering.LoweringFlags.IsAsyncCall, ""vaiiS16p"", 6)]
+[InlineData(WasmLowering.LoweringFlags.HasGenericContextArg | WasmLowering.LoweringFlags.IsAsyncCall, ""viaiiS16p"", 7)]
+public void ClosedStaticDelegateSignaturePreservesHiddenArguments(WasmLowering.LoweringFlags flags, string expectedSignature, int expectedParameters)
+{
+    ReadyToRunCompilerContext context = CreateWasmContext();
+    MethodSignature invokeSignature = new MethodSignature(0, 0, context.GetWellKnownType(WellKnownType.Void),
+        [context.GetWellKnownType(WellKnownType.Int32), MakeAlignedEightBlob(context, 16)]);
+
+    MethodSignature targetSignature = WasmLowering.GetClosedStaticDelegateTargetSignature(invokeSignature);
+    WasmSignature lowered = WasmLowering.GetSignature(targetSignature, flags);
+
+    Assert.Equal(expectedSignature, lowered.SignatureString);
+    Assert.Equal(expectedParameters, lowered.FuncType.Params.Types.Length);
+    Assert.True(lowered.FuncType.Returns.Types.IsEmpty);
+}
+```",,
+B018,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",filename,Does the name filename comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+class WatchedFileHandler(logging.handlers.WatchedFileHandler):
+    def __init__(self, filename):
+        self.errors = None  # py38
+        super().__init__(filename)
+        # Unfix bpo-26789, in case the fix is present
+        self._builtin_open = None
+
+    def _open(self):
+        return open(self.baseFilename, self.mode, encoding=self.encoding, errors=self.errors)
+```",,
+B019,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",EnumerateAllSegments,Does the name EnumerateAllSegments comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+public static class IGCExtensions
+{
+    public static IEnumerable<(GCHeapSegmentInfo Segment, GCHeapData Heap)> EnumerateAllSegments(this IGC gc)
+    {
+        string[] gcIdentifiers = gc.GetGCIdentifiers();
+        bool isWorkstation = gcIdentifiers.Contains(GCIdentifiers.Workstation);
+        foreach (GCHeapData heap in EnumerateHeaps(gc, isWorkstation))
+        {
+            foreach (GCHeapSegmentInfo seg in gc.EnumerateHeapSegments(heap))
+            {
+                yield return (seg, heap);
+            }
+        }
+    }
+
+    private static IEnumerable<GCHeapData> EnumerateHeaps(IGC gc, bool isWorkstation)
+    {
+        if (isWorkstation)
+        {
+            yield return gc.GetHeapData();
+        }
+        else
+        {
+            foreach (TargetPointer heapAddress in gc.GetGCHeaps())
+                yield return gc.GetHeapData(heapAddress);
+        }
+    }
+}
+```",,
+B020,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",docids,Does the name docids comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+def report_action(self, docids=None, data=None, config=True):
+    res = super().report_action(docids, data, config)
+    if not len(self.printer_ids.exists()):
+        return res
+
+    res[""context""] = {
+        **dict(res.get(""context"", {})),
+        ""report_id"": self.id,
+        ""jobs"": self.get_print_jobs(self.report_name, docids, data),
+    }
+    return res
+```",,
+B021,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",doc_ids,Does the name doc_ids comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+def report_action(self, doc_ids=None, data=None, config=True):
+    res = super().report_action(doc_ids, data, config)
+    if not len(self.printer_ids.exists()):
+        return res
+
+    res[""context""] = {
+        **dict(res.get(""context"", {})),
+        ""report_id"": self.id,
+        ""jobs"": self.get_print_jobs(self.report_name, doc_ids, data),
+    }
+    return res
+```",,
+B022,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",fromExactTypeInfo,Does the name fromExactTypeInfo comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+internal SignatureTypeInfo fromExactTypeInfo(ITypeHandle exactType)
+{
+    ReadOnlySpan<ITypeHandle> exactArguments = _rts.GetInstantiation(exactType);
+    ImmutableArray<SignatureTypeInfo>.Builder typeArguments =
+        ImmutableArray.CreateBuilder<SignatureTypeInfo>(exactArguments.Length);
+    for (int i = 0; i < exactArguments.Length; i++)
+    {
+        typeArguments.Add(fromExactTypeInfo(exactArguments[i]));
+    }
+
+    return new SignatureTypeInfo(
+        _rts.GetSignatureCorElementType(exactType),
+        exactType,
+        genericTypeDefinition: null,
+        typeArguments.MoveToImmutable());
+}
+```",,
+B023,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",pool,Does the name pool comply with the naming rules of the standard for a variable in cpp? Judge this name only.,"```cpp
+MetalHeapAllocator::~MetalHeapAllocator() {
+	for (uint32_t p = 0; p < POOL_COUNT; p++) {
+		Pool &pool = pools[p];
+		for (Block &block : pool.blocks) {
+			if (block.metadata != nullptr) {
+				memdelete(block.metadata);
+			}
+		}
+		for (MTL::Heap *heap : pool.dedicated_heaps) {
+			heap->release();
+		}
+	}
+}
+```",,
+B024,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",append_namespace_name,Does the name append_namespace_name comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+protected override void append_namespace_name(StringBuilder sb, DefType type)
+{
+    if (TryAppendKeyword(sb, type))
+    {
+        return;
+    }
+
+    string ns = type.GetNamespace();
+    if (ns.Length > 0)
+    {
+        sb.Append(ns);
+        sb.Append('.');
+    }
+    AppendTypeName(sb, type);
+}
+```",,
+B025,cpp,method,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",integrate_forces,Does the name integrate_forces comply with the naming rules of the standard for a method in cpp? Judge this name only.,"```cpp
+void PhysicsDirectBodyState2D::integrate_forces() {
+	real_t step = get_step();
+	Vector2 lv = get_linear_velocity();
+	lv += get_total_gravity() * step;
+
+	real_t av = get_angular_velocity();
+
+	real_t damp = 1.0 - step * get_total_linear_damp();
+
+	if (damp < 0) { // reached zero in the given time
+		damp = 0;
+	}
+
+	lv *= damp;
+
+	damp = 1.0 - step * get_total_angular_damp();
+
+	if (damp < 0) { // reached zero in the given time
+		damp = 0;
+	}
+
+	av *= damp;
+
+	set_linear_velocity(lv);
+	set_angular_velocity(av);
+}
+```",,
+B026,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",IsAllowed,Does the name IsAllowed comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+protected override bool IsAllowed(Vector<ushort> value)
+{
+    // Allow ASCII digits.
+    Vector<ushort> allowed = Vector.LessThanOrEqual(
+        value - new Vector<ushort>('0'),
+        new Vector<ushort>('9' - '0'));
+
+    // Allow space.
+    allowed |= Vector.Equals(value, new Vector<ushort>(' '));
+
+    return Vector.AllWhereAllBitsSet(allowed);
+}
+```",,
+B027,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",volume_offset_db,Does the name volume_offset_db comply with the naming rules of the standard for a variable in cpp? Judge this name only.,"```cpp
+void AudioStreamPlaybackRandomizer::start(double p_from_pos) {
+	playing = playback;
+	{
+		// GH-10238 : Pitch_scale is multiplicative, so picking a random number for it without log
+		// conversion will bias it towards higher pitches (0.5 is down one octave, 2.0 is up one octave).
+		// See: https://pressbooks.pub/sound/chapter/pitch-and-frequency-in-music/
+		float range_from = Math::log(1.0f / randomizer->random_pitch_scale);
+		float range_to = Math::log(randomizer->random_pitch_scale);
+
+		pitch_scale = Math::exp(range_from + Math::randf() * (range_to - range_from));
+	}
+	{
+		float range_from = -randomizer->random_volume_offset_db;
+		float range_to = randomizer->random_volume_offset_db;
+
+		float volume_offset_db = range_from + Math::randf() * (range_to - range_from);
+		volume_scale = Math::db_to_linear(volume_offset_db);
+	}
+
+	if (playing.is_valid()) {
+		playing->start(p_from_pos);
+	}
+}
+```",,
+B028,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",GetSystemV_AMD64PassStructInRegisterDescriptor,Does the name GetSystemV_AMD64PassStructInRegisterDescriptor comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+public void GetSystemV_AMD64PassStructInRegisterDescriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
+B029,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,Does the name PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B030,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",peer,Does the name peer comply with the naming rules of the standard for a variable in cpp? Judge this name only.,"```cpp
+Ref<RemoteDebuggerPeer> EditorDebuggerServerMessagePort::take_connection() {
+	ERR_FAIL_COND_V(!is_connection_available(), Ref<RemoteDebuggerPeer>());
+	Ref<RemoteDebuggerPeerMessagePort> peer = memnew(RemoteDebuggerPeerMessagePort(pending.front()->get()));
+	pending.pop_front();
+	return peer;
+}
+```",,
+B031,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",out_move,Does the name out_move comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+def _get_out_move_values(self, out_move):
+    picking = out_move.picking_id
+    source = out_move._get_source_document()
+    partner_info, picking_info, source_info = False, False, False
+    if source and source != picking:
+        source_info = {
+            'id': source.id,
+            'res_model': source._name,
+            'display_name': source.display_name,
+        }
+    if picking:
+        picking_info = {
+            'id': picking.id,
+            'res_model': 'stock.picking',
+            'display_name': picking.display_name,
+        }
+        partner_info = {
+            'id': picking.partner_id.id,
+            'res_model': 'res.partner',
+            'display_name': picking.partner_id.display_name,
+        } if picking.partner_id else False
+    # To handle different UoM quantities, all qties will be expressed in product's UoM.
+    reserved_quantity = out_move.quantity
+    if out_move.uom_id != out_move.product_id.uom_id:
+        reserved_quantity = out_move.product_id.uom_id._compute_quantity(reserved_quantity, out_move.uom_id)
+    return {
+        **out_move.read(['date', 'priority', 'state'])[0],
+        'favorite': out_move.priority == '1',
+        'id': out_move.id,
+        'is_reserved': bool(out_move.move_orig_ids),
+        'move_orig_ids': out_move.move_orig_ids.ids,
+        'partner': partner_info,
+        'picking': picking_info,
+        'reserved_quantity': reserved_quantity,
+        'quantity': out_move.product_qty,
+        'source': source_info,
+        'uom': out_move.product_id.uom_id.read(['display_name', 'factor'])[0],
+    }
+```",,
+B032,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,Does the name PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B033,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,Does the name PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B034,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",OutMove,Does the name OutMove comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+def _get_out_move_values(self, OutMove):
+    picking = OutMove.picking_id
+    source = OutMove._get_source_document()
+    partner_info, picking_info, source_info = False, False, False
+    if source and source != picking:
+        source_info = {
+            'id': source.id,
+            'res_model': source._name,
+            'display_name': source.display_name,
+        }
+    if picking:
+        picking_info = {
+            'id': picking.id,
+            'res_model': 'stock.picking',
+            'display_name': picking.display_name,
+        }
+        partner_info = {
+            'id': picking.partner_id.id,
+            'res_model': 'res.partner',
+            'display_name': picking.partner_id.display_name,
+        } if picking.partner_id else False
+    # To handle different UoM quantities, all qties will be expressed in product's UoM.
+    reserved_quantity = OutMove.quantity
+    if OutMove.uom_id != OutMove.product_id.uom_id:
+        reserved_quantity = OutMove.product_id.uom_id._compute_quantity(reserved_quantity, OutMove.uom_id)
+    return {
+        **OutMove.read(['date', 'priority', 'state'])[0],
+        'favorite': OutMove.priority == '1',
+        'id': OutMove.id,
+        'is_reserved': bool(OutMove.move_orig_ids),
+        'move_orig_ids': OutMove.move_orig_ids.ids,
+        'partner': partner_info,
+        'picking': picking_info,
+        'reserved_quantity': reserved_quantity,
+        'quantity': OutMove.product_qty,
+        'source': source_info,
+        'uom': OutMove.product_id.uom_id.read(['display_name', 'factor'])[0],
+    }
+```",,
+B035,cpp,parameter,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",other,Does the name other comply with the naming rules of the standard for a parameter in cpp? Judge this name only.,"```cpp
+bool operator<(const TerrainConstraint &other) const {
+	if (base_cell_coords == other.base_cell_coords) {
+		return bit < other.bit;
+	}
+	return base_cell_coords < other.base_cell_coords;
+}
+```",,
+B036,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",expandLabeledInfo,Does the name expandLabeledInfo comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+protected void expandLabeledInfo(
+    ReadOnlySpan<byte> prk,
+    ReadOnlySpan<byte> label,
+    ReadOnlySpan<byte> info,
+    Span<byte> output)
+{
+    Debug.Assert(KeyDerivationKdf.IsTwoStage);
+    Debug.Assert(prk.Length == KeyDerivationKdf.Nh);
+    Debug.Assert(output.Length <= ushort.MaxValue);
+
+    ReadOnlySpan<byte> suiteId = Suite.KemMetadata.SuiteId;
+    int labeledInfoLength =
+        checked(sizeof(ushort) + VersionLabel.Length + suiteId.Length + label.Length + info.Length);
+    const int MaxStackLabeledInfoLength = 512;
+    Span<byte> labeledInfoBuffer = stackalloc byte[MaxStackLabeledInfoLength];
+    Span<byte> destination = labeledInfoBuffer.Slice(0, labeledInfoLength);
+    BinaryPrimitives.WriteUInt16BigEndian(destination, checked((ushort)output.Length));
+    int offset = sizeof(ushort);
+    VersionLabel.CopyTo(destination.Slice(offset));
+    offset += VersionLabel.Length;
+    suiteId.CopyTo(destination.Slice(offset));
+    offset += suiteId.Length;
+    label.CopyTo(destination.Slice(offset));
+    offset += label.Length;
+    info.CopyTo(destination.Slice(offset));
+
+    HKDF.Expand(KeyDerivationKdf.HkdfHashAlgorithm, prk, output, destination);
+}
+```",,
+B037,cpp,variable,"godotengine/godot-contributing-docs, development/engine/cpp_usage_guidelines.rst (Naming)",POOL_INDEX,Does the name POOL_INDEX comply with the naming rules of the standard for a variable in cpp? Judge this name only.,"```cpp
+MetalBuffer MetalHeapAllocator::new_buffer(NS::UInteger p_length, MTL::ResourceOptions p_options) {
+	uint32_t POOL_INDEX = _pool_for_options(p_options);
+	MTL::SizeAndAlign sa = device->heapBufferSizeAndAlign(p_length, p_options);
+	// Placement-heap resources inherit the heap's hazard tracking; strip
+	// hazard bits and pass storage/cache + untracked only.
+	MTL::ResourceOptions heap_options = (p_options & (RESOURCE_STORAGE_MODE_MASK | RESOURCE_CPU_CACHE_MODE_MASK)) | MTL::ResourceHazardTrackingModeUntracked;
+
+	MetalBuffer result;
+	MTL::Heap *heap = nullptr;
+	if (sa.size > _preferred_block_size(POOL_INDEX) / 2) {
+		if (!_dedicated_allocate(POOL_INDEX, sa.size, result.allocation, heap)) {
+			return result;
+		}
+		result.buffer = NS::TransferPtr(heap->newBuffer(p_length, heap_options, 0));
+	} else {
+		uint64_t offset = 0;
+		if (!_pool_allocate(POOL_INDEX, sa.size, sa.align, result.allocation, heap, offset)) {
+			return result;
+		}
+		result.buffer = NS::TransferPtr(heap->newBuffer(p_length, heap_options, offset));
+	}
+	if (!result.buffer) {
+		_free_allocation(result.allocation);
+	}
+	return result;
+}
+```",,
+B038,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens,Does the name PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+[Theory]
+[InlineData(""int"", ""System.Int128"", ""l2"")]
+[InlineData(""System.Int128"", ""int"", ""l2"")]
+[InlineData(""int"", ""System.Runtime.Intrinsics.Vector128<int>"", ""V"")]
+[InlineData(""System.Runtime.Intrinsics.Vector128<int>"", ""int"", ""V"")]
+public void PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens(
+    string returnType, string parameterType, string expectedToken)
+{
+    string source = $$""""""
+        using System;
+        using System.Runtime.InteropServices;
+
+        public static class Exports
+        {
+            [UnmanagedCallersOnly(EntryPoint = ""callback"")]
+            public static {{returnType}} Handle({{parameterType}} value) => default;
+        }
+        """""";
+
+    AssertPortableCallHelpersGeneratorRejects(source, $""has unsupported signature token '{expectedToken}'"");
+}
+```",,
+B039,python,parameter,"odoo/documentation, content/contributing/development/coding_guidelines.rst",font,Does the name font comply with the naming rules of the standard for a parameter in python? Judge this name only.,"```python
+def build_optimized_subset(font: TTFont, icons: list[str]) -> TTFont:
+    """"""Run fontext on *font*, keeping only the ligatures named in *icons*.""""""
+    with tempfile.TemporaryDirectory(prefix='odoo_icons_') as tmp_dir:
+        input_path = Path(tmp_dir) / 'font.woff2'
+        output_path = input_path.with_suffix('.out.woff2')
+        font.save(input_path)
+
+        try:
+            subprocess.run([
+                ""npx"", ""--no-install"", ""fontext"",
+                ""-l"", "","".join(icons),
+                ""-i"", str(input_path),
+                ""-o"", str(output_path.parent),
+                ""-n"", str(output_path.stem),
+                ""-f"", ""woff2"",
+            ], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, check=True)
+        except subprocess.CalledProcessError as exc:
+            raise SystemExit(f""fontext failed:\n{(exc.stderr or b'').decode(errors='replace')}"") from exc
+
+        # fontext leaves two stray bytes at the end of the `post` table string
+        # data, which makes fontTools warn every time the table gets parsed.
+        # Those glyph names are dropped anyway — `strip_font_metadata` rewrites
+        # `post` as format 3.0 — so the warning is pure noise here.
+        logging.getLogger('fontTools.ttLib.tables._p_o_s_t').setLevel(logging.ERROR)
+        # Read into memory so the font outlives the temporary directory.
+        return TTFont(BytesIO(output_path.read_bytes()), recalcTimestamp=False)
+```",,
+B040,csharp,method,"dotnet/runtime, docs/coding-guidelines/coding-style.md",GetSystemV_AMD64PassStructInRegisterDescriptor,Does the name GetSystemV_AMD64PassStructInRegisterDescriptor comply with the naming rules of the standard for a method in csharp? Judge this name only.,"```csharp
+public void GetSystemV_AMD64PassStructInRegisterDescriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)
+{
+    descriptor = default;
+    descriptor.passedInRegisters = false;
+
+    if (ExactTypeHandle is null)
+        return;
+
+    // Read the runtime-cached classification from the type system; mirrors
+    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.
+    // Only populated on UNIX_AMD64_ABI builds.
+    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))
+        return;
+
+    descriptor.passedInRegisters = true;
+    descriptor.eightByteCount = 1;
+    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);
+    descriptor.eightByteSizes0 = info.First.Size;
+    descriptor.eightByteOffsets0 = 0;
+
+    if (info.Second is SystemVAmd64EightByte second)
+    {
+        descriptor.eightByteCount = 2;
+        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);
+        descriptor.eightByteSizes1 = second.Size;
+        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;
+    }
+}
+```",,
