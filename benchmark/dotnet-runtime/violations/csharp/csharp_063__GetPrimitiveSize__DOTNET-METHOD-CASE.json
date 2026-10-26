@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_063",
+  "language": "csharp",
+  "originalName": "GetPrimitiveSize",
+  "injectedName": "get_primitive_size",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_primitive_size' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static int get_primitive_size(CustomAttributeEncoding encoding) => encoding switch\n{\n    CustomAttributeEncoding.Boolean or CustomAttributeEncoding.SByte or CustomAttributeEncoding.Byte => 1,\n    CustomAttributeEncoding.Char or CustomAttributeEncoding.Int16 or CustomAttributeEncoding.UInt16 => 2,\n    CustomAttributeEncoding.Int32 or CustomAttributeEncoding.UInt32 or CustomAttributeEncoding.Float => 4,\n    CustomAttributeEncoding.Int64 or CustomAttributeEncoding.UInt64 or CustomAttributeEncoding.Double => 8,\n    _ => 0\n};",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

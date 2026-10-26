@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_100",
+  "language": "csharp",
+  "originalName": "CreateSerializedStringValue",
+  "injectedName": "create_serialized_string_value",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_serialized_string_value' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static RawSerializedInitializerValue create_serialized_string_value(\n    SerializationTypeCode type,\n    string? value)\n{\n    BlobBuilder serializedValue = new();\n    serializedValue.WriteSerializedString(value);\n    return new RawSerializedInitializerValue(\n        new SimpleSerializationTypeValue(type),\n        serializedValue);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

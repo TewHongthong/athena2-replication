@@ -1,0 +1,30 @@
+{
+  "id": "py_038",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/account_edi_ubl_cii/models/account_edi_ubl_pint.py lines 147-154 (method AccountEdiUBLPint._ubl_add_party_endpoint_id_node); license LGPL-3.0; repo created 2026-06-12T11:06:19+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _ubl_add_party_endpoint_id_node(self, vals):\n    super()._ubl_add_party_endpoint_id_node(vals)\n    partner = vals['party_vals']['partner']\n    identifier_vals = partner._get_preferred_routing_identifier_vals()\n    if identifier_vals:\n        normalized_value = self.env['res.partner']._validate_identifier_by_scheme(identifier_vals['scheme'], identifier_vals['value']).get('value')\n        vals['party_node']['cbc:EndpointID']['_text'] = normalized_value\n        vals['party_node']['cbc:EndpointID']['schemeID'] = identifier_vals['scheme']",
+  "identifiers": [
+    {
+      "name": "vals",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-12T11:06:19+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/account_edi_ubl_cii/models/account_edi_ubl_pint.py",
+    "startLine": 147,
+    "endLine": 154,
+    "unit": "method AccountEdiUBLPint._ubl_add_party_endpoint_id_node",
+    "corpusFile": "corpus/python/odoo__odoo__addons__account_edi_ubl_cii__models__account_edi_ubl_pint.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 11
+}

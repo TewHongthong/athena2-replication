@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_054",
+  "language": "python",
+  "originalName": "topics",
+  "injectedName": "TOPICS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TOPICS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _fetch(self, cr, TOPICS: set[ChannelTopic] | frozenset[ChannelTopic]):\n    \"\"\"Fetch pending notifications for the given topics, grouped by channel.\"\"\"\n    channels_by_last_fetched_id = defaultdict(list)\n    excluded_ids = set()\n    for topic in TOPICS:\n        if topic._waiting_room_snapshot:\n            last_fetched_id = min(  # noqa: PLW3301\n                topic._last_fetched_id,\n                min(topic._waiting_room_snapshot.values()),\n            )\n        else:\n            last_fetched_id = topic._last_fetched_id\n            excluded_ids.update(topic.excluded_ids)\n        channels_by_last_fetched_id[last_fetched_id].append(topic._channel)\n    return fetch_bus_notifications(cr, channels_by_last_fetched_id, excluded_ids)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

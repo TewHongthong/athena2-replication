@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_085",
+  "language": "python",
+  "originalName": "buff",
+  "injectedName": "BUFF",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'BUFF' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def readinto(self, BUFF):\n    if self._buffered is None:  # eof\n        return 0\n\n    if self._buffered:\n        size = min(len(BUFF), len(self._buffered))\n        BUFF[:size], self._buffered = self._buffered[:size], self._buffered[size:]\n        return size\n\n    try:  # noqa: PLW0717\n        event = self._conn.next_event()\n        while event is h11.NEED_DATA:\n            try:\n                self._conn.receive_data(self._sock.recv(max(len(BUFF), RECV_SIZE)))\n            except ConnectionError as exc:\n                exc.loglevel = logging.WARNING\n                raise\n            except TimeoutError as exc:\n                raise RequestTimeout from exc\n            event = self._conn.next_event()\n    except h11.RemoteProtocolError as exc:\n        raise werkzeug_exceptions[exc.error_status_hint] from exc\n\n    if type(event) is h11.EndOfMessage:\n        self._buffered = None  # eof\n        return 0\n\n    assert type(event) is h11.Data, event\n    size = min(len(BUFF), len(event.data))\n    data = memoryview(event.data)\n    BUFF[:size] = data[:size]\n    self._buffered = data[size:]\n    return size",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

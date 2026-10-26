@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "template_sha256": "61724a9e73dc65dd032e4f191e3b263606f2084b743b798a9c10c75240b2d634",
+  "document_sha256": {
+    "godot": "b55b6958c778fbb427c03e76a9ff0cdaa81678cc631c6ee474565b3e0729eaed",
+    "dotnet-runtime": "946ae20377f98773f2d9711eeb5669950c64c676983df84cadf3f871aa541323",
+    "odoo": "04b8cb436658fa94324a000cdce336df2e23de07b88311e3bccf3bb97e4e6c0a"
+  },
+  "prompt_sha256": {
+    "godot": "407e886853b0d500f1d74159026dbd19448b7e14d188de7839e5c7931c9e7404",
+    "dotnet-runtime": "15ebbd3870affd3ac4eb8bcec211486ed87600b887210519cc15dcdab4b5746a",
+    "odoo": "cf306e947177671456fc20dc4f32401637130e2ba7555a938867267999aa9a63"
+  },
+  "pin": "luna_draft",
+  "pin_sha256": "75dc73114422e0ed5930ce6b9e6b646f0f3111ecf6d254a452a62947b2507d65"
+}

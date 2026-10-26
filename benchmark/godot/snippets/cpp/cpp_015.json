@@ -1,0 +1,30 @@
+{
+  "id": "cpp_015",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/navigation_3d/navigation_server_3d_manager.cpp lines 71-79 (method NavigationServer3DManager::on_servers_changed); license MIT; repo created 2026-07-17T17:21:16+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void NavigationServer3DManager::on_servers_changed() {\n\tString navigation_servers_enum_str(\"DEFAULT\");\n\tfor (int i = get_servers_count() - 1; 0 <= i; --i) {\n\t\tnavigation_servers_enum_str += \",\" + get_server_name(i);\n\t}\n\tProjectSettings::get_singleton()->set_custom_property_info(PropertyInfo(Variant::STRING, setting_property_name, PROPERTY_HINT_ENUM, navigation_servers_enum_str));\n\tProjectSettings::get_singleton()->set_restart_if_changed(setting_property_name, true);\n\tProjectSettings::get_singleton()->set_as_basic(setting_property_name, true);\n}",
+  "identifiers": [
+    {
+      "name": "on_servers_changed",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-17T17:21:16+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/navigation_3d/navigation_server_3d_manager.cpp",
+    "startLine": 71,
+    "endLine": 79,
+    "unit": "method NavigationServer3DManager::on_servers_changed",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__navigation_3d__navigation_server_3d_manager.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 2
+}

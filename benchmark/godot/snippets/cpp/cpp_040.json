@@ -1,0 +1,30 @@
+{
+  "id": "cpp_040",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/tile_map_layer.h lines 254-271 (method PhysicsBodyKey.operator<); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "bool operator<(const PhysicsBodyKey &p_other) const {\n\tif (physics_layer == p_other.physics_layer) {\n\t\tif (linear_velocity == p_other.linear_velocity) {\n\t\t\tif (angular_velocity == p_other.angular_velocity) {\n\t\t\t\tif (one_way_collision == p_other.one_way_collision) {\n\t\t\t\t\tif (one_way_collision && y_origin != p_other.y_origin) {\n\t\t\t\t\t\treturn y_origin < p_other.y_origin;\n\t\t\t\t\t}\n\t\t\t\t\treturn one_way_collision_margin < p_other.one_way_collision_margin;\n\t\t\t\t}\n\t\t\t\treturn one_way_collision < p_other.one_way_collision;\n\t\t\t}\n\t\t\treturn angular_velocity < p_other.angular_velocity;\n\t\t}\n\t\treturn linear_velocity < p_other.linear_velocity;\n\t}\n\treturn physics_layer < p_other.physics_layer;\n}",
+  "identifiers": [
+    {
+      "name": "p_other",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/tile_map_layer.h",
+    "startLine": 254,
+    "endLine": 271,
+    "unit": "method PhysicsBodyKey.operator<",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__tile_map_layer.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 19
+}

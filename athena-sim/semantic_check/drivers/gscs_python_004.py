@@ -1,0 +1,7 @@
+drv_obj = counter_Type()
+drv_obj.Add_Count(30)
+print(drv_obj.i_count_total)
+drv_obj.Add_Count(80)
+print(drv_obj.i_count_total)
+drv_obj.Add_Count(5)
+print(drv_obj.i_count_total)

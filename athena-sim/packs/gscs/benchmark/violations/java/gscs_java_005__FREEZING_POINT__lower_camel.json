@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_java_005",
+  "language": "java",
+  "originalName": "FREEZING_POINT",
+  "injectedName": "freezingPoint",
+  "identifierKind": "constant",
+  "violatedRuleId": "GSCS-CONST-UPPER",
+  "injectionMethod": "lower_camel",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'freezingPoint' does not match UPPER_SNAKE_CASE pattern"
+  ],
+  "codeContextWithViolation": "class temperature_Type {\n    /* Function Objective: Convert a Fahrenheit text to Celsius\n       Input parameters : str_text (string) temperature in Fahrenheit written as text\n       Function description: Read the text as a number and convert it to Celsius; text that is not a number gives zero\n       Return Value : float temperature in Celsius\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    static float f_Convert_Celsius(String str_text) {\n        final float freezingPoint = 32.0f;\n        float f_celsius = 0.0f;\n        try {\n            // read the Fahrenheit value from the text\n            float f_fahrenheit = Float.parseFloat(str_text);\n            f_celsius = (f_fahrenheit - freezingPoint) * 5.0f / 9.0f;\n        } catch (NumberFormatException e) {\n            // the text is not a number, keep zero\n            f_celsius = 0.0f;\n        } finally {\n            // nothing to release, the result is ready\n            f_celsius = f_celsius + 0.0f;\n        }\n        return f_celsius;\n    }\n}",
+  "occurrencesRenamed": 2
+}

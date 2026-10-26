@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_089",
+  "language": "python",
+  "originalName": "google_values",
+  "injectedName": "GOOGLE_VALUES",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GOOGLE_VALUES' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _get_post_sync_values(self, request_values, GOOGLE_VALUES):\n    \"\"\" Return the values to be written in the event right after its insertion in Google side. \"\"\"\n    writeable_values = {\n        'google_id': request_values['id'],\n        'need_sync': False,\n    }\n    return writeable_values",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

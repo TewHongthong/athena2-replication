@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_026",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _ubl_add_notes_nodes(self, VALS):\n    super()._ubl_add_notes_nodes(VALS)\n\n    # [BR-FR-MAP-18] EN16931 caps the Note (BT-22) to 1024 characters.\n    for note in VALS['document_node']['cbc:Note']:\n        if isinstance(note['_text'], str):\n            note['_text'] = note['_text'][:1024]",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

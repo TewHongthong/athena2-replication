@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_077",
+  "language": "python",
+  "originalName": "topic",
+  "injectedName": "TOPIC",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TOPIC' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _queue_topic(self, TOPIC: ChannelTopic):\n    # Must be called with the dbname's lock held.\n    TOPIC._state = DispatchState.QUEUED\n    topics = self._pending_topics_by_db[TOPIC._dbname]\n    is_empty = not topics\n    topics.add(TOPIC)\n    if is_empty:\n        self._pending_dbname_queue.put(TOPIC._dbname)",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

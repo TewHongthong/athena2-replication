@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_006",
+  "language": "csharp",
+  "originalName": "ExportEncapsulationKey",
+  "injectedName": "export_encapsulation_key",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'export_encapsulation_key' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public void export_encapsulation_key(Span<byte> destination)\n{\n    if (destination.Length != Suite.EncapsulationKeySizeInBytes)\n    {\n        throw new ArgumentException(\n            SR.Format(SR.Argument_DestinationImprecise, Suite.EncapsulationKeySizeInBytes),\n            nameof(destination));\n    }\n\n    ThrowIfDisposed();\n    ExportEncapsulationKeyCore(destination);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

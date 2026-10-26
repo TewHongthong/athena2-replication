@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_058",
+  "language": "cpp",
+  "originalName": "volume_offset_db",
+  "injectedName": "VOLUME_OFFSET_DB",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VOLUME_OFFSET_DB' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AudioStreamPlaybackRandomizer::start(double p_from_pos) {\n\tplaying = playback;\n\t{\n\t\t// GH-10238 : Pitch_scale is multiplicative, so picking a random number for it without log\n\t\t// conversion will bias it towards higher pitches (0.5 is down one octave, 2.0 is up one octave).\n\t\t// See: https://pressbooks.pub/sound/chapter/pitch-and-frequency-in-music/\n\t\tfloat range_from = Math::log(1.0f / randomizer->random_pitch_scale);\n\t\tfloat range_to = Math::log(randomizer->random_pitch_scale);\n\n\t\tpitch_scale = Math::exp(range_from + Math::randf() * (range_to - range_from));\n\t}\n\t{\n\t\tfloat range_from = -randomizer->random_volume_offset_db;\n\t\tfloat range_to = randomizer->random_volume_offset_db;\n\n\t\tfloat VOLUME_OFFSET_DB = range_from + Math::randf() * (range_to - range_from);\n\t\tvolume_scale = Math::db_to_linear(VOLUME_OFFSET_DB);\n\t}\n\n\tif (playing.is_valid()) {\n\t\tplaying->start(p_from_pos);\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

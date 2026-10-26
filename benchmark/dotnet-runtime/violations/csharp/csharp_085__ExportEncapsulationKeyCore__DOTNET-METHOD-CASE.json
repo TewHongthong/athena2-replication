@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_085",
+  "language": "csharp",
+  "originalName": "ExportEncapsulationKeyCore",
+  "injectedName": "export_encapsulation_key_core",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'export_encapsulation_key_core' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "protected override void export_encapsulation_key_core(Span<byte> destination)\n{\n    _ = destination;\n    Debug.Fail(\"Platform validation should not permit this call.\");\n    throw new CryptographicException();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

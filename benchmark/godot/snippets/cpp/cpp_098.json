@@ -1,0 +1,30 @@
+{
+  "id": "cpp_098",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/texture_streaming/texture_streaming.h lines 165-173 (method SimpleCommandQueue.push_internal); license MIT; repo created 2026-08-26T13:28:15-06:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void push_internal(const char *p_method_name, T *p_instance, M p_method, Args &&...p_args) {\n\tusing CommandType = Command<T, M, Args...>;\n\tstatic_assert(sizeof(CommandType) <= MAX_COMMAND_SIZE);\n\n\tMutexLock lock(mutex);\n\tcreate_command<CommandType>(p_method_name, p_instance, p_method, std::forward<Args>(p_args)...);\n\tpending = true;\n\tcondvar.notify_one();\n}",
+  "identifiers": [
+    {
+      "name": "p_instance",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-26T13:28:15-06:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/texture_streaming/texture_streaming.h",
+    "startLine": 165,
+    "endLine": 173,
+    "unit": "method SimpleCommandQueue.push_internal",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__texture_streaming__texture_streaming.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 7
+}

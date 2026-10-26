@@ -1,0 +1,30 @@
+{
+  "id": "py_009",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/addons/test_base/models/test_orm.py lines 2310-2324 (class TestOrmAutovacuumed); license LGPL-3.0; repo created 2026-09-11T18:07:19+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class TestOrmAutovacuumed(models.Model):\n    _name = 'test_orm.autovacuumed'\n    _description = 'test_orm.autovacuumed'\n\n    expire_at = fields.Datetime('Expires at')\n\n    @api.autovacuum\n    def _gc_simple(self):\n        self.search([('expire_at', '<', datetime.datetime.now() - datetime.timedelta(days=1))]).unlink()\n\n    @api.autovacuum\n    def _gc_proper(self, limit=5):\n        records = self.search([('expire_at', '<', datetime.datetime.now() - datetime.timedelta(days=1))], limit=limit)\n        records.unlink()\n        return len(records), len(records) == limit",
+  "identifiers": [
+    {
+      "name": "limit",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-11T18:07:19+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/addons/test_base/models/test_orm.py",
+    "startLine": 2310,
+    "endLine": 2324,
+    "unit": "class TestOrmAutovacuumed",
+    "corpusFile": "corpus/python/odoo__odoo__odoo__addons__test_base__models__test_orm.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 259
+}

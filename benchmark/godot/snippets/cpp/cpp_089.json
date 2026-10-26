@@ -1,0 +1,30 @@
+{
+  "id": "cpp_089",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "editor/gui/editor_toolbar_group.cpp lines 45-50 (method EditorToolbarGroup::create); license MIT; repo created 2026-08-23T20:45:17-04:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "HBoxContainer *EditorToolbarGroup::create(Control *p_parent) {\n\tEditorToolbarGroup *group = memnew(EditorToolbarGroup);\n\tp_parent->add_child(group);\n\n\treturn group->get_hbox();\n}",
+  "identifiers": [
+    {
+      "name": "group",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-23T20:45:17-04:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "editor/gui/editor_toolbar_group.cpp",
+    "startLine": 45,
+    "endLine": 50,
+    "unit": "method EditorToolbarGroup::create",
+    "corpusFile": "corpus/cpp/godotengine__godot__editor__gui__editor_toolbar_group.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 1
+}

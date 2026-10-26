@@ -1,0 +1,30 @@
+{
+  "id": "py_019",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/hr_holidays/models/resource_resource.py lines 16-49 (method ResourceResource._format_leave); license LGPL-3.0; repo created 2026-06-03T05:27:29+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _format_leave(self, leave, resource_hours_per_day, resource_hours_per_week, ranges_to_remove, start_day, end_day, locale):\n    leave_start = leave[0]\n    leave_record = leave[2].filtered('holiday_id')\n    holiday_id = leave_record.holiday_id\n    tz = ZoneInfo(self.tz or self.env.user.tz)\n\n    if holiday_id.work_entry_type_request_unit == 'half_day':\n        # Half day leaves are limited to half a day within a single day\n        leave_day = leave_start.date()\n        half_start_datetime = datetime.combine(leave_day, datetime.min.time() if holiday_id.request_date_from_period == \"am\" else time(12), tzinfo=tz)\n        half_end_datetime = datetime.combine(leave_day, time(12) if holiday_id.request_date_from_period == \"am\" else datetime.max.time(), tzinfo=tz)\n        ranges_to_remove.append((half_start_datetime, half_end_datetime, self.env['resource.calendar.attendance']))\n\n        if not self._is_fully_flexible():\n            # only days inside the original period\n            if start_day <= leave_day <= end_day:\n                resource_hours_per_day[self.id][leave_day] -= holiday_id.number_of_hours\n            week = weeknumber(babel_locale_parse(locale), leave_day)\n            resource_hours_per_week[self.id][week] -= holiday_id.number_of_hours\n    elif holiday_id.work_entry_type_request_unit == 'hour':\n        # Custom leaves are limited to a specific number of hours within a single day\n        leave_day = leave_start.date()\n        range_start_datetime = leave_record.date_from.replace(tzinfo=UTC).astimezone(tz)\n        range_end_datetime = leave_record.date_to.replace(tzinfo=UTC).astimezone(tz)\n        ranges_to_remove.append((range_start_datetime, range_end_datetime, self.env['resource.calendar.attendance']))\n\n        if not self._is_fully_flexible():\n            # only days inside the original period\n            if start_day <= leave_day <= end_day:\n                resource_hours_per_day[self.id][leave_day] -= holiday_id.number_of_hours\n            week = weeknumber(babel_locale_parse(locale), leave_day)\n            resource_hours_per_week[self.id][week] -= holiday_id.number_of_hours\n    else:\n        super()._format_leave(leave, resource_hours_per_day, resource_hours_per_week, ranges_to_remove, start_day, end_day, locale)",
+  "identifiers": [
+    {
+      "name": "leave",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-03T05:27:29+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/hr_holidays/models/resource_resource.py",
+    "startLine": 16,
+    "endLine": 49,
+    "unit": "method ResourceResource._format_leave",
+    "corpusFile": "corpus/python/odoo__odoo__addons__hr_holidays__models__resource_resource.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

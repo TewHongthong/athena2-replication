@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_048",
+  "language": "cpp",
+  "originalName": "pos",
+  "injectedName": "POS",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'POS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Vector2i TileAtlasView::get_atlas_tile_coords_at_pos(const Vector2 p_pos, bool p_clamp) const {\n\tif (tile_set_atlas_source.is_null()) {\n\t\treturn Vector2i();\n\t}\n\n\tRef<Texture2D> texture = tile_set_atlas_source->get_texture();\n\tif (texture.is_null()) {\n\t\treturn TileSetSource::INVALID_ATLAS_COORDS;\n\t}\n\n\tVector2i margins = tile_set_atlas_source->get_margins();\n\tVector2i separation = tile_set_atlas_source->get_separation();\n\tVector2i texture_region_size = tile_set_atlas_source->get_texture_region_size();\n\n\t// Compute index in atlas.\n\tVector2 POS = p_pos - margins;\n\tVector2i ret = (POS / (texture_region_size + separation)).floor();\n\n\t// Clamp.\n\tif (p_clamp) {\n\t\tVector2i size = tile_set_atlas_source->get_atlas_grid_size();\n\t\tret = ret.clamp(Vector2i(), size - Vector2i(1, 1));\n\t}\n\n\treturn ret;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

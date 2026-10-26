@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_java_004",
+  "language": "java",
+  "originalName": "bln_Is_Valid",
+  "injectedName": "isValid",
+  "identifierKind": "boolean_variable",
+  "violatedRuleId": "GSCS-BOOL-BLN-PREFIX",
+  "injectionMethod": "camel_no_prefix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'isValid' matches forbidden pattern '^(?!(?:bln|bl)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "class account_Type {\n    private double d_balance = 0.0;\n    /* Function Objective: Add money to an account\n       Input parameters : d_amount (double) money to add\n       Function description: Add the amount to the balance only when it reaches the minimum deposit\n       Return Value : void\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    void Deposit_Money(double d_amount) {\n        final double MIN_DEPOSIT = 1.0;\n        boolean isValid = d_amount >= MIN_DEPOSIT;\n        // check that the amount is large enough to deposit\n        if (isValid) {\n            d_balance = d_balance + d_amount;\n        }\n        // else the amount is too small, keep the balance\n        else {\n            d_balance = d_balance + 0.0;\n        }\n    }\n}",
+  "occurrencesRenamed": 2
+}

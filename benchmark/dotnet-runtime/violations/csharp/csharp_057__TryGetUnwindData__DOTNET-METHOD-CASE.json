@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_057",
+  "language": "csharp",
+  "originalName": "TryGetUnwindData",
+  "injectedName": "try_get_unwind_data",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_get_unwind_data' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public bool try_get_unwind_data(uint functionTableIndex, out TargetPointer unwindDataAddress)\n{\n    unwindDataAddress = TargetPointer.Null;\n    Data.FunctionTableIndexRangeSection? section = FindSection(functionTableIndex);\n    if (section is null)\n        return false;\n\n    Data.ReadyToRunInfo r2rInfo = GetReadyToRunInfo(section);\n    uint localIndex = functionTableIndex - section.MinFunctionTableIndex;\n    Data.RuntimeFunction runtimeFunction = GetRuntimeFunction(r2rInfo, localIndex);\n    unwindDataAddress = new TargetPointer(r2rInfo.LoadedImageBase.Value + runtimeFunction.UnwindData);\n    return true;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

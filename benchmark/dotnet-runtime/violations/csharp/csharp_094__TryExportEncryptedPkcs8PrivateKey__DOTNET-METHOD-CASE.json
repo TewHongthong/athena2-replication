@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_094",
+  "language": "csharp",
+  "originalName": "TryExportEncryptedPkcs8PrivateKey",
+  "injectedName": "try_export_encrypted_pkcs8_private_key",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_export_encrypted_pkcs8_private_key' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public bool try_export_encrypted_pkcs8_private_key(\n    string password,\n    PbeParameters pbeParameters,\n    Span<byte> destination,\n    out int bytesWritten)\n{\n    ArgumentNullException.ThrowIfNull(password);\n\n    return try_export_encrypted_pkcs8_private_key(password.AsSpan(), pbeParameters, destination, out bytesWritten);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

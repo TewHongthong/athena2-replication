@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_063",
+  "language": "cpp",
+  "originalName": "shader_inc",
+  "injectedName": "SHADER_INC",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SHADER_INC' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void ShaderTextEditor::set_edited_resource(const Ref<Resource> &p_res) {\n\tif (p_res.is_null() || edited_res == p_res) {\n\t\treturn;\n\t}\n\tif (edited_res.is_valid()) {\n\t\tedited_res->disconnect_changed(callable_mp(this, &ShaderTextEditor::_shader_changed));\n\t}\n\n\tRef<Shader> shader = p_res;\n\tRef<ShaderInclude> SHADER_INC = p_res;\n\tif (shader.is_null() && SHADER_INC.is_null()) {\n\t\treturn;\n\t}\n\n\tedited_res = p_res;\n\t_load_theme_settings();\n\n\tString code;\n\tif (shader.is_valid()) {\n\t\tcode = shader->get_code();\n\t} else if (SHADER_INC.is_valid()) {\n\t\tcode = SHADER_INC->get_code();\n\t}\n\tcode_editor->get_text_editor()->set_text(code);\n\tcode_editor->get_text_editor()->clear_undo_history();\n\tcallable_mp((TextEdit *)code_editor->get_text_editor(), &TextEdit::set_h_scroll).call_deferred(0);\n\tcallable_mp((TextEdit *)code_editor->get_text_editor(), &TextEdit::set_v_scroll).call_deferred(0);\n\tcode_editor->get_text_editor()->tag_saved_version();\n\n\t_validate_script();\n\tcode_editor->update_line_and_column();\n\n\tedited_res->connect_changed(callable_mp(this, &ShaderTextEditor::_shader_changed));\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

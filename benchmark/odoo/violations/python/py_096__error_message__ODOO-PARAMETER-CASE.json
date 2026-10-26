@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_096",
+  "language": "python",
+  "originalName": "error_message",
+  "injectedName": "ERROR_MESSAGE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ERROR_MESSAGE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _l10n_pk_edi_pos_mark_failed(self, ERROR_MESSAGE):\n    self.write({\n        'l10n_pk_edi_pos_state': 'unsuccessful',\n        'l10n_pk_edi_pos_error': ERROR_MESSAGE,\n        'to_invoice': False,\n    })",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

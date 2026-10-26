@@ -1,0 +1,30 @@
+{
+  "id": "csharp_073",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/nativeaot/System.Private.CoreLib/src/System/Reflection/RuntimeMethodInfo.cs lines 460-470 (method RuntimeMethodInfo.WithDebugName); license MIT; repo created 2026-09-01T10:04:30+09:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "        protected RuntimeMethodInfo WithDebugName()\n        {\n#if DEBUG\n            if (_debugName == null)\n            {\n                _debugName = \"Constructing...\"; // Protect against any inadvertent reentrancy.\n                _debugName = RuntimeName;\n            }\n#endif\n            return this;\n        }",
+  "identifiers": [
+    {
+      "name": "WithDebugName",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-01T10:04:30+09:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/nativeaot/System.Private.CoreLib/src/System/Reflection/RuntimeMethodInfo.cs",
+    "startLine": 460,
+    "endLine": 470,
+    "unit": "method RuntimeMethodInfo.WithDebugName",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__nativeaot__System.Private.CoreLib__src__System__Reflection__RuntimeMethodInfo.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 28
+}

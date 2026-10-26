@@ -1,0 +1,30 @@
+{
+  "id": "cpp_051",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tiles_editor_plugin.cpp lines 146-154 (method TilesEditorUtils::queue_pattern_preview); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TilesEditorUtils::queue_pattern_preview(Ref<TileSet> p_tile_set, Ref<TileMapPattern> p_pattern, Callable p_callback) {\n\tERR_FAIL_COND(p_tile_set.is_null());\n\tERR_FAIL_COND(p_pattern.is_null());\n\t{\n\t\tMutexLock lock(pattern_preview_mutex);\n\t\tpattern_preview_queue.push_back({ p_tile_set, p_pattern, p_callback });\n\t}\n\tpattern_preview_sem.post();\n}",
+  "identifiers": [
+    {
+      "name": "queue_pattern_preview",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tiles_editor_plugin.cpp",
+    "startLine": 146,
+    "endLine": 154,
+    "unit": "method TilesEditorUtils::queue_pattern_preview",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tiles_editor_plugin.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 4
+}

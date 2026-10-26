@@ -1,0 +1,30 @@
+{
+  "id": "csharp_046",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.Compiler/IL/RvaIntrinsicPatternAnalyzer.cs lines 354-361 (method RvaIntrinsicPatternAnalyzer.IsRuntimeHelpersIntrinsic); license MIT; repo created 2026-08-21T06:57:13+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static bool IsRuntimeHelpersIntrinsic(MethodDesc method)\n{\n    return method.IsIntrinsic\n        && method.OwningType is MetadataType owningType\n        && owningType.Name == \"RuntimeHelpers\"u8\n        && owningType.Namespace == \"System.Runtime.CompilerServices\"u8\n        && owningType.Module == owningType.Context.SystemModule;\n}",
+  "identifiers": [
+    {
+      "name": "IsRuntimeHelpersIntrinsic",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-21T06:57:13+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.Compiler/IL/RvaIntrinsicPatternAnalyzer.cs",
+    "startLine": 354,
+    "endLine": 361,
+    "unit": "method RvaIntrinsicPatternAnalyzer.IsRuntimeHelpersIntrinsic",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.Compiler__IL__RvaIntrinsicPatternAnalyzer.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 18
+}

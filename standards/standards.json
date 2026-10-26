@@ -1,0 +1,72 @@
+{
+  "pinned_on": "2026-10-14",
+  "note": "Pins for the three independent standards of Athena Vol. 2 (WP1). 'commit' pins the guideline document; 'code_head_seen' is only the code repository HEAD seen on pinned_on (the corpus commits are pinned separately in WP2). sha256 is filled by fetch_standards.py --write-hashes and checked on every later run. License fields come from the LICENSE files of the repositories themselves (read on pinned_on), not from tags.",
+  "standards": [
+    {
+      "id": "godot",
+      "language": "C++",
+      "title": "C++ rules and guidelines (Godot contributor documentation)",
+      "doc_repo": "https://github.com/godotengine/godot-contributing-docs.git",
+      "commit": "54e2d5c5eda4887dd0a1f2c10086eebc33c15aae",
+      "doc_path": "development/engine/cpp_usage_guidelines.rst",
+      "license_path": "LICENSE.txt",
+      "doc_license": "CC-BY-3.0",
+      "attribution": "Juan Linietsky, Ariel Manzur and the Godot community",
+      "code_repo": "https://github.com/godotengine/godot.git",
+      "code_license": "MIT",
+      "code_head_seen": "5ec712e220b7deac64d61dc9f968e72edb910039",
+      "sha256": {
+        "cpp_usage_guidelines.rst": "b55b6958c778fbb427c03e76a9ff0cdaa81678cc631c6ee474565b3e0729eaed",
+        "LICENSE.txt": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+      }
+    },
+    {
+      "id": "dotnet-runtime",
+      "language": "C#",
+      "title": ".NET runtime C# coding style",
+      "doc_repo": "https://github.com/dotnet/runtime.git",
+      "commit": "0232cf718cdfa6e99e42c3eff4c953004f5cf6c1",
+      "doc_path": "docs/coding-guidelines/coding-style.md",
+      "license_path": "LICENSE.TXT",
+      "doc_license": "MIT",
+      "attribution": ".NET Foundation and Contributors",
+      "code_repo": "https://github.com/dotnet/runtime.git",
+      "code_license": "MIT",
+      "code_head_seen": "0232cf718cdfa6e99e42c3eff4c953004f5cf6c1",
+      "sha256": {
+        "coding-style.md": "946ae20377f98773f2d9711eeb5669950c64c676983df84cadf3f871aa541323",
+        "LICENSE.TXT": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310"
+      }
+    },
+    {
+      "id": "odoo",
+      "language": "Python",
+      "title": "Odoo coding guidelines",
+      "doc_repo": "https://github.com/odoo/documentation.git",
+      "commit": "a31e1d9cba3506db09e400e2d8943db2df29963a",
+      "doc_path": "content/contributing/development/coding_guidelines.rst",
+      "license_path": "LICENSE",
+      "doc_license": "CC-BY-SA-4.0",
+      "attribution": "Odoo S.A.",
+      "code_repo": "https://github.com/odoo/odoo.git",
+      "code_license": "LGPL-3.0",
+      "code_head_seen": "0599e811ab0dcbb3c3ca78b9bf86b288265c6cd1",
+      "sha256": {
+        "coding_guidelines.rst": "04b8cb436658fa94324a000cdce336df2e23de07b88311e3bccf3bb97e4e6c0a",
+        "LICENSE": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "date": "2026-10-14",
+      "id": "godot-doc",
+      "decision": "Use cpp_usage_guidelines.rst on main only; code_style.rst (branch language-styleguides) is not pinned."
+    },
+    {
+      "date": "2026-10-14",
+      "id": "ontology-license",
+      "decision": "Distribute each ontology under the license of its source document (godot CC-BY-3.0 with attribution, odoo CC-BY-SA-4.0, dotnet-runtime MIT), kept separate from the MIT code; confirm with advisor/university before submitting the artifact."
+    }
+  ]
+}

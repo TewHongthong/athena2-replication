@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_034",
+  "language": "cpp",
+  "originalName": "generate_sample",
+  "injectedName": "GENERATE_SAMPLE",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GENERATE_SAMPLE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Ref<AudioSample> AudioStreamWAV::GENERATE_SAMPLE() const {\n\tRef<AudioSample> sample;\n\tsample.instantiate();\n\tsample->stream = this;\n\tswitch (loop_mode) {\n\t\tcase AudioStreamWAV::LoopMode::LOOP_DISABLED: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_DISABLED;\n\t\t} break;\n\n\t\tcase AudioStreamWAV::LoopMode::LOOP_FORWARD: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_FORWARD;\n\t\t} break;\n\n\t\tcase AudioStreamWAV::LoopMode::LOOP_PINGPONG: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_PINGPONG;\n\t\t} break;\n\n\t\tcase AudioStreamWAV::LoopMode::LOOP_BACKWARD: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_BACKWARD;\n\t\t} break;\n\t}\n\tsample->loop_begin = loop_begin;\n\tsample->loop_end = loop_end;\n\tsample->sample_rate = mix_rate;\n\treturn sample;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

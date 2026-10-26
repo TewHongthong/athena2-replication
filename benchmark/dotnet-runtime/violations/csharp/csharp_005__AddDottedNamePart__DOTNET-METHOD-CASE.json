@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_005",
+  "language": "csharp",
+  "originalName": "AddDottedNamePart",
+  "injectedName": "add_dotted_name_part",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'add_dotted_name_part' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal void add_dotted_name_part(CILParser.DottedNameBuilder builder, string value)\n{\n    if (builder.HasPart)\n    {\n        builder.Value.Append('.');\n    }\n\n    builder.Value.Append(value);\n    builder.HasPart = true;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

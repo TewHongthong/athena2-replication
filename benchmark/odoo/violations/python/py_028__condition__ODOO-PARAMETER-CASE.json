@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_028",
+  "language": "python",
+  "originalName": "condition",
+  "injectedName": "CONDITION",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CONDITION' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@api.constrains('active', 'domain', 'model_id')\ndef _check_domain(self):\n    # When validating an access' domain, don't evaluate 'access' conditions,\n    # as those involve other ir.access domains, which should are validated\n    # separately. This is necessary when upgrading modules, since other\n    # ir.access domains may be invalid while the registry is not fully\n    # loaded.\n    def skip_access(CONDITION):\n        if CONDITION.operator == 'access':\n            return Domain(CONDITION.field_expr, '!=', False)\n        if (\n            CONDITION.operator in ('any', 'not any', 'any!', 'not any!')\n            and isinstance(CONDITION.value, (list, Domain))\n        ):\n            subdomain = Domain(CONDITION.value).map_conditions(skip_access)\n            return Domain(CONDITION.field_expr, CONDITION.operator, subdomain)\n        return CONDITION\n\n    eval_context = self._eval_context()\n    for access in self:\n        if access.active and access.domain:\n            try:\n                domain = safe_eval(access.domain, eval_context)\n                model = self.env[access.model_id.model].sudo()\n                Domain(domain).map_conditions(skip_access).validate(model)\n            except Exception as e:  # noqa: BLE001\n                raise ValidationError(self.env._('Invalid domain %(domain)s: %(error)s', domain=access.domain, error=e))",
+  "occurrencesRenamed": 9,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

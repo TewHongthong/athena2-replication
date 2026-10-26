@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_070",
+  "language": "python",
+  "originalName": "topic",
+  "injectedName": "TOPIC",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TOPIC' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _drop_topic_if_empty(self, TOPIC: ChannelTopic):\n    # Must be called with the dbname's lock held.\n    if (\n        TOPIC._websockets\n        or TOPIC._waiting_room\n        # There might still be waiting sockets in an ongoing claim. Let the worker\n        # drop the topic if necessary when releasing.\n        or TOPIC._state in (DispatchState.IN_FLIGHT, DispatchState.DIRTY)\n    ):\n        return False\n    del self._topic_by_channel[TOPIC._channel]\n    if topics := self._pending_topics_by_db.get(TOPIC._dbname):\n        topics.discard(TOPIC)\n        if not topics:\n            del self._pending_topics_by_db[TOPIC._dbname]\n    return True",
+  "occurrencesRenamed": 8,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

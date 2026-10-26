@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_053",
+  "language": "cpp",
+  "originalName": "integrate_forces",
+  "injectedName": "INTEGRATE_FORCES",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'INTEGRATE_FORCES' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void PhysicsDirectBodyState2D::INTEGRATE_FORCES() {\n\treal_t step = get_step();\n\tVector2 lv = get_linear_velocity();\n\tlv += get_total_gravity() * step;\n\n\treal_t av = get_angular_velocity();\n\n\treal_t damp = 1.0 - step * get_total_linear_damp();\n\n\tif (damp < 0) { // reached zero in the given time\n\t\tdamp = 0;\n\t}\n\n\tlv *= damp;\n\n\tdamp = 1.0 - step * get_total_angular_damp();\n\n\tif (damp < 0) { // reached zero in the given time\n\t\tdamp = 0;\n\t}\n\n\tav *= damp;\n\n\tset_linear_velocity(lv);\n\tset_angular_velocity(av);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

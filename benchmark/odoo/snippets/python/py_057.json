@@ -1,0 +1,30 @@
+{
+  "id": "py_057",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_tw_edi_ecpay_pos/models/pos_order.py lines 75-99 (method PoSOrder._l10n_tw_edi_set_invoice_month); license LGPL-3.0; repo created 2026-07-17T10:29:33+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@api.model\ndef _l10n_tw_edi_set_invoice_month(self, create_date):\n    \"\"\"Calculate the Taiwanese invoice billing period string.\n\n    In Taiwan, electronic uniform invoices are issued based on the\n    Minguo calendar and grouped into bimonthly periods.\n\n    1. Year: The Minguo year is calculated by subtracting 1911 from the\n       Western year (e.g., 2026 - 1911 = 115年(year)).\n    2. Bimonthly Periods: Invoices are declared in fixed 2-month clusters:\n       - Jan/Feb, Mar/Apr, May/Jun, Jul/Aug, Sep/Oct, Nov/Dec.\n       - Even months round backward (e.g., February belongs to 1-2月(month)).\n       - Odd months round forward (e.g., May belongs to 5-6月(month)).\n\n    :param str create_date: UTC timestamp string (\"YYYY-MM-DD HH:MM:SS\")\n    :return str: Formatted period (e.g., \"115年5-6月\")\n    \"\"\"\n    invoice_create_date = datetime.datetime.strptime(create_date, \"%Y-%m-%d %H:%M:%S\")\n    # Define the month range for every two months\n    if invoice_create_date.month % 2 == 0:\n        invoice_month = f\"{invoice_create_date.year - 1911}年{invoice_create_date.month - 1}-{invoice_create_date.month}月\"\n    else:\n        invoice_month = f\"{invoice_create_date.year - 1911}年{invoice_create_date.month}-{invoice_create_date.month + 1}月\"\n\n    return invoice_month",
+  "identifiers": [
+    {
+      "name": "create_date",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-07-17T10:29:33+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_tw_edi_ecpay_pos/models/pos_order.py",
+    "startLine": 75,
+    "endLine": 99,
+    "unit": "method PoSOrder._l10n_tw_edi_set_invoice_month",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_tw_edi_ecpay_pos__models__pos_order.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 3
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_025",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/tools/duplicate.py lines 57-83 (function get_field_variation_date); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def get_field_variation_date(model: Model, field: Field, factor: int, series_alias: str) -> SQL:\n    \"\"\"\n    Distribute the duplication series evenly between [field-total_days, field].\n    We use a hard limit of (MAX_DATETIME - MIN_DATETIME) years in the past to avoid\n    setting duplicated records too far back in the past.\n    \"\"\"\n    total_days = min((MAX_DATETIME - MIN_DATETIME).days, factor)\n    cast_type = field.sql_column_type\n\n    def redistribute(value):\n        return SQL(\n            \"(%(value)s - (%(factor)s - %(series_alias)s) * (%(total_days)s::float/%(factor)s) * interval '1 days')::%(cast_type)s\",\n            value=value,\n            factor=factor,\n            series_alias=SQL.identifier(series_alias),\n            total_days=total_days,\n            cast_type=cast_type,\n        )\n\n    if not field.company_dependent:\n        return redistribute(SQL.identifier(field.name))\n    # company_dependent -> jsonb\n    return SQL(\n        '(SELECT jsonb_object_agg(key, %(expr)s) FROM jsonb_each_text(%(field)s))',\n        expr=redistribute(SQL('value::%s', cast_type)),\n        field=SQL.identifier(field.name),\n    )",
+  "identifiers": [
+    {
+      "name": "field",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/tools/duplicate.py",
+    "startLine": 57,
+    "endLine": 83,
+    "unit": "function get_field_variation_date",
+    "corpusFile": "corpus/python/odoo__odoo__odoo__tools__duplicate.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 0
+}

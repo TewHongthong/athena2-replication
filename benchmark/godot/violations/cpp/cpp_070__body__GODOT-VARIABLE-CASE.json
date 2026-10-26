@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_070",
+  "language": "cpp",
+  "originalName": "body",
+  "injectedName": "BODY",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'BODY' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "TypedArray<RID> PhysicsTestMotionParameters3D::get_exclude_bodies() const {\n\tTypedArray<RID> exclude;\n\texclude.resize(parameters.exclude_bodies.size());\n\n\tint body_index = 0;\n\tfor (const RID &BODY : parameters.exclude_bodies) {\n\t\texclude[body_index++] = BODY;\n\t}\n\n\treturn exclude;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

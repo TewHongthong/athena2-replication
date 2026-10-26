@@ -1,0 +1,30 @@
+{
+  "id": "cpp_081",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/texture_streaming/texture_streaming.h lines 210-215 (method SimpleCommandQueue.reset); license MIT; repo created 2026-08-26T13:28:15-06:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void reset() {\n\tMutexLock lock(mutex);\n\tshould_exit = false;\n\tpending = false;\n\tcommand_mem.clear();\n}",
+  "identifiers": [
+    {
+      "name": "reset",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-26T13:28:15-06:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/texture_streaming/texture_streaming.h",
+    "startLine": 210,
+    "endLine": 215,
+    "unit": "method SimpleCommandQueue.reset",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__texture_streaming__texture_streaming.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 11
+}

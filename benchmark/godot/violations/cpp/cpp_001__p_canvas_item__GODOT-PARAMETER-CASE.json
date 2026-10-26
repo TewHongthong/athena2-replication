@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_001",
+  "language": "cpp",
+  "originalName": "p_canvas_item",
+  "injectedName": "P_CANVAS_ITEM",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_CANVAS_ITEM' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void StreamedTexture2D::draw_rect(RID P_CANVAS_ITEM, const Rect2 &p_rect, bool p_tile, const Color &p_modulate, bool p_transpose) const {\n\tif ((w | h) == 0) {\n\t\treturn;\n\t}\n\tRenderingServer::get_singleton()->canvas_item_add_texture_rect(P_CANVAS_ITEM, p_rect, texture, p_tile, p_modulate, p_transpose);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "csharp_076",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/CallingConvention/SignatureTypeInfoProvider.cs lines 156-171 (method SignatureTypeInfoProvider.FromExactType); license MIT; repo created 2026-08-06T16:09:13-04:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal SignatureTypeInfo FromExactType(ITypeHandle exactType)\n{\n    ReadOnlySpan<ITypeHandle> exactArguments = _rts.GetInstantiation(exactType);\n    ImmutableArray<SignatureTypeInfo>.Builder typeArguments =\n        ImmutableArray.CreateBuilder<SignatureTypeInfo>(exactArguments.Length);\n    for (int i = 0; i < exactArguments.Length; i++)\n    {\n        typeArguments.Add(FromExactType(exactArguments[i]));\n    }\n\n    return new SignatureTypeInfo(\n        _rts.GetSignatureCorElementType(exactType),\n        exactType,\n        genericTypeDefinition: null,\n        typeArguments.MoveToImmutable());\n}",
+  "identifiers": [
+    {
+      "name": "FromExactType",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T16:09:13-04:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/CallingConvention/SignatureTypeInfoProvider.cs",
+    "startLine": 156,
+    "endLine": 171,
+    "unit": "method SignatureTypeInfoProvider.FromExactType",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__CallingConvention__SignatureTypeInfoProvider.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 19
+}

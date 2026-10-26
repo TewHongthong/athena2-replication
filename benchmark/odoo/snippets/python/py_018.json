@@ -1,0 +1,30 @@
+{
+  "id": "py_018",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/hr_holidays/models/resource_calendar_leaves.py lines 104-114 (method ResourceCalendarLeaves._ensure_datetime); license LGPL-3.0; repo created 2026-06-03T05:27:29+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _ensure_datetime(self, datetime_representation, date_format=None):\n    \"\"\"\n        Be sure to get a datetime object if we have the necessary information.\n        :param datetime_reprentation: object which should represent a datetime\n        :rtype: datetime if a correct datetime_represtion, None otherwise\n    \"\"\"\n    if isinstance(datetime_representation, datetime):\n        return datetime_representation\n    if isinstance(datetime_representation, str) and date_format:\n        return datetime.strptime(datetime_representation, date_format)\n    return None",
+  "identifiers": [
+    {
+      "name": "datetime_representation",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-03T05:27:29+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/hr_holidays/models/resource_calendar_leaves.py",
+    "startLine": 104,
+    "endLine": 114,
+    "unit": "method ResourceCalendarLeaves._ensure_datetime",
+    "corpusFile": "corpus/python/odoo__odoo__addons__hr_holidays__models__resource_calendar_leaves.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 5
+}

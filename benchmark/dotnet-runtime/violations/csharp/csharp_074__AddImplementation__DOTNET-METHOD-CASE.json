@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_074",
+  "language": "csharp",
+  "originalName": "AddImplementation",
+  "injectedName": "add_implementation",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'add_implementation' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static void add_implementation(\n    INamedTypeSymbol implementationType,\n    ISymbol interfaceMember,\n    HashSet<ISymbol> entries)\n{\n    if (interfaceMember is IPropertySymbol property)\n    {\n        if (property.GetMethod is not null)\n            add_implementation(implementationType, property.GetMethod, entries);\n        if (property.SetMethod is not null)\n            add_implementation(implementationType, property.SetMethod, entries);\n    }\n    else if (implementationType.FindImplementationForInterfaceMember(interfaceMember)\n                 is IMethodSymbol implementation &&\n             SymbolEqualityComparer.Default.Equals(\n                 implementation.ContainingAssembly,\n                 implementationType.ContainingAssembly))\n    {\n        IMethodSymbol entryPoint =\n            GenericDispatch.FindVirtualImplementation(\n                implementationType,\n                implementation) ?? implementation;\n        entries.Add(entryPoint.OriginalDefinition);\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

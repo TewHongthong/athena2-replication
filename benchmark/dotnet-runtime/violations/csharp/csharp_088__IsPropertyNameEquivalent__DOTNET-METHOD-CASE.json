@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_088",
+  "language": "csharp",
+  "originalName": "IsPropertyNameEquivalent",
+  "injectedName": "is_property_name_equivalent",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'is_property_name_equivalent' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public bool is_property_name_equivalent(PocoPropertyClassifierInfo other)\n{\n    Debug.Assert(IsCaseSensitive == other.IsCaseSensitive);\n\n    return string.Equals(\n        Name,\n        other.Name,\n        IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

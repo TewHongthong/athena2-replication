@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_064",
+  "language": "cpp",
+  "originalName": "pool",
+  "injectedName": "POOL",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'POOL' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "MetalHeapAllocator::~MetalHeapAllocator() {\n\tfor (uint32_t p = 0; p < POOL_COUNT; p++) {\n\t\tPool &POOL = pools[p];\n\t\tfor (Block &block : POOL.blocks) {\n\t\t\tif (block.metadata != nullptr) {\n\t\t\t\tmemdelete(block.metadata);\n\t\t\t}\n\t\t}\n\t\tfor (MTL::Heap *heap : POOL.dedicated_heaps) {\n\t\t\theap->release();\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

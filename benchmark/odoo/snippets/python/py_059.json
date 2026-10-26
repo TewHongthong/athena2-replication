@@ -1,0 +1,30 @@
+{
+  "id": "py_059",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_eg_edi_eta/lib/eta_client.py lines 48-55 (method ETAClient.cancel_invoice); license LGPL-3.0; repo created 2026-09-16T10:17:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def cancel_invoice(self, uuid, body, headers):\n    return self._request(\n        self.api_domain,\n        f'/api/v1.0/documents/state/{uuid}/state',\n        'PUT',\n        body=body,\n        headers=headers,\n    )",
+  "identifiers": [
+    {
+      "name": "body",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-16T10:17:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_eg_edi_eta/lib/eta_client.py",
+    "startLine": 48,
+    "endLine": 55,
+    "unit": "method ETAClient.cancel_invoice",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_eg_edi_eta__lib__eta_client.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 5
+}

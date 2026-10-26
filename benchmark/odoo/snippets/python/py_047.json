@@ -1,0 +1,30 @@
+{
+  "id": "py_047",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_es_website_sale/controllers/main.py lines 8-14 (method WebsiteSaleL10nEsEcommerce.portal_address_country_info); license LGPL-3.0; repo created 2026-09-11T16:27:31+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@route()\ndef portal_address_country_info(self, country, address_type, **kw):\n    # The country-change refresh route doesn't forward the cart, which the\n    # simplified-invoice VAT relaxation needs to read the order total.\n    # Inject it here so the model stays free of any `request` dependency.\n    kw.setdefault('order_sudo', request.cart)\n    return super().portal_address_country_info(country, address_type, **kw)",
+  "identifiers": [
+    {
+      "name": "address_type",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-11T16:27:31+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_es_website_sale/controllers/main.py",
+    "startLine": 8,
+    "endLine": 14,
+    "unit": "method WebsiteSaleL10nEsEcommerce.portal_address_country_info",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_es_website_sale__controllers__main.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

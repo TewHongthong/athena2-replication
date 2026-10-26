@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_048",
+  "language": "csharp",
+  "originalName": "DiyFp128ExpM1",
+  "injectedName": "diy_fp128_exp_m1",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'diy_fp128_exp_m1' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static DiyFp128 diy_fp128_exp_m1(scoped in DiyFp128 argument, ulong reciprocalHigh, ulong ln2High, int reduceConstantExponent, scoped in DiyFp128 ln2Low, ReadOnlySpan<DiyFp128FixedCoefficient> coefficients, int degree, int trailingExponent)\n{\n    int scale = DiyFp128ExpReduce(argument, out DiyFp128 reduced, reciprocalHigh, ln2High, reduceConstantExponent, ln2Low);\n    DiyFp128 result;\n\n    if (scale == 0)\n    {\n        // |reduced| <= ln2/2: use the low degree-1 terms of the polynomial, post-multiplied by the\n        // reduced argument. This leaves the exponent low by the table's trailing exponent.\n        DiyFp128Normalize(ref reduced);\n        long shift = -(long)(degree - 1) * reduced._exponent;\n\n        if (reduced._sign != 0)\n        {\n            DiyFp128EvaluateNegativePolynomial(reduced, shift, coefficients, 0, degree - 1, out result);\n        }\n        else\n        {\n            DiyFp128EvaluatePositivePolynomial(reduced, shift, coefficients, 0, degree - 1, out result);\n        }\n\n        DiyFp128 reducedLocal = reduced;\n        DiyFp128Multiply(ref reducedLocal, ref result, out result);\n        result._exponent += trailingExponent;\n    }\n    else\n    {\n        DiyFp128EvaluateExpPolynomial(reduced, coefficients, degree, trailingExponent, out result);\n        result._exponent += scale;\n\n        DiyFp128 single = default;\n        DiyFp128AddSub(result, DiyFp128One, UxSub | UxNoNormalization | UxMagnitudeOnly, new Span<DiyFp128>(ref single));\n        result = single;\n    }\n\n    return result;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_010",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/upgrade_code/19.4-00-ormcache-on-transaction.py lines 10-18 (function upgrade); license LGPL-3.0; repo created 2026-06-06T00:14:50+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def upgrade(file_manager: FileManager):\n    clear_cache_re = re.compile(r\"\\bregistry\\.clear_cache\")\n\n    for file in file_manager:\n        if file.path.suffix != '.py':\n            continue\n        content = file.content\n        content = clear_cache_re.sub(r'transaction.invalidate_ormcache', content)\n        file.content = content",
+  "identifiers": [
+    {
+      "name": "file_manager",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-06T00:14:50+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/upgrade_code/19.4-00-ormcache-on-transaction.py",
+    "startLine": 10,
+    "endLine": 18,
+    "unit": "function upgrade",
+    "corpusFile": "corpus/python/odoo__odoo__odoo__upgrade_code__19.4-00-ormcache-on-transaction.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 0
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_043",
+  "language": "cpp",
+  "originalName": "get_node",
+  "injectedName": "GET_NODE",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GET_NODE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Ref<VisualShaderNode> ShaderGraph::GET_NODE(int p_id) const {\n\tif (!nodes.has(p_id)) {\n\t\treturn Ref<VisualShaderNode>();\n\t}\n\tERR_FAIL_COND_V(!nodes.has(p_id), Ref<VisualShaderNode>());\n\treturn nodes[p_id].node;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

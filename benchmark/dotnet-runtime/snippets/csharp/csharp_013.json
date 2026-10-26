@@ -1,0 +1,30 @@
+{
+  "id": "csharp_013",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ByRefPointerOffsetsReporter.cs lines 42-66 (method ByRefPointerOffsetsReporter.FindCore); license MIT; repo created 2026-09-29T13:27:49-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private IEnumerable<ulong> FindCore(\n    TargetPointer fieldDesc,\n    ulong baseOffset,\n    int depth,\n    bool isInlineArrayElement = false)\n{\n    CorElementType fieldType = _rts.GetFieldDescType(fieldDesc);\n    uint fieldOffset = isInlineArrayElement\n        ? 0\n        : _rts.GetFieldDescOffset(fieldDesc, fieldDef: null);\n\n    if (fieldType == CorElementType.ValueType)\n    {\n        ITypeHandle? fieldTypeHandle = _rts.GetFieldDescApproxTypeHandle(fieldDesc);\n        if (fieldTypeHandle is not null && _rts.IsByRefLike(fieldTypeHandle))\n        {\n            foreach (ulong slot in FindCore(fieldTypeHandle, baseOffset + fieldOffset, depth + 1))\n                yield return slot;\n        }\n    }\n    else if (fieldType == CorElementType.Byref)\n    {\n        yield return baseOffset + fieldOffset;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "FindCore",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-29T13:27:49-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ByRefPointerOffsetsReporter.cs",
+    "startLine": 42,
+    "endLine": 66,
+    "unit": "method ByRefPointerOffsetsReporter.FindCore",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__ByRefPointerOffsetsReporter.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 3
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_008",
+  "language": "csharp",
+  "originalName": "TryComputeLength",
+  "injectedName": "try_compute_length",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_compute_length' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "protected internal override bool try_compute_length(out long length)\n{\n    // Compressed size is not known without actually compressing.\n    length = 0;\n    return false;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_047",
+  "language": "csharp",
+  "originalName": "TryResolveTypedefAsType",
+  "injectedName": "try_resolve_typedef_as_type",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_resolve_typedef_as_type' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private EntityRegistry.TypeEntity? try_resolve_typedef_as_type(string alias)\n{\n    if (_typedefs.TryGetValue(alias, out TypedefEntry? entry) &&\n        entry is TypedefEntry.Type type)\n    {\n        return type.Entity;\n    }\n\n    return null;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

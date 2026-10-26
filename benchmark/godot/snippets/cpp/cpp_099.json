@@ -1,0 +1,30 @@
+{
+  "id": "cpp_099",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "core/variant/type_info.cpp lines 35-42 (function enum_qualified_name_to_class_info_name); license MIT; repo created 2026-09-29T21:36:14+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "String enum_qualified_name_to_class_info_name(const char *p_qualified_name) {\n\tVector<String> parts = String(p_qualified_name).split(\"::\", false);\n\tif (parts.size() <= 2) {\n\t\treturn String(\".\").join(parts);\n\t}\n\t// Contains namespace. We only want the class and enum names.\n\treturn parts[parts.size() - 2] + \".\" + parts[parts.size() - 1];\n}",
+  "identifiers": [
+    {
+      "name": "enum_qualified_name_to_class_info_name",
+      "kind": "function",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-29T21:36:14+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "core/variant/type_info.cpp",
+    "startLine": 35,
+    "endLine": 42,
+    "unit": "function enum_qualified_name_to_class_info_name",
+    "corpusFile": "corpus/cpp/godotengine__godot__core__variant__type_info.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 0
+}

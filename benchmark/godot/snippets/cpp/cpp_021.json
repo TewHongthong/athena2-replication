@@ -1,0 +1,30 @@
+{
+  "id": "cpp_021",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/physics_3d/queries/physics_ray_query_parameters_3d.cpp lines 36-41 (method PhysicsRayQueryParameters3D::set_exclude); license MIT; repo created 2026-07-06T10:32:58+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void PhysicsRayQueryParameters3D::set_exclude(const TypedArray<RID> &p_exclude) {\n\tparameters.exclude.clear();\n\tfor (int i = 0; i < p_exclude.size(); i++) {\n\t\tparameters.exclude.insert(p_exclude[i]);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "set_exclude",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-06T10:32:58+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/physics_3d/queries/physics_ray_query_parameters_3d.cpp",
+    "startLine": 36,
+    "endLine": 41,
+    "unit": "method PhysicsRayQueryParameters3D::set_exclude",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__physics_3d__queries__physics_ray_query_parameters_3d.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 0
+}

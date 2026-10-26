@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_029",
+  "language": "csharp",
+  "originalName": "GetTypeFromReference",
+  "injectedName": "get_type_from_reference",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_type_from_reference' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public AttributeType get_type_from_reference(MetadataReader reader, TypeReferenceHandle handle, byte rawTypeKind)\n{\n    return IsDebuggingModesType(reader, handle)\n        ? AttributeType.DebuggingModes\n        : AttributeType.Other;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

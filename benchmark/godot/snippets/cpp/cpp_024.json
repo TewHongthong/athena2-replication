@@ -1,0 +1,30 @@
+{
+  "id": "cpp_024",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/jolt_physics/shapes/jolt_custom_instance_overrides_shape.cpp lines 45-56 (function collide_instance_overrides_vs_shape); license MIT; repo created 2026-10-02T01:41:06+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void collide_instance_overrides_vs_shape(const JPH::Shape *p_shape1, const JPH::Shape *p_shape2, JPH::Vec3Arg p_scale1, JPH::Vec3Arg p_scale2, JPH::Mat44Arg p_center_of_mass_transform1, JPH::Mat44Arg p_center_of_mass_transform2, const JPH::SubShapeIDCreator &p_sub_shape_id_creator1, const JPH::SubShapeIDCreator &p_sub_shape_id_creator2, const JPH::CollideShapeSettings &p_collide_shape_settings, JPH::CollideShapeCollector &p_collector, const JPH::ShapeFilter &p_shape_filter) {\n\tERR_FAIL_COND(p_shape1->GetSubType() != JoltCustomShapeSubType::INSTANCE_OVERRIDES);\n\n\tconst JoltCustomInstanceOverridesShape *shape1 = static_cast<const JoltCustomInstanceOverridesShape *>(p_shape1);\n\n\tJPH::CollideShapeSettings new_collide_shape_settings = p_collide_shape_settings;\n\tif (shape1->object_has_back_face_collision() || shape1->shape_has_back_face_collision()) {\n\t\tnew_collide_shape_settings.mBackFaceMode = JPH::EBackFaceMode::CollideWithBackFaces;\n\t}\n\n\tJPH::CollisionDispatch::sCollideShapeVsShape(shape1->GetInnerShape(), p_shape2, p_scale1, p_scale2, p_center_of_mass_transform1, p_center_of_mass_transform2, p_sub_shape_id_creator1, p_sub_shape_id_creator2, new_collide_shape_settings, p_collector, p_shape_filter);\n}",
+  "identifiers": [
+    {
+      "name": "p_sub_shape_id_creator2",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-02T01:41:06+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/jolt_physics/shapes/jolt_custom_instance_overrides_shape.cpp",
+    "startLine": 45,
+    "endLine": 56,
+    "unit": "function collide_instance_overrides_vs_shape",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__jolt_physics__shapes__jolt_custom_instance_overrides_shape.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 1
+}

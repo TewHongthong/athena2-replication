@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_015",
+  "language": "cpp",
+  "originalName": "on_servers_changed",
+  "injectedName": "ON_SERVERS_CHANGED",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ON_SERVERS_CHANGED' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void NavigationServer3DManager::ON_SERVERS_CHANGED() {\n\tString navigation_servers_enum_str(\"DEFAULT\");\n\tfor (int i = get_servers_count() - 1; 0 <= i; --i) {\n\t\tnavigation_servers_enum_str += \",\" + get_server_name(i);\n\t}\n\tProjectSettings::get_singleton()->set_custom_property_info(PropertyInfo(Variant::STRING, setting_property_name, PROPERTY_HINT_ENUM, navigation_servers_enum_str));\n\tProjectSettings::get_singleton()->set_restart_if_changed(setting_property_name, true);\n\tProjectSettings::get_singleton()->set_as_basic(setting_property_name, true);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

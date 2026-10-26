@@ -1,0 +1,30 @@
+{
+  "id": "cpp_047",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tiles_editor_plugin.cpp lines 287-296 (method TilesEditorUtils::draw_selection_rect); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TilesEditorUtils::draw_selection_rect(CanvasItem *p_ci, const Rect2 &p_rect, const Color &p_color) {\n\tRef<Texture2D> selection_texture = EditorNode::get_singleton()->get_editor_theme()->get_icon(SNAME(\"TileSelection\"), EditorStringName(EditorIcons));\n\n\treal_t scale = p_ci->get_global_transform().get_scale().x * 0.5;\n\tp_ci->draw_set_transform(p_rect.position, 0, Vector2(1, 1) / scale);\n\tRS::get_singleton()->canvas_item_add_nine_patch(\n\t\t\tp_ci->get_canvas_item(), Rect2(Vector2(), p_rect.size * scale), Rect2(), selection_texture->get_rid(),\n\t\t\tVector2(2, 2), Vector2(2, 2), RSE::NINE_PATCH_STRETCH, RSE::NINE_PATCH_STRETCH, false, p_color);\n\tp_ci->draw_set_transform_matrix(Transform2D());\n}",
+  "identifiers": [
+    {
+      "name": "draw_selection_rect",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tiles_editor_plugin.cpp",
+    "startLine": 287,
+    "endLine": 296,
+    "unit": "method TilesEditorUtils::draw_selection_rect",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tiles_editor_plugin.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 13
+}

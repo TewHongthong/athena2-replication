@@ -1,0 +1,13 @@
+{
+  "snippetId": "gscs_java_004",
+  "language": "java",
+  "standardId": "GSCS",
+  "identifierKind": "procedure",
+  "name": "Deposit_Money",
+  "codeBare": "class account_Type {\n    private double d_balance = 0.0;\n    void Deposit_Money(double d_amount) {\n        final double MIN_DEPOSIT = 1.0;\n        boolean bln_Is_Valid = d_amount >= MIN_DEPOSIT;\n        // check that the amount is large enough to deposit\n        if (bln_Is_Valid) {\n            d_balance = d_balance + d_amount;\n        }\n        // else the amount is too small, keep the balance\n        else {\n            d_balance = d_balance + 0.0;\n        }\n    }\n}",
+  "referenceComment": "    /* Function Objective: Add money to an account\n       Input parameters : d_amount (double) money to add\n       Function description: Add the amount to the balance only when it reaches the minimum deposit\n       Return Value : void\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */",
+  "split": "test",
+  "ruleIds": [
+    "GSCS-DOC-FUNC-HEADER"
+  ]
+}

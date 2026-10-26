@@ -1,0 +1,30 @@
+{
+  "id": "py_012",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/generators/reference.py lines 16-24 (method ReferenceOne.__init__); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __init__(self, target: Many2oneReference, **kwargs):\n    \"\"\"Initialize a generator tied to the field that stores the target model.\n\n    :param target: Many2oneReference field receiving generated record ids.\n    \"\"\"\n    # Validate field's type before reading `model_field`\n    self._validate_target_type(target)\n    super().__init__(target=target, depends=[target.model_field], **kwargs)\n    self.target = cast('Many2oneReference', self.target)",
+  "identifiers": [
+    {
+      "name": "kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/generators/reference.py",
+    "startLine": 16,
+    "endLine": 24,
+    "unit": "method ReferenceOne.__init__",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__generators__reference.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

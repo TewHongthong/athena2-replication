@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_087",
+  "language": "python",
+  "originalName": "docids",
+  "injectedName": "DOCIDS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DOCIDS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def report_action(self, DOCIDS=None, data=None, config=True):\n    res = super().report_action(DOCIDS, data, config)\n    if not len(self.printer_ids.exists()):\n        return res\n\n    res[\"context\"] = {\n        **dict(res.get(\"context\", {})),\n        \"report_id\": self.id,\n        \"jobs\": self.get_print_jobs(self.report_name, DOCIDS, data),\n    }\n    return res",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

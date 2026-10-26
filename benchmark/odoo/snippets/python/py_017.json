@@ -1,0 +1,30 @@
+{
+  "id": "py_017",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/hr_holidays/models/resource_calendar_leaves.py lines 123-129 (method ResourceCalendarLeaves.write); license LGPL-3.0; repo created 2026-06-03T05:27:29+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def write(self, vals):\n    time_domain_dict = self._get_time_domain_dict()\n    res = super().write(vals)\n    time_domain_dict.extend(self._get_time_domain_dict())\n    self._reevaluate_leaves(time_domain_dict)\n\n    return res",
+  "identifiers": [
+    {
+      "name": "vals",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-03T05:27:29+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/hr_holidays/models/resource_calendar_leaves.py",
+    "startLine": 123,
+    "endLine": 129,
+    "unit": "method ResourceCalendarLeaves.write",
+    "corpusFile": "corpus/python/odoo__odoo__addons__hr_holidays__models__resource_calendar_leaves.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 7
+}

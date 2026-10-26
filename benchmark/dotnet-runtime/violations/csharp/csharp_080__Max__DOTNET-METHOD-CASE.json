@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_080",
+  "language": "csharp",
+  "originalName": "Max",
+  "injectedName": "max",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'max' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static T? max<T>(this ReadOnlySpan<T> span, IComparer<T>? comparer)\n{\n    if (comparer is null || comparer == Comparer<T>.Default)\n    {\n        return max(span);\n    }\n\n    return MinMax<T, MaxDirection>(span, comparer);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

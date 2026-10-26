@@ -1,0 +1,30 @@
+{
+  "id": "cpp_027",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "platform/web/remote_debugger_peer_messageport.cpp lines 121-130 (method RemoteDebuggerPeerMessagePort::create); license MIT; repo created 2026-09-17T08:12:04+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Ref<RemoteDebuggerPeer> RemoteDebuggerPeerMessagePort::create(const String &p_uri) {\n\tERR_FAIL_COND_V(!p_uri.begins_with(\"messageport://\"), nullptr);\n\tRef<RemoteDebuggerPeerMessagePort> peer;\n\tpeer.instantiate();\n\tError err = peer->connect_to_host(p_uri);\n\tif (err != OK) {\n\t\treturn nullptr;\n\t}\n\treturn peer;\n}",
+  "identifiers": [
+    {
+      "name": "peer",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-17T08:12:04+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "platform/web/remote_debugger_peer_messageport.cpp",
+    "startLine": 121,
+    "endLine": 130,
+    "unit": "method RemoteDebuggerPeerMessagePort::create",
+    "corpusFile": "corpus/cpp/godotengine__godot__platform__web__remote_debugger_peer_messageport.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 12
+}

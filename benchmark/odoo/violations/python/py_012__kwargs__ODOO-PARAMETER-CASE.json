@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_012",
+  "language": "python",
+  "originalName": "kwargs",
+  "injectedName": "KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def __init__(self, target: Many2oneReference, **KWARGS):\n    \"\"\"Initialize a generator tied to the field that stores the target model.\n\n    :param target: Many2oneReference field receiving generated record ids.\n    \"\"\"\n    # Validate field's type before reading `model_field`\n    self._validate_target_type(target)\n    super().__init__(target=target, depends=[target.model_field], **KWARGS)\n    self.target = cast('Many2oneReference', self.target)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

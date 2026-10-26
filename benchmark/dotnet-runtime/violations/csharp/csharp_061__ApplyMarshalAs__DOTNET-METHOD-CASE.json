@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_061",
+  "language": "csharp",
+  "originalName": "ApplyMarshalAs",
+  "injectedName": "apply_marshal_as",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'apply_marshal_as' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static bool apply_marshal_as(\n    LoweringContext context,\n    CustomAttributeValue<SerializationTypeCode> arguments)\n{\n    var descriptor = new BlobBuilder();\n    if (!TryBuildMarshallingDescriptor(context, arguments, descriptor))\n    {\n        return false;\n    }\n\n    switch (context.Owner)\n    {\n        case EntityRegistry.FieldDefinitionEntity field:\n            field.MarshallingDescriptor = descriptor;\n            return true;\n\n        case EntityRegistry.ParameterEntity parameter:\n            parameter.MarshallingDescriptor = descriptor;\n            return true;\n\n        case EntityRegistry.PropertyEntity property:\n            ApplyMarshalAsToProperty(context.Registry, property, descriptor);\n            return true;\n\n        default:\n            return context.InvalidTarget();\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

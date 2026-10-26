@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_062",
+  "language": "python",
+  "originalName": "args",
+  "injectedName": "ARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class PaymentPortal(payment_portal.PaymentPortal):\n\n    def _create_transaction(self, *ARGS, **kwargs):\n        tx = super()._create_transaction(*ARGS, **kwargs)\n        for order in tx.sale_order_ids:\n            if (\n                tx.provider_id.custom_mode in tx.provider_id._get_pay_on_delivery_provider_codes() and\n                order.coupon_point_ids.filtered(lambda pe: pe.coupon_id.program_id.program_type in ['gift_card', 'ewallet']).coupon_id\n            ):\n                raise ValidationError(\n                    _(\"Cannot process payment: Gift cards and eWallets are not compatible with on site payment\")\n                )\n        return tx",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

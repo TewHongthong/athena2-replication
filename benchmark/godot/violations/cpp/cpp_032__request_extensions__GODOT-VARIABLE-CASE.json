@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_032",
+  "language": "cpp",
+  "originalName": "request_extensions",
+  "injectedName": "REQUEST_EXTENSIONS",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'REQUEST_EXTENSIONS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "HashMap<String, bool *> OpenXRSpatialContainerExtension::get_requested_extensions(XrVersion p_version) {\n\tHashMap<String, bool *> REQUEST_EXTENSIONS;\n\n\tREQUEST_EXTENSIONS[XR_EXT_SPATIAL_CONTAINER_EXTENSION_NAME] = &spatial_container_ext;\n\n\treturn REQUEST_EXTENSIONS;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

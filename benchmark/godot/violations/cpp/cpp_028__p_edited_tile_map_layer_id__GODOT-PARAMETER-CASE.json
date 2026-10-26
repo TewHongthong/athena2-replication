@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_028",
+  "language": "cpp",
+  "originalName": "p_edited_tile_map_layer_id",
+  "injectedName": "P_EDITED_TILE_MAP_LAYER_ID",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_EDITED_TILE_MAP_LAYER_ID' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileMapLayerEditorTerrainsPlugin::edit(ObjectID P_EDITED_TILE_MAP_LAYER_ID) {\n\t_stop_dragging(); // Avoids staying in a wrong drag state.\n\n\tif (edited_tile_map_layer_id != P_EDITED_TILE_MAP_LAYER_ID) {\n\t\tedited_tile_map_layer_id = P_EDITED_TILE_MAP_LAYER_ID;\n\n\t\t// Clear the selection.\n\t\t_update_terrains_cache();\n\t\t_update_terrains_tree();\n\t\t_update_tiles_list();\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

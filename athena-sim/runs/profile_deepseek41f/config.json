@@ -1,0 +1,111 @@
+{
+  "run_id": "profile_deepseek41f",
+  "harness_version": "0.1.0",
+  "status": "complete",
+  "started": "2026-10-17T15:25:29+00:00",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "args": {
+    "cmd": "run",
+    "pack": "gscs",
+    "corpus": null,
+    "task": "rename",
+    "conditions": "none",
+    "embed_pin": null,
+    "languages": null,
+    "per_language": 4,
+    "limit": 0,
+    "seed": 42,
+    "split": "dev",
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "no_oracle": false,
+    "backend": "openai:deepseek/deepseek-v4.1-flash",
+    "model_pin": "deepseek41f",
+    "pins": null,
+    "repeats": 1,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "omit_temperature": true,
+    "no_think": false,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "deepseek"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true,
+        "data_collection": "allow"
+      }
+    },
+    "frozen": null,
+    "allow_rerun": false,
+    "timeout": 300.0,
+    "retries": 2,
+    "workers": 4,
+    "max_errors": 4,
+    "price_in": 0.3,
+    "price_out": 1.2,
+    "no_store_prompt": false,
+    "run_id": "profile_deepseek41f",
+    "out": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/athena-sim/runs",
+    "progress": 10,
+    "model_pin_sha256": "c74cfae07cb4383bf53d936acaef667810b958d0185daad927de0473c2672b04"
+  },
+  "backend": {
+    "spec": "openai:deepseek/deepseek-v4.1-flash",
+    "is_llm": true,
+    "model": "deepseek/deepseek-v4.1-flash",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "deepseek"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true,
+        "data_collection": "allow"
+      }
+    }
+  },
+  "pack": {
+    "pack": "gscs",
+    "ontology": "gscs_ontology.json",
+    "ontology_sha256": "99b5ba83efb7b5254bd33069fe172ea45e0a8a036f5b62f4fe62c9bfc7e234a4",
+    "source_sha256": "6c77e8f8365df031a9e4142ed9f5f20a57127b92aa0e83352ad962d514d32281",
+    "units_sha256": "ab3b7fe233c2f51f20fd8aa8ae4878db0a72d9f607aaafe7349b1b4e63dd160e"
+  },
+  "conditions": [
+    "none"
+  ],
+  "embedding": null,
+  "split": "dev",
+  "frozen": null,
+  "oracle_free": null,
+  "n_units": 12,
+  "unit_ids": [
+    "gscs_cpp_006__bln_Has_Passed__camel_no_prefix",
+    "gscs_cpp_006__PASS_POINT__lower_camel",
+    "gscs_cpp_003__i_Count_Passed__strip_prefix",
+    "gscs_cpp_003__i_score_list__strip_prefix",
+    "gscs_java_003__score_Type__glued_suffix",
+    "gscs_java_006__VOWEL_LIST__lower_camel",
+    "gscs_java_003__i_Count_Passed__strip_prefix",
+    "gscs_java_003__i_pass_score__strip_prefix",
+    "gscs_python_003__bln_Is_Done__strip_prefix",
+    "gscs_python_003__f_Get_Average__camel_no_prefix",
+    "gscs_python_003__i_total_score__camel_no_prefix",
+    "gscs_python_006__i_index__strip_prefix"
+  ],
+  "finished": "2026-10-17T15:27:01+00:00",
+  "trials_ok": 12,
+  "trials_error": 0
+}

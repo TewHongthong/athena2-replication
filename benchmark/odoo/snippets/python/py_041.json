@@ -1,0 +1,30 @@
+{
+  "id": "py_041",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/mrp_account/report/mrp_report_bom_structure.py lines 24-38 (method ReportMrpReport_Bom_Structure._get_bom_array_lines); license LGPL-3.0; repo created 2026-09-14T20:56:37+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _get_bom_array_lines(self, data, level, unfolded_ids, unfolded, parent_unfolded=True):\n    res = super()._get_bom_array_lines(data, level, unfolded_ids, unfolded, parent_unfolded)\n    if data['bom_type'] == 'normal' and data['bom_extra_cost'] > 0:\n        res.append({\n            'bom_cost': data['bom_extra_cost'] * data['quantity'],\n            'forecast_mode': False,\n            'level': data['level'],\n            'name': 'Extra Cost',\n            'producible_qty': False,\n            'quantity': data['quantity'],\n            'type': 'bom',\n            'uom': data['uom_name'],\n            'visible': True,\n        })\n    return res",
+  "identifiers": [
+    {
+      "name": "data",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-14T20:56:37+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/mrp_account/report/mrp_report_bom_structure.py",
+    "startLine": 24,
+    "endLine": 38,
+    "unit": "method ReportMrpReport_Bom_Structure._get_bom_array_lines",
+    "corpusFile": "corpus/python/odoo__odoo__addons__mrp_account__report__mrp_report_bom_structure.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 3
+}

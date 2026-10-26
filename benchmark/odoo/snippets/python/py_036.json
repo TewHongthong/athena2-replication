@@ -1,0 +1,30 @@
+{
+  "id": "py_036",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/logging.py lines 109-115 (class Formatter); license LGPL-3.0; repo created 2026-06-23T15:37:27+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class Formatter(logging.Formatter):\n    default_format = '%(asctime)s %(process)s %(levelname)s %(dbname)s %(name)s: %(message)s'\n\n    def __init__(self, fmt=None, **kwargs):\n        if fmt is None:\n            fmt = self.default_format\n        super().__init__(fmt=fmt, **kwargs)",
+  "identifiers": [
+    {
+      "name": "kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-23T15:37:27+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/logging.py",
+    "startLine": 109,
+    "endLine": 115,
+    "unit": "class Formatter",
+    "corpusFile": "corpus/python/odoo__odoo__odoo__logging.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 6
+}

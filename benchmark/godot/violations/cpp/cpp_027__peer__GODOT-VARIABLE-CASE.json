@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_027",
+  "language": "cpp",
+  "originalName": "peer",
+  "injectedName": "PEER",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'PEER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Ref<RemoteDebuggerPeer> RemoteDebuggerPeerMessagePort::create(const String &p_uri) {\n\tERR_FAIL_COND_V(!p_uri.begins_with(\"messageport://\"), nullptr);\n\tRef<RemoteDebuggerPeerMessagePort> PEER;\n\tPEER.instantiate();\n\tError err = PEER->connect_to_host(p_uri);\n\tif (err != OK) {\n\t\treturn nullptr;\n\t}\n\treturn PEER;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

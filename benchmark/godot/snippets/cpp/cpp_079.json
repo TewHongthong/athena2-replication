@@ -1,0 +1,30 @@
+{
+  "id": "cpp_079",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/jolt_physics/shapes/jolt_custom_instance_overrides_shape.h lines 59-66 (method JoltCustomInstanceOverridesShape.JoltCustomInstanceOverridesShape); license MIT; repo created 2026-10-02T01:41:06+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "JoltCustomInstanceOverridesShape(const JoltCustomInstanceOverridesShapeSettings &p_settings, JPH::Shape::ShapeResult &p_result) :\n\t\tJPH::DecoratedShape(JoltCustomShapeSubType::INSTANCE_OVERRIDES, p_settings, p_result),\n\t\tobject_back_face_collision(p_settings.object_back_face_collision),\n\t\tshape_back_face_collision(p_settings.shape_back_face_collision) {\n\tif (!p_result.HasError()) {\n\t\tp_result.Set(this);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_settings",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-02T01:41:06+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/jolt_physics/shapes/jolt_custom_instance_overrides_shape.h",
+    "startLine": 59,
+    "endLine": 66,
+    "unit": "method JoltCustomInstanceOverridesShape.JoltCustomInstanceOverridesShape",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__jolt_physics__shapes__jolt_custom_instance_overrides_shape.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 1
+}

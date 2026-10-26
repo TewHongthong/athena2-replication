@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_035",
+  "language": "cpp",
+  "originalName": "p_enabled",
+  "injectedName": "P_ENABLED",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_ENABLED' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileMapLayer::set_navigation_enabled(bool P_ENABLED) {\n\tif (navigation_enabled == P_ENABLED) {\n\t\treturn;\n\t}\n\tnavigation_enabled = P_ENABLED;\n\tdirty.flags[DIRTY_FLAGS_LAYER_NAVIGATION_ENABLED] = true;\n\t_queue_internal_update();\n\temit_signal(CoreStringName(changed));\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

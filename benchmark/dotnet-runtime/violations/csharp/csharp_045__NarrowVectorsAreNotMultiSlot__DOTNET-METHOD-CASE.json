@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_045",
+  "language": "csharp",
+  "originalName": "NarrowVectorsAreNotMultiSlot",
+  "injectedName": "narrow_vectors_are_not_multi_slot",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'narrow_vectors_are_not_multi_slot' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "[Theory]\n[InlineData(Vector64OfT, 8, \"vllp\")]\n[InlineData(Vector128OfT, 16, \"vlVp\")]\npublic void narrow_vectors_are_not_multi_slot(string vectorType, int expectedSize, string expectedSignature)\n{\n    ReadyToRunCompilerContext context = CreateWasmContext();\n    DefType vector = InstantiateVector(context, vectorType, WellKnownType.Int32);\n\n    Assert.Equal(expectedSize, vector.InstanceFieldSize.AsInt);\n    Assert.False(WasmLowering.TryGetMultiSegmentLayout(vector, out _, out _));\n\n    MethodSignature signature = MakeStaticVoidSignature(\n        context, context.GetWellKnownType(WellKnownType.Int64), vector);\n\n    Assert.Equal(expectedSignature, WasmLowering.GetSignature(signature, WasmLowering.LoweringFlags.None).SignatureString);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

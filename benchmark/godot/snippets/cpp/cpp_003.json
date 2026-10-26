@@ -1,0 +1,30 @@
+{
+  "id": "cpp_003",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/visual_shader/visual_shader_group.cpp lines 895-900 (method VisualShaderNodeGroup::get_output_port_type); license MIT; repo created 2026-08-25T02:46:01+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "VisualShaderNode::PortType VisualShaderNodeGroup::get_output_port_type(int p_port) const {\n\tif (group.is_null() || p_port < 0 || p_port >= group->get_output_port_count()) {\n\t\treturn PortType();\n\t}\n\treturn group->get_output_port_type(p_port);\n}",
+  "identifiers": [
+    {
+      "name": "p_port",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-25T02:46:01+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/visual_shader/visual_shader_group.cpp",
+    "startLine": 895,
+    "endLine": 900,
+    "unit": "method VisualShaderNodeGroup::get_output_port_type",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__visual_shader__visual_shader_group.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 66
+}

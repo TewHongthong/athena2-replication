@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_046",
+  "language": "cpp",
+  "originalName": "p_other",
+  "injectedName": "P_OTHER",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_OTHER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "bool operator<(const TerrainConstraint &P_OTHER) const {\n\tif (base_cell_coords == P_OTHER.base_cell_coords) {\n\t\treturn bit < P_OTHER.bit;\n\t}\n\treturn base_cell_coords < P_OTHER.base_cell_coords;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

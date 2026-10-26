@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_049",
+  "language": "python",
+  "originalName": "calendar",
+  "injectedName": "CALENDAR",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CALENDAR' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@api.model\ndef _odoo_values(self, google_event: GoogleEvent, CALENDAR, default_reminders=()):\n    \"\"\"Implements this method to return a dict of Odoo values corresponding\n    to the Google event given as parameter\n    :return: dict of Odoo formatted values\n    \"\"\"\n    raise NotImplementedError()",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

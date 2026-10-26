@@ -1,0 +1,30 @@
+{
+  "id": "py_052",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/account_edi_ubl_cii/models/account_edi_ubl_pint.py lines 255-281 (method AccountEdiUBLPint._ubl_add_payment_means_nodes_all_invoices); license LGPL-3.0; repo created 2026-06-12T11:06:19+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _ubl_add_payment_means_nodes_all_invoices(self, vals):\n    invoice = vals['invoice']\n    nodes = vals['document_node']['cac:PaymentMeans']\n\n    if invoice.move_type == 'out_invoice':\n        if invoice.partner_bank_id:\n            payment_means_code, payment_means_name = 30, 'credit transfer'\n        else:\n            payment_means_code, payment_means_name = 'ZZZ', 'mutually defined'\n    else:\n        payment_means_code, payment_means_name = 57, 'standing agreement'\n\n    partner_bank = invoice.partner_bank_id\n    payment_means_node = {\n        'cbc:PaymentMeansCode': {\n            '_text': payment_means_code,\n            'name': payment_means_name,\n        },\n        'cbc:PaymentID': {'_text': invoice.payment_reference or invoice.name},\n    }\n\n    if partner_bank:\n        payment_means_node['cac:PayeeFinancialAccount'] = self._ubl_get_payment_means_payee_financial_account_node_from_partner_bank(vals, partner_bank)\n    else:\n        payment_means_node['cac:PayeeFinancialAccount'] = None\n\n    nodes.append(payment_means_node)",
+  "identifiers": [
+    {
+      "name": "vals",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-12T11:06:19+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/account_edi_ubl_cii/models/account_edi_ubl_pint.py",
+    "startLine": 255,
+    "endLine": 281,
+    "unit": "method AccountEdiUBLPint._ubl_add_payment_means_nodes_all_invoices",
+    "corpusFile": "corpus/python/odoo__odoo__addons__account_edi_ubl_cii__models__account_edi_ubl_pint.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 23
+}

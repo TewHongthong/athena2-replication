@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_011",
+  "language": "csharp",
+  "originalName": "Release",
+  "injectedName": "release",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'release' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal sealed class FactoryActivitySource : ActivitySource\n{\n    public FactoryActivitySource(ActivitySourceOptions options) : base(options)\n    {\n    }\n\n    public void release() => base.Dispose(true); // call the protected Dispose(bool)\n\n    protected override void Dispose(bool disposing)\n    {\n        // no-op, disallow users from disposing of the activity sources created by the factory.\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

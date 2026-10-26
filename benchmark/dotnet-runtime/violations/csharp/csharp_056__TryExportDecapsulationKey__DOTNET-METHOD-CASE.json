@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_056",
+  "language": "csharp",
+  "originalName": "TryExportDecapsulationKey",
+  "injectedName": "try_export_decapsulation_key",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_export_decapsulation_key' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public bool try_export_decapsulation_key(Span<byte> destination, out int bytesWritten)\n{\n    ThrowIfDisposed();\n\n    if (destination.Length < Algorithm.MinDecapsulationKeySizeInBytes)\n    {\n        bytesWritten = 0;\n        return false;\n    }\n\n    using (CryptoPoolLease lease = CryptoPoolLease.RentConditionally(Algorithm.MaxDecapsulationKeySizeInBytes, destination, skipClearIfNotRented: true))\n    {\n        int localBytesWritten = ExportDecapsulationKeyCore(lease.Span);\n\n        if (!Algorithm.IsValidDecapsulationKeySize(localBytesWritten))\n        {\n            if (!lease.IsRented)\n            {\n                CryptographicOperations.ZeroMemory(destination);\n            }\n\n            bytesWritten = 0;\n            throw new CryptographicException();\n        }\n\n        if (lease.IsRented)\n        {\n            if (localBytesWritten > destination.Length)\n            {\n                bytesWritten = 0;\n                return false;\n            }\n\n            lease.Span.Slice(0, localBytesWritten).CopyTo(destination);\n        }\n\n        bytesWritten = localBytesWritten;\n        return true;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

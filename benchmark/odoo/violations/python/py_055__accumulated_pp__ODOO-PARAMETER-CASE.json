@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_055",
+  "language": "python",
+  "originalName": "accumulated_pp",
+  "injectedName": "ACCUMULATED_PP",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ACCUMULATED_PP' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _get_output_leave_vals(self, employee, rule, date_from, date_to, source_leave, ACCUMULATED_PP=frozenset()):\n    tz = ZoneInfo(employee._get_tz())\n    df_local = date_from.replace(tzinfo=UTC).astimezone(tz).replace(tzinfo=None)\n    dt_local = date_to.replace(tzinfo=UTC).astimezone(tz).replace(tzinfo=None)\n    return {\n        'employee_id': employee.id,\n        'work_entry_type_id': rule.work_entry_type_id.id,\n        'date_from': date_from,\n        'date_to': date_to,\n        'request_date_from': df_local.date(),\n        'request_date_to': dt_local.date(),\n        'request_hour_from': df_local.hour + df_local.minute / 60,\n        'request_hour_to': dt_local.hour + dt_local.minute / 60,\n        'time_rule_id': rule.id,\n        'source_leave_id': source_leave.id,\n        'resource_calendar_id': source_leave.resource_calendar_id.id,\n        'state': 'validate',\n    }",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_014",
+  "language": "cpp",
+  "originalName": "p_id",
+  "injectedName": "P_ID",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_ID' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "RemoteDebuggerPeerMessagePort::RemoteDebuggerPeerMessagePort(int P_ID) {\n\tmax_queued_messages = (int)GLOBAL_GET(\"network/limits/debugger/max_queued_messages\");\n\tout_buffer.resize(1 << 18);\n\tif (P_ID != -1) {\n\t\t_js_id = godot_js_debugger_bind(P_ID, &on_debug_message, this);\n\t\tERR_FAIL_COND(_js_id == -1);\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

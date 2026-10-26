@@ -1,0 +1,30 @@
+{
+  "id": "py_084",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/upgrade_code/20.0-00-search-date-filters.py lines 21-37 (function upgrade); license LGPL-3.0; repo created 2026-10-02T11:59:10+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def upgrade(file_manager: FileManager):\n    files = [\n        file for file in file_manager\n        if file.path.suffix == '.xml'\n        if any(attr in file.content for attr in REMOVED_ATTRIBUTES)\n    ]\n    if not files:\n        return\n\n    def process(root):\n        for node in root.iter('filter'):\n            for attr in REMOVED_ATTRIBUTES:\n                node.attrib.pop(attr, None)\n\n    for fileno, file in enumerate(files, start=1):\n        file.content = update_etree(file.content, process)\n        file_manager.print_progress(fileno, len(files))",
+  "identifiers": [
+    {
+      "name": "file_manager",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-10-02T11:59:10+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/upgrade_code/20.0-00-search-date-filters.py",
+    "startLine": 21,
+    "endLine": 37,
+    "unit": "function upgrade",
+    "corpusFile": "corpus/python/odoo__odoo__odoo__upgrade_code__20.0-00-search-date-filters.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

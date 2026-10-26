@@ -1,0 +1,42 @@
+{
+ "by_kind": {
+  "all": {
+   "parameter": 100
+  },
+  "dev": {
+   "parameter": 30
+  },
+  "test": {
+   "parameter": 70
+  }
+ },
+ "by_method": {
+  "all": {
+   "casing_swap": 100
+  },
+  "dev": {
+   "casing_swap": 30
+  },
+  "test": {
+   "casing_swap": 70
+  }
+ },
+ "by_rule": {
+  "all": {
+   "ODOO-PARAMETER-CASE": 100
+  },
+  "dev": {
+   "ODOO-PARAMETER-CASE": 30
+  },
+  "test": {
+   "ODOO-PARAMETER-CASE": 70
+  }
+ },
+ "by_split": {
+  "dev": 30,
+  "test": 70
+ },
+ "language": "python",
+ "pack": "odoo",
+ "tasks": 100
+}

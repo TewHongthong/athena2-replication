@@ -1,0 +1,30 @@
+{
+  "id": "py_042",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/hr_work_entry/models/hr_time_rule_source_mixin.py lines 338-343 (method HrTimeRuleSourceMixin.create); license LGPL-3.0; repo created 2026-09-15T23:44:35+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@api.model_create_multi\ndef create(self, vals_list):\n    res = super().create(vals_list)\n    if not self.env.context.get('skip_time_rules'):\n        res._trigger_time_rules()\n    return res",
+  "identifiers": [
+    {
+      "name": "vals_list",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T23:44:35+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/hr_work_entry/models/hr_time_rule_source_mixin.py",
+    "startLine": 338,
+    "endLine": 343,
+    "unit": "method HrTimeRuleSourceMixin.create",
+    "corpusFile": "corpus/python/odoo__odoo__addons__hr_work_entry__models__hr_time_rule_source_mixin.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 22
+}

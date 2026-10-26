@@ -1,0 +1,30 @@
+{
+  "id": "py_065",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/web/tooling/icons/generate_icons.py lines 590-615 (function build_optimized_subset); license LGPL-3.0; repo created 2026-07-14T05:42:04+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def build_optimized_subset(font: TTFont, icons: list[str]) -> TTFont:\n    \"\"\"Run fontext on *font*, keeping only the ligatures named in *icons*.\"\"\"\n    with tempfile.TemporaryDirectory(prefix='odoo_icons_') as tmp_dir:\n        input_path = Path(tmp_dir) / 'font.woff2'\n        output_path = input_path.with_suffix('.out.woff2')\n        font.save(input_path)\n\n        try:\n            subprocess.run([\n                \"npx\", \"--no-install\", \"fontext\",\n                \"-l\", \",\".join(icons),\n                \"-i\", str(input_path),\n                \"-o\", str(output_path.parent),\n                \"-n\", str(output_path.stem),\n                \"-f\", \"woff2\",\n            ], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, check=True)\n        except subprocess.CalledProcessError as exc:\n            raise SystemExit(f\"fontext failed:\\n{(exc.stderr or b'').decode(errors='replace')}\") from exc\n\n        # fontext leaves two stray bytes at the end of the `post` table string\n        # data, which makes fontTools warn every time the table gets parsed.\n        # Those glyph names are dropped anyway — `strip_font_metadata` rewrites\n        # `post` as format 3.0 — so the warning is pure noise here.\n        logging.getLogger('fontTools.ttLib.tables._p_o_s_t').setLevel(logging.ERROR)\n        # Read into memory so the font outlives the temporary directory.\n        return TTFont(BytesIO(output_path.read_bytes()), recalcTimestamp=False)",
+  "identifiers": [
+    {
+      "name": "font",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-07-14T05:42:04+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/web/tooling/icons/generate_icons.py",
+    "startLine": 590,
+    "endLine": 615,
+    "unit": "function build_optimized_subset",
+    "corpusFile": "corpus/python/odoo__odoo__addons__web__tooling__icons__generate_icons.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 16
+}

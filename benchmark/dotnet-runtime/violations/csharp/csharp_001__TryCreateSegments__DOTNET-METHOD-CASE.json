@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_001",
+  "language": "csharp",
+  "originalName": "TryCreateSegments",
+  "injectedName": "try_create_segments",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_create_segments' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private bool try_create_segments(ReadOnlySpan<byte> bytes, out Memory<ReadOnlyMemory<byte>> segments)\n{\n    bytes.CopyTo(_inputBuffer);\n    ReadOnlyMemory<byte> buffer = _inputBuffer.AsMemory(0, bytes.Length);\n\n    int segmentCount = 0;\n    while (!buffer.IsEmpty)\n    {\n        int length = buffer.Span[0];\n        buffer = buffer.Slice(1);\n\n        if (length > buffer.Length)\n        {\n            segments = default;\n            return false;\n        }\n\n        _segments[segmentCount++] = buffer.Slice(0, length);\n        buffer = buffer.Slice(length);\n    }\n\n    segments = _segments.AsMemory(0, segmentCount);\n    return true;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

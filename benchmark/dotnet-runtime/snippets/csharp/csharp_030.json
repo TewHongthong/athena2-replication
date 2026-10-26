@@ -1,0 +1,30 @@
+{
+  "id": "csharp_030",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs lines 127-139 (method DefaultActivitySourceFactory.UpdateRules); license MIT; repo created 2026-06-23T14:06:09+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private void UpdateRules(TracingOptions options, bool overwrite = true)\n{\n    if (Volatile.Read(ref _disposed))\n    {\n        return;\n    }\n\n    List<TracingRule> rules = options.Rules;\n    foreach (ActivityListenerRegistration registration in _listenerRegistrations)\n    {\n        registration.UpdateRules(rules, overwrite);\n    }\n}",
+  "identifiers": [
+    {
+      "name": "UpdateRules",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-23T14:06:09+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs",
+    "startLine": 127,
+    "endLine": 139,
+    "unit": "method DefaultActivitySourceFactory.UpdateRules",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Microsoft.Extensions.Diagnostics__src__Tracing__DefaultActivitySourceFactory.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 4
+}

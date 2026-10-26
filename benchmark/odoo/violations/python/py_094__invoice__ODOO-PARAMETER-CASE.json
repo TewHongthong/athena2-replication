@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_094",
+  "language": "python",
+  "originalName": "invoice",
+  "injectedName": "INVOICE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'INVOICE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _format_greek_invoice_number(self, INVOICE):\n    # GR-R-001-2: First segment - VAT without EL prefix\n    company_vat = vat.compact(INVOICE.company_id.vat or '')\n    invoice_name = INVOICE.name.split('/')\n    # GR-R-001-3: Second segment - Issue date DD/MM/YYYY\n    issue_date = INVOICE.invoice_date.strftime('%d/%m/%Y')\n    # GR-R-001-4: Third segment - Installation serial(branch number)\n    installation_sn = str(INVOICE.company_id.l10n_gr_edi_branch_number)\n    # GR-R-001-5: Fourth segment - Valid Greek document type\n    invoice_type = INVOICE.l10n_gr_edi_inv_type\n    # GR-R-001-6: Fifth segment - Series\n    series = invoice_name[0]\n    # GR-R-001-7: Sixth segment - Serial number\n    serial_number = invoice_name[-1]\n    return f\"{company_vat}|{issue_date}|{installation_sn}|{invoice_type}|{series}|{serial_number}\"",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

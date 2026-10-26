@@ -1,0 +1,30 @@
+{
+  "id": "csharp_082",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/EmptyServiceProvider.cs lines 132-143 (method EmptyServiceProvider.CreateEmptyEnumerable); license MIT; repo created 2026-06-25T17:50:04+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static Array CreateEmptyEnumerable(Type serviceType)\n{\n    Type itemType = serviceType.GenericTypeArguments[0];\n    if (!IsDynamicCodeSupported && itemType.IsValueType)\n    {\n        // Native AOT apps are not able to make an Enumerable of a ValueType service\n        // since there is no guarantee the ValueType[] code has been generated.\n        throw new InvalidOperationException(SR.Format(SR.AotCannotCreateEnumerableValueType, itemType));\n    }\n\n    return Array.CreateInstance(itemType, 0);\n}",
+  "identifiers": [
+    {
+      "name": "CreateEmptyEnumerable",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-25T17:50:04+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/EmptyServiceProvider.cs",
+    "startLine": 132,
+    "endLine": 143,
+    "unit": "method EmptyServiceProvider.CreateEmptyEnumerable",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Microsoft.Extensions.DependencyInjection.Abstractions__src__EmptyServiceProvider.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 11
+}

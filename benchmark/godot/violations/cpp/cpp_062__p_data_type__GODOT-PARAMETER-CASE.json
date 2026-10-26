@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_062",
+  "language": "cpp",
+  "originalName": "p_data_type",
+  "injectedName": "P_DATA_TYPE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_DATA_TYPE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Variant construct_empty_value_for_data_type(const GDScriptDataType &P_DATA_TYPE) {\n\tif (P_DATA_TYPE.kind == GDScriptDataType::BUILTIN) {\n\t\tif (P_DATA_TYPE.builtin_type == Variant::ARRAY) {\n\t\t\tArray array;\n\t\t\t// Typed array.\n\t\t\tif (P_DATA_TYPE.has_container_element_type(0)) {\n\t\t\t\tconst GDScriptDataType &element_type = P_DATA_TYPE.get_container_element_type(0);\n\t\t\t\tarray.set_typed(element_type.builtin_type, element_type.native_type, element_type.script_type);\n\t\t\t}\n\n\t\t\treturn array;\n\t\t} else if (P_DATA_TYPE.builtin_type == Variant::DICTIONARY) {\n\t\t\tDictionary dict;\n\t\t\t// Typed dictionary.\n\t\t\tif (P_DATA_TYPE.has_container_element_types()) {\n\t\t\t\tconst GDScriptDataType &key_type = P_DATA_TYPE.get_container_element_type_or_variant(0);\n\t\t\t\tconst GDScriptDataType &value_type = P_DATA_TYPE.get_container_element_type_or_variant(1);\n\t\t\t\tdict.set_typed(key_type.builtin_type, key_type.native_type, key_type.script_type, value_type.builtin_type, value_type.native_type, value_type.script_type);\n\t\t\t}\n\n\t\t\treturn dict;\n\t\t} else {\n\t\t\tCallable::CallError ce;\n\t\t\tVariant variant;\n\t\t\tVariant::construct(P_DATA_TYPE.builtin_type, variant, nullptr, 0, ce);\n\n\t\t\tERR_FAIL_COND_V(ce.error != Callable::CallError::CALL_OK, Variant());\n\n\t\t\treturn variant;\n\t\t}\n\t}\n\n\treturn Variant();\n}",
+  "occurrencesRenamed": 10,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "csharp_050",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.TypeSystem.Tests/SwiftLoweringTests.cs lines 94-101 (method SwiftLoweringTests.VerifyLowering); license MIT; repo created 2026-09-09T22:24:54+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[Theory]\n[MemberData(nameof(DiscoverSwiftTypes))]\npublic void VerifyLowering(string typeName, EcmaType type, CORINFO_SWIFT_LOWERING expectedLowering)\n{\n    _ = typeName;\n\n    Assert.Equal(expectedLowering, SwiftPhysicalLowering.LowerTypeForSwiftSignature(type));\n}",
+  "identifiers": [
+    {
+      "name": "VerifyLowering",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-09T22:24:54+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.TypeSystem.Tests/SwiftLoweringTests.cs",
+    "startLine": 94,
+    "endLine": 101,
+    "unit": "method SwiftLoweringTests.VerifyLowering",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.TypeSystem.Tests__SwiftLoweringTests.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 3
+}

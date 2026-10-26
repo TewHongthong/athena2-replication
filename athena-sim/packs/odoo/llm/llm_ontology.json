@@ -1,0 +1,653 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "id": "ODOO",
+      "type": "Standard",
+      "name": "Odoo coding guidelines",
+      "publisher": "Odoo S.A.",
+      "url": "https://github.com/odoo/documentation",
+      "retrievedDate": "2026-10-14",
+      "scopeLanguages": [
+        "python"
+      ]
+    },
+    {
+      "id": "python",
+      "type": "Language",
+      "name": "Python",
+      "fileExtensions": [
+        ".py"
+      ],
+      "defaultStandardId": "ODOO"
+    },
+    {
+      "id": "model_name",
+      "type": "IdentifierKind",
+      "name": "Odoo model name",
+      "applicableLanguages": [
+        "python"
+      ]
+    },
+    {
+      "id": "class",
+      "type": "IdentifierKind",
+      "name": "Class",
+      "applicableLanguages": [
+        "python"
+      ]
+    },
+    {
+      "id": "variable",
+      "type": "IdentifierKind",
+      "name": "Variable",
+      "applicableLanguages": [
+        "python"
+      ]
+    },
+    {
+      "id": "field",
+      "type": "IdentifierKind",
+      "name": "Field",
+      "applicableLanguages": [
+        "python"
+      ]
+    },
+    {
+      "id": "method",
+      "type": "IdentifierKind",
+      "name": "Method",
+      "applicableLanguages": [
+        "python"
+      ]
+    },
+    {
+      "id": "ODOO-MODEL-DOT-MODULE",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Write Odoo model names in dot notation and prefix them with the module name.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-MODEL-SINGULAR",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Use the singular form when naming an Odoo model.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-TRANSIENT-MODEL-NAME",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "wizard"
+      ],
+      "description": "Name a transient model using the related base model followed by a short description of its action, and avoid the word \"wizard\".",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-REPORT-MODEL-NAME",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Name a report model using the related base model followed by \".report.\" and a short action name.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-CLASS-PASCAL",
+      "type": "NamingRule",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Write Odoo Python class names in PascalCase.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-MODEL-VARIABLE-PASCAL",
+      "type": "NamingRule",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Use PascalCase for variables that refer to models.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-COMMON-VARIABLE-SNAKE",
+      "type": "NamingRule",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Use lowercase underscore notation for common variables.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-ID-VARIABLE-SUFFIX",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": "_id or _ids",
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Give a variable containing a record ID or a list of IDs the corresponding _id or _ids suffix.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-RECORD-VARIABLE-NO-ID-SUFFIX",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "_id$"
+      ],
+      "description": "Do not give a variable containing a record, rather than a record ID, an _id suffix.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-ONE2MANY-MANY2MANY-FIELD-SUFFIX",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": "_ids",
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "End One2Many and Many2Many field names with _ids.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-MANY2ONE-FIELD-SUFFIX",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": "_id",
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "End Many2One field names with _id.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-COMPUTE-METHOD",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": "_compute_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Name compute-field methods with the _compute_<field_name> pattern.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-SEARCH-METHOD",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": "_search_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Name search methods with the _search_<field_name> pattern.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-DEFAULT-METHOD",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": "_default_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Name default methods with the _default_<field_name> pattern.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-SELECTION-METHOD",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": "_selection_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Name selection methods with the _selection_<field_name> pattern.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-ONCHANGE-METHOD",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": "_onchange_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Name onchange methods with the _onchange_<field_name> pattern.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-CONSTRAINT-METHOD",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": "_check_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Name constraint methods with the _check_<constraint_name> pattern.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-ACTION-METHOD",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": "action_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Prefix object action method names with action_.",
+      "rationale": null,
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Symbols and Conventions"
+    },
+    {
+      "id": "ODOO-MEANINGFUL-NAMES",
+      "type": "NamingRule",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Choose meaningful names for variables, classes, and methods.",
+      "rationale": "Meaningful names support readability and maintainability.",
+      "severity": "MUST",
+      "sourceStandardId": "ODOO",
+      "sourceSection": "Idiomatics of Programming (Python)"
+    }
+  ],
+  "links": [
+    {
+      "source": "ODOO-MODEL-DOT-MODULE",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MODEL-DOT-MODULE",
+      "target": "model_name",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MODEL-DOT-MODULE",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-MODEL-SINGULAR",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MODEL-SINGULAR",
+      "target": "model_name",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MODEL-SINGULAR",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-TRANSIENT-MODEL-NAME",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-TRANSIENT-MODEL-NAME",
+      "target": "model_name",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-TRANSIENT-MODEL-NAME",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-REPORT-MODEL-NAME",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-REPORT-MODEL-NAME",
+      "target": "model_name",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-REPORT-MODEL-NAME",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-CLASS-PASCAL",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-CLASS-PASCAL",
+      "target": "class",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-CLASS-PASCAL",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-MODEL-VARIABLE-PASCAL",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MODEL-VARIABLE-PASCAL",
+      "target": "variable",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MODEL-VARIABLE-PASCAL",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-COMMON-VARIABLE-SNAKE",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-COMMON-VARIABLE-SNAKE",
+      "target": "variable",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-COMMON-VARIABLE-SNAKE",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-ID-VARIABLE-SUFFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ID-VARIABLE-SUFFIX",
+      "target": "variable",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ID-VARIABLE-SUFFIX",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-RECORD-VARIABLE-NO-ID-SUFFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-RECORD-VARIABLE-NO-ID-SUFFIX",
+      "target": "variable",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-RECORD-VARIABLE-NO-ID-SUFFIX",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-ONE2MANY-MANY2MANY-FIELD-SUFFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ONE2MANY-MANY2MANY-FIELD-SUFFIX",
+      "target": "field",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ONE2MANY-MANY2MANY-FIELD-SUFFIX",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-MANY2ONE-FIELD-SUFFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MANY2ONE-FIELD-SUFFIX",
+      "target": "field",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MANY2ONE-FIELD-SUFFIX",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-COMPUTE-METHOD",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-COMPUTE-METHOD",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-COMPUTE-METHOD",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-SEARCH-METHOD",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-SEARCH-METHOD",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-SEARCH-METHOD",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-DEFAULT-METHOD",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-DEFAULT-METHOD",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-DEFAULT-METHOD",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-SELECTION-METHOD",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-SELECTION-METHOD",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-SELECTION-METHOD",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-ONCHANGE-METHOD",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ONCHANGE-METHOD",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ONCHANGE-METHOD",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-CONSTRAINT-METHOD",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-CONSTRAINT-METHOD",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-CONSTRAINT-METHOD",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-ACTION-METHOD",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ACTION-METHOD",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-ACTION-METHOD",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "ODOO-MEANINGFUL-NAMES",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MEANINGFUL-NAMES",
+      "target": "variable",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MEANINGFUL-NAMES",
+      "target": "class",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MEANINGFUL-NAMES",
+      "target": "method",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "ODOO-MEANINGFUL-NAMES",
+      "target": "ODOO",
+      "relation": "DEFINED_IN"
+    }
+  ]
+}

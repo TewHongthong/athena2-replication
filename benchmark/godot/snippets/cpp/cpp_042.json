@@ -1,0 +1,30 @@
+{
+  "id": "cpp_042",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_randomizer.cpp lines 48-61 (method AudioStreamRandomizer::move_stream); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamRandomizer::move_stream(int p_index_from, int p_index_to) {\n\tERR_FAIL_INDEX(p_index_from, audio_stream_pool.size());\n\t// p_index_to == audio_stream_pool.size() is valid (move to end).\n\tERR_FAIL_COND(p_index_to < 0);\n\tERR_FAIL_COND(p_index_to > audio_stream_pool.size());\n\taudio_stream_pool.insert(p_index_to, audio_stream_pool[p_index_from]);\n\t// If 'from' is strictly after 'to' we need to increment the index by one because of the insertion.\n\tif (p_index_from > p_index_to) {\n\t\tp_index_from++;\n\t}\n\taudio_stream_pool.remove_at(p_index_from);\n\temit_signal(CoreStringName(changed));\n\tnotify_property_list_changed();\n}",
+  "identifiers": [
+    {
+      "name": "move_stream",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_randomizer.cpp",
+    "startLine": 48,
+    "endLine": 61,
+    "unit": "method AudioStreamRandomizer::move_stream",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_randomizer.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 1
+}

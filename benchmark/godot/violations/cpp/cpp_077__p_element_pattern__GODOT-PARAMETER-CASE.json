@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_077",
+  "language": "cpp",
+  "originalName": "p_element_pattern",
+  "injectedName": "P_ELEMENT_PATTERN",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_ELEMENT_PATTERN' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void EditorPropertyTilePolygon::setup_multiple_mode(const StringName &p_property, const StringName &p_count_property, const String &P_ELEMENT_PATTERN, const String &p_base_type) {\n\tset_object_and_property(nullptr, p_property);\n\tcount_property = p_count_property;\n\telement_pattern = P_ELEMENT_PATTERN;\n\tbase_type = p_base_type;\n\n\tgeneric_tile_polygon_editor->set_multiple_polygon_mode(true);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

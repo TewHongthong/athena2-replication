@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_083",
+  "language": "python",
+  "originalName": "kwargs",
+  "injectedName": "KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def __init__(self, min: float, max: float, mode: float, **KWARGS):\n    \"\"\"\n    :param min: Minimum value\n    :param max: Maximum value\n    :param mode: Most likely value (peak of distribution)\n    \"\"\"\n    super().__init__(**KWARGS)\n    if not (min <= mode <= max):\n        raise ValueError(\n            f\"`mode` must be between `min` and `max`, \"\n            f\"got min={min}, max={max}, mode={mode} instead.\",\n        )\n\n    self.min = min\n    self.max = max\n    self.mode = mode",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

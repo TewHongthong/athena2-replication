@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_004",
+  "language": "csharp",
+  "originalName": "HasRunnableTestMethod",
+  "injectedName": "has_runnable_test_method",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'has_runnable_test_method' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static bool has_runnable_test_method(MetadataReader reader, TypeDefinition type, HashSet<string> excluded)\n{\n    // GetMethods() only returns methods declared on this type, so a test class is not picked up\n    // through tests it inherits from a shared base class.\n    foreach (MethodDefinitionHandle handle in type.GetMethods())\n    {\n        MethodDefinition method = reader.GetMethodDefinition(handle);\n\n        bool isTest = false;\n        HashSet<string> categories = new(StringComparer.OrdinalIgnoreCase);\n        foreach (CustomAttributeHandle attributeHandle in method.GetCustomAttributes())\n        {\n            CustomAttribute attribute = reader.GetCustomAttribute(attributeHandle);\n            if (!TryGetAttributeTypeName(reader, attribute, out string? attributeName))\n                continue;\n\n            if (s_testMethodAttributeNames.Contains(attributeName))\n                isTest = true;\n            else if (attributeName == TestCategoryAttributeName && TryGetCategory(reader, attribute, out string? category))\n                categories.Add(category);\n        }\n\n        if (isTest && !categories.Overlaps(excluded))\n            return true;\n    }\n\n    return false;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

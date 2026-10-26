@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_017",
+  "language": "cpp",
+  "originalName": "draw_over_tile",
+  "injectedName": "DRAW_OVER_TILE",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DRAW_OVER_TILE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileDataOcclusionShapeEditor::DRAW_OVER_TILE(CanvasItem *p_canvas_item, Transform2D p_transform, TileMapCell p_cell, bool p_selected) {\n\tTileData *tile_data = _get_tile_data(p_cell);\n\tERR_FAIL_NULL(tile_data);\n\n\tColor grid_color = EDITOR_GET(\"editors/tiles_editor/grid_color\");\n\tColor selection_color = Color::from_hsv(Math::fposmod(grid_color.get_h() + 0.5, 1.0), grid_color.get_s(), grid_color.get_v(), 1.0);\n\tColor color = grid_color.darkened(0.2);\n\tif (p_selected) {\n\t\tcolor = selection_color.darkened(0.2);\n\t}\n\tcolor.a *= 0.5;\n\n\tVector<Color> debug_occlusion_color = { color };\n\n\tRenderingServer::get_singleton()->canvas_item_add_set_transform(p_canvas_item->get_canvas_item(), p_transform);\n\tfor (int i = 0; i < tile_data->get_occluder_polygons_count(occlusion_layer); i++) {\n\t\tRef<OccluderPolygon2D> occluder = tile_data->get_occluder_polygon(occlusion_layer, i);\n\t\tif (occluder.is_valid() && occluder->get_polygon().size() >= 3) {\n\t\t\tp_canvas_item->draw_polygon(Variant(occluder->get_polygon()), debug_occlusion_color);\n\t\t}\n\t}\n\tRenderingServer::get_singleton()->canvas_item_add_set_transform(p_canvas_item->get_canvas_item(), Transform2D());\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

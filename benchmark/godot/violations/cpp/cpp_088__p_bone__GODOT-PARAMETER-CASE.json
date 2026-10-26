@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_088",
+  "language": "cpp",
+  "originalName": "p_bone",
+  "injectedName": "P_BONE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_BONE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void BoneSpaceAdjuster3D::set_bone(int p_index, int P_BONE) {\n\tERR_FAIL_INDEX(p_index, (int)settings.size());\n\tsettings[p_index].bone = P_BONE;\n\tSkeleton3D *sk = get_skeleton();\n\tif (sk) {\n\t\tif (settings[p_index].bone <= -1 || settings[p_index].bone >= sk->get_bone_count()) {\n\t\t\tWARN_PRINT(\"Apply bone index out of range!\");\n\t\t\tsettings[p_index].bone = -1;\n\t\t} else {\n\t\t\tsettings[p_index].bone_name = sk->get_bone_name(settings[p_index].bone);\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

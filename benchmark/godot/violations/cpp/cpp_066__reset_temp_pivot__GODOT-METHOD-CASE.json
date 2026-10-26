@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_066",
+  "language": "cpp",
+  "originalName": "reset_temp_pivot",
+  "injectedName": "RESET_TEMP_PIVOT",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'RESET_TEMP_PIVOT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "bool CanvasItemManipulator::RESET_TEMP_PIVOT() {\n\tif (temp_pivot != Vector2(Math::INF, Math::INF)) {\n\t\ttemp_pivot = Vector2(Math::INF, Math::INF);\n\t\treturn true;\n\t}\n\n\treturn false;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

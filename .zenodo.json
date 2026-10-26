@@ -1,0 +1,13 @@
+{
+  "title": "Replication package for \"Does Ontology-Guided Rule Selection Generalize to Independent Coding Standards?\"",
+  "upload_type": "software",
+  "creators": [
+    {"name": "Hongthong, Tew", "affiliation": "Mae Fah Luang University"},
+    {"name": "Chondamrongkul, Nacha"}
+  ],
+  "description": "Replication package of the paper \"Does Ontology-Guided Rule Selection Generalize to Independent Coding Standards?\". It contains the harness, the registered hypotheses and their freeze files, the human-written and LLM-drafted ontologies for three coding standards (Godot C++, .NET runtime C#, Odoo Python), the model pins, the trial records of every run, the benchmark files, and the scripts and outputs of the analyses. The source files of the three repositories are not included; a script rebuilds the corpus from pinned commits and checks every file against its git blob identifier. See README.md for contents and commands, and THIRD_PARTY_NOTICES.md for the licenses of code excerpts and standard documents.",
+  "license": "MIT",
+  "keywords": ["coding standards", "naming conventions", "ontology", "large language models", "retrieval", "replication package"],
+  "language": "eng",
+  "access_right": "open"
+}

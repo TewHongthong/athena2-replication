@@ -1,0 +1,30 @@
+{
+  "id": "py_006",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/utils/orm.py lines 66-84 (method DynamicDomain.__new__); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __new__(cls, domain_expr: str) -> DynamicDomain | Domain:\n    \"\"\"Return a static domain or a dynamic resolver for ``domain_expr``.\n\n    :param domain_expr: Domain expression from a blueprint attribute.\n    :return: ``Domain`` when no field names are referenced, otherwise ``DynamicDomain``.\n    \"\"\"\n    dynamic_fields = list(get_undefined_names(domain_expr))\n    if not dynamic_fields:\n        return Domain(literal_eval(domain_expr))\n\n    self = super().__new__(cls)\n    object.__setattr__(self, 'dynamic_fields', dynamic_fields)\n\n    def checked(**eval_kwargs):\n        check_eval_args(**eval_kwargs)\n        return expr_eval(domain_expr, eval_kwargs)\n\n    object.__setattr__(self, '_resolver', checked)\n    return self",
+  "identifiers": [
+    {
+      "name": "eval_kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/utils/orm.py",
+    "startLine": 66,
+    "endLine": 84,
+    "unit": "method DynamicDomain.__new__",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__utils__orm.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 4
+}

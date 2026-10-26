@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_019",
+  "language": "csharp",
+  "originalName": "GetFPReturnSize",
+  "injectedName": "get_fp_return_size",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_fp_return_size' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public uint get_fp_return_size()\n{\n    //        WRAPPER_NO_CONTRACT;\n    if (!_RETURN_FLAGS_COMPUTED)\n        ComputeReturnFlags();\n    return _fpReturnSize;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

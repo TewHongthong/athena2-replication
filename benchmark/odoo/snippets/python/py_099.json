@@ -1,0 +1,30 @@
+{
+  "id": "py_099",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/utils/distributions.py lines 291-301 (method NormalDistribution.__init__); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __init__(self, mean: float, std: float, **kwargs):\n    \"\"\"\n    :param mean: Mean of the distribution\n    :param std: Standard deviation (must be > 0)\n    \"\"\"\n    super().__init__(**kwargs)\n    if std <= 0:\n        raise ValueError(f\"Standard deviation must be positive, get {std} instead.\", std)\n\n    self.mean = mean\n    self.std = std",
+  "identifiers": [
+    {
+      "name": "kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/utils/distributions.py",
+    "startLine": 291,
+    "endLine": 301,
+    "unit": "method NormalDistribution.__init__",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__utils__distributions.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 26
+}

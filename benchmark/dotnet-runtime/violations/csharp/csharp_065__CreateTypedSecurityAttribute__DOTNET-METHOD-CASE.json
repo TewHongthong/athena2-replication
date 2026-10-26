@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_065",
+  "language": "csharp",
+  "originalName": "CreateTypedSecurityAttribute",
+  "injectedName": "create_typed_security_attribute",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_typed_security_attribute' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal SecurityAttributeValue create_typed_security_attribute(\n    TypeSpecificationValue type,\n    ImmutableArray<CustomAttributeNamedArgumentValue> arguments)\n    => new SecurityAttributeValue(\n        null,\n        type,\n        arguments);",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

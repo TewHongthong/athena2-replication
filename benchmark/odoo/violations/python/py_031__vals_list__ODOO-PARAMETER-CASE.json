@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_031",
+  "language": "python",
+  "originalName": "vals_list",
+  "injectedName": "VALS_LIST",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS_LIST' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@api.model_create_multi\ndef create(self, VALS_LIST):\n    description_context = self.env.context.get('skip_contact_description', False)\n    notify_context = self.env.context.get('dont_notify', False)\n    events = super(CalendarEvent, self.with_context(dont_notify=notify_context, skip_contact_description=description_context)).create([\n        dict(vals, need_sync=False) if vals.get('recurrence_id') or vals.get('recurrency') else vals\n        for vals in VALS_LIST\n    ])\n    if any('alarm_ids' in vals for vals in VALS_LIST):\n        events._check_alarm_ids_sync_limit()\n    return events",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

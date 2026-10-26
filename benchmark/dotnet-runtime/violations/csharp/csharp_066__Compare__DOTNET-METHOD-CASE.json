@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_066",
+  "language": "csharp",
+  "originalName": "Compare",
+  "injectedName": "compare",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'compare' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal sealed class DispatchCellInfoComparer : IComparer<DispatchCellNode>\n{\n    private readonly CompilerComparer _comparer = CompilerComparer.Instance;\n\n    public int compare(DispatchCellNode x, DispatchCellNode y)\n    {\n        int result = _comparer.compare(x.TargetMethod, y.TargetMethod);\n        return result != 0 ? result : _comparer.compare(x.CallSiteIdentifier, y.CallSiteIdentifier);\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

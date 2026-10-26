@@ -1,0 +1,30 @@
+{
+  "id": "py_072",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/pos_self_order/models/product_template.py lines 58-69 (method ProductTemplate.write); license LGPL-3.0; repo created 2026-08-27T12:35:04+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def write(self, vals):\n    if 'available_in_pos' in vals:\n        if not vals['available_in_pos']:\n            vals['self_order_available'] = False\n\n    res = super().write(vals)\n\n    if 'self_order_available' in vals:\n        for record in self:\n            for product in record.product_variant_ids:\n                product._send_availability_status()\n    return res",
+  "identifiers": [
+    {
+      "name": "vals",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-27T12:35:04+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/pos_self_order/models/product_template.py",
+    "startLine": 58,
+    "endLine": 69,
+    "unit": "method ProductTemplate.write",
+    "corpusFile": "corpus/python/odoo__odoo__addons__pos_self_order__models__product_template.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 7
+}

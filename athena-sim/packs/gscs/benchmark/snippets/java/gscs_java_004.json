@@ -1,0 +1,45 @@
+{
+  "id": "gscs_java_004",
+  "language": "java",
+  "source": "authored:gscs-seed",
+  "sourceDetail": "hand-authored seed written to follow the GSCS document; not real-world code",
+  "standardId": "GSCS",
+  "split": "test",
+  "codeContext": "class account_Type {\n    private double d_balance = 0.0;\n    /* Function Objective: Add money to an account\n       Input parameters : d_amount (double) money to add\n       Function description: Add the amount to the balance only when it reaches the minimum deposit\n       Return Value : void\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    void Deposit_Money(double d_amount) {\n        final double MIN_DEPOSIT = 1.0;\n        boolean bln_Is_Valid = d_amount >= MIN_DEPOSIT;\n        // check that the amount is large enough to deposit\n        if (bln_Is_Valid) {\n            d_balance = d_balance + d_amount;\n        }\n        // else the amount is too small, keep the balance\n        else {\n            d_balance = d_balance + 0.0;\n        }\n    }\n}",
+  "identifiers": [
+    {
+      "name": "account_Type",
+      "kind": "class",
+      "isCompliant": true
+    },
+    {
+      "name": "d_balance",
+      "kind": "field",
+      "isCompliant": true
+    },
+    {
+      "name": "Deposit_Money",
+      "kind": "procedure",
+      "isCompliant": true
+    },
+    {
+      "name": "d_amount",
+      "kind": "parameter",
+      "isCompliant": true
+    },
+    {
+      "name": "MIN_DEPOSIT",
+      "kind": "constant",
+      "isCompliant": true
+    },
+    {
+      "name": "bln_Is_Valid",
+      "kind": "boolean_variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "authored": "2026-09-28",
+    "license": "project-internal"
+  }
+}

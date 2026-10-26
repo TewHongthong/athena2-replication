@@ -1,0 +1,30 @@
+{
+  "id": "cpp_094",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_polyphonic.cpp lines 71-77 (method AudioStreamPlaybackPolyphonic::start); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamPlaybackPolyphonic::start(double p_from_pos) {\n\tif (active) {\n\t\tstop();\n\t}\n\n\tactive = true;\n}",
+  "identifiers": [
+    {
+      "name": "p_from_pos",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_polyphonic.cpp",
+    "startLine": 71,
+    "endLine": 77,
+    "unit": "method AudioStreamPlaybackPolyphonic::start",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_polyphonic.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 6
+}

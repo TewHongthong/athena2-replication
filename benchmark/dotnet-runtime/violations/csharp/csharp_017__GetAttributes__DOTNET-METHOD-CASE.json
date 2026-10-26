@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_017",
+  "language": "csharp",
+  "originalName": "GetAttributes",
+  "injectedName": "get_attributes",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_attributes' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static IEnumerable<AttributeData> get_attributes(ISymbol member)\n{\n    HashSet<ISymbol> visited = new(SymbolEqualityComparer.Default);\n    foreach (ISymbol symbol in GetRelatedSymbols(member))\n    {\n        foreach (ISymbol part in GetParts(symbol))\n        {\n            if (!visited.Add(part))\n                continue;\n\n            foreach (AttributeData attribute in part.get_attributes())\n                yield return attribute;\n        }\n    }\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

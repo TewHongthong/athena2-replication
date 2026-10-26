@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_044",
+  "language": "csharp",
+  "originalName": "IsAllowed",
+  "injectedName": "is_allowed",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'is_allowed' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "protected override bool is_allowed(Vector<ushort> value)\n{\n    // Allow ASCII digits.\n    Vector<ushort> allowed = Vector.LessThanOrEqual(\n        value - new Vector<ushort>('0'),\n        new Vector<ushort>('9' - '0'));\n\n    // Allow space.\n    allowed |= Vector.Equals(value, new Vector<ushort>(' '));\n\n    return Vector.AllWhereAllBitsSet(allowed);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

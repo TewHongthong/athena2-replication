@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_095",
+  "language": "csharp",
+  "originalName": "MaterializeFileDeclaration",
+  "injectedName": "materialize_file_declaration",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'materialize_file_declaration' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal EntityRegistry.FileEntity materialize_file_declaration(\n    CILParser.FileDeclContext context)\n{\n    Debug.Assert(context.Value is not null);\n    FileDeclarationValue declaration =\n        context.Value ?? new(string.Empty, HasMetadata: true, IsEntryPoint: false, Hash: null);\n    return materialize_file_declaration(declaration);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

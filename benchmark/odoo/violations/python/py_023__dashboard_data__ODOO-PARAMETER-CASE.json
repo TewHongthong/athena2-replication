@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_023",
+  "language": "python",
+  "originalName": "dashboard_data",
+  "injectedName": "DASHBOARD_DATA",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DASHBOARD_DATA' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _fill_sale_purchase_dashboard_data(self, DASHBOARD_DATA):\n    super()._fill_sale_purchase_dashboard_data(DASHBOARD_DATA)\n    sale_journals = self.filtered(\n        lambda j: j.type == 'sale' and j.company_id.l10n_es_edi_verifactu_required\n    )\n    if not sale_journals:\n        return\n    rejected_count_by_journal = {\n        journal.id: count\n        for journal, count in self.env['account.move']._read_group(\n            domain=[\n                ('l10n_es_edi_verifactu_state', 'in', ('rejected', 'invalid')),\n                ('journal_id', 'in', sale_journals.ids),\n            ],\n            groupby=['journal_id'],\n            aggregates=['__count'],\n        )\n    }\n    for sale_journal in sale_journals:\n        DASHBOARD_DATA[sale_journal.id].update({\n            'vf_rejected': rejected_count_by_journal.get(sale_journal.id, 0),\n        })",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

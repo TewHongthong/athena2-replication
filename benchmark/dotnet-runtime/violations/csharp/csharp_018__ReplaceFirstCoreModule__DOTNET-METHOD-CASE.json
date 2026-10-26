@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_018",
+  "language": "csharp",
+  "originalName": "ReplaceFirstCoreModule",
+  "injectedName": "replace_first_core_module",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'replace_first_core_module' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static void replace_first_core_module(string componentPath, string modulePath, string outputPath)\n{\n    byte[] component = File.ReadAllBytes(componentPath);\n    byte[] module = File.ReadAllBytes(modulePath);\n    if (component.Length < 8 ||\n        component[0] != 0 || component[1] != 0x61 || component[2] != 0x73 || component[3] != 0x6d ||\n        component[4] != 0x0d || component[5] != 0 || component[6] != 1 || component[7] != 0)\n        throw new BadImageFormatException($\"{componentPath} is not a WebAssembly component.\");\n\n    using FileStream output = File.Create(outputPath);\n    output.Write(component, 0, 8);\n    int position = 8;\n    bool replaced = false;\n    while (position < component.Length)\n    {\n        int sectionStart = position;\n        byte sectionId = component[position++];\n        uint sectionSize = ReadULEB128(component, ref position);\n        int payloadStart = position;\n        int sectionEnd = checked(payloadStart + (int)sectionSize);\n        if (sectionEnd > component.Length)\n            throw new BadImageFormatException(\"WebAssembly component section extends past the end of the file.\");\n\n        if (sectionId == 1 && !replaced)\n        {\n            output.WriteByte(sectionId);\n            WriteULEB128(output, checked((uint)module.Length));\n            output.Write(module, 0, module.Length);\n            replaced = true;\n        }\n        else\n        {\n            output.Write(component, sectionStart, sectionEnd - sectionStart);\n        }\n        position = sectionEnd;\n    }\n\n    if (!replaced)\n        throw new BadImageFormatException($\"{componentPath} has no core-module section.\");\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_073",
+  "language": "python",
+  "originalName": "entry",
+  "injectedName": "ENTRY",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ENTRY' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def get_theoretical_probabilities(\n    ENTRY: dict,\n    distribution_index: int,\n    value_range: np.ndarray,\n) -> np.ndarray | None:\n    \"\"\"Compute theoretical probabilities for discrete sampling.\"\"\"\n    if ENTRY['discrete']:\n        return poisson_pmf(value_range, lam=ENTRY['dist'].lam)\n\n    theoretical_function = THEORETICAL_BOUNDED[distribution_index]\n    if theoretical_function is None:\n        return None\n\n    return theoretical_function(value_range)",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

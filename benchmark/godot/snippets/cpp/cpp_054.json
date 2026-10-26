@@ -1,0 +1,30 @@
+{
+  "id": "cpp_054",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/gdscript/gdscript_linter.cpp lines 113-130 (method GDScriptLinter::lint); license MIT; repo created 2026-09-06T00:55:48+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Error GDScriptLinter::lint() {\n\t// We use the fact that all nodes form a linked list for memory management purposes to iterate all nodes without actually walking the tree.\n\t// The iteration order is undefined, this should not matter since the tree is immutable for the linter.\n\tGDScriptParser::Node *curr = tree->list;\n\tfor (; curr != nullptr; curr = curr->next) {\n\t\tif (curr->start_line == -1) {\n\t\t\t// Sometimes we allocate synthetic nodes with no correspondence in code e.g. identifiers containing the synthetic names of getter functions.\n\t\t\t// We shouldn't analyze those nodes directly, since suppressing them with `@warning_ignore` would be impossible.\n\t\t\tcontinue;\n\t\t}\n\t\tfor (CallbackWithValidation *check : checks) {\n\t\t\tcheck(curr, *tree);\n\t\t}\n\t}\n\n\ttree->apply_pending_warnings();\n\treturn tree->get_errors().is_empty() ? OK : ERR_PARSE_ERROR;\n}",
+  "identifiers": [
+    {
+      "name": "check",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-06T00:55:48+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/gdscript/gdscript_linter.cpp",
+    "startLine": 113,
+    "endLine": 130,
+    "unit": "method GDScriptLinter::lint",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__gdscript__gdscript_linter.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 10
+}

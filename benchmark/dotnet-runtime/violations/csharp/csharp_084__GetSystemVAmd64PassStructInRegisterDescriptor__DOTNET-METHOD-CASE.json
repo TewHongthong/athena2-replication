@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_084",
+  "language": "csharp",
+  "originalName": "GetSystemVAmd64PassStructInRegisterDescriptor",
+  "injectedName": "get_system_v_amd64_pass_struct_in_register_descriptor",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_system_v_amd64_pass_struct_in_register_descriptor' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public void get_system_v_amd64_pass_struct_in_register_descriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)\n{\n    descriptor = default;\n    descriptor.passedInRegisters = false;\n\n    if (ExactTypeHandle is null)\n        return;\n\n    // Read the runtime-cached classification from the type system; mirrors\n    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.\n    // Only populated on UNIX_AMD64_ABI builds.\n    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))\n        return;\n\n    descriptor.passedInRegisters = true;\n    descriptor.eightByteCount = 1;\n    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);\n    descriptor.eightByteSizes0 = info.First.Size;\n    descriptor.eightByteOffsets0 = 0;\n\n    if (info.Second is SystemVAmd64EightByte second)\n    {\n        descriptor.eightByteCount = 2;\n        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);\n        descriptor.eightByteSizes1 = second.Size;\n        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "csharp_053",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.IO.Compression/src/System/IO/Compression/ZipCryptoStream.cs lines 119-145 (method ZipCryptoStream.CreateKey); license MIT; repo created 2026-07-09T13:35:17+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal static ZipCryptoKeys CreateKey(ReadOnlySpan<char> password)\n{\n    // Initialize keys with standard ZipCrypto initial values\n    uint key0 = 305419896;\n    uint key1 = 591751049;\n    uint key2 = 878082192;\n\n    // Feed the password's UTF-8 bytes into the key schedule. UTF-8 (rather than ASCII)\n    // preserves non-ASCII passwords; interop with tools that assume a different code page\n    // is documented as a caveat.\n    byte[] passwordBytes = ArrayPool<byte>.Shared.Rent(Encoding.UTF8.GetMaxByteCount(password.Length));\n    try\n    {\n        int byteCount = Encoding.UTF8.GetBytes(password, passwordBytes);\n        for (int i = 0; i < byteCount; i++)\n        {\n            UpdateKeys(ref key0, ref key1, ref key2, passwordBytes[i]);\n        }\n    }\n    finally\n    {\n        ClearSensitiveData(passwordBytes);\n        ArrayPool<byte>.Shared.Return(passwordBytes);\n    }\n\n    return new ZipCryptoKeys(key0, key1, key2);\n}",
+  "identifiers": [
+    {
+      "name": "CreateKey",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-09T13:35:17+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.IO.Compression/src/System/IO/Compression/ZipCryptoStream.cs",
+    "startLine": 119,
+    "endLine": 145,
+    "unit": "method ZipCryptoStream.CreateKey",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.IO.Compression__src__System__IO__Compression__ZipCryptoStream.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 8
+}

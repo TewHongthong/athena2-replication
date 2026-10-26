@@ -1,0 +1,30 @@
+{
+  "id": "py_061",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/account_edi_ubl_cii/models/account_edi_cii.py lines 26-50 (method AccountEdiCii._cii_add_invoice_config_vals); license LGPL-3.0; repo created 2026-08-31T19:39:54+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _cii_add_invoice_config_vals(self, vals):\n    invoice = vals['invoice']\n    vals['currency_id'] = invoice.currency_id\n    vals['company_currency'] = invoice.company_id.currency_id\n    vals['supplier'] = invoice.company_id.partner_id\n    vals['customer'] = invoice.partner_id\n    vals['partner_shipping'] = invoice.partner_shipping_id or invoice.partner_id\n    vals['company'] = invoice.company_id\n\n    if invoice.is_purchase_document():\n        vals['supplier'], vals['customer'] = vals['customer'], vals['supplier']\n        vals['partner_shipping'] = vals['customer'].child_ids.filtered(lambda p: p.type == 'delivery')[:1] or vals['customer']\n\n    self._cii_add_values_delivery_date(vals, invoice.delivery_date or invoice.invoice_date)\n\n    vals['base_lines'], vals['tax_lines'] = invoice._get_rounded_base_and_tax_lines()\n\n    self._turn_price_unit_positive(vals)\n    self._cii_extract_cash_rounding_lines(vals)\n    self._cii_extract_early_pay_discount_lines(vals)\n\n    AccountTax = self.env['account.tax']\n    AccountTax._round_raw_total_excluded(vals['base_lines'], invoice.company_id)\n    AccountTax._add_and_round_raw_gross_total_excluded_and_discount(vals['base_lines'], invoice.company_id)\n    AccountTax._round_raw_gross_total_excluded_and_discount(vals['base_lines'], invoice.company_id)",
+  "identifiers": [
+    {
+      "name": "vals",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-31T19:39:54+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/account_edi_ubl_cii/models/account_edi_cii.py",
+    "startLine": 26,
+    "endLine": 50,
+    "unit": "method AccountEdiCii._cii_add_invoice_config_vals",
+    "corpusFile": "corpus/python/odoo__odoo__addons__account_edi_ubl_cii__models__account_edi_cii.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

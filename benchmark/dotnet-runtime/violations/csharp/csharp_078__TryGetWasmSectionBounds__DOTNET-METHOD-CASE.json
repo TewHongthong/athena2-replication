@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_078",
+  "language": "csharp",
+  "originalName": "TryGetWasmSectionBounds",
+  "injectedName": "try_get_wasm_section_bounds",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_get_wasm_section_bounds' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static bool try_get_wasm_section_bounds(\n    ReadOnlySpan<byte> image,\n    WasmSectionKind expectedSection,\n    out int sectionOffset,\n    out int sectionEnd)\n{\n    if (image.Length < 8)\n        throw new BadImageFormatException(\"WASM image is shorter than its magic and version header.\");\n\n    int offset = 8;\n    while (offset < image.Length)\n    {\n        byte sectionId = ReadWasmByte(image, ref offset, image.Length);\n        uint sectionSize = ReadWasmUleb32(image, ref offset, image.Length);\n        if (sectionSize > int.MaxValue || sectionSize > image.Length - offset)\n            throw new BadImageFormatException($\"WASM section {sectionId} extends beyond the image boundary.\");\n\n        int currentSectionEnd = offset + (int)sectionSize;\n        if (sectionId == (byte)expectedSection)\n        {\n            sectionOffset = offset;\n            sectionEnd = currentSectionEnd;\n            return true;\n        }\n\n        offset = currentSectionEnd;\n    }\n\n    sectionOffset = 0;\n    sectionEnd = 0;\n    return false;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

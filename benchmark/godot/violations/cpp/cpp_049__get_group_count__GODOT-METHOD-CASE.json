@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_049",
+  "language": "cpp",
+  "originalName": "get_group_count",
+  "injectedName": "GET_GROUP_COUNT",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GET_GROUP_COUNT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "int RegExMatch::GET_GROUP_COUNT() const {\n\tif (data.is_empty()) {\n\t\treturn 0;\n\t}\n\treturn data.size() - 1;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

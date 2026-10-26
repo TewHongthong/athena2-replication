@@ -1,0 +1,30 @@
+{
+  "id": "csharp_094",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKem.cs lines 1491-1500 (method CompositeMLKem.TryExportEncryptedPkcs8PrivateKey); license MIT; repo created 2026-08-19T15:36:12-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public bool TryExportEncryptedPkcs8PrivateKey(\n    string password,\n    PbeParameters pbeParameters,\n    Span<byte> destination,\n    out int bytesWritten)\n{\n    ArgumentNullException.ThrowIfNull(password);\n\n    return TryExportEncryptedPkcs8PrivateKey(password.AsSpan(), pbeParameters, destination, out bytesWritten);\n}",
+  "identifiers": [
+    {
+      "name": "TryExportEncryptedPkcs8PrivateKey",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-19T15:36:12-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKem.cs",
+    "startLine": 1491,
+    "endLine": 1500,
+    "unit": "method CompositeMLKem.TryExportEncryptedPkcs8PrivateKey",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Common__src__System__Security__Cryptography__CompositeMLKem.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 33
+}

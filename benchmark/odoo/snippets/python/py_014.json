@@ -1,0 +1,30 @@
+{
+  "id": "py_014",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_it/migrations/0.10/pre-remove-report-expression.py lines 4-10 (function migrate); license LGPL-3.0; repo created 2026-06-27T13:29:01+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def migrate(cr, version):\n    env = api.Environment(cr, SUPERUSER_ID, {})\n    env['account.report.expression'].search([\n        ('label', '=', 'balance'),\n        ('report_line_id.code', 'in', [f'VL{n}' for n in (3, 4, 32, 33)]),\n        ('report_line_id.report_id.name', '=', 'VL VAT Report'),\n    ]).unlink()",
+  "identifiers": [
+    {
+      "name": "version",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-27T13:29:01+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_it/migrations/0.10/pre-remove-report-expression.py",
+    "startLine": 4,
+    "endLine": 10,
+    "unit": "function migrate",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_it__migrations__0.10__pre-remove-report-expression.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 0
+}

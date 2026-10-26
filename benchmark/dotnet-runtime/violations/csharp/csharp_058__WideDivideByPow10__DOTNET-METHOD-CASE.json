@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_058",
+  "language": "csharp",
+  "originalName": "WideDivideByPow10",
+  "injectedName": "wide_divide_by_pow10",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'wide_divide_by_pow10' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static TValue wide_divide_by_pow10<TValue>(ref TValue high, ref TValue low, TValue divisor)\n    where TValue : unmanaged, IBinaryInteger<TValue>\n{\n    if (TValue.IsZero(high))\n    {\n        (TValue quotient, TValue remainder) = TValue.DivRem(low, divisor);\n        low = quotient;\n        return remainder;\n    }\n\n    int bits = TValue.Zero.GetByteCount() * 8;\n    int half = bits / 2;\n    TValue lowMask = (TValue.One << half) - TValue.One;\n    TValue baseValue = TValue.One << half;\n\n    // Long division of the four half-width limbs (most significant first). Because the running remainder\n    // stays below the divisor, which `SinglePassPow10` caps at `baseValue`, the intermediate\n    // `remainder * baseValue + limb` never exceeds the integer width.\n    TValue rem = TValue.Zero;\n    (TValue q3, rem) = TValue.DivRem((rem * baseValue) + (high >> half), divisor);\n    (TValue q2, rem) = TValue.DivRem((rem * baseValue) + (high & lowMask), divisor);\n    (TValue q1, rem) = TValue.DivRem((rem * baseValue) + (low >> half), divisor);\n    (TValue q0, rem) = TValue.DivRem((rem * baseValue) + (low & lowMask), divisor);\n\n    high = (q3 << half) | q2;\n    low = (q1 << half) | q0;\n    return rem;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

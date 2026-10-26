@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_099",
+  "language": "python",
+  "originalName": "kwargs",
+  "injectedName": "KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def __init__(self, mean: float, std: float, **KWARGS):\n    \"\"\"\n    :param mean: Mean of the distribution\n    :param std: Standard deviation (must be > 0)\n    \"\"\"\n    super().__init__(**KWARGS)\n    if std <= 0:\n        raise ValueError(f\"Standard deviation must be positive, get {std} instead.\", std)\n\n    self.mean = mean\n    self.std = std",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

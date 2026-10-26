@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_089",
+  "language": "cpp",
+  "originalName": "group",
+  "injectedName": "GROUP",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GROUP' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "HBoxContainer *EditorToolbarGroup::create(Control *p_parent) {\n\tEditorToolbarGroup *GROUP = memnew(EditorToolbarGroup);\n\tp_parent->add_child(GROUP);\n\n\treturn GROUP->get_hbox();\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

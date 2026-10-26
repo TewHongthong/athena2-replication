@@ -1,0 +1,296 @@
+{
+ "GSCS|cpp|boolean_variable|rename": [
+  "GSCS-BOOL-BLN-PREFIX"
+ ],
+ "GSCS|cpp|class|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|cpp|conditional|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL",
+  "GSCS-IF-ELSE"
+ ],
+ "GSCS|cpp|constant|rename": [
+  "GSCS-CONST-UPPER"
+ ],
+ "GSCS|cpp|enum|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|cpp|exception_handling|comment": [
+  "GSCS-TRY-CATCH-FINALLY"
+ ],
+ "GSCS|cpp|external_call|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|cpp|field|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|cpp|function|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|cpp|function|rename": [
+  "GSCS-FUNC-RETURN-PREFIX"
+ ],
+ "GSCS|cpp|interface|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|cpp|loop|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|cpp|parameter|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|cpp|procedure|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|cpp|procedure|rename": [
+  "GSCS-PROC-VERB-OBJECT"
+ ],
+ "GSCS|cpp|variable|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|csharp|boolean_variable|rename": [
+  "GSCS-BOOL-BLN-PREFIX"
+ ],
+ "GSCS|csharp|class|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|csharp|conditional|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL",
+  "GSCS-IF-ELSE"
+ ],
+ "GSCS|csharp|constant|rename": [
+  "GSCS-CONST-UPPER"
+ ],
+ "GSCS|csharp|enum|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|csharp|exception_handling|comment": [
+  "GSCS-TRY-CATCH-FINALLY"
+ ],
+ "GSCS|csharp|external_call|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|csharp|field|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|csharp|function|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|csharp|function|rename": [
+  "GSCS-FUNC-RETURN-PREFIX"
+ ],
+ "GSCS|csharp|interface|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|csharp|loop|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|csharp|parameter|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|csharp|procedure|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|csharp|procedure|rename": [
+  "GSCS-PROC-VERB-OBJECT"
+ ],
+ "GSCS|csharp|variable|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|javascript|boolean_variable|rename": [
+  "GSCS-BOOL-BLN-PREFIX"
+ ],
+ "GSCS|javascript|class|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|javascript|conditional|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL",
+  "GSCS-IF-ELSE"
+ ],
+ "GSCS|javascript|constant|rename": [
+  "GSCS-CONST-UPPER"
+ ],
+ "GSCS|javascript|enum|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|javascript|exception_handling|comment": [
+  "GSCS-TRY-CATCH-FINALLY"
+ ],
+ "GSCS|javascript|external_call|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|javascript|field|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|javascript|function|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|javascript|function|rename": [
+  "GSCS-FUNC-RETURN-PREFIX"
+ ],
+ "GSCS|javascript|interface|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|javascript|loop|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|javascript|parameter|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|javascript|procedure|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|javascript|procedure|rename": [
+  "GSCS-PROC-VERB-OBJECT"
+ ],
+ "GSCS|javascript|variable|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|java|boolean_variable|rename": [
+  "GSCS-BOOL-BLN-PREFIX"
+ ],
+ "GSCS|java|class|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|java|conditional|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL",
+  "GSCS-IF-ELSE"
+ ],
+ "GSCS|java|constant|rename": [
+  "GSCS-CONST-UPPER"
+ ],
+ "GSCS|java|enum|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|java|exception_handling|comment": [
+  "GSCS-TRY-CATCH-FINALLY"
+ ],
+ "GSCS|java|external_call|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|java|field|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|java|function|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|java|function|rename": [
+  "GSCS-FUNC-RETURN-PREFIX"
+ ],
+ "GSCS|java|interface|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|java|loop|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|java|parameter|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|java|procedure|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|java|procedure|rename": [
+  "GSCS-PROC-VERB-OBJECT"
+ ],
+ "GSCS|java|variable|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|python|boolean_variable|rename": [
+  "GSCS-BOOL-BLN-PREFIX"
+ ],
+ "GSCS|python|class|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|python|conditional|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL",
+  "GSCS-IF-ELSE"
+ ],
+ "GSCS|python|constant|rename": [
+  "GSCS-CONST-UPPER"
+ ],
+ "GSCS|python|enum|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|python|exception_handling|comment": [
+  "GSCS-TRY-CATCH-FINALLY"
+ ],
+ "GSCS|python|external_call|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|python|field|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|python|function|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|python|function|rename": [
+  "GSCS-FUNC-RETURN-PREFIX"
+ ],
+ "GSCS|python|interface|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|python|loop|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|python|parameter|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|python|procedure|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|python|procedure|rename": [
+  "GSCS-PROC-VERB-OBJECT"
+ ],
+ "GSCS|python|variable|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|typescript|boolean_variable|rename": [
+  "GSCS-BOOL-BLN-PREFIX"
+ ],
+ "GSCS|typescript|class|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|typescript|conditional|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL",
+  "GSCS-IF-ELSE"
+ ],
+ "GSCS|typescript|constant|rename": [
+  "GSCS-CONST-UPPER"
+ ],
+ "GSCS|typescript|enum|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|typescript|exception_handling|comment": [
+  "GSCS-TRY-CATCH-FINALLY"
+ ],
+ "GSCS|typescript|external_call|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|typescript|field|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|typescript|function|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|typescript|function|rename": [
+  "GSCS-FUNC-RETURN-PREFIX"
+ ],
+ "GSCS|typescript|interface|rename": [
+  "GSCS-TYPE-SUFFIX"
+ ],
+ "GSCS|typescript|loop|comment": [
+  "GSCS-COMMENT-BEFORE-CONTROL"
+ ],
+ "GSCS|typescript|parameter|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ],
+ "GSCS|typescript|procedure|comment": [
+  "GSCS-DOC-FUNC-HEADER"
+ ],
+ "GSCS|typescript|procedure|rename": [
+  "GSCS-PROC-VERB-OBJECT"
+ ],
+ "GSCS|typescript|variable|rename": [
+  "GSCS-VAR-TYPED-PREFIX"
+ ]
+}

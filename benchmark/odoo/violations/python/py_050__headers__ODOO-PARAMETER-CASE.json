@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_050",
+  "language": "python",
+  "originalName": "headers",
+  "injectedName": "HEADERS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'HEADERS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def submit_receipt(self, body, HEADERS):\n    return self._request(\n        self.api_domain,\n        '/api/v1/receiptsubmissions',\n        'POST',\n        body=body,\n        headers=HEADERS,\n    )",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

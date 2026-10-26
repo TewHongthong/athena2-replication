@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_041",
+  "language": "cpp",
+  "originalName": "openxr_api",
+  "injectedName": "OPENXR_API",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'OPENXR_API' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void *OpenXRSpatialContainerSelfRenderingExtension::set_projection_layer_and_get_next_pointer(void *p_next_pointer) {\n\tif (!is_enabled() || active_spatial_container == XR_NULL_HANDLE) {\n\t\treturn p_next_pointer;\n\t}\n\n\tOpenXRAPI *OPENXR_API = OpenXRAPI::get_singleton();\n\tERR_FAIL_NULL_V(OPENXR_API, p_next_pointer);\n\n\tcontainer_view_config.viewConfigurationType = OPENXR_API->get_view_configuration();\n\tcontainer_view_config.next = p_next_pointer;\n\treturn &container_view_config;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

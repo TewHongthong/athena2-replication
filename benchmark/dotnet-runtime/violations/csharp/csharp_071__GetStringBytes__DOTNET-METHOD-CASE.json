@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_071",
+  "language": "csharp",
+  "originalName": "GetStringBytes",
+  "injectedName": "get_string_bytes",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_string_bytes' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal ReadOnlySpan<byte> get_string_bytes(out bool isNull)\n{\n    byte packedLengthBegin = PeekData(sizeof(byte))[0];\n\n    // Check if the embedded string indicates a 'null' string (0xff).\n    if (packedLengthBegin == 0xff) // ECMA 335- II.23.3\n    {\n        // Consume the indicator.\n        ReadData(1);\n        isNull = true;\n        return default;\n    }\n\n    isNull = false;\n    int length = GetPackedLength(packedLengthBegin);\n    return ReadData(length);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

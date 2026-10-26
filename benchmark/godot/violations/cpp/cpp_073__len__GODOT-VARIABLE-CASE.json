@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_073",
+  "language": "cpp",
+  "originalName": "len",
+  "injectedName": "LEN",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'LEN' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "double AudioStreamWAV::get_length() const {\n\tuint64_t LEN = data.size();\n\tswitch (format) {\n\t\tcase AudioStreamWAV::FORMAT_8_BITS:\n\t\t\tLEN /= 1;\n\t\t\tbreak;\n\t\tcase AudioStreamWAV::FORMAT_16_BITS:\n\t\t\tLEN /= 2;\n\t\t\tbreak;\n\t\tcase AudioStreamWAV::FORMAT_IMA_ADPCM:\n\t\t\tLEN *= 2;\n\t\t\tbreak;\n\t\tcase AudioStreamWAV::FORMAT_QOA:\n\t\t\tqoa_desc desc = {};\n\t\t\tqoa_decode_header(data.ptr(), LEN, &desc);\n\t\t\tLEN = desc.samples * desc.channels;\n\t\t\tbreak;\n\t}\n\n\tif (stereo) {\n\t\tLEN /= 2;\n\t}\n\n\treturn double(LEN) / mix_rate;\n}",
+  "occurrencesRenamed": 8,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

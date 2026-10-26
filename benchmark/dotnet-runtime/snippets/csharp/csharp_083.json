@@ -1,0 +1,30 @@
+{
+  "id": "csharp_083",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/WasmArgumentLayoutTests.cs lines 92-109 (method WasmArgumentLayoutTests.ClosedStaticDelegateSignaturePreservesHiddenArguments); license MIT; repo created 2026-07-27T20:14:18+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[Theory]\n[InlineData(WasmLowering.LoweringFlags.None, \"viiS16p\", 5)]\n[InlineData(WasmLowering.LoweringFlags.HasGenericContextArg, \"viiiS16p\", 6)]\n[InlineData(WasmLowering.LoweringFlags.IsAsyncCall, \"vaiiS16p\", 6)]\n[InlineData(WasmLowering.LoweringFlags.HasGenericContextArg | WasmLowering.LoweringFlags.IsAsyncCall, \"viaiiS16p\", 7)]\npublic void ClosedStaticDelegateSignaturePreservesHiddenArguments(WasmLowering.LoweringFlags flags, string expectedSignature, int expectedParameters)\n{\n    ReadyToRunCompilerContext context = CreateWasmContext();\n    MethodSignature invokeSignature = new MethodSignature(0, 0, context.GetWellKnownType(WellKnownType.Void),\n        [context.GetWellKnownType(WellKnownType.Int32), MakeAlignedEightBlob(context, 16)]);\n\n    MethodSignature targetSignature = WasmLowering.GetClosedStaticDelegateTargetSignature(invokeSignature);\n    WasmSignature lowered = WasmLowering.GetSignature(targetSignature, flags);\n\n    Assert.Equal(expectedSignature, lowered.SignatureString);\n    Assert.Equal(expectedParameters, lowered.FuncType.Params.Types.Length);\n    Assert.True(lowered.FuncType.Returns.Types.IsEmpty);\n}",
+  "identifiers": [
+    {
+      "name": "ClosedStaticDelegateSignaturePreservesHiddenArguments",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-27T20:14:18+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/WasmArgumentLayoutTests.cs",
+    "startLine": 92,
+    "endLine": 109,
+    "unit": "method WasmArgumentLayoutTests.ClosedStaticDelegateSignaturePreservesHiddenArguments",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.ReadyToRun.Tests__WasmArgumentLayoutTests.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 3
+}

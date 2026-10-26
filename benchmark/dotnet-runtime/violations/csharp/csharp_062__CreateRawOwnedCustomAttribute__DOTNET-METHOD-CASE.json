@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_062",
+  "language": "csharp",
+  "originalName": "CreateRawOwnedCustomAttribute",
+  "injectedName": "create_raw_owned_custom_attribute",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_raw_owned_custom_attribute' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal CustomAttributeDescriptorValue create_raw_owned_custom_attribute(\n    OwnerTypeValue owner,\n    MethodReferenceValue constructor,\n    ImmutableArray<byte> value)\n    => CreateCustomAttributeDescriptor(\n        constructor,\n        new RawCustomAttributeBlobValue(CreateRawBlob(value)),\n        owner);",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

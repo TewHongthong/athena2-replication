@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_084",
+  "language": "python",
+  "originalName": "file_manager",
+  "injectedName": "FILE_MANAGER",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FILE_MANAGER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def upgrade(FILE_MANAGER: FileManager):\n    files = [\n        file for file in FILE_MANAGER\n        if file.path.suffix == '.xml'\n        if any(attr in file.content for attr in REMOVED_ATTRIBUTES)\n    ]\n    if not files:\n        return\n\n    def process(root):\n        for node in root.iter('filter'):\n            for attr in REMOVED_ATTRIBUTES:\n                node.attrib.pop(attr, None)\n\n    for fileno, file in enumerate(files, start=1):\n        file.content = update_etree(file.content, process)\n        FILE_MANAGER.print_progress(fileno, len(files))",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

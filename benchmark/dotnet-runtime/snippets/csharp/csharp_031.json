@@ -1,0 +1,30 @@
+{
+  "id": "csharp_031",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/WasmArgumentLayoutTests.cs lines 884-904 (method WasmArgumentLayoutTests.PortableCallHelpersGeneratorRejectsUnsupportedSignatureTokens); license MIT; repo created 2026-07-27T20:14:18+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[Theory]\n[InlineData(\"int\", \"System.Int128\", \"l2\")]\n[InlineData(\"System.Int128\", \"int\", \"l2\")]\n[InlineData(\"int\", \"System.Runtime.Intrinsics.Vector128<int>\", \"V\")]\n[InlineData(\"System.Runtime.Intrinsics.Vector128<int>\", \"int\", \"V\")]\npublic void PortableCallHelpersGeneratorRejectsUnsupportedSignatureTokens(\n    string returnType, string parameterType, string expectedToken)\n{\n    string source = $$\"\"\"\n        using System;\n        using System.Runtime.InteropServices;\n\n        public static class Exports\n        {\n            [UnmanagedCallersOnly(EntryPoint = \"callback\")]\n            public static {{returnType}} Handle({{parameterType}} value) => default;\n        }\n        \"\"\";\n\n    AssertPortableCallHelpersGeneratorRejects(source, $\"has unsupported signature token '{expectedToken}'\");\n}",
+  "identifiers": [
+    {
+      "name": "PortableCallHelpersGeneratorRejectsUnsupportedSignatureTokens",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-27T20:14:18+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/WasmArgumentLayoutTests.cs",
+    "startLine": 884,
+    "endLine": 904,
+    "unit": "method WasmArgumentLayoutTests.PortableCallHelpersGeneratorRejectsUnsupportedSignatureTokens",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.ReadyToRun.Tests__WasmArgumentLayoutTests.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 37
+}

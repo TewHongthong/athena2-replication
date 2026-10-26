@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_017",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def write(self, VALS):\n    time_domain_dict = self._get_time_domain_dict()\n    res = super().write(VALS)\n    time_domain_dict.extend(self._get_time_domain_dict())\n    self._reevaluate_leaves(time_domain_dict)\n\n    return res",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

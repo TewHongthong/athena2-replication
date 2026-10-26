@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_045",
+  "language": "python",
+  "originalName": "collected_values",
+  "injectedName": "COLLECTED_VALUES",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'COLLECTED_VALUES' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _import_cii_invoice_add_narration(self, COLLECTED_VALUES):\n    tree = COLLECTED_VALUES['tree']\n    notes = []\n    for node in tree.findall('./{*}ExchangedDocument/{*}IncludedNote'):\n        note = \"\"\n        if code := node.findtext('./{*}SubjectCode'):\n            note += code + \": \"\n        if content := node.findtext('./{*}Content'):\n            note += content\n        if note:\n            notes.append(note)\n\n    if narration := ''.join(f'<p>{note}</p>' for note in notes):\n        COLLECTED_VALUES['to_write']['narration'] = narration",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

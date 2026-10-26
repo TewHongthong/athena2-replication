@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_059",
+  "language": "python",
+  "originalName": "body",
+  "injectedName": "BODY",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'BODY' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def cancel_invoice(self, uuid, BODY, headers):\n    return self._request(\n        self.api_domain,\n        f'/api/v1.0/documents/state/{uuid}/state',\n        'PUT',\n        body=BODY,\n        headers=headers,\n    )",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

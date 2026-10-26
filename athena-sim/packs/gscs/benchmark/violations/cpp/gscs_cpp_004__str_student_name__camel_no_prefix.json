@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_004",
+  "language": "cpp",
+  "originalName": "str_student_name",
+  "injectedName": "studentName",
+  "identifierKind": "field",
+  "violatedRuleId": "GSCS-VAR-TYPED-PREFIX",
+  "injectionMethod": "camel_no_prefix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'studentName' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "#include <string>\nclass pupil_Type {\nprivate:\n    std::string studentName;\npublic:\n    /* Function Objective: Store the name of a student\n       Input parameters : str_new_name (string) the new student name\n       Function description: Keep the new name, shortened to the maximum name size when it is too long\n       Return Value : void\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    void Set_Name(std::string str_new_name) {\n        const int MAX_NAME_SIZE = 30;\n        bool bln_Is_Long = str_new_name.size() > MAX_NAME_SIZE;\n        // check whether the name must be shortened\n        if (bln_Is_Long) {\n            studentName = str_new_name.substr(0, MAX_NAME_SIZE);\n        }\n        // else the name fits, keep it\n        else {\n            studentName = str_new_name;\n        }\n    }\n};",
+  "occurrencesRenamed": 3
+}

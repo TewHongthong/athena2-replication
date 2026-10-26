@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_091",
+  "language": "csharp",
+  "originalName": "ThreeBitEncodingToRegMask",
+  "injectedName": "three_bit_encoding_to_reg_mask",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'three_bit_encoding_to_reg_mask' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static RegMask three_bit_encoding_to_reg_mask(byte val) =>\n    (val & 0x7) switch\n    {\n        0x0 => RegMask.EAX,\n        0x1 => RegMask.ECX,\n        0x2 => RegMask.EDX,\n        0x3 => RegMask.EBX,\n        0x4 => RegMask.ESP,\n        0x5 => RegMask.EBP,\n        0x6 => RegMask.ESI,\n        0x7 => RegMask.EDI,\n        _ => throw new ArgumentOutOfRangeException(nameof(val), $\"Not expected register value: {val}\"),\n    };",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

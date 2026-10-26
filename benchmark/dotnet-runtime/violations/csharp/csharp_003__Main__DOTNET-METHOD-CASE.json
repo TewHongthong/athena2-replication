@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_003",
+  "language": "csharp",
+  "originalName": "Main",
+  "injectedName": "main",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'main' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public class Test\n{\n    public static int main(string[] argv)\n    {\n        Console.WriteLine(\"TestOutput -> Main running\");\n        return 42;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

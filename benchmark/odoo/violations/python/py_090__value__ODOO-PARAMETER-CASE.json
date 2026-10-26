@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_090",
+  "language": "python",
+  "originalName": "value",
+  "injectedName": "VALUE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALUE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def nl_kvk_validate(VALUE):\n    \"\"\"Normalize and validate a Dutch KVK number.\"\"\"\n    VALUE = NON_DIGIT_RE.sub('', VALUE)\n    if not NL_KVK_RE.fullmatch(VALUE):\n        raise InvalidFormat()\n    return VALUE",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_100",
+  "language": "cpp",
+  "originalName": "object_index",
+  "injectedName": "OBJECT_INDEX",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'OBJECT_INDEX' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "TypedArray<uint64_t> PhysicsTestMotionParameters2D::get_exclude_objects() const {\n\tTypedArray<uint64_t> exclude;\n\texclude.resize(parameters.exclude_objects.size());\n\n\tint OBJECT_INDEX = 0;\n\tfor (ObjectID object_id : parameters.exclude_objects) {\n\t\texclude[OBJECT_INDEX++] = object_id;\n\t}\n\n\treturn exclude;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

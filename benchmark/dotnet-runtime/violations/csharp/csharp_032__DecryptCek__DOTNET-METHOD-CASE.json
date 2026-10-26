@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_032",
+  "language": "csharp",
+  "originalName": "DecryptCek",
+  "injectedName": "decrypt_cek",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'decrypt_cek' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal byte[]? decrypt_cek(X509Certificate2 cert, out Exception? exception)\n{\n    string kemAlgorithm = _asn.Kem.Algorithm;\n\n    if (PkcsHelpers.IsCompositeMLKemAlgorithm(kemAlgorithm))\n    {\n        exception = new PlatformNotSupportedException(\n            SR.Format(SR.Cryptography_AlgorithmNotSupported, nameof(CompositeMLKem)));\n\n        return null;\n    }\n\n    if (PkcsHelpers.IsMLKemAlgorithm(kemAlgorithm))\n    {\n        using (MLKem? certificatePrivateKey = cert.GetMLKemPrivateKey())\n        {\n            if (certificatePrivateKey is null)\n            {\n                exception = new CryptographicException(SR.Cryptography_Cms_Signing_RequiresPrivateKey);\n                return null;\n            }\n\n            return decrypt_cek(certificatePrivateKey, out exception);\n        }\n    }\n\n    exception = new CryptographicException(SR.Cryptography_Cms_UnknownAlgorithm, kemAlgorithm);\n    return null;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

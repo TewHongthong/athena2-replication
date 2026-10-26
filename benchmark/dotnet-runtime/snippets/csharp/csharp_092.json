@@ -1,0 +1,30 @@
+{
+  "id": "csharp_092",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/TypeSystem/Common/Utilities/CSharpTypeNameFormatter.cs lines 96-110 (method CSharpTypeNameFormatter.AppendNameForNamespaceType); license MIT; repo created 2026-08-30T23:09:14-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "protected override void AppendNameForNamespaceType(StringBuilder sb, DefType type)\n{\n    if (TryAppendKeyword(sb, type))\n    {\n        return;\n    }\n\n    string ns = type.GetNamespace();\n    if (ns.Length > 0)\n    {\n        sb.Append(ns);\n        sb.Append('.');\n    }\n    AppendTypeName(sb, type);\n}",
+  "identifiers": [
+    {
+      "name": "AppendNameForNamespaceType",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-30T23:09:14-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/TypeSystem/Common/Utilities/CSharpTypeNameFormatter.cs",
+    "startLine": 96,
+    "endLine": 110,
+    "unit": "method CSharpTypeNameFormatter.AppendNameForNamespaceType",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__TypeSystem__Common__Utilities__CSharpTypeNameFormatter.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 11
+}

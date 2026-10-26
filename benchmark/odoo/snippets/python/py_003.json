@@ -1,0 +1,30 @@
+{
+  "id": "py_003",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/mail/controllers/discuss/messaging_menu.py lines 12-45 (method DiscussMessagingMenuController._get_menu_tab_domain); license LGPL-3.0; repo created 2026-07-12T09:29:23+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _get_menu_tab_domain(self, tab_id):\n    match tab_id:\n        case \"notification\":\n            return super()._get_menu_tab_domain(tab_id) & Domain(\n                \"model\",\n                \"!=\",\n                \"discuss.channel\",\n            )\n        case \"chat\":\n            return Domain(\n                [\n                    (\"channel_type\", \"in\", [\"chat\", \"group\"]),\n                    (\"default_display_mode\", \"!=\", \"video_full_screen\"),\n                    (\"self_member_id.is_pinned\", \"=\", True),\n                ],\n            )\n        case \"channel\":\n            channel_domain = Domain(\"self_member_id.is_pinned\", \"=\", True)\n            if self.env.user._is_internal():\n                channel_domain |= Domain(\"message_needaction\", \"=\", True)\n            return Domain(\"channel_type\", \"=\", \"channel\") & channel_domain\n        case \"meeting\":\n            is_video_full_screen = Domain(\n                \"default_display_mode\",\n                \"=\",\n                \"video_full_screen\",\n            ) | Domain(\"parent_channel_id.default_display_mode\", \"=\", \"video_full_screen\")\n            return (\n                Domain(\"channel_type\", \"=\", \"group\")\n                & Domain(\"self_member_id.is_pinned\", \"=\", True)\n                & is_video_full_screen\n            )\n        case _:\n            return super()._get_menu_tab_domain(tab_id)",
+  "identifiers": [
+    {
+      "name": "tab_id",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-07-12T09:29:23+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/mail/controllers/discuss/messaging_menu.py",
+    "startLine": 12,
+    "endLine": 45,
+    "unit": "method DiscussMessagingMenuController._get_menu_tab_domain",
+    "corpusFile": "corpus/python/odoo__odoo__addons__mail__controllers__discuss__messaging_menu.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_015",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/project_purchase_stock/models/purchase_order_line.py lines 9-18 (method PurchaseOrderLine._create_stock_moves); license LGPL-3.0; repo created 2026-07-10T20:06:31+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _create_stock_moves(self, picking=False):\n    \"\"\"\n        There is no bridge module between project_purchase_stock and\n        mrp_subcontracting, so we have passed the context here. The project\n        is used while creating the Resupply.\n    \"\"\"\n    stock_moves = super()._create_stock_moves(picking)\n    if project := picking.project_id if picking else self.order_id.project_id:\n        return stock_moves.with_context(project_id=project.id)\n    return stock_moves",
+  "identifiers": [
+    {
+      "name": "picking",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-07-10T20:06:31+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/project_purchase_stock/models/purchase_order_line.py",
+    "startLine": 9,
+    "endLine": 18,
+    "unit": "method PurchaseOrderLine._create_stock_moves",
+    "corpusFile": "corpus/python/odoo__odoo__addons__project_purchase_stock__models__purchase_order_line.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

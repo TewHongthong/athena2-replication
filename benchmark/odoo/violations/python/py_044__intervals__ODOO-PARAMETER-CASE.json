@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_044",
+  "language": "python",
+  "originalName": "intervals",
+  "injectedName": "INTERVALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'INTERVALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _dates_to_day_intervals(self, INTERVALS):\n    dates = set()\n    for interval in INTERVALS:\n        start_dt = interval[0]\n        if start_dt.time() == datetime.max.time():\n            start_dt += relativedelta(days=1)\n        start_day = start_dt.date()\n        stop_dt = interval[1]\n        if stop_dt.time() == datetime.min.time():\n            stop_dt -= relativedelta(days=1)\n        stop_day = stop_dt.date()\n        if stop_day < start_day:\n            continue\n        for day in rrule(\n            freq=DAILY,\n            dtstart=datetime.combine(start_day, datetime.min.time()),\n            until=datetime.combine(stop_day, datetime.max.time()),\n        ):\n            dates.add(day.date())\n    return Intervals([\n        (\n            datetime.combine(date, datetime.min.time()),\n            datetime.combine(date, datetime.max.time()),\n            self.env['resource.calendar'],\n        )\n        for date in dates\n    ], keep_distinct=True)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

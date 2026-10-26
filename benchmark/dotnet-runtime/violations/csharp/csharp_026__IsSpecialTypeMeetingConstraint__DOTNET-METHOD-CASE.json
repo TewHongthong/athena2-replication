@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_026",
+  "language": "csharp",
+  "originalName": "IsSpecialTypeMeetingConstraint",
+  "injectedName": "is_special_type_meeting_constraint",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'is_special_type_meeting_constraint' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static partial class TypeSystemConstraintsHelpers\n{\n    private static bool is_special_type_meeting_constraint(TypeDesc type, GenericConstraints constraint)\n        => false;\n\n    private static bool CanCastToConstraintWithCanon(TypeDesc instantiationParam, TypeDesc instantiatedConstraintType)\n        => false;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

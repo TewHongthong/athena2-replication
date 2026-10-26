@@ -1,0 +1,30 @@
+{
+  "id": "py_094",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_gr_edi/models/account_edi_xml_ubl_gr.py lines 14-28 (method AccountEdiXmlUblGr._format_greek_invoice_number); license LGPL-3.0; repo created 2026-06-11T11:06:09+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _format_greek_invoice_number(self, invoice):\n    # GR-R-001-2: First segment - VAT without EL prefix\n    company_vat = vat.compact(invoice.company_id.vat or '')\n    invoice_name = invoice.name.split('/')\n    # GR-R-001-3: Second segment - Issue date DD/MM/YYYY\n    issue_date = invoice.invoice_date.strftime('%d/%m/%Y')\n    # GR-R-001-4: Third segment - Installation serial(branch number)\n    installation_sn = str(invoice.company_id.l10n_gr_edi_branch_number)\n    # GR-R-001-5: Fourth segment - Valid Greek document type\n    invoice_type = invoice.l10n_gr_edi_inv_type\n    # GR-R-001-6: Fifth segment - Series\n    series = invoice_name[0]\n    # GR-R-001-7: Sixth segment - Serial number\n    serial_number = invoice_name[-1]\n    return f\"{company_vat}|{issue_date}|{installation_sn}|{invoice_type}|{series}|{serial_number}\"",
+  "identifiers": [
+    {
+      "name": "invoice",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-11T11:06:09+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_gr_edi/models/account_edi_xml_ubl_gr.py",
+    "startLine": 14,
+    "endLine": 28,
+    "unit": "method AccountEdiXmlUblGr._format_greek_invoice_number",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_gr_edi__models__account_edi_xml_ubl_gr.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 2
+}

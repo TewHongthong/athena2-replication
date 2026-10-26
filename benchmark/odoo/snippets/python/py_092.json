@@ -1,0 +1,30 @@
+{
+  "id": "py_092",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/generators/relation.py lines 90-113 (method RelationMany.__init__); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __init__(self, count: int, std: int = 0, groupby: str | None = None, **kwargs):\n    \"\"\"Initialize sampling for X2many command values.\n\n    :param count: Target number of related records to assign.\n    :param std: Standard deviation used to vary ``count`` with a Gaussian draw.\n    :param groupby: Optional comodel field; samples up to ``count`` records per group.\n    \"\"\"\n    super().__init__(**kwargs)\n    if self.unique:\n        # It makes little sense to have a unique constraint on a X2many field\n        raise ValueError(self.env._(\"Unique cannot be used with the '%s' generator.\", self.name))\n\n    assert count >= 0 and std >= 0\n    self.count = count\n    self.std = std\n\n    if groupby is not None and groupby not in self.env[self.comodel_name]._fields:\n        raise ValueError(self.env._(\n            \"'%(groupby)s' isn't a valid field for model '%(comodel_name)s'.\",\n            groupby=groupby,\n            comodel_name=self.comodel_name,\n        ))\n\n    self.groupby = groupby",
+  "identifiers": [
+    {
+      "name": "kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/generators/relation.py",
+    "startLine": 90,
+    "endLine": 113,
+    "unit": "method RelationMany.__init__",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__generators__relation.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 6
+}

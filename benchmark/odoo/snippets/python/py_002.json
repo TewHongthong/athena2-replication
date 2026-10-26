@@ -1,0 +1,30 @@
+{
+  "id": "py_002",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_th/report/report_tawi.py lines 5-17 (class Report50Tawi); license LGPL-3.0; repo created 2026-06-09T07:57:05+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class Report50Tawi(models.AbstractModel):\n    _name = 'report.l10n_th.report_50_tawi'\n    _description = '50 Tawi Report'\n\n    def _get_report_values(self, docids, data=None):\n        return {\n            'doc_ids': docids,\n            'doc_model': 'account.payment',\n            'docs': self.env['account.payment'].browse(docids),\n            # The report is intended to be in Thai, but we fall back to English if not enabled\n            'report_lang': misc.get_lang(self.env, 'th_TH').code,\n            'data': data,\n        }",
+  "identifiers": [
+    {
+      "name": "docids",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-09T07:57:05+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_th/report/report_tawi.py",
+    "startLine": 5,
+    "endLine": 17,
+    "unit": "class Report50Tawi",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_th__report__report_tawi.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 0
+}

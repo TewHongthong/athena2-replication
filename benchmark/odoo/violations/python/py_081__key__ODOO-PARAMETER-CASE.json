@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_081",
+  "language": "python",
+  "originalName": "key",
+  "injectedName": "KEY",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KEY' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _prepare_lead_create_values(self, partner, KEY):\n    \"\"\"Hook to prepare lead creation values from a discuss channel.\n\n    :param partner: internal user partner (operator) that created the lead;\n    :param key: operator input in chat ('/lead Lead about Product')\n    \"\"\"\n    self.ensure_one()\n    values = {\n        \"name\": html2plaintext(KEY[5:]),  # remove the leading '/lead' part\n        \"user_id\": False,\n        \"team_id\": False,\n        \"referred\": partner.name,\n    }\n    return values",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

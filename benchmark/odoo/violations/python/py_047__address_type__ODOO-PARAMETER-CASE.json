@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_047",
+  "language": "python",
+  "originalName": "address_type",
+  "injectedName": "ADDRESS_TYPE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ADDRESS_TYPE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@route()\ndef portal_address_country_info(self, country, ADDRESS_TYPE, **kw):\n    # The country-change refresh route doesn't forward the cart, which the\n    # simplified-invoice VAT relaxation needs to read the order total.\n    # Inject it here so the model stays free of any `request` dependency.\n    kw.setdefault('order_sudo', request.cart)\n    return super().portal_address_country_info(country, ADDRESS_TYPE, **kw)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

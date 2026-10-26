@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_004",
+  "language": "cpp",
+  "originalName": "pupil_Type",
+  "injectedName": "pupil",
+  "identifierKind": "class",
+  "violatedRuleId": "GSCS-TYPE-SUFFIX",
+  "injectionMethod": "strip_suffix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'pupil' does not end with required suffix '_Type'"
+  ],
+  "codeContextWithViolation": "#include <string>\nclass pupil {\nprivate:\n    std::string str_student_name;\npublic:\n    /* Function Objective: Store the name of a student\n       Input parameters : str_new_name (string) the new student name\n       Function description: Keep the new name, shortened to the maximum name size when it is too long\n       Return Value : void\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    void Set_Name(std::string str_new_name) {\n        const int MAX_NAME_SIZE = 30;\n        bool bln_Is_Long = str_new_name.size() > MAX_NAME_SIZE;\n        // check whether the name must be shortened\n        if (bln_Is_Long) {\n            str_student_name = str_new_name.substr(0, MAX_NAME_SIZE);\n        }\n        // else the name fits, keep it\n        else {\n            str_student_name = str_new_name;\n        }\n    }\n};",
+  "occurrencesRenamed": 1
+}

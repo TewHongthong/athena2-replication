@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_086",
+  "language": "cpp",
+  "originalName": "on_session_destroyed",
+  "injectedName": "ON_SESSION_DESTROYED",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ON_SESSION_DESTROYED' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void OpenXRFoveatedInsetExtension::ON_SESSION_DESTROYED() {\n\tXRServer *xr_server = XRServer::get_singleton();\n\tERR_FAIL_NULL(xr_server);\n\n\tif (inset_viewport) {\n\t\tNode *parent = inset_viewport->get_parent();\n\t\tif (parent) {\n\t\t\tparent->remove_child(inset_viewport);\n\t\t}\n\t\tinset_viewport->queue_free();\n\t\tinset_viewport = nullptr;\n\t}\n\n\t_free_swapchains();\n\n\tif (foveated_inset.is_valid()) {\n\t\txr_server->remove_tracker(foveated_inset);\n\t\tfoveated_inset.unref();\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

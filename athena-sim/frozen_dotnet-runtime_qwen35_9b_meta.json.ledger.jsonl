@@ -1,0 +1,6 @@
+{"run_id": "test_dotnet-runtime_qwen35_9b_meta", "event": "start", "backend": "openai:qwen3.5-9b-ud-q8_k_xl", "rerun": false, "trials": 1260, "ts": "2026-10-25T07:42:38+00:00"}
+{"run_id": "test_dotnet-runtime_qwen35_9b_meta", "event": "end", "status": "aborted (too many consecutive errors)", "trials_ok": 1108, "trials_error": 20, "ts": "2026-10-25T10:50:38+00:00"}
+{"run_id": "test_dotnet-runtime_qwen35_9b_meta", "event": "start", "backend": "openai:qwen3.5-9b-ud-q8_k_xl", "rerun": false, "trials": 1260, "ts": "2026-10-25T13:20:01+00:00"}
+{"run_id": "test_dotnet-runtime_qwen35_9b_meta", "event": "end", "status": "complete", "trials_ok": 152, "trials_error": 0, "ts": "2026-10-25T13:46:11+00:00"}
+{"run_id": "test_dotnet-runtime_qwen35_9b_meta", "event": "start", "backend": "openai:qwen3.5-9b-ud-q8_k_xl", "rerun": false, "trials": 1260, "ts": "2026-10-25T19:03:45+00:00"}
+{"run_id": "test_dotnet-runtime_qwen35_9b_meta", "event": "end", "status": "complete", "trials_ok": 0, "trials_error": 0, "ts": "2026-10-25T19:03:45+00:00"}

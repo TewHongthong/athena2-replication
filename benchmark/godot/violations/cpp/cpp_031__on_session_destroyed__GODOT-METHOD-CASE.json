@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_031",
+  "language": "cpp",
+  "originalName": "on_session_destroyed",
+  "injectedName": "ON_SESSION_DESTROYED",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ON_SESSION_DESTROYED' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void OpenXRSpatialContainerExtension::ON_SESSION_DESTROYED() {\n\tif (!can_create_spatial_container()) {\n\t\tprint_verbose(\"OpenXR: Unable to destroy spatial container!\");\n\t\treturn;\n\t}\n\n\tdestroy_spatial_container();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

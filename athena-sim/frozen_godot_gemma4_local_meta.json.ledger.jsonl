@@ -1,0 +1,6 @@
+{"run_id": "test_godot_gemma4_local_meta", "event": "start", "backend": "openai:gemma-4-26b-a4b-it-ud-q4_k_m", "rerun": false, "trials": 1260, "ts": "2026-10-24T23:26:48+00:00"}
+{"run_id": "test_godot_gemma4_local_meta", "event": "end", "status": "complete", "trials_ok": 1260, "trials_error": 0, "ts": "2026-10-25T00:32:21+00:00"}
+{"run_id": "test_godot_gemma4_local_meta", "event": "start", "backend": "openai:gemma-4-26b-a4b-it-ud-q4_k_m", "rerun": false, "trials": 1260, "ts": "2026-10-25T02:11:53+00:00"}
+{"run_id": "test_godot_gemma4_local_meta", "event": "end", "status": "complete", "trials_ok": 0, "trials_error": 0, "ts": "2026-10-25T02:11:53+00:00"}
+{"run_id": "test_godot_gemma4_local_meta", "event": "start", "backend": "openai:gemma-4-26b-a4b-it-ud-q4_k_m", "rerun": false, "trials": 1260, "ts": "2026-10-25T04:41:01+00:00"}
+{"run_id": "test_godot_gemma4_local_meta", "event": "end", "status": "complete", "trials_ok": 0, "trials_error": 0, "ts": "2026-10-25T04:41:01+00:00"}

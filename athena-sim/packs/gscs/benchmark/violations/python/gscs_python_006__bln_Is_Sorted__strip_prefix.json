@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_python_006",
+  "language": "python",
+  "originalName": "bln_Is_Sorted",
+  "injectedName": "Is_Sorted",
+  "identifierKind": "function",
+  "violatedRuleId": "GSCS-FUNC-RETURN-PREFIX",
+  "injectionMethod": "strip_prefix",
+  "split": "dev",
+  "expectedViolationReasons": [
+    "name 'Is_Sorted' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Z][A-Za-z0-9]*_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "# Function Objective: Check whether numbers are in ascending order\n# Input parameters : i_number_list (integer list) the numbers to check\n# Function description: Compare every number with the next one and report whether all pairs are in order\n# Return Value : boolean true when the list is sorted\n# Created By : Programmer A\n# Create Date: 2026-09-28\n# Revised By:\n# Revised Date:\ndef Is_Sorted(i_number_list):\n    bln_Sorted_So_Far = True\n    # compare every number with the next one\n    for i_index in range(len(i_number_list) - 1):\n        # check that the pair is in ascending order\n        if i_number_list[i_index] > i_number_list[i_index + 1]:\n            bln_Sorted_So_Far = False\n        # else the pair is in order, keep the answer\n        else:\n            bln_Sorted_So_Far = bln_Sorted_So_Far\n    return bln_Sorted_So_Far",
+  "occurrencesRenamed": 1
+}

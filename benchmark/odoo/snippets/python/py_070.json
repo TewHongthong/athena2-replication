@@ -1,0 +1,30 @@
+{
+  "id": "py_070",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/bus/bus_dispatcher.py lines 457-472 (method BusDispatcher._drop_topic_if_empty); license LGPL-3.0; repo created 2026-08-07T17:10:41+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _drop_topic_if_empty(self, topic: ChannelTopic):\n    # Must be called with the dbname's lock held.\n    if (\n        topic._websockets\n        or topic._waiting_room\n        # There might still be waiting sockets in an ongoing claim. Let the worker\n        # drop the topic if necessary when releasing.\n        or topic._state in (DispatchState.IN_FLIGHT, DispatchState.DIRTY)\n    ):\n        return False\n    del self._topic_by_channel[topic._channel]\n    if topics := self._pending_topics_by_db.get(topic._dbname):\n        topics.discard(topic)\n        if not topics:\n            del self._pending_topics_by_db[topic._dbname]\n    return True",
+  "identifiers": [
+    {
+      "name": "topic",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-07T17:10:41+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/bus/bus_dispatcher.py",
+    "startLine": 457,
+    "endLine": 472,
+    "unit": "method BusDispatcher._drop_topic_if_empty",
+    "corpusFile": "corpus/python/odoo__odoo__addons__bus__bus_dispatcher.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 20
+}

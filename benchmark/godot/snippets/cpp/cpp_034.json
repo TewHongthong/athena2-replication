@@ -1,0 +1,30 @@
+{
+  "id": "cpp_034",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_wav.cpp lines 629-654 (method AudioStreamWAV::generate_sample); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Ref<AudioSample> AudioStreamWAV::generate_sample() const {\n\tRef<AudioSample> sample;\n\tsample.instantiate();\n\tsample->stream = this;\n\tswitch (loop_mode) {\n\t\tcase AudioStreamWAV::LoopMode::LOOP_DISABLED: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_DISABLED;\n\t\t} break;\n\n\t\tcase AudioStreamWAV::LoopMode::LOOP_FORWARD: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_FORWARD;\n\t\t} break;\n\n\t\tcase AudioStreamWAV::LoopMode::LOOP_PINGPONG: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_PINGPONG;\n\t\t} break;\n\n\t\tcase AudioStreamWAV::LoopMode::LOOP_BACKWARD: {\n\t\t\tsample->loop_mode = AudioSample::LoopMode::LOOP_BACKWARD;\n\t\t} break;\n\t}\n\tsample->loop_begin = loop_begin;\n\tsample->loop_end = loop_end;\n\tsample->sample_rate = mix_rate;\n\treturn sample;\n}",
+  "identifiers": [
+    {
+      "name": "generate_sample",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_wav.cpp",
+    "startLine": 629,
+    "endLine": 654,
+    "unit": "method AudioStreamWAV::generate_sample",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_wav.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 34
+}

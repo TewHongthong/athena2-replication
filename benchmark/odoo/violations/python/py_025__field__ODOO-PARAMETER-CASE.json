@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_025",
+  "language": "python",
+  "originalName": "field",
+  "injectedName": "FIELD",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FIELD' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def get_field_variation_date(model: Model, FIELD: Field, factor: int, series_alias: str) -> SQL:\n    \"\"\"\n    Distribute the duplication series evenly between [field-total_days, field].\n    We use a hard limit of (MAX_DATETIME - MIN_DATETIME) years in the past to avoid\n    setting duplicated records too far back in the past.\n    \"\"\"\n    total_days = min((MAX_DATETIME - MIN_DATETIME).days, factor)\n    cast_type = FIELD.sql_column_type\n\n    def redistribute(value):\n        return SQL(\n            \"(%(value)s - (%(factor)s - %(series_alias)s) * (%(total_days)s::float/%(factor)s) * interval '1 days')::%(cast_type)s\",\n            value=value,\n            factor=factor,\n            series_alias=SQL.identifier(series_alias),\n            total_days=total_days,\n            cast_type=cast_type,\n        )\n\n    if not FIELD.company_dependent:\n        return redistribute(SQL.identifier(FIELD.name))\n    # company_dependent -> jsonb\n    return SQL(\n        '(SELECT jsonb_object_agg(key, %(expr)s) FROM jsonb_each_text(%(field)s))',\n        expr=redistribute(SQL('value::%s', cast_type)),\n        field=SQL.identifier(FIELD.name),\n    )",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

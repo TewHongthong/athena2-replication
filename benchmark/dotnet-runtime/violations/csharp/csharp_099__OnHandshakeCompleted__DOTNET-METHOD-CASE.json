@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_099",
+  "language": "csharp",
+  "originalName": "OnHandshakeCompleted",
+  "injectedName": "on_handshake_completed",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'on_handshake_completed' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private void on_handshake_completed()\n{\n    _isHandshakeComplete = true;\n    SslStreamPal.QueryContextConnectionInfo(_securityContext!, ref _connectionInfo);\n    SslStreamPal.QueryContextStreamSizes(_securityContext!, out StreamSizes streamSizes);\n    _headerSize = streamSizes.Header;\n    _trailerSize = streamSizes.Trailer;\n    if (streamSizes.MaximumMessage > 0)\n    {\n        _maxDataSize = Math.Min(streamSizes.MaximumMessage, MaxRecordPlaintext);\n    }\n\n    // Invoke remote-certificate validation callback (mirrors SslStream).\n    // Client: always validate the server cert.\n    // Server: always suspend so the caller's RemoteCertificateValidationCallback runs\n    // (it must see optional client certs and the no-cert case alike — only the\n    // RemoteCertificateNotAvailable error is suppressed in VerifyRemoteCertificateCore\n    // when there is no user callback and RemoteCertRequired is false).\n    if (_suppressInternalCertificateValidation)\n    {\n        return;\n    }\n\n    // If the caller already resolved validation via a prior suspension\n    // (defensive — current OpenSSL/SChannel paths only suspend once via\n    // the post-handshake hook below), don't re-suspend here.\n    if (_externalValidationResolved)\n    {\n        return;\n    }\n\n    CaptureRemoteCertificateForExternalValidation();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

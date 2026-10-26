@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_077",
+  "language": "csharp",
+  "originalName": "AwaitInheritedValueTask",
+  "injectedName": "await_inherited_value_task",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'await_inherited_value_task' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static class CompositeAsyncDevirtNonAsyncCallee\n{\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public static async Task await_inherited_value_task(Holder h)\n    {\n        await h.Writer.CompleteValueTaskAsync();\n    }\n\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public static async Task AwaitInheritedTask(Holder h)\n    {\n        await h.Writer.CompleteTaskAsync();\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

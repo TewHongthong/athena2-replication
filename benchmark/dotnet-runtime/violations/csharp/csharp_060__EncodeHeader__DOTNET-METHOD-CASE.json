@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_060",
+  "language": "csharp",
+  "originalName": "EncodeHeader",
+  "injectedName": "encode_header",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'encode_header' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private int encode_header(Span<byte> headerBuffer)\n{\n    uint encodeLength = Relocation.WASM_PADDED_RELOC_SIZE_32;\n    headerBuffer[0] = (byte)Type;\n    DwarfHelper.WritePaddedULEB128(headerBuffer.Slice(1), (ulong)ContentSize);\n    return 1 + (int)encodeLength;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

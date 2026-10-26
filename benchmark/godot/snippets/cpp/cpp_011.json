@@ -1,0 +1,30 @@
+{
+  "id": "cpp_011",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_map_layer_editor.cpp lines 96-101 (method TileMapLayerEditorTilesPlugin::tile_set_changed); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileMapLayerEditorTilesPlugin::tile_set_changed() {\n\t_update_fix_selected_and_hovered();\n\t_update_tile_set_sources_list();\n\t_update_source_display();\n\t_update_patterns_list();\n}",
+  "identifiers": [
+    {
+      "name": "tile_set_changed",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_map_layer_editor.cpp",
+    "startLine": 96,
+    "endLine": 101,
+    "unit": "method TileMapLayerEditorTilesPlugin::tile_set_changed",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_map_layer_editor.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 5
+}

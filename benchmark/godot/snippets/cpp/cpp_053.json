@@ -1,0 +1,30 @@
+{
+  "id": "cpp_053",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/physics_2d/direct_states/physics_direct_body_state_2d.cpp lines 35-60 (method PhysicsDirectBodyState2D::integrate_forces); license MIT; repo created 2026-07-06T10:32:58+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void PhysicsDirectBodyState2D::integrate_forces() {\n\treal_t step = get_step();\n\tVector2 lv = get_linear_velocity();\n\tlv += get_total_gravity() * step;\n\n\treal_t av = get_angular_velocity();\n\n\treal_t damp = 1.0 - step * get_total_linear_damp();\n\n\tif (damp < 0) { // reached zero in the given time\n\t\tdamp = 0;\n\t}\n\n\tlv *= damp;\n\n\tdamp = 1.0 - step * get_total_angular_damp();\n\n\tif (damp < 0) { // reached zero in the given time\n\t\tdamp = 0;\n\t}\n\n\tav *= damp;\n\n\tset_linear_velocity(lv);\n\tset_angular_velocity(av);\n}",
+  "identifiers": [
+    {
+      "name": "integrate_forces",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-06T10:32:58+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/physics_2d/direct_states/physics_direct_body_state_2d.cpp",
+    "startLine": 35,
+    "endLine": 60,
+    "unit": "method PhysicsDirectBodyState2D::integrate_forces",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__physics_2d__direct_states__physics_direct_body_state_2d.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 0
+}

@@ -1,0 +1,30 @@
+{
+  "id": "csharp_016",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tasks/Microsoft.NET.WebAssembly.Webcil/WasmModuleInfoReader.cs lines 881-892 (method WasiR2RComposition.GetSelfInstallingPayloadSegment); license MIT; repo created 2026-09-29T00:38:13+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static (bool Active, int? Offset, long PayloadOffset, uint Size) GetSelfInstallingPayloadSegment(WasmModuleInfo module, string path)\n{\n    (bool Active, int? Offset, long PayloadOffset, uint Size)[] active =\n        new List<(bool Active, int? Offset, long PayloadOffset, uint Size)>(module.DataSegments)\n            .FindAll(segment => segment.Active)\n            .ToArray();\n    if (active.Length != 1)\n        throw new BadImageFormatException($\"Expected exactly one active WebCIL payload segment in {path}, found {active.Length}.\");\n    if (!module.Exports.TryGetValue(\"patchWebcilHeader\", out (byte Kind, uint Index) patchExport) || patchExport.Kind != 0)\n        throw new BadImageFormatException($\"{path} is not a self-installing WebCIL image: patchWebcilHeader is missing.\");\n    return active[0];\n}",
+  "identifiers": [
+    {
+      "name": "GetSelfInstallingPayloadSegment",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-29T00:38:13+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tasks/Microsoft.NET.WebAssembly.Webcil/WasmModuleInfoReader.cs",
+    "startLine": 881,
+    "endLine": 892,
+    "unit": "method WasiR2RComposition.GetSelfInstallingPayloadSegment",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tasks__Microsoft.NET.WebAssembly.Webcil__WasmModuleInfoReader.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 48
+}

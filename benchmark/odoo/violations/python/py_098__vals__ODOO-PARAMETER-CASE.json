@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_098",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def write(self, VALS):\n    if 'company_id' in VALS:\n        for picking_type in self:\n            if picking_type.company_id.id != VALS['company_id']:\n                raise UserError(_(\"Changing the company of this record is forbidden at this point, you should rather archive it and create a new one.\"))\n    if 'sequence_code' in VALS:\n        for picking_type in self:\n            if VALS.get('sequence_id') is False:  # revert the sequence_id\n                VALS['sequence_id'] = picking_type.sequence_id.id\n            if picking_type.warehouse_id:\n                picking_type.sequence_id.sudo().write({\n                    'name': _('%(warehouse)s Sequence %(code)s', warehouse=picking_type.warehouse_id.name, code=VALS['sequence_code']),\n                    'padding': 5,\n                    'company_id': picking_type.warehouse_id.company_id.id,\n                })\n            else:\n                picking_type.sequence_id.sudo().write({\n                    'name': _('Sequence %(code)s', code=VALS['sequence_code']),\n                    'padding': 5,\n                    'company_id': picking_type.env.company.id,\n                })\n    if 'reservation_method' in VALS:\n        if VALS['reservation_method'] == 'by_date':\n            if picking_types := self.filtered(lambda p: p.reservation_method != 'by_date'):\n                domain = [('picking_type_id', 'in', picking_types.ids), ('state', 'in', ('draft', 'confirmed', 'waiting', 'partially_available'))]\n                group_by = ['picking_type_id']\n                aggregates = ['id:recordset']\n                for picking_type, moves in self.env['stock.move']._read_group(domain, group_by, aggregates):\n                    common_days = VALS.get('reservation_days_before') or picking_type.reservation_days_before\n                    priority_days = VALS.get('reservation_days_before_priority') or picking_type.reservation_days_before_priority\n                    for move in moves:\n                        move.reservation_date = fields.Date.to_date(move.date) - timedelta(days=priority_days if move.priority == '1' else common_days)\n        else:\n            if picking_types := self.filtered(lambda p: p.reservation_method == 'by_date'):\n                moves = self.env['stock.move'].search([('picking_type_id', 'in', picking_types.ids), ('state', 'not in', ('assigned', 'done', 'cancel'))])\n                moves.reservation_date = False\n\n    return super().write(VALS)",
+  "occurrencesRenamed": 13,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

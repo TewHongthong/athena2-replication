@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_068",
+  "language": "csharp",
+  "originalName": "DivideSmallPrime",
+  "injectedName": "divide_small_prime",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'divide_small_prime' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static void divide_small_prime<TDivisor>(\n    ReadOnlySpan<nuint> left,\n    Span<nuint> quotient,\n    ref nuint carry)\n    where TDivisor : struct, ISmallPrimeDivisor\n{\n    Debug.Assert(quotient.IsEmpty || quotient.Length == left.Length);\n\n    nuint quotientScale = nuint.MaxValue / TDivisor.Value;\n    nuint remainderScale = (nuint.MaxValue % TDivisor.Value) + 1;\n    bool writeQuotient = !quotient.IsEmpty;\n\n    for (int i = left.Length - 1; i >= 0; i--)\n    {\n        nuint digit = left[i];\n        nuint currentCarry = carry;\n        nuint result = digit / TDivisor.Value;\n        nuint remainder = digit - (result * TDivisor.Value);\n        nuint adjustedRemainder = remainder + (currentCarry * remainderScale);\n        nuint adjustment = TDivisor.GetAdjustment(adjustedRemainder);\n\n        if (writeQuotient)\n        {\n            quotient[i] = (currentCarry * quotientScale) + result + adjustment;\n        }\n\n        carry = adjustedRemainder - (adjustment * TDivisor.Value);\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

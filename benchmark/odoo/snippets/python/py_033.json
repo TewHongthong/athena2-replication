@@ -1,0 +1,30 @@
+{
+  "id": "py_033",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/stock/wizard/stock_location_label_layout.py lines 4-36 (class LocationLabelLayout); license LGPL-3.0; repo created 2026-09-15T23:44:59+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class LocationLabelLayout(models.TransientModel):\n    _name = 'stock.location.label.layout'\n    _description = 'Prepare Location Labels'\n\n    @api.model\n    def _process_report_data(self, data, print_format):\n        report_xml_id = 'product.report_product_template_label_zpl' if print_format == 'zpl' else 'product.action_report_product_label_pdf'\n        action = self.env.ref(report_xml_id).report_action(None, data=data, config=False)\n        action['close_on_report_download'] = True\n        return action\n\n    @api.model\n    def _prepare_report_data_for_locations(self, location_ids, print_format):\n        locations = self.env['stock.location'].browse(location_ids)\n        data = {\n            'labels': [{\n                'barcode_value': location.barcode or location.name,\n                'barcode_text': location.barcode or '',\n                'name': location.display_name,\n            } for location in locations],\n            'label_template': f\"stock.location_barcode_{'zpl' if print_format == 'zpl' else '4x7'}_label\",\n        }\n        if print_format == '4x7':\n            data['layout'] = {\n                'rows': 7,\n                'columns': 4,\n            }\n        return data\n\n    @api.model\n    def _process_location_labels(self, locations, print_format):\n        data = self._prepare_report_data_for_locations(locations.ids, print_format)\n        return self._process_report_data(data, print_format)",
+  "identifiers": [
+    {
+      "name": "location_ids",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T23:44:59+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/stock/wizard/stock_location_label_layout.py",
+    "startLine": 4,
+    "endLine": 36,
+    "unit": "class LocationLabelLayout",
+    "corpusFile": "corpus/python/odoo__odoo__addons__stock__wizard__stock_location_label_layout.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

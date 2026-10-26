@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_028",
+  "language": "csharp",
+  "originalName": "TryGetFloatingPointConstant",
+  "injectedName": "try_get_floating_point_constant",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_get_floating_point_constant' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static bool try_get_floating_point_constant(ReadOnlySpan<byte> span, out T value)\n{\n    if (span.SequenceEqual(JsonConstants.NaNValue))\n    {\n        value = T.NaN;\n        return true;\n    }\n\n    if (span.SequenceEqual(JsonConstants.PositiveInfinityValue))\n    {\n        value = T.PositiveInfinity;\n        return true;\n    }\n\n    if (span.SequenceEqual(JsonConstants.NegativeInfinityValue))\n    {\n        value = T.NegativeInfinity;\n        return true;\n    }\n\n    value = default;\n    return false;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_008",
+  "language": "cpp",
+  "originalName": "set_width",
+  "injectedName": "SET_WIDTH",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SET_WIDTH' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void Trail3D::SET_WIDTH(float p_width) {\n\twidth = p_width;\n\tif (limit_mode == LIMIT_MODE_MAX_LENGTH && !RS::get_singleton()->is_connected(\"frame_pre_draw\", callable_mp(this, &Trail3D::_process_trail))) {\n\t\tRS::get_singleton()->connect(\"frame_pre_draw\", callable_mp(this, &Trail3D::_process_trail), CONNECT_ONE_SHOT);\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

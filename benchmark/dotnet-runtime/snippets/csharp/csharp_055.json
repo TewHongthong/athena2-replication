@@ -1,0 +1,30 @@
+{
+  "id": "csharp_055",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKemImplementation.NotSupported.cs lines 8-41 (class CompositeMLKemImplementation); license MIT; repo created 2026-08-19T15:36:12-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed partial class CompositeMLKemImplementation : CompositeMLKem\n{\n    public CompositeMLKemImplementation(CompositeMLKemAlgorithm algorithm)\n        : base(algorithm)\n    {\n        throw new PlatformNotSupportedException();\n    }\n\n    internal static partial bool IsAlgorithmSupportedImpl(CompositeMLKemAlgorithm algorithm) => false;\n\n    internal static partial CompositeMLKem GenerateKeyImpl(CompositeMLKemAlgorithm algorithm) =>\n        throw new PlatformNotSupportedException();\n\n    internal static partial CompositeMLKem ImportEncapsulationKeyImpl(CompositeMLKemAlgorithm algorithm, ReadOnlySpan<byte> source) =>\n        throw new PlatformNotSupportedException();\n\n    internal static partial CompositeMLKem ImportDecapsulationKeyImpl(CompositeMLKemAlgorithm algorithm, ReadOnlySpan<byte> source) =>\n        throw new PlatformNotSupportedException();\n\n    protected override void EncapsulateCore(Span<byte> ciphertext, Span<byte> sharedSecret) =>\n        throw new PlatformNotSupportedException();\n\n    protected override void DecapsulateCore(ReadOnlySpan<byte> ciphertext, Span<byte> sharedSecret) =>\n        throw new PlatformNotSupportedException();\n\n    protected override bool TryExportPkcs8PrivateKeyCore(Span<byte> destination, out int bytesWritten) =>\n        throw new PlatformNotSupportedException();\n\n    protected override int ExportEncapsulationKeyCore(Span<byte> destination) =>\n        throw new PlatformNotSupportedException();\n\n    protected override int ExportDecapsulationKeyCore(Span<byte> destination) =>\n        throw new PlatformNotSupportedException();\n}",
+  "identifiers": [
+    {
+      "name": "TryExportPkcs8PrivateKeyCore",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-19T15:36:12-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKemImplementation.NotSupported.cs",
+    "startLine": 8,
+    "endLine": 41,
+    "unit": "class CompositeMLKemImplementation",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Common__src__System__Security__Cryptography__CompositeMLKemImplementation.NotSupported.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 0
+}

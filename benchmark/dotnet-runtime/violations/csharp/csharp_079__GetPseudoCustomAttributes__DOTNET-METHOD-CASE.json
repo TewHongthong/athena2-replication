@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_079",
+  "language": "csharp",
+  "originalName": "GetPseudoCustomAttributes",
+  "injectedName": "get_pseudo_custom_attributes",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_pseudo_custom_attributes' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "        private static object[]? get_pseudo_custom_attributes(Type type)\n        {\n            int count = 0;\n            TypeAttributes Attributes = type.Attributes;\n\n#pragma warning disable SYSLIB0050 // TypeAttributes.Serializable is obsolete\n            /* IsSerializable returns true for delegates/enums as well */\n            if ((Attributes & TypeAttributes.Serializable) != 0)\n                count++;\n#pragma warning restore SYSLIB0050\n            if ((Attributes & TypeAttributes.Import) != 0)\n                count++;\n\n            if (count == 0)\n                return null;\n            object[] attrs = new object[count];\n            count = 0;\n\n#pragma warning disable SYSLIB0050 // TypeAttributes.Serializable is obsolete\n            if ((Attributes & TypeAttributes.Serializable) != 0)\n                attrs[count++] = new SerializableAttribute();\n#pragma warning restore SYSLIB0050\n            if ((Attributes & TypeAttributes.Import) != 0)\n                attrs[count++] = new ComImportAttribute();\n\n            return attrs;\n        }",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

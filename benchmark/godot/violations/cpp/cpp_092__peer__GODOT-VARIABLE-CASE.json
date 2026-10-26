@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_092",
+  "language": "cpp",
+  "originalName": "peer",
+  "injectedName": "PEER",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'PEER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Ref<RemoteDebuggerPeer> EditorDebuggerServerMessagePort::take_connection() {\n\tERR_FAIL_COND_V(!is_connection_available(), Ref<RemoteDebuggerPeer>());\n\tRef<RemoteDebuggerPeerMessagePort> PEER = memnew(RemoteDebuggerPeerMessagePort(pending.front()->get()));\n\tpending.pop_front();\n\treturn PEER;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

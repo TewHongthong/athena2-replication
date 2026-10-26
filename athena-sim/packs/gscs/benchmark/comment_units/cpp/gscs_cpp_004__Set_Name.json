@@ -1,0 +1,13 @@
+{
+  "snippetId": "gscs_cpp_004",
+  "language": "cpp",
+  "standardId": "GSCS",
+  "identifierKind": "procedure",
+  "name": "Set_Name",
+  "codeBare": "#include <string>\nclass pupil_Type {\nprivate:\n    std::string str_student_name;\npublic:\n    void Set_Name(std::string str_new_name) {\n        const int MAX_NAME_SIZE = 30;\n        bool bln_Is_Long = str_new_name.size() > MAX_NAME_SIZE;\n        // check whether the name must be shortened\n        if (bln_Is_Long) {\n            str_student_name = str_new_name.substr(0, MAX_NAME_SIZE);\n        }\n        // else the name fits, keep it\n        else {\n            str_student_name = str_new_name;\n        }\n    }\n};",
+  "referenceComment": "    /* Function Objective: Store the name of a student\n       Input parameters : str_new_name (string) the new student name\n       Function description: Keep the new name, shortened to the maximum name size when it is too long\n       Return Value : void\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */",
+  "split": "test",
+  "ruleIds": [
+    "GSCS-DOC-FUNC-HEADER"
+  ]
+}

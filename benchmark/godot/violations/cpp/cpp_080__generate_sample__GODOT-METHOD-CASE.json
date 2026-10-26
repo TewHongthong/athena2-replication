@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_080",
+  "language": "cpp",
+  "originalName": "generate_sample",
+  "injectedName": "GENERATE_SAMPLE",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GENERATE_SAMPLE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Ref<AudioSample> AudioStream::GENERATE_SAMPLE() const {\n\tERR_FAIL_COND_V_MSG(!can_be_sampled(), nullptr, \"Cannot generate a sample for a stream that cannot be sampled.\");\n\tRef<AudioSample> sample;\n\tsample.instantiate();\n\tsample->stream = this;\n\treturn sample;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

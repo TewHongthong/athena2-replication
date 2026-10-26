@@ -1,0 +1,42 @@
+{
+ "by_kind": {
+  "all": {
+   "method": 100
+  },
+  "dev": {
+   "method": 30
+  },
+  "test": {
+   "method": 70
+  }
+ },
+ "by_method": {
+  "all": {
+   "casing_swap": 100
+  },
+  "dev": {
+   "casing_swap": 30
+  },
+  "test": {
+   "casing_swap": 70
+  }
+ },
+ "by_rule": {
+  "all": {
+   "DOTNET-METHOD-CASE": 100
+  },
+  "dev": {
+   "DOTNET-METHOD-CASE": 30
+  },
+  "test": {
+   "DOTNET-METHOD-CASE": 70
+  }
+ },
+ "by_split": {
+  "dev": 30,
+  "test": 70
+ },
+ "language": "csharp",
+ "pack": "dotnet-runtime",
+ "tasks": 100
+}

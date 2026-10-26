@@ -1,0 +1,30 @@
+{
+  "id": "cpp_032",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/openxr/extensions/spatial_container/openxr_spatial_container_extension.cpp lines 85-91 (method OpenXRSpatialContainerExtension::get_requested_extensions); license MIT; repo created 2026-09-08T07:46:19-07:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "HashMap<String, bool *> OpenXRSpatialContainerExtension::get_requested_extensions(XrVersion p_version) {\n\tHashMap<String, bool *> request_extensions;\n\n\trequest_extensions[XR_EXT_SPATIAL_CONTAINER_EXTENSION_NAME] = &spatial_container_ext;\n\n\treturn request_extensions;\n}",
+  "identifiers": [
+    {
+      "name": "request_extensions",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-08T07:46:19-07:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/openxr/extensions/spatial_container/openxr_spatial_container_extension.cpp",
+    "startLine": 85,
+    "endLine": 91,
+    "unit": "method OpenXRSpatialContainerExtension::get_requested_extensions",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__openxr__extensions__spatial_container__openxr_spatial_container_extension.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 7
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_039",
+  "language": "cpp",
+  "originalName": "last_end",
+  "injectedName": "LAST_END",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'LAST_END' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "TypedArray<RegExMatch> RegEx::search_all(const String &p_subject, int p_offset, int p_end) const {\n\tERR_FAIL_COND_V_MSG(p_offset < 0, TypedArray<RegExMatch>(), \"RegEx search offset must be >= 0\");\n\n\tint LAST_END = 0;\n\tTypedArray<RegExMatch> result;\n\tRef<RegExMatch> match = search(p_subject, p_offset, p_end);\n\n\twhile (match.is_valid()) {\n\t\tLAST_END = match->get_end(0);\n\t\tif (match->get_start(0) == LAST_END) {\n\t\t\tLAST_END++;\n\t\t}\n\n\t\tresult.push_back(match);\n\t\tmatch = search(p_subject, LAST_END, p_end);\n\t}\n\treturn result;\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

@@ -1,0 +1,2 @@
+{"run_id": "test_dotnet-runtime_luna_llm", "event": "start", "backend": "openai:openai/gpt-6-luna", "rerun": false, "trials": 210, "ts": "2026-10-24T18:01:17+00:00"}
+{"run_id": "test_dotnet-runtime_luna_llm", "event": "end", "status": "complete", "trials_ok": 210, "trials_error": 0, "ts": "2026-10-24T18:04:03+00:00"}

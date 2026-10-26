@@ -1,0 +1,30 @@
+{
+  "id": "cpp_061",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_atlas_view.cpp lines 495-531 (method TileAtlasView::set_atlas_source); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileAtlasView::set_atlas_source(TileSet *p_tile_set, TileSetAtlasSource *p_tile_set_atlas_source, int p_source_id) {\n\ttile_set = Ref<TileSet>(p_tile_set);\n\ttile_set_atlas_source = Ref<TileSetAtlasSource>(p_tile_set_atlas_source);\n\n\t_clear_material_canvas_items();\n\n\tif (tile_set.is_null()) {\n\t\treturn;\n\t}\n\n\tERR_FAIL_COND(p_source_id < 0);\n\tERR_FAIL_COND(p_tile_set->get_source(p_source_id) != p_tile_set_atlas_source);\n\n\tsource_id = p_source_id;\n\n\t// Show or hide the view.\n\tbool valid = tile_set_atlas_source->get_texture().is_valid();\n\thbox->set_visible(valid);\n\tmissing_source_label->set_visible(!valid);\n\n\t// Update the rect cache.\n\t_update_alternative_tiles_rect_cache();\n\n\t// Update everything.\n\t_update_zoom_and_panning();\n\n\tbase_tiles_drawing_root->set_size(_compute_base_tiles_control_size());\n\talternative_tiles_drawing_root->set_size(_compute_alternative_tiles_control_size());\n\n\t// Update.\n\tbase_tiles_draw->queue_redraw();\n\tbase_tiles_texture_grid->queue_redraw();\n\tbase_tiles_shape_grid->queue_redraw();\n\talternatives_draw->queue_redraw();\n\tbackground_left->queue_redraw();\n\tbackground_right->queue_redraw();\n}",
+  "identifiers": [
+    {
+      "name": "p_source_id",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_atlas_view.cpp",
+    "startLine": 495,
+    "endLine": 531,
+    "unit": "method TileAtlasView::set_atlas_source",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_atlas_view.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 18
+}

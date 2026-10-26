@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_051",
+  "language": "csharp",
+  "originalName": "ShouldEmitCell",
+  "injectedName": "should_emit_cell",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'should_emit_cell' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public class InterfaceDispatchCellSectionNode : DispatchCellSectionNode\n{\n    protected override bool should_emit_cell(DispatchCellNode cell) => !cell.TargetMethod.HasInstantiation;\n\n    public override void AppendMangledName(NameMangler nameMangler, Utf8StringBuilder sb)\n        => sb.Append(nameMangler.CompilationUnitPrefix).Append(\"__InterfaceDispatchCellSection_Start\"u8);\n\n    public override int ClassCode => (int)ObjectNodeOrder.InterfaceDispatchCellSection;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

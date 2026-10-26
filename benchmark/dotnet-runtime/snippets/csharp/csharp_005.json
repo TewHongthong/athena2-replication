@@ -1,0 +1,30 @@
+{
+  "id": "csharp_005",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.Literals.cs lines 33-42 (method GrammarActions.AddDottedNamePart); license MIT; repo created 2026-10-02T03:59:46+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal void AddDottedNamePart(CILParser.DottedNameBuilder builder, string value)\n{\n    if (builder.HasPart)\n    {\n        builder.Value.Append('.');\n    }\n\n    builder.Value.Append(value);\n    builder.HasPart = true;\n}",
+  "identifiers": [
+    {
+      "name": "AddDottedNamePart",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-02T03:59:46+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.Literals.cs",
+    "startLine": 33,
+    "endLine": 42,
+    "unit": "method GrammarActions.AddDottedNamePart",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tools__ilasm__src__ILAssembler__Actions__GrammarActions.Literals.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 3
+}

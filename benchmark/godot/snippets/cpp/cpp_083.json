@@ -1,0 +1,30 @@
+{
+  "id": "cpp_083",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/physics_2d/physics_server_2d_manager.cpp lines 76-81 (method PhysicsServer2DManager::finalize_server); license MIT; repo created 2026-07-17T13:35:48+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void PhysicsServer2DManager::finalize_server() {\n\tERR_FAIL_NULL(physics_server_2d);\n\tphysics_server_2d->finish();\n\tmemdelete(physics_server_2d);\n\tphysics_server_2d = nullptr;\n}",
+  "identifiers": [
+    {
+      "name": "finalize_server",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-17T13:35:48+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/physics_2d/physics_server_2d_manager.cpp",
+    "startLine": 76,
+    "endLine": 81,
+    "unit": "method PhysicsServer2DManager::finalize_server",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__physics_2d__physics_server_2d_manager.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 3
+}

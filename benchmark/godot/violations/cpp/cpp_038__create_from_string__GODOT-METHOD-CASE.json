@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_038",
+  "language": "cpp",
+  "originalName": "create_from_string",
+  "injectedName": "CREATE_FROM_STRING",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CREATE_FROM_STRING' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Ref<RegEx> RegEx::CREATE_FROM_STRING(const String &p_pattern, bool p_show_error) {\n\tRef<RegEx> ret;\n\tret.instantiate();\n\tret->compile(p_pattern, p_show_error);\n\treturn ret;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

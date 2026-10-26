@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_032",
+  "language": "python",
+  "originalName": "attrs",
+  "injectedName": "ATTRS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ATTRS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@classmethod\ndef convert_to_kwargs(cls, ATTRS: dict) -> dict:\n    kwargs = super().convert_to_kwargs(ATTRS)\n    if 'size' in ATTRS:\n        kwargs['size'] = int(ATTRS['size'])\n    return kwargs",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

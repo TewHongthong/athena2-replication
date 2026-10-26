@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_060",
+  "language": "cpp",
+  "originalName": "write",
+  "injectedName": "WRITE",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'WRITE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "bool FileAccessPackedByteArray::store_buffer(const uint8_t *p_src, uint64_t p_length) {\n\tif (!p_length) {\n\t\treturn true;\n\t}\n\n\tERR_FAIL_NULL_V(p_src, false);\n\n\tuint64_t left = data.size() - pos;\n\tuint64_t WRITE = MIN(p_length, left);\n\n\tmemcpy(data.ptrw() + pos, p_src, WRITE);\n\tpos += WRITE;\n\n\tERR_FAIL_COND_V_MSG(WRITE < p_length, false, \"Writing less data than requested.\");\n\n\treturn true;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

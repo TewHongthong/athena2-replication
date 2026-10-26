@@ -1,0 +1,30 @@
+{
+  "id": "cpp_048",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_atlas_view.cpp lines 548-573 (method TileAtlasView::get_atlas_tile_coords_at_pos); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Vector2i TileAtlasView::get_atlas_tile_coords_at_pos(const Vector2 p_pos, bool p_clamp) const {\n\tif (tile_set_atlas_source.is_null()) {\n\t\treturn Vector2i();\n\t}\n\n\tRef<Texture2D> texture = tile_set_atlas_source->get_texture();\n\tif (texture.is_null()) {\n\t\treturn TileSetSource::INVALID_ATLAS_COORDS;\n\t}\n\n\tVector2i margins = tile_set_atlas_source->get_margins();\n\tVector2i separation = tile_set_atlas_source->get_separation();\n\tVector2i texture_region_size = tile_set_atlas_source->get_texture_region_size();\n\n\t// Compute index in atlas.\n\tVector2 pos = p_pos - margins;\n\tVector2i ret = (pos / (texture_region_size + separation)).floor();\n\n\t// Clamp.\n\tif (p_clamp) {\n\t\tVector2i size = tile_set_atlas_source->get_atlas_grid_size();\n\t\tret = ret.clamp(Vector2i(), size - Vector2i(1, 1));\n\t}\n\n\treturn ret;\n}",
+  "identifiers": [
+    {
+      "name": "pos",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_atlas_view.cpp",
+    "startLine": 548,
+    "endLine": 573,
+    "unit": "method TileAtlasView::get_atlas_tile_coords_at_pos",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_atlas_view.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 22
+}

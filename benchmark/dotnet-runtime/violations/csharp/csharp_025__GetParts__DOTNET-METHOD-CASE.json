@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_025",
+  "language": "csharp",
+  "originalName": "GetParts",
+  "injectedName": "get_parts",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_parts' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static IEnumerable<ISymbol> get_parts(ISymbol member)\n{\n    yield return member;\n    switch (member)\n    {\n        case IMethodSymbol method:\n            if (method.PartialDefinitionPart is { } definition)\n                yield return definition;\n            if (method.PartialImplementationPart is { } implementation)\n                yield return implementation;\n            break;\n        case IPropertySymbol property:\n            if (property.PartialDefinitionPart is { } propertyDefinition)\n                yield return propertyDefinition;\n            if (property.PartialImplementationPart is { } propertyImplementation)\n                yield return propertyImplementation;\n            break;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

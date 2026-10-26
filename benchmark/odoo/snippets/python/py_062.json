@@ -1,0 +1,30 @@
+{
+  "id": "py_062",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/sale_loyalty_delivery/controllers/payment.py lines 7-19 (class PaymentPortal); license LGPL-3.0; repo created 2026-09-21T12:16:55+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class PaymentPortal(payment_portal.PaymentPortal):\n\n    def _create_transaction(self, *args, **kwargs):\n        tx = super()._create_transaction(*args, **kwargs)\n        for order in tx.sale_order_ids:\n            if (\n                tx.provider_id.custom_mode in tx.provider_id._get_pay_on_delivery_provider_codes() and\n                order.coupon_point_ids.filtered(lambda pe: pe.coupon_id.program_id.program_type in ['gift_card', 'ewallet']).coupon_id\n            ):\n                raise ValidationError(\n                    _(\"Cannot process payment: Gift cards and eWallets are not compatible with on site payment\")\n                )\n        return tx",
+  "identifiers": [
+    {
+      "name": "args",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-21T12:16:55+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/sale_loyalty_delivery/controllers/payment.py",
+    "startLine": 7,
+    "endLine": 19,
+    "unit": "class PaymentPortal",
+    "corpusFile": "corpus/python/odoo__odoo__addons__sale_loyalty_delivery__controllers__payment.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

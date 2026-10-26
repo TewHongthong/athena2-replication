@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_010",
+  "language": "python",
+  "originalName": "file_manager",
+  "injectedName": "FILE_MANAGER",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FILE_MANAGER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def upgrade(FILE_MANAGER: FileManager):\n    clear_cache_re = re.compile(r\"\\bregistry\\.clear_cache\")\n\n    for file in FILE_MANAGER:\n        if file.path.suffix != '.py':\n            continue\n        content = file.content\n        content = clear_cache_re.sub(r'transaction.invalidate_ormcache', content)\n        file.content = content",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

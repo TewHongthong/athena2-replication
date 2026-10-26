@@ -1,0 +1,30 @@
+{
+  "id": "cpp_096",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/texture_streaming/texture_streaming.h lines 351-366 (method StreamingState.StreamingState); license MIT; repo created 2026-08-26T13:28:15-06:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "StreamingState(const StreamingState &p_other) {\n\ttexture = p_other.texture;\n\twidth = p_other.width;\n\theight = p_other.height;\n\tformat = p_other.format;\n\treload_callable = p_other.reload_callable;\n\tmin_lod_override = p_other.min_lod_override;\n\tmax_lod_override = p_other.max_lod_override;\n\tfeedback_mip = p_other.feedback_mip;\n\trequest_mip = p_other.request_mip;\n\tfit_mip = p_other.fit_mip.load(std::memory_order_relaxed);\n\tcurrent_mip = p_other.current_mip.load(std::memory_order_relaxed);\n\tpending_reload_mip = p_other.pending_reload_mip.load(std::memory_order_relaxed);\n\tremoving = p_other.removing.load(std::memory_order_relaxed);\n\trequested_tick_msec = p_other.requested_tick_msec;\n}",
+  "identifiers": [
+    {
+      "name": "p_other",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-26T13:28:15-06:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/texture_streaming/texture_streaming.h",
+    "startLine": 351,
+    "endLine": 366,
+    "unit": "method StreamingState.StreamingState",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__texture_streaming__texture_streaming.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 22
+}

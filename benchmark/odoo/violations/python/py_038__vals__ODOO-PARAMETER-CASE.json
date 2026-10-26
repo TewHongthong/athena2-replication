@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_038",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _ubl_add_party_endpoint_id_node(self, VALS):\n    super()._ubl_add_party_endpoint_id_node(VALS)\n    partner = VALS['party_vals']['partner']\n    identifier_vals = partner._get_preferred_routing_identifier_vals()\n    if identifier_vals:\n        normalized_value = self.env['res.partner']._validate_identifier_by_scheme(identifier_vals['scheme'], identifier_vals['value']).get('value')\n        VALS['party_node']['cbc:EndpointID']['_text'] = normalized_value\n        VALS['party_node']['cbc:EndpointID']['schemeID'] = identifier_vals['scheme']",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

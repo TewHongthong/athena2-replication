@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_python_003",
+  "language": "python",
+  "originalName": "f_average",
+  "injectedName": "fAverage",
+  "identifierKind": "variable",
+  "violatedRuleId": "GSCS-VAR-TYPED-PREFIX",
+  "injectionMethod": "glued_prefix",
+  "split": "dev",
+  "expectedViolationReasons": [
+    "name 'fAverage' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "# Function Objective: Compute the average score of a class\n# Input parameters : i_total_score (integer) sum of all scores, i_student_total_num (integer) number of students\n# Function description: Divide the total score by the number of students; a class without students gives zero\n# Return Value : float average score\n# Created By : Programmer A\n# Create Date: 2026-09-28\n# Revised By:\n# Revised Date:\ndef f_Get_Average(i_total_score, i_student_total_num):\n    fAverage = 0.0\n    bln_Is_Done = False\n    try:\n        # divide the total score by the number of students\n        fAverage = i_total_score / i_student_total_num\n    except ZeroDivisionError:\n        # no student registered, the average stays zero\n        fAverage = 0.0\n    finally:\n        # mark the calculation as finished\n        bln_Is_Done = True\n    return fAverage",
+  "occurrencesRenamed": 4
+}

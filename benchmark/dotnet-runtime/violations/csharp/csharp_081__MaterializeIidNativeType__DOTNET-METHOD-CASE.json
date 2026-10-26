@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_081",
+  "language": "csharp",
+  "originalName": "MaterializeIidNativeType",
+  "injectedName": "materialize_iid_native_type",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'materialize_iid_native_type' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private BlobBuilder materialize_iid_native_type(IidNativeTypeElementValue iid)\n{\n    UnmanagedType nativeType = iid.TokenType switch\n    {\n        CILParser.IUNKNOWN => UnmanagedType.IUnknown,\n        CILParser.IDISPATCH => UnmanagedType.IDispatch,\n        CILParser.INTERFACE => UnmanagedType.Interface,\n        _ => throw new UnreachableException()\n    };\n\n    BlobBuilder blob = CreateNativeTypeBlob(nativeType);\n    if (MaterializeIidParamIndex(iid.IidParamIndex) is int parameterIndex)\n    {\n        blob.WriteCompressedInteger(parameterIndex);\n    }\n    return blob;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

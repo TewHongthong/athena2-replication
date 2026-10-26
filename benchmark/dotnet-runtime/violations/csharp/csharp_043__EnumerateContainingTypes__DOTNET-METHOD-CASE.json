@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_043",
+  "language": "csharp",
+  "originalName": "EnumerateContainingTypes",
+  "injectedName": "enumerate_containing_types",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'enumerate_containing_types' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static IEnumerable<TypeDeclarationSyntax> enumerate_containing_types(TypeDeclarationSyntax? innermostType)\n{\n    for (TypeDeclarationSyntax? current = innermostType; current is not null; current = current.Parent as TypeDeclarationSyntax)\n    {\n        yield return current;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

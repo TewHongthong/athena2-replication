@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_050",
+  "language": "cpp",
+  "originalName": "get_length",
+  "injectedName": "GET_LENGTH",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GET_LENGTH' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "double AudioStreamRandomizer::GET_LENGTH() const {\n\tif (!last_playback.is_valid()) {\n\t\treturn 0;\n\t}\n\treturn last_playback->GET_LENGTH();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

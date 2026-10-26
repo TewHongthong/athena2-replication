@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_068",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _ubl_add_delivery_nodes(self, VALS):\n    # [ibr-107]-Deliver to information (ibg-13) MUST occur maximum once.\n    super()._ubl_add_delivery_nodes(VALS)\n\n    if self._is_document(VALS, 'invoice', 'credit_note', 'self_invoice', 'self_credit_note'):\n        document_node = VALS['document_node']\n        if document_node['cac:Delivery']:\n            document_node['cac:Delivery'] = document_node['cac:Delivery'][0]\n        else:\n            document_node['cac:Delivery'] = None",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

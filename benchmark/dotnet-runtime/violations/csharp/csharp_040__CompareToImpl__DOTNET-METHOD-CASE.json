@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_040",
+  "language": "csharp",
+  "originalName": "CompareToImpl",
+  "injectedName": "compare_to_impl",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'compare_to_impl' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public override int compare_to_impl(ISortableNode other, CompilerComparer comparer)\n{\n    var otherCell = (DispatchCellNode)other;\n    var compare = comparer.Compare(_targetMethod, otherCell._targetMethod);\n    return compare != 0 ? compare : comparer.Compare(_callSiteIdentifier, otherCell._callSiteIdentifier);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

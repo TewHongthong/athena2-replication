@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_010",
+  "language": "csharp",
+  "originalName": "CreateRecipient",
+  "injectedName": "create_recipient",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_recipient' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public HpkeRecipient create_recipient(\n    ReadOnlySpan<byte> encapsulatedSecret,\n    ReadOnlySpan<byte> info = default)\n{\n    ThrowIfInfoExceedsLimit(info);\n    ThrowIfInvalidEncapsulatedSecretLength(encapsulatedSecret);\n    ThrowIfDisposed();\n    return CreateRecipientCore(encapsulatedSecret, info);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

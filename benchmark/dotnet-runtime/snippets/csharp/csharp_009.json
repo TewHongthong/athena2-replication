@@ -1,0 +1,30 @@
+{
+  "id": "csharp_009",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.BuildImage.cs lines 497-528 (method GrammarActions.BuildVTableFixupInfos); license MIT; repo created 2026-10-02T03:59:46+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static ImmutableArray<VTableExportPEBuilder.VTableFixupInfo> BuildVTableFixupInfos(\n    ImmutableArray<ValidatedVTableFixup> validatedVTableFixups,\n    ImmutableArray<ValidatedVTableAssociation> validatedVTableAssociations)\n{\n    var builder =\n        ImmutableArray.CreateBuilder<VTableExportPEBuilder.VTableFixupInfo>(\n            validatedVTableFixups.Length);\n\n    for (int i = 0; i < validatedVTableFixups.Length; i++)\n    {\n        ValidatedVTableFixup fixup = validatedVTableFixups[i];\n        var methodTokens = ImmutableArray.CreateBuilder<int>(fixup.Entry.SlotCount);\n        methodTokens.Count = fixup.Entry.SlotCount;\n\n        foreach (ValidatedVTableAssociation association in validatedVTableAssociations)\n        {\n            if (association.VTableEntryIndex == i + 1)\n            {\n                methodTokens[association.Method.VTableSlot - 1] =\n                    MetadataTokens.GetToken(association.Method.Handle);\n            }\n        }\n\n        builder.Add(new VTableExportPEBuilder.VTableFixupInfo(\n            fixup.DataOffset,\n            fixup.Entry.SlotCount,\n            fixup.Entry.Flags,\n            methodTokens.MoveToImmutable()));\n    }\n\n    return builder.MoveToImmutable();\n}",
+  "identifiers": [
+    {
+      "name": "BuildVTableFixupInfos",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-02T03:59:46+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.BuildImage.cs",
+    "startLine": 497,
+    "endLine": 528,
+    "unit": "method GrammarActions.BuildVTableFixupInfos",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tools__ilasm__src__ILAssembler__Actions__GrammarActions.BuildImage.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 9
+}

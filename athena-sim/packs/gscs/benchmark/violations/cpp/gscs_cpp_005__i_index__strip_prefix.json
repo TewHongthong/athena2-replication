@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_005",
+  "language": "cpp",
+  "originalName": "i_index",
+  "injectedName": "index",
+  "identifierKind": "variable",
+  "violatedRuleId": "GSCS-VAR-TYPED-PREFIX",
+  "injectionMethod": "strip_prefix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'index' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "/* Function Objective: Find the largest value in a list\n   Input parameters : f_value_list (float array) the values, f_value_total (integer) number of values\n   Function description: Start from the first value and keep the largest value seen while walking through the list\n   Return Value : float largest value\n   Created By : Programmer A\n   Create Date: 2026-09-28\n   Revised By:\n   Revised Date:\n*/\nfloat f_Find_Maximum(const float f_value_list[], int i_value_total) {\n    float f_maximum = f_value_list[0];\n    // check every value after the first one\n    for (int index = 1; index < i_value_total; index++) {\n        // check whether the value is larger than the current maximum\n        if (f_value_list[index] > f_maximum) {\n            f_maximum = f_value_list[index];\n        }\n        // else the value is not larger, keep the maximum\n        else {\n            f_maximum = f_maximum + 0.0f;\n        }\n    }\n    return f_maximum;\n}",
+  "occurrencesRenamed": 5
+}

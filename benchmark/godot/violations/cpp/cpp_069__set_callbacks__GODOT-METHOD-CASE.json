@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_069",
+  "language": "cpp",
+  "originalName": "set_callbacks",
+  "injectedName": "SET_CALLBACKS",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SET_CALLBACKS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void CanvasItemManipulator::SET_CALLBACKS(const Callable &p_find_items_start, const Callable &p_point_selected, const Callable &p_get_selection, const Callable &p_local_xform, const Callable &p_global_xform, const Callable &p_local_mouse_pos, const Callable &p_plugin_input) {\n\tfind_items_start_callback = p_find_items_start;\n\tpoint_selected_callback = p_point_selected;\n\tget_selection_callback = p_get_selection;\n\tlocal_transform_callback = p_local_xform;\n\tglobal_transform_callback = p_global_xform;\n\tlocal_mouse_pos_callback = p_local_mouse_pos;\n\tplugin_input_callback = p_plugin_input;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

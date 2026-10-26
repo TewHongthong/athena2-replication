@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_006",
+  "language": "cpp",
+  "originalName": "f_score_point",
+  "injectedName": "score_point",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GSCS-VAR-TYPED-PREFIX",
+  "injectionMethod": "strip_prefix",
+  "split": "dev",
+  "expectedViolationReasons": [
+    "name 'score_point' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "#include <iostream>\n/* Function Objective: Print pass or fail for a score\n   Input parameters : score_point (float) the score of a student\n   Function description: Print pass when the score reaches the pass point, otherwise print fail\n   Return Value : void\n   Created By : Programmer A\n   Create Date: 2026-09-28\n   Revised By:\n   Revised Date:\n*/\nvoid Show_Grade(float score_point) {\n    const float PASS_POINT = 50.0f;\n    bool bln_Has_Passed = score_point >= PASS_POINT;\n    // check whether the score reaches the pass point\n    if (bln_Has_Passed) {\n        std::cout << \"pass\" << std::endl;\n    }\n    // else the score is below the pass point\n    else {\n        std::cout << \"fail\" << std::endl;\n    }\n}",
+  "occurrencesRenamed": 3
+}

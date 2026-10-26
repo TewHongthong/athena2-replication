@@ -1,0 +1,30 @@
+{
+  "id": "csharp_084",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/CallingConvention/CdacTypeHandle.cs lines 137-164 (method CdacTypeHandle.GetSystemVAmd64PassStructInRegisterDescriptor); license MIT; repo created 2026-06-27T08:18:42-04:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public void GetSystemVAmd64PassStructInRegisterDescriptor(out SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR descriptor)\n{\n    descriptor = default;\n    descriptor.passedInRegisters = false;\n\n    if (ExactTypeHandle is null)\n        return;\n\n    // Read the runtime-cached classification from the type system; mirrors\n    // SystemVRegDescriptorFromSystemVEightByteRegistersInfo in jitinterface.cpp.\n    // Only populated on UNIX_AMD64_ABI builds.\n    if (!Rts.TryGetSystemVAmd64EightByteClassification(ExactTypeHandle, out SystemVAmd64EightByteClassification info))\n        return;\n\n    descriptor.passedInRegisters = true;\n    descriptor.eightByteCount = 1;\n    descriptor.eightByteClassifications0 = ToSystemVClassificationType(info.First.Classification);\n    descriptor.eightByteSizes0 = info.First.Size;\n    descriptor.eightByteOffsets0 = 0;\n\n    if (info.Second is SystemVAmd64EightByte second)\n    {\n        descriptor.eightByteCount = 2;\n        descriptor.eightByteClassifications1 = ToSystemVClassificationType(second.Classification);\n        descriptor.eightByteSizes1 = second.Size;\n        descriptor.eightByteOffsets1 = SYSTEMV_AMD64_CORINFO_STRUCT_REG_PASSING_DESCRIPTOR.SYSTEMV_EIGHT_BYTE_SIZE_IN_BYTES;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "GetSystemVAmd64PassStructInRegisterDescriptor",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-27T08:18:42-04:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/CallingConvention/CdacTypeHandle.cs",
+    "startLine": 137,
+    "endLine": 164,
+    "unit": "method CdacTypeHandle.GetSystemVAmd64PassStructInRegisterDescriptor",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__CallingConvention__CdacTypeHandle.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 12
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_092",
+  "language": "csharp",
+  "originalName": "AppendNameForNamespaceType",
+  "injectedName": "append_name_for_namespace_type",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'append_name_for_namespace_type' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "protected override void append_name_for_namespace_type(StringBuilder sb, DefType type)\n{\n    if (TryAppendKeyword(sb, type))\n    {\n        return;\n    }\n\n    string ns = type.GetNamespace();\n    if (ns.Length > 0)\n    {\n        sb.Append(ns);\n        sb.Append('.');\n    }\n    AppendTypeName(sb, type);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

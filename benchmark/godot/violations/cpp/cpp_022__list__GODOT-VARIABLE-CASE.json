@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_022",
+  "language": "cpp",
+  "originalName": "list",
+  "injectedName": "LIST",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'LIST' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "PackedStringArray AudioDriver::get_output_device_list() {\n\tPackedStringArray LIST;\n\n\tLIST.push_back(\"Default\");\n\n\treturn LIST;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

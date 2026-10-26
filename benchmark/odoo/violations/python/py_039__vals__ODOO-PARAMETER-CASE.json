@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_039",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def write(self, VALS):\n    batches_to_rename = self.env['stock.picking.batch']\n    if VALS.get('picking_type_id'):\n        picking_type = self.env['stock.picking.type'].browse(VALS.get('picking_type_id'))\n        batches_to_rename = self.filtered(lambda b: b.picking_type_id != picking_type)\n    res = super().write(VALS)\n    if not self.picking_ids:\n        self.filtered(lambda b: b.state == 'in_progress').action_cancel()\n    if VALS.get('picking_type_id'):\n        self._sanity_check()\n        for batch in batches_to_rename:\n            batch.name = self._prepare_name(picking_type, batch.company_id)\n    if VALS.get('picking_ids'):\n        batch_without_picking_type = self.filtered(lambda batch: not batch.picking_type_id)\n        if batch_without_picking_type:\n            picking = self.picking_ids and self.picking_ids[0]\n            batch_without_picking_type.picking_type_id = picking.picking_type_id.id\n    if 'user_id' in VALS:\n        self.picking_ids.assign_batch_user(VALS['user_id'])\n    return res",
+  "occurrencesRenamed": 8,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

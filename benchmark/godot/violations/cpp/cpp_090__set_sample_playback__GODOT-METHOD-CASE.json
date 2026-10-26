@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_090",
+  "language": "cpp",
+  "originalName": "set_sample_playback",
+  "injectedName": "SET_SAMPLE_PLAYBACK",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SET_SAMPLE_PLAYBACK' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AudioStreamPlaybackPolyphonic::SET_SAMPLE_PLAYBACK(const Ref<AudioSamplePlayback> &p_playback) {\n\tsample_playback = p_playback;\n\tif (sample_playback.is_valid()) {\n\t\tsample_playback->stream_playback = Ref<AudioStreamPlayback>(this);\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

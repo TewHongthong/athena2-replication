@@ -1,0 +1,30 @@
+{
+  "id": "csharp_079",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/mono/System.Private.CoreLib/src/System/Reflection/RuntimeCustomAttribute.cs lines 85-111 (method RuntimeCustomAttribute.GetPseudoCustomAttributes); license MIT; repo created 2026-09-15T10:47:18+09:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "        private static object[]? GetPseudoCustomAttributes(Type type)\n        {\n            int count = 0;\n            TypeAttributes Attributes = type.Attributes;\n\n#pragma warning disable SYSLIB0050 // TypeAttributes.Serializable is obsolete\n            /* IsSerializable returns true for delegates/enums as well */\n            if ((Attributes & TypeAttributes.Serializable) != 0)\n                count++;\n#pragma warning restore SYSLIB0050\n            if ((Attributes & TypeAttributes.Import) != 0)\n                count++;\n\n            if (count == 0)\n                return null;\n            object[] attrs = new object[count];\n            count = 0;\n\n#pragma warning disable SYSLIB0050 // TypeAttributes.Serializable is obsolete\n            if ((Attributes & TypeAttributes.Serializable) != 0)\n                attrs[count++] = new SerializableAttribute();\n#pragma warning restore SYSLIB0050\n            if ((Attributes & TypeAttributes.Import) != 0)\n                attrs[count++] = new ComImportAttribute();\n\n            return attrs;\n        }",
+  "identifiers": [
+    {
+      "name": "GetPseudoCustomAttributes",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-15T10:47:18+09:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/mono/System.Private.CoreLib/src/System/Reflection/RuntimeCustomAttribute.cs",
+    "startLine": 85,
+    "endLine": 111,
+    "unit": "method RuntimeCustomAttribute.GetPseudoCustomAttributes",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__mono__System.Private.CoreLib__src__System__Reflection__RuntimeCustomAttribute.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 4
+}

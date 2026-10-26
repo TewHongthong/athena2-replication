@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_052",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _ubl_add_payment_means_nodes_all_invoices(self, VALS):\n    invoice = VALS['invoice']\n    nodes = VALS['document_node']['cac:PaymentMeans']\n\n    if invoice.move_type == 'out_invoice':\n        if invoice.partner_bank_id:\n            payment_means_code, payment_means_name = 30, 'credit transfer'\n        else:\n            payment_means_code, payment_means_name = 'ZZZ', 'mutually defined'\n    else:\n        payment_means_code, payment_means_name = 57, 'standing agreement'\n\n    partner_bank = invoice.partner_bank_id\n    payment_means_node = {\n        'cbc:PaymentMeansCode': {\n            '_text': payment_means_code,\n            'name': payment_means_name,\n        },\n        'cbc:PaymentID': {'_text': invoice.payment_reference or invoice.name},\n    }\n\n    if partner_bank:\n        payment_means_node['cac:PayeeFinancialAccount'] = self._ubl_get_payment_means_payee_financial_account_node_from_partner_bank(VALS, partner_bank)\n    else:\n        payment_means_node['cac:PayeeFinancialAccount'] = None\n\n    nodes.append(payment_means_node)",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

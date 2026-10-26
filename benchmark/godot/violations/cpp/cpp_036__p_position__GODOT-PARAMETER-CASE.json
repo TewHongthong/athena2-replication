@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_036",
+  "language": "cpp",
+  "originalName": "p_position",
+  "injectedName": "P_POSITION",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_POSITION' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "TerrainConstraint::TerrainConstraint(Ref<TileSet> p_tile_set, const Vector2i &P_POSITION, int p_terrain) {\n\tERR_FAIL_COND(p_tile_set.is_null());\n\ttile_set = p_tile_set;\n\tbit = 0;\n\tbase_cell_coords = P_POSITION;\n\tterrain = p_terrain;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

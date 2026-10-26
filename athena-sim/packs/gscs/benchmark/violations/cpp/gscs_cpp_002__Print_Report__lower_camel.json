@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_002",
+  "language": "cpp",
+  "originalName": "Print_Report",
+  "injectedName": "printReport",
+  "identifierKind": "procedure",
+  "violatedRuleId": "GSCS-PROC-VERB-OBJECT",
+  "injectionMethod": "lower_camel",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'printReport' matches forbidden pattern '^(?![A-Z][a-z0-9]*_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "#include <iostream>\n#include <string>\n/* Function Objective: Print one line of the grade report\n   Input parameters : str_student_name (string) student name, f_gpax (float) GPAX value\n   Function description: Shorten a long name to the maximum length, then print the name and the GPAX\n   Return Value : void\n   Created By : Programmer A\n   Create Date: 2026-09-28\n   Revised By:\n   Revised Date:\n*/\nvoid printReport(std::string str_student_name, float f_gpax) {\n    const int MAX_NAME_LENGTH = 30;\n    bool bln_Is_Name_Long = str_student_name.length() > MAX_NAME_LENGTH;\n    // check whether the name must be shortened\n    if (bln_Is_Name_Long) {\n        std::cout << str_student_name.substr(0, MAX_NAME_LENGTH) << \" \" << f_gpax << std::endl;\n    }\n    // else the name fits on one line\n    else {\n        std::cout << str_student_name << \" \" << f_gpax << std::endl;\n    }\n}",
+  "occurrencesRenamed": 1
+}

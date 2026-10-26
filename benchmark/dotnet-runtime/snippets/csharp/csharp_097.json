@@ -1,0 +1,30 @@
+{
+  "id": "csharp_097",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.cs lines 3216-3234 (method Number.MaxMagnitudeDecimalIeee754); license MIT; repo created 2026-07-03T10:54:18-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal static TValue MaxMagnitudeDecimalIeee754<TDecimal, TValue>(TValue x, TValue y)\n    where TDecimal : unmanaged, IDecimalIeee754ParseAndFormatInfo<TDecimal, TValue>\n    where TValue : unmanaged, IBinaryInteger<TValue>\n{\n    TValue ax = AbsDecimalIeee754<TDecimal, TValue>(x);\n    TValue ay = AbsDecimalIeee754<TDecimal, TValue>(y);\n\n    if (GreaterThanDecimalIeee754<TDecimal, TValue>(ax, ay) || TDecimal.IsNaN(ax))\n    {\n        return CanonicalizeIfNaN<TDecimal, TValue>(x);\n    }\n\n    if (EqualsDecimalIeee754<TDecimal, TValue>(ax, ay))\n    {\n        return TDecimal.IsNegative(x) ? y : x;\n    }\n\n    return CanonicalizeIfNaN<TDecimal, TValue>(y);\n}",
+  "identifiers": [
+    {
+      "name": "MaxMagnitudeDecimalIeee754",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-03T10:54:18-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.cs",
+    "startLine": 3216,
+    "endLine": 3234,
+    "unit": "method Number.MaxMagnitudeDecimalIeee754",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Private.CoreLib__src__System__Number.DecimalIeee754.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 67
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_055",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/hr_holidays/models/hr_time_rule.py lines 50-67 (method HrTimeRule._get_output_leave_vals); license LGPL-3.0; repo created 2026-09-15T23:44:35+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _get_output_leave_vals(self, employee, rule, date_from, date_to, source_leave, accumulated_pp=frozenset()):\n    tz = ZoneInfo(employee._get_tz())\n    df_local = date_from.replace(tzinfo=UTC).astimezone(tz).replace(tzinfo=None)\n    dt_local = date_to.replace(tzinfo=UTC).astimezone(tz).replace(tzinfo=None)\n    return {\n        'employee_id': employee.id,\n        'work_entry_type_id': rule.work_entry_type_id.id,\n        'date_from': date_from,\n        'date_to': date_to,\n        'request_date_from': df_local.date(),\n        'request_date_to': dt_local.date(),\n        'request_hour_from': df_local.hour + df_local.minute / 60,\n        'request_hour_to': dt_local.hour + dt_local.minute / 60,\n        'time_rule_id': rule.id,\n        'source_leave_id': source_leave.id,\n        'resource_calendar_id': source_leave.resource_calendar_id.id,\n        'state': 'validate',\n    }",
+  "identifiers": [
+    {
+      "name": "accumulated_pp",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T23:44:35+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/hr_holidays/models/hr_time_rule.py",
+    "startLine": 50,
+    "endLine": 67,
+    "unit": "method HrTimeRule._get_output_leave_vals",
+    "corpusFile": "corpus/python/odoo__odoo__addons__hr_holidays__models__hr_time_rule.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 4
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_037",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/payment_payu/models/payment_provider.py lines 102-116 (method PaymentProvider._payu_generate_signature); license LGPL-3.0; repo created 2026-07-07T11:30:53+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _payu_generate_signature(self, payment_data, incoming=False):\n    \"\"\"Generate the signature for the provided payment data.\n\n    See: https://docs.payu.in/docs/hashing-request-and-response\n\n    :param dict payment_data: The payment data to sign\n    :param bool incoming: Whether the signature must be generated for an incoming (PayU to Odoo)\n                          or for outgoing (Odoo to PayU) communication\n    :return: The generated signature\n    :rtype: str\n    \"\"\"\n    signature_data = {**payment_data, \"salt\": self.payu_merchant_salt}\n    signature_keys = const.SIGNATURE_KEYS[\"incoming\" if incoming else \"outgoing\"]\n    signature_string = \"|\".join(str(signature_data.get(field, \"\")) for field in signature_keys)\n    return hashlib.sha512(signature_string.encode()).hexdigest().lower()",
+  "identifiers": [
+    {
+      "name": "incoming",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-07-07T11:30:53+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/payment_payu/models/payment_provider.py",
+    "startLine": 102,
+    "endLine": 116,
+    "unit": "method PaymentProvider._payu_generate_signature",
+    "corpusFile": "corpus/python/odoo__odoo__addons__payment_payu__models__payment_provider.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 6
+}

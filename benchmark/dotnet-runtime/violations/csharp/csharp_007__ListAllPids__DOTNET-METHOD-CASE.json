@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_007",
+  "language": "csharp",
+  "originalName": "ListAllPids",
+  "injectedName": "list_all_pids",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'list_all_pids' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal static unsafe int[] list_all_pids()\n{\n    kinfo_proc* entries = GetProcInfo(0, false, out int numProcesses);\n    try\n    {\n        if (numProcesses <= 0)\n        {\n            throw new Win32Exception(SR.CantGetAllPids);\n        }\n\n        var list = new ReadOnlySpan<kinfo_proc>(entries, numProcesses);\n        var pids = new int[numProcesses];\n\n        // walk through process list and skip kernel threads\n        int idx = 0;\n        for (int i = 0; i < list.Length; i++)\n        {\n            if (list[i].p_ppid == 0)\n            {\n                // skip kernel threads\n                numProcesses -= 1;\n            }\n            else\n            {\n                pids[idx] = list[i].p_pid;\n                idx += 1;\n            }\n        }\n\n        // Remove extra elements\n        Array.Resize<int>(ref pids, numProcesses);\n        return pids;\n    }\n    finally\n    {\n        NativeMemory.Free(entries);\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

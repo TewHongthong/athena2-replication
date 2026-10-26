@@ -1,0 +1,30 @@
+{
+  "id": "cpp_087",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_set_atlas_source_editor.cpp lines 54-65 (method TileSetAtlasSourceEditor::TileSetAtlasSourceProxyObject::set_id); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileSetAtlasSourceEditor::TileSetAtlasSourceProxyObject::set_id(int p_id) {\n\tERR_FAIL_COND(p_id < 0);\n\tif (source_id == p_id) {\n\t\treturn;\n\t}\n\tERR_FAIL_COND_MSG(tile_set->has_source(p_id), vformat(\"Cannot change TileSet Atlas Source ID. Another source exists with id %d.\", p_id));\n\n\tint previous_source = source_id;\n\tsource_id = p_id; // source_id must be updated before, because it's used by the source list update.\n\ttile_set->set_source_id(previous_source, p_id);\n\temit_signal(CoreStringName(changed), \"id\");\n}",
+  "identifiers": [
+    {
+      "name": "set_id",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_set_atlas_source_editor.cpp",
+    "startLine": 54,
+    "endLine": 65,
+    "unit": "method TileSetAtlasSourceEditor::TileSetAtlasSourceProxyObject::set_id",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_set_atlas_source_editor.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 0
+}

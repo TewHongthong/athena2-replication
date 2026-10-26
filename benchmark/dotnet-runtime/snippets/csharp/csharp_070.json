@@ -1,0 +1,30 @@
+{
+  "id": "csharp_070",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HpkeManagedKdfAdapter.cs lines 20-36 (method HpkeManagedKdfAdapter.Create); license MIT; repo created 2026-09-22T16:34:39+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal static HpkeManagedKdfAdapter Create(HpkeSuite suite)\n{\n    switch (suite.KdfAlgorithm)\n    {\n        case HpkeKdf.HKDF_SHA256:\n        case HpkeKdf.HKDF_SHA384:\n        case HpkeKdf.HKDF_SHA512:\n            return new HpkeManagedHkdfAdapter(suite, suite.KdfMetadata.HkdfHashAlgorithm);\n        case HpkeKdf.SHAKE128:\n            return new HpkeManagedShake128KdfAdapter(suite);\n        case HpkeKdf.SHAKE256:\n            return new HpkeManagedShake256KdfAdapter(suite);\n        default:\n            Debug.Fail($\"Unmapped KDF adapter algorithm {suite.KdfAlgorithm}.\");\n            throw new CryptographicException();\n    }\n}",
+  "identifiers": [
+    {
+      "name": "Create",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-22T16:34:39+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HpkeManagedKdfAdapter.cs",
+    "startLine": 20,
+    "endLine": 36,
+    "unit": "method HpkeManagedKdfAdapter.Create",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Security.Cryptography__src__System__Security__Cryptography__HpkeManagedKdfAdapter.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 2
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_030",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/website_slides/models/mail_message.py lines 7-21 (class MailMessage); license LGPL-3.0; repo created 2026-06-24T05:36:23+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class MailMessage(models.Model):\n    _inherit = \"mail.message\"\n\n    def _store_message_fields(self, res: Store.FieldList, **kwargs):\n        super()._store_message_fields(res, **kwargs)\n        slides = self._records_by_model_name().get(\"slide.slide\")\n        if not slides:\n            return\n        res.many(\n            \"records\",\n            [\"comments_count\"],\n            as_thread=True,\n            only_data=True,\n            value=slides,\n        )",
+  "identifiers": [
+    {
+      "name": "kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-24T05:36:23+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/website_slides/models/mail_message.py",
+    "startLine": 7,
+    "endLine": 21,
+    "unit": "class MailMessage",
+    "corpusFile": "corpus/python/odoo__odoo__addons__website_slides__models__mail_message.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 0
+}

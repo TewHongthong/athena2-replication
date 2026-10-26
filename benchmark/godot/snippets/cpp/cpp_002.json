@@ -1,0 +1,30 @@
+{
+  "id": "cpp_002",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_map_layer_editor.cpp lines 4462-4501 (method TileMapLayerEditor::edit); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileMapLayerEditor::edit(Object *p_edited) {\n\tif (p_edited && p_edited->get_instance_id() == edited_tile_map_layer_id) {\n\t\treturn;\n\t}\n\n\t_clear_all_layers_highlighting();\n\n\t// Disconnect to changes.\n\tTileMapLayer *tile_map_layer = _get_edited_layer();\n\tif (tile_map_layer) {\n\t\ttile_map_layer->disconnect(CoreStringName(changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t\ttile_map_layer->disconnect(SceneStringName(visibility_changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t}\n\n\t// Update the edited layer.\n\tTileMapLayer *new_layer = Object::cast_to<TileMapLayer>(p_edited);\n\tif (new_layer) {\n\t\t// Change the edited object.\n\t\tedited_tile_map_layer_id = new_layer->get_instance_id();\n\n\t\ttile_map_layer = _get_edited_layer();\n\t\t// Connect to changes.\n\t\tif (!tile_map_layer->is_connected(CoreStringName(changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed))) {\n\t\t\ttile_map_layer->connect(CoreStringName(changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t\t\ttile_map_layer->connect(SceneStringName(visibility_changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t\t}\n\t} else {\n\t\tedited_tile_map_layer_id = ObjectID();\n\t}\n\n\t// Check if we are trying to use a MultiNodeEdit.\n\tis_multi_node_edit = Object::cast_to<MultiNodeEdit>(p_edited);\n\n\t// Call the plugins and update everything.\n\ttabs_plugins[tabs_bar->get_current_tab()]->edit(edited_tile_map_layer_id);\n\t_update_layers_selector();\n\t_update_all_layers_highlighting();\n\n\t_tile_map_layer_changed();\n}",
+  "identifiers": [
+    {
+      "name": "tile_map_layer",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_map_layer_editor.cpp",
+    "startLine": 4462,
+    "endLine": 4501,
+    "unit": "method TileMapLayerEditor::edit",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_map_layer_editor.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 103
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_031",
+  "language": "csharp",
+  "originalName": "PortableCallHelpersGeneratorRejectsUnsupportedSignatureTokens",
+  "injectedName": "portable_call_helpers_generator_rejects_unsupported_signature_tokens",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'portable_call_helpers_generator_rejects_unsupported_signature_tokens' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "[Theory]\n[InlineData(\"int\", \"System.Int128\", \"l2\")]\n[InlineData(\"System.Int128\", \"int\", \"l2\")]\n[InlineData(\"int\", \"System.Runtime.Intrinsics.Vector128<int>\", \"V\")]\n[InlineData(\"System.Runtime.Intrinsics.Vector128<int>\", \"int\", \"V\")]\npublic void portable_call_helpers_generator_rejects_unsupported_signature_tokens(\n    string returnType, string parameterType, string expectedToken)\n{\n    string source = $$\"\"\"\n        using System;\n        using System.Runtime.InteropServices;\n\n        public static class Exports\n        {\n            [UnmanagedCallersOnly(EntryPoint = \"callback\")]\n            public static {{returnType}} Handle({{parameterType}} value) => default;\n        }\n        \"\"\";\n\n    AssertPortableCallHelpersGeneratorRejects(source, $\"has unsupported signature token '{expectedToken}'\");\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

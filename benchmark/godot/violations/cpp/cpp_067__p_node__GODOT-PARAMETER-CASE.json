@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_067",
+  "language": "cpp",
+  "originalName": "p_node",
+  "injectedName": "P_NODE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_NODE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "bool ShaderGraph::depends_on_instance_parameter(int P_NODE) const {\n\tERR_FAIL_COND_V(!nodes.has(P_NODE), false);\n\n\tHashSet<int> visited;\n\treturn _depends_on_instance_parameter(P_NODE, visited);\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

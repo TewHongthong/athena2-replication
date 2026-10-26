@@ -1,0 +1,30 @@
+{
+  "id": "csharp_044",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Formats.Asn1/src/System/Formats/Asn1/AsnCharacterStringEncodings.net.cs lines 132-143 (method NumericStringEncoding.IsAllowed); license MIT; repo created 2026-07-21T19:03:56+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "protected override bool IsAllowed(Vector<ushort> value)\n{\n    // Allow ASCII digits.\n    Vector<ushort> allowed = Vector.LessThanOrEqual(\n        value - new Vector<ushort>('0'),\n        new Vector<ushort>('9' - '0'));\n\n    // Allow space.\n    allowed |= Vector.Equals(value, new Vector<ushort>(' '));\n\n    return Vector.AllWhereAllBitsSet(allowed);\n}",
+  "identifiers": [
+    {
+      "name": "IsAllowed",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T19:03:56+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Formats.Asn1/src/System/Formats/Asn1/AsnCharacterStringEncodings.net.cs",
+    "startLine": 132,
+    "endLine": 143,
+    "unit": "method NumericStringEncoding.IsAllowed",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Formats.Asn1__src__System__Formats__Asn1__AsnCharacterStringEncodings.net.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 10
+}

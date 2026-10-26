@@ -1,0 +1,30 @@
+{
+  "id": "py_005",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/_monkeypatches/_cpython.py lines 20-40 (function patch_c_type); license LGPL-3.0; repo created 2026-06-16T09:47:33+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def patch_c_type(cls, attr, value):\n    # obtain the address of the origin dict behind the proxymapping and cast into our custom MappingProxy struct\n    # Each call to cls.__dict__ returns a new temporary mappingproxy object.\n    # If we don't keep a reference to it, it may be garbage-collected immediately after use (e.g., after calling id()).\n    # To ensure the mapping stays alive and valid when accessed (e.g., by MappingProxy), we store it in a variable first.\n    cls_dict_proxy = cls.__dict__\n    cls_dict = MappingProxy.from_address(id(cls_dict_proxy)).mapping\n\n    assert not attr.startswith(\"__\") and not attr.endswith(\"__\")\n\n    # replace the method in the __dict__ of the type\n    origin = cls_dict.get(attr)\n    if origin:\n        value.__name__ = origin.__name__\n        value.__qualname__ = origin.__qualname__\n\n    # apply patch function\n    cls_dict[attr] = value\n\n    # clear internal caches: https://docs.python.org/3/c-api/type.html#c.PyType_Modified\n    ctypes.pythonapi.PyType_Modified(ctypes.py_object(cls))",
+  "identifiers": [
+    {
+      "name": "attr",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-16T09:47:33+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/_monkeypatches/_cpython.py",
+    "startLine": 20,
+    "endLine": 40,
+    "unit": "function patch_c_type",
+    "corpusFile": "corpus/python/odoo__odoo__odoo___monkeypatches___cpython.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

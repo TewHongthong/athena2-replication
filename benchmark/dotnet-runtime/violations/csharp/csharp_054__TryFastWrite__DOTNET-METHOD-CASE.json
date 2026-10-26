@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_054",
+  "language": "csharp",
+  "originalName": "TryFastWrite",
+  "injectedName": "try_fast_write",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_fast_write' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "partial void try_fast_write(ReadOnlySpan<byte> buffer, ref int bytesWritten, ref TlsOperationStatus? result)\n{\n    if (!_useFdMode)\n    {\n        return;\n    }\n\n    // The buffered Read/Write cores gate on the external-validation state; the\n    // fd fast path bypasses them, so apply the same guard here.\n    ThrowIfPendingExternalValidation();\n\n    if (buffer.IsEmpty)\n    {\n        result = TlsOperationStatus.Complete;\n        return;\n    }\n\n    SafeSslHandle ssl = (SafeSslHandle)_securityContext!;\n    int ret = Interop.Ssl.SslWrite(ssl, ref MemoryMarshal.GetReference(buffer), buffer.Length, out Interop.Ssl.SslErrorCode err);\n    if (ret > 0)\n    {\n        bytesWritten = ret;\n        result = TlsOperationStatus.Complete;\n        return;\n    }\n    result = MapSslError(err, ret, SR.net_ssl_encrypt_failed);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

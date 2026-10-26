@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_009",
+  "language": "csharp",
+  "originalName": "BuildVTableFixupInfos",
+  "injectedName": "build_v_table_fixup_infos",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'build_v_table_fixup_infos' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static ImmutableArray<VTableExportPEBuilder.VTableFixupInfo> build_v_table_fixup_infos(\n    ImmutableArray<ValidatedVTableFixup> validatedVTableFixups,\n    ImmutableArray<ValidatedVTableAssociation> validatedVTableAssociations)\n{\n    var builder =\n        ImmutableArray.CreateBuilder<VTableExportPEBuilder.VTableFixupInfo>(\n            validatedVTableFixups.Length);\n\n    for (int i = 0; i < validatedVTableFixups.Length; i++)\n    {\n        ValidatedVTableFixup fixup = validatedVTableFixups[i];\n        var methodTokens = ImmutableArray.CreateBuilder<int>(fixup.Entry.SlotCount);\n        methodTokens.Count = fixup.Entry.SlotCount;\n\n        foreach (ValidatedVTableAssociation association in validatedVTableAssociations)\n        {\n            if (association.VTableEntryIndex == i + 1)\n            {\n                methodTokens[association.Method.VTableSlot - 1] =\n                    MetadataTokens.GetToken(association.Method.Handle);\n            }\n        }\n\n        builder.Add(new VTableExportPEBuilder.VTableFixupInfo(\n            fixup.DataOffset,\n            fixup.Entry.SlotCount,\n            fixup.Entry.Flags,\n            methodTokens.MoveToImmutable()));\n    }\n\n    return builder.MoveToImmutable();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

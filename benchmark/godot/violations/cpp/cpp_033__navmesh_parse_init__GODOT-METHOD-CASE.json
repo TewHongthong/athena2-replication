@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_033",
+  "language": "cpp",
+  "originalName": "navmesh_parse_init",
+  "injectedName": "NAVMESH_PARSE_INIT",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'NAVMESH_PARSE_INIT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileMapLayer::NAVMESH_PARSE_INIT() {\n\tERR_FAIL_NULL(NavigationServer2D::get_singleton());\n\tif (!_navmesh_source_geometry_parser.is_valid()) {\n\t\t_navmesh_source_geometry_parsing_callback = callable_mp_static(&TileMapLayer::navmesh_parse_source_geometry);\n\t\t_navmesh_source_geometry_parser = NavigationServer2D::get_singleton()->source_geometry_parser_create();\n\t\tNavigationServer2D::get_singleton()->source_geometry_parser_set_callback(_navmesh_source_geometry_parser, _navmesh_source_geometry_parsing_callback);\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_093",
+  "language": "csharp",
+  "originalName": "MethodsRetainDistinctFunctionDefinitionsAndTableSlots",
+  "injectedName": "methods_retain_distinct_function_definitions_and_table_slots",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'methods_retain_distinct_function_definitions_and_table_slots' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static bool methods_retain_distinct_function_definitions_and_table_slots(\n    ReadyToRunReader reader,\n    string firstMethodName,\n    string secondMethodName,\n    out string diagnostic) =>\n    MethodsHaveExpectedFunctionDefinitionSharing(\n        reader,\n        firstMethodName,\n        secondMethodName,\n        shouldShare: false,\n        out diagnostic);",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

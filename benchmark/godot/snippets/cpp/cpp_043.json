@@ -1,0 +1,30 @@
+{
+  "id": "cpp_043",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/visual_shader/shader_graph.cpp lines 851-857 (method ShaderGraph::get_node); license MIT; repo created 2026-08-25T02:46:01+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Ref<VisualShaderNode> ShaderGraph::get_node(int p_id) const {\n\tif (!nodes.has(p_id)) {\n\t\treturn Ref<VisualShaderNode>();\n\t}\n\tERR_FAIL_COND_V(!nodes.has(p_id), Ref<VisualShaderNode>());\n\treturn nodes[p_id].node;\n}",
+  "identifiers": [
+    {
+      "name": "get_node",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-25T02:46:01+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/visual_shader/shader_graph.cpp",
+    "startLine": 851,
+    "endLine": 857,
+    "unit": "method ShaderGraph::get_node",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__visual_shader__shader_graph.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 11
+}

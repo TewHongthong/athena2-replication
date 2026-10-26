@@ -1,0 +1,30 @@
+{
+  "id": "csharp_023",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/Compiler/ObjectWriter/WasmFunctionBodyDeduplicator.cs lines 208-233 (method WasmFunctionBodyDeduplicator.GetHashCode); license MIT; repo created 2026-10-09T11:01:21-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static int GetHashCode(\n    ObjectNode objectNode,\n    INodeWithTypeSignature node,\n    ObjectNode.ObjectData data)\n{\n    HashCode hash = new HashCode();\n    hash.Add(WasmLowering.GetSignature(node).FuncType);\n    hash.AddBytes(data.Data);\n\n    if (data.Relocs is not null)\n    {\n        foreach (Relocation relocation in data.Relocs)\n        {\n            hash.Add(relocation.Offset);\n            hash.Add(relocation.RelocType);\n            bool targetsSelf = TargetsSelf(objectNode, relocation.Target);\n            hash.Add(targetsSelf);\n            if (!targetsSelf)\n            {\n                hash.Add(RuntimeHelpers.GetHashCode(relocation.Target));\n            }\n        }\n    }\n\n    return hash.ToHashCode();\n}",
+  "identifiers": [
+    {
+      "name": "GetHashCode",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-09T11:01:21-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/Compiler/ObjectWriter/WasmFunctionBodyDeduplicator.cs",
+    "startLine": 208,
+    "endLine": 233,
+    "unit": "method WasmFunctionBodyDeduplicator.GetHashCode",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__Compiler__ObjectWriter__WasmFunctionBodyDeduplicator.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 6
+}

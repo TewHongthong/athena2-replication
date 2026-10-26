@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_002",
+  "language": "python",
+  "originalName": "docids",
+  "injectedName": "DOCIDS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DOCIDS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class Report50Tawi(models.AbstractModel):\n    _name = 'report.l10n_th.report_50_tawi'\n    _description = '50 Tawi Report'\n\n    def _get_report_values(self, DOCIDS, data=None):\n        return {\n            'doc_ids': DOCIDS,\n            'doc_model': 'account.payment',\n            'docs': self.env['account.payment'].browse(DOCIDS),\n            # The report is intended to be in Thai, but we fall back to English if not enabled\n            'report_lang': misc.get_lang(self.env, 'th_TH').code,\n            'data': data,\n        }",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

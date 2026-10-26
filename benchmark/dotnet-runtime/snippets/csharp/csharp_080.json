@@ -1,0 +1,30 @@
+{
+  "id": "csharp_080",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.MinMax.cs lines 110-118 (method MemoryExtensions.Max); license MIT; repo created 2026-06-24T15:58:40+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public static T? Max<T>(this ReadOnlySpan<T> span, IComparer<T>? comparer)\n{\n    if (comparer is null || comparer == Comparer<T>.Default)\n    {\n        return Max(span);\n    }\n\n    return MinMax<T, MaxDirection>(span, comparer);\n}",
+  "identifiers": [
+    {
+      "name": "Max",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-24T15:58:40+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.MinMax.cs",
+    "startLine": 110,
+    "endLine": 118,
+    "unit": "method MemoryExtensions.Max",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Private.CoreLib__src__System__MemoryExtensions.MinMax.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 4
+}

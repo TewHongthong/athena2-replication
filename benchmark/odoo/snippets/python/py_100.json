@@ -1,0 +1,30 @@
+{
+  "id": "py_100",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/stock/report/stock_allocation_report.py lines 419-439 (method StockAllocationReport._allocate_moves); license LGPL-3.0; repo created 2026-06-23T10:27:13+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _allocate_moves(self, in_move, out_move):\n    \"\"\" Assign out move as the in move's destination (create MTO link) and\n    share reference across source documents.\"\"\"\n    allocated_location = in_move.picking_type_id.allocated_location_id\n    in_move.move_dest_ids |= out_move\n    out_move.procure_method = 'make_to_order'\n    if (out_ref := out_move.reference_ids) and (in_source := in_move._get_source_document()):\n        in_source._add_reference(out_ref)\n    if (in_ref := in_move.reference_ids) and (out_source := out_move._get_source_document()):\n        out_source._add_reference(in_ref)\n\n    # If in move is not done yet and an allocated location is defined, update its\n    # destination to use the allocated location. Out move's source location will\n    # be updated only when the operation is done (see `_apply_allocation`).\n    if allocated_location and in_move.state != 'done':\n        in_move.location_dest_id = allocated_location._get_putaway_strategy(\n            in_move.product_id,\n            quantity=in_move.product_qty,\n            packaging=in_move.packaging_uom_id\n        )\n        in_move.move_line_ids.location_dest_id = in_move.location_dest_id",
+  "identifiers": [
+    {
+      "name": "out_move",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-23T10:27:13+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/stock/report/stock_allocation_report.py",
+    "startLine": 419,
+    "endLine": 439,
+    "unit": "method StockAllocationReport._allocate_moves",
+    "corpusFile": "corpus/python/odoo__odoo__addons__stock__report__stock_allocation_report.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 15
+}

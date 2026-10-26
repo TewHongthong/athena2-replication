@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_033",
+  "language": "python",
+  "originalName": "location_ids",
+  "injectedName": "LOCATION_IDS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'LOCATION_IDS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class LocationLabelLayout(models.TransientModel):\n    _name = 'stock.location.label.layout'\n    _description = 'Prepare Location Labels'\n\n    @api.model\n    def _process_report_data(self, data, print_format):\n        report_xml_id = 'product.report_product_template_label_zpl' if print_format == 'zpl' else 'product.action_report_product_label_pdf'\n        action = self.env.ref(report_xml_id).report_action(None, data=data, config=False)\n        action['close_on_report_download'] = True\n        return action\n\n    @api.model\n    def _prepare_report_data_for_locations(self, LOCATION_IDS, print_format):\n        locations = self.env['stock.location'].browse(LOCATION_IDS)\n        data = {\n            'labels': [{\n                'barcode_value': location.barcode or location.name,\n                'barcode_text': location.barcode or '',\n                'name': location.display_name,\n            } for location in locations],\n            'label_template': f\"stock.location_barcode_{'zpl' if print_format == 'zpl' else '4x7'}_label\",\n        }\n        if print_format == '4x7':\n            data['layout'] = {\n                'rows': 7,\n                'columns': 4,\n            }\n        return data\n\n    @api.model\n    def _process_location_labels(self, locations, print_format):\n        data = self._prepare_report_data_for_locations(locations.ids, print_format)\n        return self._process_report_data(data, print_format)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

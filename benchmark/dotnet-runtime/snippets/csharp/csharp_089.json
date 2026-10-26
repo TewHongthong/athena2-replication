@@ -1,0 +1,30 @@
+{
+  "id": "csharp_089",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tasks/MonoTargetsTasks/JsonToItems/JsonToItemsReader.cs lines 153-190 (method JsonModelItemConverter.Read); license MIT; repo created 2026-10-08T16:30:34+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public override JsonModelItem Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)\n{\n    switch (reader.TokenType)\n    {\n        case JsonTokenType.String:\n            string? stringItem = reader.GetString();\n            if (stringItem is null || stringItem.Length == 0)\n            {\n                throw new JsonException(\"deserialized json string item was null or the empty string\");\n            }\n\n            return new JsonModelItem(stringItem, metadata: null);\n\n        case JsonTokenType.StartObject:\n            Dictionary<string, string>? dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(ref reader, options);\n            if (dictionary is null)\n            {\n                return null!;\n            }\n\n            var caseInsensitiveDictionary = new Dictionary<string, string>(dictionary, StringComparer.OrdinalIgnoreCase);\n            if (!caseInsensitiveDictionary.TryGetValue(\"Identity\", out string? identity))\n            {\n                throw new JsonException(\"deserialized json dictionary item did not have a non-empty Identity metadata\");\n            }\n\n            if (identity is null || identity.Length == 0)\n            {\n                throw new JsonException(\"deserialized json dictionary item did not have a non-empty Identity metadata\");\n            }\n\n            caseInsensitiveDictionary.Remove(\"Identity\");\n            return new JsonModelItem(identity, caseInsensitiveDictionary);\n\n        default:\n            throw new NotSupportedException();\n    }\n}",
+  "identifiers": [
+    {
+      "name": "Read",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-08T16:30:34+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tasks/MonoTargetsTasks/JsonToItems/JsonToItemsReader.cs",
+    "startLine": 153,
+    "endLine": 190,
+    "unit": "method JsonModelItemConverter.Read",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tasks__MonoTargetsTasks__JsonToItems__JsonToItemsReader.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 11
+}

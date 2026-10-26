@@ -1,0 +1,30 @@
+{
+  "id": "cpp_067",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/visual_shader/shader_graph.cpp lines 1208-1213 (method ShaderGraph::depends_on_instance_parameter); license MIT; repo created 2026-08-25T02:46:01+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "bool ShaderGraph::depends_on_instance_parameter(int p_node) const {\n\tERR_FAIL_COND_V(!nodes.has(p_node), false);\n\n\tHashSet<int> visited;\n\treturn _depends_on_instance_parameter(p_node, visited);\n}",
+  "identifiers": [
+    {
+      "name": "p_node",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-25T02:46:01+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/visual_shader/shader_graph.cpp",
+    "startLine": 1208,
+    "endLine": 1213,
+    "unit": "method ShaderGraph::depends_on_instance_parameter",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__visual_shader__shader_graph.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 29
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_064",
+  "language": "csharp",
+  "originalName": "Walk",
+  "injectedName": "walk",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'walk' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private IEnumerable<DacGcReference> walk()\n{\n    if (_handleWalkMask != 0)\n    {\n        foreach (DacGcReference reference in WalkHandles())\n            yield return reference;\n    }\n\n    // External memory handles are strong roots, but are stored independently of the GC handle table.\n    if (_handleWalkMask.HasFlag(CorGCReferenceType.CorHandleStrong))\n    {\n        foreach (DacGcReference reference in WalkExternalMemoryHandles())\n            yield return reference;\n    }\n\n    if (_walkStacks)\n    {\n        foreach (DacGcReference reference in WalkStacks())\n            yield return reference;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

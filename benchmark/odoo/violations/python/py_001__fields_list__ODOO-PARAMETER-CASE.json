@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_001",
+  "language": "python",
+  "originalName": "fields_list",
+  "injectedName": "FIELDS_LIST",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FIELDS_LIST' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@api.model\ndef default_get(self, FIELDS_LIST):\n    res = super().default_get(FIELDS_LIST)\n    if self.env.company.account_fiscal_country_id.code == 'IN' and 'withhold' in FIELDS_LIST:\n        active_model = self.env.context.get('active_model')\n        active_ids = self.env.context.get('active_ids', [])\n        move_count = 0\n        if active_model == 'account.move':\n            move_count = len(active_ids)\n        elif active_model == 'account.move.line':\n            move_count = len(self.env['account.move.line'].browse(active_ids).mapped('move_id'))\n        # In India, hide withholding options for group payments and use \"Withhold\" instead of \"Withhold and Pay\" for individual payments.\n        if move_count > 1:\n            res['withhold'] = 'payment'\n        elif res['withhold'] == 'withhold_pay':\n            res['withhold'] = 'withhold'\n    return res",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

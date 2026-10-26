@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_073",
+  "language": "csharp",
+  "originalName": "WithDebugName",
+  "injectedName": "with_debug_name",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'with_debug_name' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "        protected RuntimeMethodInfo with_debug_name()\n        {\n#if DEBUG\n            if (_debugName == null)\n            {\n                _debugName = \"Constructing...\"; // Protect against any inadvertent reentrancy.\n                _debugName = RuntimeName;\n            }\n#endif\n            return this;\n        }",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

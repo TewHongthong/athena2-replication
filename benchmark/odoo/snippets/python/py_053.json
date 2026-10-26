@@ -1,0 +1,30 @@
+{
+  "id": "py_053",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_fr_account/models/template_gf.py lines 5-18 (class AccountChartTemplate); license LGPL-3.0; repo created 2026-09-04T20:00:03+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class AccountChartTemplate(models.AbstractModel):\n    _inherit = 'account.chart.template'\n\n    @template('gf')\n    def _get_gf_template_data(self):\n        return {\n            'code_digits': '6',\n            'parent': 'fr_comp',\n        }\n\n    def _deref_account_tags(self, template_code, tax_data):\n        if template_code == 'gf':\n            template_code = 'fr_comp'\n        return super()._deref_account_tags(template_code, tax_data)",
+  "identifiers": [
+    {
+      "name": "tax_data",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-04T20:00:03+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_fr_account/models/template_gf.py",
+    "startLine": 5,
+    "endLine": 18,
+    "unit": "class AccountChartTemplate",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_fr_account__models__template_gf.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

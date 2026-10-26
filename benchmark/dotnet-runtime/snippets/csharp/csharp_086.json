@@ -1,0 +1,30 @@
+{
+  "id": "csharp_086",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.IO.Compression/src/System/IO/Compression/WinZipAesStream.cs lines 526-547 (method WinZipAesStream.WriteAsyncCore); license MIT; repo created 2026-07-09T13:35:17+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private async ValueTask WriteAsyncCore(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken)\n{\n    cancellationToken.ThrowIfCancellationRequested();\n    ThrowIfNotWritable();\n    if (!_headerWritten)\n    {\n        await WriteHeaderAsync(cancellationToken).ConfigureAwait(false);\n    }\n\n    byte[] workBuffer = GetWriteWorkBuffer();\n\n    while (!buffer.IsEmpty)\n    {\n        int bytesToProcess = Math.Min(buffer.Length, workBuffer.Length);\n\n        buffer[..bytesToProcess].CopyTo(workBuffer);\n        ProcessBlock(workBuffer.AsSpan(0, bytesToProcess));\n        await _baseStream.WriteAsync(workBuffer.AsMemory(0, bytesToProcess), cancellationToken).ConfigureAwait(false);\n\n        buffer = buffer[bytesToProcess..];\n    }\n}",
+  "identifiers": [
+    {
+      "name": "WriteAsyncCore",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-09T13:35:17+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.IO.Compression/src/System/IO/Compression/WinZipAesStream.cs",
+    "startLine": 526,
+    "endLine": 547,
+    "unit": "method WinZipAesStream.WriteAsyncCore",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.IO.Compression__src__System__IO__Compression__WinZipAesStream.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 28
+}

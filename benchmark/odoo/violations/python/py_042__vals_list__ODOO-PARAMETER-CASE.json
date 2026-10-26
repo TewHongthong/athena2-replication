@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_042",
+  "language": "python",
+  "originalName": "vals_list",
+  "injectedName": "VALS_LIST",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS_LIST' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@api.model_create_multi\ndef create(self, VALS_LIST):\n    res = super().create(VALS_LIST)\n    if not self.env.context.get('skip_time_rules'):\n        res._trigger_time_rules()\n    return res",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

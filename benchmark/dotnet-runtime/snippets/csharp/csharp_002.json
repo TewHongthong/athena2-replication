@@ -1,0 +1,30 @@
+{
+  "id": "csharp_002",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Common/src/System/Security/Cryptography/Hpke.cs lines 1487-1495 (method Hpke.ThrowIfInvalidEncapsulatedSecretLength); license MIT; repo created 2026-09-22T16:34:39+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private void ThrowIfInvalidEncapsulatedSecretLength(ReadOnlySpan<byte> encapsulatedSecret)\n{\n    if (encapsulatedSecret.Length != Suite.EncapsulatedSecretSizeInBytes)\n    {\n        throw new ArgumentException(\n            SR.Format(SR.Argument_HpkeEncapsulatedSecretLength, Suite.EncapsulatedSecretSizeInBytes),\n            nameof(encapsulatedSecret));\n    }\n}",
+  "identifiers": [
+    {
+      "name": "ThrowIfInvalidEncapsulatedSecretLength",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-22T16:34:39+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Common/src/System/Security/Cryptography/Hpke.cs",
+    "startLine": 1487,
+    "endLine": 1495,
+    "unit": "method Hpke.ThrowIfInvalidEncapsulatedSecretLength",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Common__src__System__Security__Cryptography__Hpke.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 42
+}

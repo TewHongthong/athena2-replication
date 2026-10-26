@@ -1,0 +1,30 @@
+{
+  "id": "csharp_008",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Net.Http/src/System/Net/Http/BrotliCompressedContent.cs lines 66-71 (method BrotliCompressedContent.TryComputeLength); license MIT; repo created 2026-07-15T14:56:58+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "protected internal override bool TryComputeLength(out long length)\n{\n    // Compressed size is not known without actually compressing.\n    length = 0;\n    return false;\n}",
+  "identifiers": [
+    {
+      "name": "TryComputeLength",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-15T14:56:58+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Net.Http/src/System/Net/Http/BrotliCompressedContent.cs",
+    "startLine": 66,
+    "endLine": 71,
+    "unit": "method BrotliCompressedContent.TryComputeLength",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Net.Http__src__System__Net__Http__BrotliCompressedContent.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 6
+}

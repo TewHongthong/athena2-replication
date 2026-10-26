@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_075",
+  "language": "csharp",
+  "originalName": "NotifyOnThreadPool",
+  "injectedName": "notify_on_thread_pool",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'notify_on_thread_pool' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private void notify_on_thread_pool()\n{\n    ThreadPool.UnsafeQueueUserWorkItem(static s =>\n    {\n        var op = (Operation)s!;\n        var result = op._state == State.Canceled ? OnCompletedResult.Canceled : OnCompletedResult.Aborted;\n        op.OnCompleted(result);\n    }, this);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_052",
+  "language": "cpp",
+  "originalName": "make_visible",
+  "injectedName": "MAKE_VISIBLE",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'MAKE_VISIBLE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileSetEditorPlugin::MAKE_VISIBLE(bool p_visible) {\n\tif (p_visible) {\n\t\teditor->MAKE_VISIBLE();\n\t} else {\n\t\teditor->close();\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

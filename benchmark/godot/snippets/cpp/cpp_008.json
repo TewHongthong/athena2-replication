@@ -1,0 +1,30 @@
+{
+  "id": "cpp_008",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/3d/trail_3d.cpp lines 183-188 (method Trail3D::set_width); license MIT; repo created 2026-08-19T19:50:05+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void Trail3D::set_width(float p_width) {\n\twidth = p_width;\n\tif (limit_mode == LIMIT_MODE_MAX_LENGTH && !RS::get_singleton()->is_connected(\"frame_pre_draw\", callable_mp(this, &Trail3D::_process_trail))) {\n\t\tRS::get_singleton()->connect(\"frame_pre_draw\", callable_mp(this, &Trail3D::_process_trail), CONNECT_ONE_SHOT);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "set_width",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-19T19:50:05+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/3d/trail_3d.cpp",
+    "startLine": 183,
+    "endLine": 188,
+    "unit": "method Trail3D::set_width",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__3d__trail_3d.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 3
+}

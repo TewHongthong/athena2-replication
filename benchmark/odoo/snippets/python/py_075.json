@@ -1,0 +1,30 @@
+{
+  "id": "py_075",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/google_calendar/models/google_event_sync.py lines 91-107 (method GoogleEventSync._handle_calendar_change); license LGPL-3.0; repo created 2026-09-15T19:55:01+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _handle_calendar_change(self, google_service, new_calendar_id):\n    self.ensure_one()\n    if not self.calendar_id or not self.google_id or not self._get_event_owner():\n        return\n    if new_calendar_id in self._get_event_owner().calendar_ids.filtered(lambda c: c.google_sync_enabled).ids:\n        # Event was moved to another calendar of the same user - we need to keep a record of the previous\n        # calendar id to be able to move it in Google later.\n        # Do not update the last synced calendar if already set - It should only be cleared once we move it in Google\n        if not self.last_google_calendar_sync_path:\n            self.last_google_calendar_sync_path = self.calendar_id.get_google_path()\n    else:\n        # If the event is moved to another user's calendar or an unsynced one, we should delete the event from\n        # the original owner's Google calendar and let the new owner synchronize it to ensure the owner is correct on Google.\n        # This also prevents potential access right issues if we tried to simply move the event to someone else's calendar.\n        if self.env.user._get_google_sync_status() == \"sync_active\":\n            self.with_user(self._get_event_user())._google_delete(google_service, self.calendar_id.get_google_path(), self.google_id)\n            self.write({'google_id': False, 'last_google_calendar_sync_path': False, 'need_sync': True})",
+  "identifiers": [
+    {
+      "name": "google_service",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T19:55:01+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/google_calendar/models/google_event_sync.py",
+    "startLine": 91,
+    "endLine": 107,
+    "unit": "method GoogleEventSync._handle_calendar_change",
+    "corpusFile": "corpus/python/odoo__odoo__addons__google_calendar__models__google_event_sync.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 3
+}

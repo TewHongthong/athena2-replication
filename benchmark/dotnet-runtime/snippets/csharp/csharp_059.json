@@ -1,0 +1,30 @@
+{
+  "id": "csharp_059",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Legacy/StressTestApi/CdacStressApi.cs lines 35-41 (method CdacStressApi.HandleFlushTargetState); license MIT; repo created 2026-06-27T08:18:42-04:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static int HandleFlushTargetState(Target target, uint inSize, byte* inBuffer, uint outSize, byte* outBuffer)\n{\n    if (inSize != 0 || inBuffer is not null || outSize != 0 || outBuffer is not null)\n        return HResults.E_INVALIDARG;\n    target.Flush(FlushScope.ForwardExecution);\n    return HResults.S_OK;\n}",
+  "identifiers": [
+    {
+      "name": "HandleFlushTargetState",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-27T08:18:42-04:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Legacy/StressTestApi/CdacStressApi.cs",
+    "startLine": 35,
+    "endLine": 41,
+    "unit": "method CdacStressApi.HandleFlushTargetState",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Legacy__StressTestApi__CdacStressApi.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 3
+}

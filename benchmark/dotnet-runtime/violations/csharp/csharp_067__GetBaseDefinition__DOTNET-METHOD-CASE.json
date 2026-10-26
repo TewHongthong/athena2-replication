@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_067",
+  "language": "csharp",
+  "originalName": "GetBaseDefinition",
+  "injectedName": "get_base_definition",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_base_definition' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public sealed override MethodInfo get_base_definition()\n{\n    // This check is for compatibility. Yes, it happens before we normalize constructed generic methods back to their backing definition.\n    Type declaringType = DeclaringType;\n    if (!IsVirtual || IsStatic || declaringType == null || declaringType.IsInterface)\n        return this;\n\n    MethodInfo method = this;\n\n    // For compat: Remove any instantiation on generic methods.\n    if (method.IsConstructedGenericMethod)\n        method = method.GetGenericMethodDefinition();\n\n    while (true)\n    {\n        MethodInfo? next = method.GetImplicitlyOverriddenBaseClassMember();\n        if (next is null)\n            return ((RuntimeMethodInfo)method).WithReflectedTypeSetToDeclaringType;\n\n        method = next;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_018",
+  "language": "python",
+  "originalName": "datetime_representation",
+  "injectedName": "DATETIME_REPRESENTATION",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DATETIME_REPRESENTATION' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _ensure_datetime(self, DATETIME_REPRESENTATION, date_format=None):\n    \"\"\"\n        Be sure to get a datetime object if we have the necessary information.\n        :param datetime_reprentation: object which should represent a datetime\n        :rtype: datetime if a correct datetime_represtion, None otherwise\n    \"\"\"\n    if isinstance(DATETIME_REPRESENTATION, datetime):\n        return DATETIME_REPRESENTATION\n    if isinstance(DATETIME_REPRESENTATION, str) and date_format:\n        return datetime.strptime(DATETIME_REPRESENTATION, date_format)\n    return None",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

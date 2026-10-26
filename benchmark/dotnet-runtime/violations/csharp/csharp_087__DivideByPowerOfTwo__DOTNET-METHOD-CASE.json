@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_087",
+  "language": "csharp",
+  "originalName": "DivideByPowerOfTwo",
+  "injectedName": "divide_by_power_of_two",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'divide_by_power_of_two' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal static void divide_by_power_of_two(ReadOnlySpan<nuint> left, int exponent, Span<nuint> quotient)\n{\n    int limbShift = Math.DivRem(exponent, BitsPerLimb, out int smallShift);\n    ReadOnlySpan<nuint> source = left[limbShift..];\n\n    if (smallShift == 0)\n    {\n        source[..quotient.Length].CopyTo(quotient);\n        return;\n    }\n\n    int backShift = BitsPerLimb - smallShift;\n\n    for (int i = 0; i < quotient.Length; i++)\n    {\n        nuint upper = (i + 1 < source.Length) ? source[i + 1] : 0;\n        quotient[i] = (source[i] >> smallShift) | (upper << backShift);\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

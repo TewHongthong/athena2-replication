@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_059",
+  "language": "csharp",
+  "originalName": "HandleFlushTargetState",
+  "injectedName": "handle_flush_target_state",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'handle_flush_target_state' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static int handle_flush_target_state(Target target, uint inSize, byte* inBuffer, uint outSize, byte* outBuffer)\n{\n    if (inSize != 0 || inBuffer is not null || outSize != 0 || outBuffer is not null)\n        return HResults.E_INVALIDARG;\n    target.Flush(FlushScope.ForwardExecution);\n    return HResults.S_OK;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

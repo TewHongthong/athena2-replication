@@ -1,0 +1,30 @@
+{
+  "id": "cpp_066",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/debugger/canvas_item_manipulator.cpp lines 2243-2250 (method CanvasItemManipulator::reset_temp_pivot); license MIT; repo created 2026-09-22T14:00:37-03:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "bool CanvasItemManipulator::reset_temp_pivot() {\n\tif (temp_pivot != Vector2(Math::INF, Math::INF)) {\n\t\ttemp_pivot = Vector2(Math::INF, Math::INF);\n\t\treturn true;\n\t}\n\n\treturn false;\n}",
+  "identifiers": [
+    {
+      "name": "reset_temp_pivot",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-22T14:00:37-03:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/debugger/canvas_item_manipulator.cpp",
+    "startLine": 2243,
+    "endLine": 2250,
+    "unit": "method CanvasItemManipulator::reset_temp_pivot",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__debugger__canvas_item_manipulator.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 29
+}

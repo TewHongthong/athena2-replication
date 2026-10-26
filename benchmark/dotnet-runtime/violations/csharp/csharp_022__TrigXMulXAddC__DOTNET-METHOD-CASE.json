@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_022",
+  "language": "csharp",
+  "originalName": "TrigXMulXAddC",
+  "injectedName": "trig_x_mul_x_add_c",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'trig_x_mul_x_add_c' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static void trig_x_mul_x_add_c(ulong a, ulong b, ulong addHi, ulong addLo, out ulong carryOut, out ulong hi, out ulong lo)\n{\n    UInt128 prod = (UInt128)a * b;\n    UInt128 addend = new UInt128(addHi, addLo);\n    UInt128 s = prod + addend;\n    carryOut = (s < addend) ? 1UL : 0UL;\n    hi = s.Upper;\n    lo = s.Lower;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "cpp_013",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/3d/trail_3d.cpp lines 335-346 (method Trail3D::clear); license MIT; repo created 2026-08-19T19:50:05+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void Trail3D::clear() {\n\tpoints.clear();\n\tnormals.clear();\n\t_times.clear();\n\ttangents.clear();\n\t_velocities.clear();\n\ttiling_offset = 0.;\n\t_last_vertex_count = 600;\n\t_last_index_count = 0;\n\t_init_clear_mesh();\n\trebuild();\n}",
+  "identifiers": [
+    {
+      "name": "clear",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-19T19:50:05+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/3d/trail_3d.cpp",
+    "startLine": 335,
+    "endLine": 346,
+    "unit": "method Trail3D::clear",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__3d__trail_3d.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 24
+}

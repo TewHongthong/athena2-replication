@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_012",
+  "language": "cpp",
+  "originalName": "p_port",
+  "injectedName": "P_PORT",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_PORT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "String VisualShaderNodeGroup::get_input_port_name(int P_PORT) const {\n\tif (group.is_null() || P_PORT < 0 || P_PORT >= group->get_input_port_count()) {\n\t\treturn String();\n\t}\n\treturn group->get_input_port_name(P_PORT);\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

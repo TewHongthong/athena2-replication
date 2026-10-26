@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_078",
+  "language": "python",
+  "originalName": "client_sock",
+  "injectedName": "CLIENT_SOCK",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CLIENT_SOCK' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def __init__(self, CLIENT_SOCK, client_addr, *, prelude=b''):\n    self.sock = CLIENT_SOCK\n    self.addr = client_addr\n    self.ip = client_addr[0]  # until we find the X-Forwarded-For header\n\n    self.conn = h11.Connection(\n        h11.SERVER,\n        max_incomplete_event_size=MAX_INCOMPLETE_EVENT_SIZE,\n    )\n    if prelude:\n        self.conn.receive_data(prelude)\n\n    self.h11request = None\n    self.h11response = None",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

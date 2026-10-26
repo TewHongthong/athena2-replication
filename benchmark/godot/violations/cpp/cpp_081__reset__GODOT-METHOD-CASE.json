@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_081",
+  "language": "cpp",
+  "originalName": "reset",
+  "injectedName": "RESET",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'RESET' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void RESET() {\n\tMutexLock lock(mutex);\n\tshould_exit = false;\n\tpending = false;\n\tcommand_mem.clear();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

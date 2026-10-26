@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_072",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def write(self, VALS):\n    if 'available_in_pos' in VALS:\n        if not VALS['available_in_pos']:\n            VALS['self_order_available'] = False\n\n    res = super().write(VALS)\n\n    if 'self_order_available' in VALS:\n        for record in self:\n            for product in record.product_variant_ids:\n                product._send_availability_status()\n    return res",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

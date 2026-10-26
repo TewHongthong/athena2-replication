@@ -1,0 +1,30 @@
+{
+  "id": "py_013",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_tw_edi_ecpay_website_sale/models/website.py lines 10-17 (method Website._get_breadcrumb_checkout_steps_domain); license LGPL-3.0; repo created 2026-08-28T23:54:28+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _get_breadcrumb_checkout_steps_domain(self, order_sudo):\n    domain = super()._get_breadcrumb_checkout_steps_domain(order_sudo)\n    if not (\n        self.company_id._is_ecpay_enabled()\n        and not order_sudo.partner_id.l10n_tw_edi_require_paper_format\n    ):\n        domain &= Domain('step_href', '!=', '/shop/l10n_tw_invoicing_info')\n    return domain",
+  "identifiers": [
+    {
+      "name": "order_sudo",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-28T23:54:28+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_tw_edi_ecpay_website_sale/models/website.py",
+    "startLine": 10,
+    "endLine": 17,
+    "unit": "method Website._get_breadcrumb_checkout_steps_domain",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_tw_edi_ecpay_website_sale__models__website.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

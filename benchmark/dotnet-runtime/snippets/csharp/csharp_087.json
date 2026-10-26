@@ -1,0 +1,30 @@
+{
+  "id": "csharp_087",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Private.CoreLib/src/System/Numerics/BigIntegerCalculator.Shared.cs lines 165-183 (method BigIntegerCalculator.DivideByPowerOfTwo); license MIT; repo created 2026-08-19T16:35:08-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal static void DivideByPowerOfTwo(ReadOnlySpan<nuint> left, int exponent, Span<nuint> quotient)\n{\n    int limbShift = Math.DivRem(exponent, BitsPerLimb, out int smallShift);\n    ReadOnlySpan<nuint> source = left[limbShift..];\n\n    if (smallShift == 0)\n    {\n        source[..quotient.Length].CopyTo(quotient);\n        return;\n    }\n\n    int backShift = BitsPerLimb - smallShift;\n\n    for (int i = 0; i < quotient.Length; i++)\n    {\n        nuint upper = (i + 1 < source.Length) ? source[i + 1] : 0;\n        quotient[i] = (source[i] >> smallShift) | (upper << backShift);\n    }\n}",
+  "identifiers": [
+    {
+      "name": "DivideByPowerOfTwo",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-19T16:35:08-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Private.CoreLib/src/System/Numerics/BigIntegerCalculator.Shared.cs",
+    "startLine": 165,
+    "endLine": 183,
+    "unit": "method BigIntegerCalculator.DivideByPowerOfTwo",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Private.CoreLib__src__System__Numerics__BigIntegerCalculator.Shared.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 8
+}

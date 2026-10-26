@@ -1,0 +1,30 @@
+{
+  "id": "py_048",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/generators/textual.py lines 6-29 (class Char); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class Char(Generator):\n    \"\"\"Generate random strings from a character set.\"\"\"\n    name = 'textual.char'\n    allowed_on = ('char', 'html', 'value')  # TODO: add dedicated html generator.\n\n    def __init__(self, char_set: str = ascii_letters + digits, length: int = 12, **kwargs):\n        super().__init__(**kwargs)\n        self.char_set = char_set\n        self.length = length\n\n    def _next(self, known_vals):\n        return ''.join(self.distribution.choices(self.char_set, k=self.length))\n\n    @classmethod\n    def convert_to_kwargs(cls, attrs):\n        kwargs = super().convert_to_kwargs(attrs)\n\n        if 'char_set' in attrs:\n            kwargs['char_set'] = attrs['char_set']\n\n        if 'length' in attrs:\n            kwargs['length'] = int(attrs['length'])\n\n        return kwargs",
+  "identifiers": [
+    {
+      "name": "attrs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/generators/textual.py",
+    "startLine": 6,
+    "endLine": 29,
+    "unit": "class Char",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__generators__textual.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

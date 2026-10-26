@@ -1,0 +1,30 @@
+{
+  "id": "cpp_001",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/streamed_texture.cpp lines 521-526 (method StreamedTexture2D::draw_rect); license MIT; repo created 2026-08-26T13:28:15-06:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void StreamedTexture2D::draw_rect(RID p_canvas_item, const Rect2 &p_rect, bool p_tile, const Color &p_modulate, bool p_transpose) const {\n\tif ((w | h) == 0) {\n\t\treturn;\n\t}\n\tRenderingServer::get_singleton()->canvas_item_add_texture_rect(p_canvas_item, p_rect, texture, p_tile, p_modulate, p_transpose);\n}",
+  "identifiers": [
+    {
+      "name": "p_canvas_item",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-26T13:28:15-06:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/streamed_texture.cpp",
+    "startLine": 521,
+    "endLine": 526,
+    "unit": "method StreamedTexture2D::draw_rect",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__streamed_texture.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 24
+}

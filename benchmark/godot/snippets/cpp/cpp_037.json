@@ -1,0 +1,30 @@
+{
+  "id": "cpp_037",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/openxr/extensions/openxr_foveated_inset_extension.cpp lines 320-338 (method OpenXRFoveatedInsetExtension::on_post_render); license MIT; repo created 2026-09-11T14:49:03+10:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void OpenXRFoveatedInsetExtension::on_post_render() {\n\tif (render_state.viewports.size() == 0) {\n\t\treturn;\n\t}\n\n\tOpenXRAPI *openxr_api = OpenXRAPI::get_singleton();\n\tERR_FAIL_NULL(openxr_api);\n\n\tif (openxr_api->get_view_configuration() != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET) {\n\t\treturn;\n\t}\n\n\t// Release our swapchain image if we acquired it.\n\tfor (int i = 0; i < SWAPCHAIN_MAX; i++) {\n\t\tif (render_state.swapchains[i].is_image_acquired()) {\n\t\t\trender_state.swapchains[i].release();\n\t\t}\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "openxr_api",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-11T14:49:03+10:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/openxr/extensions/openxr_foveated_inset_extension.cpp",
+    "startLine": 320,
+    "endLine": 338,
+    "unit": "method OpenXRFoveatedInsetExtension::on_post_render",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__openxr__extensions__openxr_foveated_inset_extension.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 16
+}

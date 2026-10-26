@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_074",
+  "language": "cpp",
+  "originalName": "p_shape",
+  "injectedName": "P_SHAPE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_SHAPE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void PhysicsShapeQueryParameters2D::set_shape_rid(const RID &P_SHAPE) {\n\tif (parameters.shape_rid != P_SHAPE) {\n\t\tshape_ref = Ref<Resource>();\n\t\tparameters.shape_rid = P_SHAPE;\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

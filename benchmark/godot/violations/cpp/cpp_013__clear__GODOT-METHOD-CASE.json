@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_013",
+  "language": "cpp",
+  "originalName": "clear",
+  "injectedName": "CLEAR",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CLEAR' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void Trail3D::CLEAR() {\n\tpoints.CLEAR();\n\tnormals.CLEAR();\n\t_times.CLEAR();\n\ttangents.CLEAR();\n\t_velocities.CLEAR();\n\ttiling_offset = 0.;\n\t_last_vertex_count = 600;\n\t_last_index_count = 0;\n\t_init_clear_mesh();\n\trebuild();\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

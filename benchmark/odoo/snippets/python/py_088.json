@@ -1,0 +1,30 @@
+{
+  "id": "py_088",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/google_calendar/models/calendar_event.py lines 131-147 (method CalendarEvent._check_modify_event_permission); license LGPL-3.0; repo created 2026-09-15T19:55:01+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _check_modify_event_permission(self, values):\n    \"\"\" Check if event modification attempt by attendee is valid to avoid duplicate events creation. \"\"\"\n    # Edge case: when restarting the synchronization, guests can write 'need_sync=True' on events.\n    google_sync_restart = values.get('need_sync') and len(values)\n    # Edge case 2: when resetting an account, we must be able to erase the event's google_id.\n    skip_event_permission = self.env.context.get('skip_event_permission', False)\n    # Edge case 3: check if event is synchronizable in order to make sure the error is worth it.\n    is_synchronizable = self._check_values_to_sync(values)\n    # Edge case 4: archiving an event should always be allowed.\n    archiving = 'active' in values and not values['active']\n    if google_sync_restart or skip_event_permission or not is_synchronizable or archiving:\n        return\n    if any(event.guests_readonly and self.env.user.id != event.user_id.id for event in self):\n        raise ValidationError(\n            _(\"The following event can only be updated by the organizer \"\n            \"according to the event permissions set on Google Calendar.\")\n        )",
+  "identifiers": [
+    {
+      "name": "values",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T19:55:01+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/google_calendar/models/calendar_event.py",
+    "startLine": 131,
+    "endLine": 147,
+    "unit": "method CalendarEvent._check_modify_event_permission",
+    "corpusFile": "corpus/python/odoo__odoo__addons__google_calendar__models__calendar_event.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 14
+}

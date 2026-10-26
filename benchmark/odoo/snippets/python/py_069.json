@@ -1,0 +1,30 @@
+{
+  "id": "py_069",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/generators/relation.py lines 21-50 (method RelationOne.__init__); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __init__(\n    self,\n    domain: DomainType | DynamicDomain | None = None,\n    comodel_name: str | None = None,\n    **kwargs,\n):\n    \"\"\"Initialize a relation generator and infer dynamic-domain dependencies.\n\n    :param domain: Static domain or dynamic domain evaluated per generated record.\n    :param comodel_name: Explicit comodel name, required for generated values.\n    \"\"\"\n    depends: list[str] = kwargs.pop('depends', [])\n    if isinstance(domain, DynamicDomain):\n        depends.extend(domain.dynamic_fields)\n\n    super().__init__(depends=depends, **kwargs)\n\n    if self.target.type == 'value' and not comodel_name:\n        raise ValueError(self.env._(\"'comodel_name' needs to be provided for generated values.\"))\n\n    comodel_name = self.target.comodel_name or comodel_name\n\n    if comodel_name not in self.env:\n        raise ValueError(self.env._(\n            \"'%(comodel_name)s' isn't a valid model name.\",\n            comodel_name=comodel_name,\n        ))\n\n    self.comodel_name = comodel_name\n    self.domain = domain if domain is not None else Domain.TRUE",
+  "identifiers": [
+    {
+      "name": "kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/generators/relation.py",
+    "startLine": 21,
+    "endLine": 50,
+    "unit": "method RelationOne.__init__",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__generators__relation.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

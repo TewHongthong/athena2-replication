@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_042",
+  "language": "csharp",
+  "originalName": "CreateFloat32BitsSerializedInitializer",
+  "injectedName": "create_float32_bits_serialized_initializer",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_float32_bits_serialized_initializer' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal BlobBuilder create_float32_bits_serialized_initializer(IToken value)\n{\n    BlobBuilder blob = CreateSerializedInitializer(SerializationTypeCode.Single);\n    blob.WriteSingle(BitConverter.Int32BitsToSingle(ParseInt32(value)));\n    return blob;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

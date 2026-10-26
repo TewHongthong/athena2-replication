@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_016",
+  "language": "csharp",
+  "originalName": "GetSelfInstallingPayloadSegment",
+  "injectedName": "get_self_installing_payload_segment",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_self_installing_payload_segment' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static (bool Active, int? Offset, long PayloadOffset, uint Size) get_self_installing_payload_segment(WasmModuleInfo module, string path)\n{\n    (bool Active, int? Offset, long PayloadOffset, uint Size)[] active =\n        new List<(bool Active, int? Offset, long PayloadOffset, uint Size)>(module.DataSegments)\n            .FindAll(segment => segment.Active)\n            .ToArray();\n    if (active.Length != 1)\n        throw new BadImageFormatException($\"Expected exactly one active WebCIL payload segment in {path}, found {active.Length}.\");\n    if (!module.Exports.TryGetValue(\"patchWebcilHeader\", out (byte Kind, uint Index) patchExport) || patchExport.Kind != 0)\n        throw new BadImageFormatException($\"{path} is not a self-installing WebCIL image: patchWebcilHeader is missing.\");\n    return active[0];\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

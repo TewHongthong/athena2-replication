@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_048",
+  "language": "python",
+  "originalName": "attrs",
+  "injectedName": "ATTRS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ATTRS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class Char(Generator):\n    \"\"\"Generate random strings from a character set.\"\"\"\n    name = 'textual.char'\n    allowed_on = ('char', 'html', 'value')  # TODO: add dedicated html generator.\n\n    def __init__(self, char_set: str = ascii_letters + digits, length: int = 12, **kwargs):\n        super().__init__(**kwargs)\n        self.char_set = char_set\n        self.length = length\n\n    def _next(self, known_vals):\n        return ''.join(self.distribution.choices(self.char_set, k=self.length))\n\n    @classmethod\n    def convert_to_kwargs(cls, ATTRS):\n        kwargs = super().convert_to_kwargs(ATTRS)\n\n        if 'char_set' in ATTRS:\n            kwargs['char_set'] = ATTRS['char_set']\n\n        if 'length' in ATTRS:\n            kwargs['length'] = int(ATTRS['length'])\n\n        return kwargs",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

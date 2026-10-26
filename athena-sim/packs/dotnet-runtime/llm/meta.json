@@ -1,0 +1,39 @@
+{
+  "standard": "dotnet-runtime",
+  "pin": "luna_draft",
+  "pin_sha256": "75dc73114422e0ed5930ce6b9e6b646f0f3111ecf6d254a452a62947b2507d65",
+  "backend": {
+    "spec": "openai:openai/gpt-6-luna",
+    "is_llm": true,
+    "model": "openai/gpt-6-luna",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": null,
+    "max_tokens": 32768,
+    "reasoning_effort": null,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    }
+  },
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "response_id": "gen-1792637802-xjcvIZjvVd2tOrMHIFU2",
+  "system_fingerprint": "",
+  "finish": "stop",
+  "prompt_tokens": 2898,
+  "completion_tokens": 3235,
+  "latency_s": 22.41,
+  "cost_usd_estimate": 0.00191,
+  "prompt_sha256": "15ebbd3870affd3ac4eb8bcec211486ed87600b887210519cc15dcdab4b5746a",
+  "response_sha256": "28e472ae21866ff8a492a469164fb6b88de55605da9cf8605ad9a98d6bdd29a5"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_020",
+  "language": "csharp",
+  "originalName": "FixupSymbolName",
+  "injectedName": "fixup_symbol_name",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'fixup_symbol_name' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static string fixup_symbol_name(string name)\n{\n    var sb = new StringBuilder();\n    foreach (byte b in Encoding.UTF8.GetBytes(name))\n    {\n        if (b is (>= (byte)'0' and <= (byte)'9') or (>= (byte)'a' and <= (byte)'z') or (>= (byte)'A' and <= (byte)'Z') or (byte)'_')\n            sb.Append((char)b);\n        else if (Array.IndexOf(s_charsToReplace, (char)b) >= 0)\n            sb.Append('_');\n        else\n            sb.Append(CultureInfo.InvariantCulture, $\"_{b:X}_\");\n    }\n\n    return sb.ToString();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

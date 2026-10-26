@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_006",
+  "language": "python",
+  "originalName": "eval_kwargs",
+  "injectedName": "EVAL_KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'EVAL_KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def __new__(cls, domain_expr: str) -> DynamicDomain | Domain:\n    \"\"\"Return a static domain or a dynamic resolver for ``domain_expr``.\n\n    :param domain_expr: Domain expression from a blueprint attribute.\n    :return: ``Domain`` when no field names are referenced, otherwise ``DynamicDomain``.\n    \"\"\"\n    dynamic_fields = list(get_undefined_names(domain_expr))\n    if not dynamic_fields:\n        return Domain(literal_eval(domain_expr))\n\n    self = super().__new__(cls)\n    object.__setattr__(self, 'dynamic_fields', dynamic_fields)\n\n    def checked(**EVAL_KWARGS):\n        check_eval_args(**EVAL_KWARGS)\n        return expr_eval(domain_expr, EVAL_KWARGS)\n\n    object.__setattr__(self, '_resolver', checked)\n    return self",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

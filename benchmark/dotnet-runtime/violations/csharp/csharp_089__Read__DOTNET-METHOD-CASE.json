@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_089",
+  "language": "csharp",
+  "originalName": "Read",
+  "injectedName": "read",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'read' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public override JsonModelItem read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)\n{\n    switch (reader.TokenType)\n    {\n        case JsonTokenType.String:\n            string? stringItem = reader.GetString();\n            if (stringItem is null || stringItem.Length == 0)\n            {\n                throw new JsonException(\"deserialized json string item was null or the empty string\");\n            }\n\n            return new JsonModelItem(stringItem, metadata: null);\n\n        case JsonTokenType.StartObject:\n            Dictionary<string, string>? dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(ref reader, options);\n            if (dictionary is null)\n            {\n                return null!;\n            }\n\n            var caseInsensitiveDictionary = new Dictionary<string, string>(dictionary, StringComparer.OrdinalIgnoreCase);\n            if (!caseInsensitiveDictionary.TryGetValue(\"Identity\", out string? identity))\n            {\n                throw new JsonException(\"deserialized json dictionary item did not have a non-empty Identity metadata\");\n            }\n\n            if (identity is null || identity.Length == 0)\n            {\n                throw new JsonException(\"deserialized json dictionary item did not have a non-empty Identity metadata\");\n            }\n\n            caseInsensitiveDictionary.Remove(\"Identity\");\n            return new JsonModelItem(identity, caseInsensitiveDictionary);\n\n        default:\n            throw new NotSupportedException();\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

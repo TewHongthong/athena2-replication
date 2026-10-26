@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_074",
+  "language": "python",
+  "originalName": "record",
+  "injectedName": "RECORD",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'RECORD' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class MailActivitySchedule(models.TransientModel):\n    _inherit = \"mail.activity.schedule\"\n\n    phone_formatted = fields.Char(compute=\"_compute_phone_formatted\")\n\n    @api.depends(\"phone\", \"res_model\", \"res_ids\")\n    def _compute_phone_formatted(self):\n        for activity in self:\n            records = activity._get_applied_on_records()\n            activity.phone_formatted = (\n                records._phone_get_formatted(activity.phone)\n                if activity.phone and len(records) == 1\n                else activity.phone\n            )\n\n    def _get_phone_number(self, RECORD):\n        RECORD = RECORD.exists()\n        if not RECORD:\n            return False\n        RECORD.check_access(\"read\")\n        recipient_info = RECORD._phone_get_recipients_info()[RECORD.id]\n        return recipient_info[\"number\"]\n\n    def _get_phone_number_for_activity(self):\n        return self.phone_formatted",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

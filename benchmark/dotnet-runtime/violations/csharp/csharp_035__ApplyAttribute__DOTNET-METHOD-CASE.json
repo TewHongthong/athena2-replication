@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_035",
+  "language": "csharp",
+  "originalName": "ApplyAttribute",
+  "injectedName": "apply_attribute",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'apply_attribute' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static T apply_attribute<T>(\n    T current,\n    CILParser.AttributeValue<T> attribute)\n    where T : struct, Enum\n{\n    if (!attribute.ShouldAppend)\n    {\n        return attribute.Value;\n    }\n\n    int currentValue = Convert.ToInt32(current);\n    int groupMask = Convert.ToInt32(attribute.GroupMask);\n    int attributeValue = Convert.ToInt32(attribute.Value);\n    return (T)Enum.ToObject(\n        typeof(T),\n        (currentValue & ~groupMask) | attributeValue);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

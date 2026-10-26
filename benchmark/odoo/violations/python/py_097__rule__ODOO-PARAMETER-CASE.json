@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_097",
+  "language": "python",
+  "originalName": "rule",
+  "injectedName": "RULE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'RULE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _get_time_rule_output_vals(self, RULE, df, dt, pp):\n    \"\"\"Create vals for a new time rule output record.\n\n    df/dt are UTC datetimes; pp is a frozenset of premium pay rule IDs.\n    \"\"\"\n    raise NotImplementedError",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

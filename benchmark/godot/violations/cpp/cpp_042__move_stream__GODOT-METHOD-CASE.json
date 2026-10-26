@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_042",
+  "language": "cpp",
+  "originalName": "move_stream",
+  "injectedName": "MOVE_STREAM",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'MOVE_STREAM' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AudioStreamRandomizer::MOVE_STREAM(int p_index_from, int p_index_to) {\n\tERR_FAIL_INDEX(p_index_from, audio_stream_pool.size());\n\t// p_index_to == audio_stream_pool.size() is valid (move to end).\n\tERR_FAIL_COND(p_index_to < 0);\n\tERR_FAIL_COND(p_index_to > audio_stream_pool.size());\n\taudio_stream_pool.insert(p_index_to, audio_stream_pool[p_index_from]);\n\t// If 'from' is strictly after 'to' we need to increment the index by one because of the insertion.\n\tif (p_index_from > p_index_to) {\n\t\tp_index_from++;\n\t}\n\taudio_stream_pool.remove_at(p_index_from);\n\temit_signal(CoreStringName(changed));\n\tnotify_property_list_changed();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

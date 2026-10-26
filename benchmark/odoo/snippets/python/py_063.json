@@ -1,0 +1,30 @@
+{
+  "id": "py_063",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_in_sale/models/sale_order_line.py lines 9-15 (method SaleOrderLine._affects_qty_invoiced); license LGPL-3.0; repo created 2026-08-26T17:34:51+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _affects_qty_invoiced(self, invoice_line):\n    \"\"\"Price adjustment credit / debit notes are to adjust total amounts\n    and should not affect quantity invoiced\"\"\"\n    return (\n        super()._affects_qty_invoiced(invoice_line)\n        and invoice_line.move_id.l10n_in_adjustment_type != 'price_adjustment'\n    )",
+  "identifiers": [
+    {
+      "name": "invoice_line",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-26T17:34:51+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_in_sale/models/sale_order_line.py",
+    "startLine": 9,
+    "endLine": 15,
+    "unit": "method SaleOrderLine._affects_qty_invoiced",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_in_sale__models__sale_order_line.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

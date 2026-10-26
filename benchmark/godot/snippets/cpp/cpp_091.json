@@ -1,0 +1,30 @@
+{
+  "id": "cpp_091",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/physics_3d/physics_server_3d_manager.cpp lines 118-125 (method PhysicsServer3DManager::find_server_id); license MIT; repo created 2026-07-17T13:35:48+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "int PhysicsServer3DManager::find_server_id(const String &p_name) {\n\tfor (int i = physics_servers.size() - 1; 0 <= i; --i) {\n\t\tif (p_name == physics_servers[i].name) {\n\t\t\treturn i;\n\t\t}\n\t}\n\treturn -1;\n}",
+  "identifiers": [
+    {
+      "name": "find_server_id",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-17T13:35:48+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/physics_3d/physics_server_3d_manager.cpp",
+    "startLine": 118,
+    "endLine": 125,
+    "unit": "method PhysicsServer3DManager::find_server_id",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__physics_3d__physics_server_3d_manager.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 9
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_066",
+  "language": "python",
+  "originalName": "move_line",
+  "injectedName": "MOVE_LINE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'MOVE_LINE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@api.model\ndef _get_reference(self, MOVE_LINE):\n    res_model, res_id, ref = super()._get_reference(MOVE_LINE)\n    move = MOVE_LINE.move_id\n    if move.production_id and move.location_dest_usage != 'inventory':\n        res_model = 'mrp.production'\n        res_id = move.production_id.id\n        ref = move.production_id.name\n    elif move.raw_material_production_id and move.location_dest_usage != 'inventory':\n        res_model = 'mrp.production'\n        res_id = move.raw_material_production_id.id\n        ref = move.raw_material_production_id.name\n    elif move.unbuild_id:\n        res_model = 'mrp.unbuild'\n        res_id = move.unbuild_id.id\n        ref = move.unbuild_id.name\n    elif move.consume_unbuild_id:\n        res_model = 'mrp.unbuild'\n        res_id = move.consume_unbuild_id.id\n        ref = move.consume_unbuild_id.name\n    return res_model, res_id, ref",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

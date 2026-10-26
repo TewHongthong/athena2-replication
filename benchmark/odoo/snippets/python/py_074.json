@@ -1,0 +1,30 @@
+{
+  "id": "py_074",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/phone_validation/wizard/mail_activity_schedule.py lines 6-30 (class MailActivitySchedule); license LGPL-3.0; repo created 2026-09-14T18:42:10+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class MailActivitySchedule(models.TransientModel):\n    _inherit = \"mail.activity.schedule\"\n\n    phone_formatted = fields.Char(compute=\"_compute_phone_formatted\")\n\n    @api.depends(\"phone\", \"res_model\", \"res_ids\")\n    def _compute_phone_formatted(self):\n        for activity in self:\n            records = activity._get_applied_on_records()\n            activity.phone_formatted = (\n                records._phone_get_formatted(activity.phone)\n                if activity.phone and len(records) == 1\n                else activity.phone\n            )\n\n    def _get_phone_number(self, record):\n        record = record.exists()\n        if not record:\n            return False\n        record.check_access(\"read\")\n        recipient_info = record._phone_get_recipients_info()[record.id]\n        return recipient_info[\"number\"]\n\n    def _get_phone_number_for_activity(self):\n        return self.phone_formatted",
+  "identifiers": [
+    {
+      "name": "record",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-14T18:42:10+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/phone_validation/wizard/mail_activity_schedule.py",
+    "startLine": 6,
+    "endLine": 30,
+    "unit": "class MailActivitySchedule",
+    "corpusFile": "corpus/python/odoo__odoo__addons__phone_validation__wizard__mail_activity_schedule.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_054",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/bus/bus_dispatcher.py lines 524-538 (method BusDispatcher._fetch); license LGPL-3.0; repo created 2026-08-07T17:10:41+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _fetch(self, cr, topics: set[ChannelTopic] | frozenset[ChannelTopic]):\n    \"\"\"Fetch pending notifications for the given topics, grouped by channel.\"\"\"\n    channels_by_last_fetched_id = defaultdict(list)\n    excluded_ids = set()\n    for topic in topics:\n        if topic._waiting_room_snapshot:\n            last_fetched_id = min(  # noqa: PLW3301\n                topic._last_fetched_id,\n                min(topic._waiting_room_snapshot.values()),\n            )\n        else:\n            last_fetched_id = topic._last_fetched_id\n            excluded_ids.update(topic.excluded_ids)\n        channels_by_last_fetched_id[last_fetched_id].append(topic._channel)\n    return fetch_bus_notifications(cr, channels_by_last_fetched_id, excluded_ids)",
+  "identifiers": [
+    {
+      "name": "topics",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-07T17:10:41+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/bus/bus_dispatcher.py",
+    "startLine": 524,
+    "endLine": 538,
+    "unit": "method BusDispatcher._fetch",
+    "corpusFile": "corpus/python/odoo__odoo__addons__bus__bus_dispatcher.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 23
+}

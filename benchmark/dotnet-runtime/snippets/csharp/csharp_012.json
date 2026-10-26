@@ -1,0 +1,30 @@
+{
+  "id": "csharp_012",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ExternalMemoryHandles_1.cs lines 86-109 (method ExternalMemoryHandles_1.AddInteriorRoot); license MIT; repo created 2026-09-29T13:27:49-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private void AddInteriorRoot(\n    List<ExternalMemoryHandleRootData> roots,\n    TargetPointer slotAddress,\n    bool resolveInteriorPointers)\n{\n    TargetPointer obj = _target.ReadPointer(slotAddress.Value);\n    ulong invalidPointer = _target.PointerSize == 8 ? ulong.MaxValue : uint.MaxValue;\n    if (obj == TargetPointer.Null || obj.Value == invalidPointer)\n        return;\n\n    if (resolveInteriorPointers)\n    {\n        obj = _interiorPointerResolver.Resolve(obj);\n        if (obj == TargetPointer.Null)\n            return;\n    }\n\n    roots.Add(new ExternalMemoryHandleRootData\n    {\n        IsInteriorPointer = true,\n        Address = slotAddress,\n        Object = obj,\n    });\n}",
+  "identifiers": [
+    {
+      "name": "AddInteriorRoot",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-29T13:27:49-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ExternalMemoryHandles_1.cs",
+    "startLine": 86,
+    "endLine": 109,
+    "unit": "method ExternalMemoryHandles_1.AddInteriorRoot",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__ExternalMemoryHandles_1.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 4
+}

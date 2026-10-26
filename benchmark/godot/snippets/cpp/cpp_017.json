@@ -1,0 +1,30 @@
+{
+  "id": "cpp_017",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_data_editors.cpp lines 1483-1505 (method TileDataOcclusionShapeEditor::draw_over_tile); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileDataOcclusionShapeEditor::draw_over_tile(CanvasItem *p_canvas_item, Transform2D p_transform, TileMapCell p_cell, bool p_selected) {\n\tTileData *tile_data = _get_tile_data(p_cell);\n\tERR_FAIL_NULL(tile_data);\n\n\tColor grid_color = EDITOR_GET(\"editors/tiles_editor/grid_color\");\n\tColor selection_color = Color::from_hsv(Math::fposmod(grid_color.get_h() + 0.5, 1.0), grid_color.get_s(), grid_color.get_v(), 1.0);\n\tColor color = grid_color.darkened(0.2);\n\tif (p_selected) {\n\t\tcolor = selection_color.darkened(0.2);\n\t}\n\tcolor.a *= 0.5;\n\n\tVector<Color> debug_occlusion_color = { color };\n\n\tRenderingServer::get_singleton()->canvas_item_add_set_transform(p_canvas_item->get_canvas_item(), p_transform);\n\tfor (int i = 0; i < tile_data->get_occluder_polygons_count(occlusion_layer); i++) {\n\t\tRef<OccluderPolygon2D> occluder = tile_data->get_occluder_polygon(occlusion_layer, i);\n\t\tif (occluder.is_valid() && occluder->get_polygon().size() >= 3) {\n\t\t\tp_canvas_item->draw_polygon(Variant(occluder->get_polygon()), debug_occlusion_color);\n\t\t}\n\t}\n\tRenderingServer::get_singleton()->canvas_item_add_set_transform(p_canvas_item->get_canvas_item(), Transform2D());\n}",
+  "identifiers": [
+    {
+      "name": "draw_over_tile",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_data_editors.cpp",
+    "startLine": 1483,
+    "endLine": 1505,
+    "unit": "method TileDataOcclusionShapeEditor::draw_over_tile",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_data_editors.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 56
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_004",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/account/report/account_stock_valuation_report.py lines 10-15 (method StockValuationReport.get_report_values); license LGPL-3.0; repo created 2026-09-10T14:43:56+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@api.model\ndef get_report_values(self, date=False):\n    return {\n        'data': self.with_context(allowed_company_ids=self.env.company.ids)._get_report_data(date=date),\n        'context': {},\n    }",
+  "identifiers": [
+    {
+      "name": "date",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-10T14:43:56+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/account/report/account_stock_valuation_report.py",
+    "startLine": 10,
+    "endLine": 15,
+    "unit": "method StockValuationReport.get_report_values",
+    "corpusFile": "corpus/python/odoo__odoo__addons__account__report__account_stock_valuation_report.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

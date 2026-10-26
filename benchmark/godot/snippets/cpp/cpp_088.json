@@ -1,0 +1,30 @@
+{
+  "id": "cpp_088",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/3d/bone_space_adjuster_3d.cpp lines 161-173 (method BoneSpaceAdjuster3D::set_bone); license MIT; repo created 2026-08-30T17:49:03+09:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void BoneSpaceAdjuster3D::set_bone(int p_index, int p_bone) {\n\tERR_FAIL_INDEX(p_index, (int)settings.size());\n\tsettings[p_index].bone = p_bone;\n\tSkeleton3D *sk = get_skeleton();\n\tif (sk) {\n\t\tif (settings[p_index].bone <= -1 || settings[p_index].bone >= sk->get_bone_count()) {\n\t\t\tWARN_PRINT(\"Apply bone index out of range!\");\n\t\t\tsettings[p_index].bone = -1;\n\t\t} else {\n\t\t\tsettings[p_index].bone_name = sk->get_bone_name(settings[p_index].bone);\n\t\t}\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_bone",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-30T17:49:03+09:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/3d/bone_space_adjuster_3d.cpp",
+    "startLine": 161,
+    "endLine": 173,
+    "unit": "method BoneSpaceAdjuster3D::set_bone",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__3d__bone_space_adjuster_3d.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 12
+}

@@ -1,0 +1,30 @@
+{
+  "id": "csharp_020",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.ReadyToRun/PortableCallHelpers/PInvokeTableGenerator.cs lines 576-590 (method PInvokeTableGenerator.FixupSymbolName); license MIT; repo created 2026-09-04T15:12:43+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static string FixupSymbolName(string name)\n{\n    var sb = new StringBuilder();\n    foreach (byte b in Encoding.UTF8.GetBytes(name))\n    {\n        if (b is (>= (byte)'0' and <= (byte)'9') or (>= (byte)'a' and <= (byte)'z') or (>= (byte)'A' and <= (byte)'Z') or (byte)'_')\n            sb.Append((char)b);\n        else if (Array.IndexOf(s_charsToReplace, (char)b) >= 0)\n            sb.Append('_');\n        else\n            sb.Append(CultureInfo.InvariantCulture, $\"_{b:X}_\");\n    }\n\n    return sb.ToString();\n}",
+  "identifiers": [
+    {
+      "name": "FixupSymbolName",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-04T15:12:43+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.ReadyToRun/PortableCallHelpers/PInvokeTableGenerator.cs",
+    "startLine": 576,
+    "endLine": 590,
+    "unit": "method PInvokeTableGenerator.FixupSymbolName",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.ReadyToRun__PortableCallHelpers__PInvokeTableGenerator.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 12
+}

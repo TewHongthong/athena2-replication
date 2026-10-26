@@ -1,0 +1,30 @@
+{
+  "id": "csharp_036",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Net.NameResolution/src/System/Net/DnsEncodedName.cs lines 558-585 (method DnsLabelEnumerator.MoveNext); license MIT; repo created 2026-08-06T09:55:59+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public bool MoveNext()\n{\n    byte b = _buffer[_pos];\n\n    while ((b & 0xC0) == 0xC0)\n    {\n        // Compression pointer: follow it.\n        Debug.Assert(_pos + 1 < _buffer.Length, \"Truncated compression pointer\");\n        int pointer = ((b & 0x3F) << 8) | _buffer[_pos + 1];\n        Debug.Assert(pointer < _pos, \"Forward or self-referencing compression pointer\");\n        _pos = pointer;\n        b = _buffer[_pos];\n    }\n\n    if (b == 0)\n    {\n        // End, root label.\n        return false;\n    }\n\n    Debug.Assert(b <= 63, \"Invalid label length byte\");\n    int labelLen = b;\n    _pos++;\n    Debug.Assert(_pos + labelLen <= _buffer.Length, \"Label extends past buffer\");\n    _current = _buffer.Slice(_pos, labelLen);\n    _pos += labelLen;\n    return true;\n}",
+  "identifiers": [
+    {
+      "name": "MoveNext",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T09:55:59+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Net.NameResolution/src/System/Net/DnsEncodedName.cs",
+    "startLine": 558,
+    "endLine": 585,
+    "unit": "method DnsLabelEnumerator.MoveNext",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Net.NameResolution__src__System__Net__DnsEncodedName.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 16
+}

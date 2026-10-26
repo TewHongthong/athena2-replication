@@ -1,0 +1,185 @@
+{
+ "directed": true,
+ "multigraph": false,
+ "graph": {
+  "name": "Odoo Python naming ontology (human-authored)",
+  "version": "1.0",
+  "schemaRef": "ontology_schema.md"
+ },
+ "nodes": [
+  {
+   "id": "python",
+   "type": "Language",
+   "name": "Python",
+   "fileExtensions": [
+    ".py"
+   ],
+   "defaultStandardId": "ODOO"
+  },
+  {
+   "id": "module",
+   "type": "IdentifierKind",
+   "name": "Module",
+   "applicableLanguages": [
+    "python"
+   ]
+  },
+  {
+   "id": "package",
+   "type": "IdentifierKind",
+   "name": "Package",
+   "applicableLanguages": [
+    "python"
+   ]
+  },
+  {
+   "id": "constant",
+   "type": "IdentifierKind",
+   "name": "Constant",
+   "applicableLanguages": [
+    "python"
+   ]
+  },
+  {
+   "id": "parameter",
+   "type": "IdentifierKind",
+   "name": "Parameter",
+   "applicableLanguages": [
+    "python"
+   ]
+  },
+  {
+   "id": "ODOO",
+   "type": "Standard",
+   "name": "Odoo coding guidelines",
+   "publisher": "Odoo S.A.",
+   "url": "https://github.com/odoo/documentation",
+   "retrievedDate": "2026-10-14",
+   "scopeLanguages": [
+    "python"
+   ]
+  },
+  {
+   "id": "ODOO-MODULE-CASE",
+   "type": "NamingRule",
+   "casing": "lowercase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Python module names use lowercase or snake_case without uppercase letters.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "ODOO",
+   "sourceSection": "Coding Guidelines"
+  },
+  {
+   "id": "ODOO-PACKAGE-CASE",
+   "type": "NamingRule",
+   "casing": "lowercase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Python package names use lowercase or snake_case without uppercase letters.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "ODOO",
+   "sourceSection": "Coding Guidelines"
+  },
+  {
+   "id": "ODOO-CONSTANT-CASE",
+   "type": "NamingRule",
+   "casing": "UPPER_SNAKE_CASE",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Global constant names use UPPER_SNAKE_CASE.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "ODOO",
+   "sourceSection": "Coding Guidelines"
+  },
+  {
+   "id": "ODOO-PARAMETER-CASE",
+   "type": "NamingRule",
+   "casing": "snake_case",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Method and function parameter names use snake_case, with self as the first argument for instance methods and cls for class methods.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "ODOO",
+   "sourceSection": "Coding Guidelines"
+  }
+ ],
+ "links": [
+  {
+   "source": "ODOO-MODULE-CASE",
+   "target": "python",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-MODULE-CASE",
+   "target": "module",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-MODULE-CASE",
+   "target": "ODOO",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "ODOO-PACKAGE-CASE",
+   "target": "python",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-PACKAGE-CASE",
+   "target": "package",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-PACKAGE-CASE",
+   "target": "ODOO",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "ODOO-CONSTANT-CASE",
+   "target": "python",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-CONSTANT-CASE",
+   "target": "constant",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-CONSTANT-CASE",
+   "target": "ODOO",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "ODOO-PARAMETER-CASE",
+   "target": "python",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-PARAMETER-CASE",
+   "target": "parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "ODOO-PARAMETER-CASE",
+   "target": "ODOO",
+   "relation": "DEFINED_IN"
+  }
+ ]
+}

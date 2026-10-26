@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_076",
+  "language": "python",
+  "originalName": "filename",
+  "injectedName": "FILENAME",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FILENAME' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class WatchedFileHandler(logging.handlers.WatchedFileHandler):\n    def __init__(self, FILENAME):\n        self.errors = None  # py38\n        super().__init__(FILENAME)\n        # Unfix bpo-26789, in case the fix is present\n        self._builtin_open = None\n\n    def _open(self):\n        return open(self.baseFilename, self.mode, encoding=self.encoding, errors=self.errors)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_007",
+  "language": "cpp",
+  "originalName": "reload_from_file",
+  "injectedName": "RELOAD_FROM_FILE",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'RELOAD_FROM_FILE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void StreamedTexture2D::RELOAD_FROM_FILE() {\n\tString path = get_path();\n\tif (!path.is_resource_file()) {\n\t\treturn;\n\t}\n\n\tpath = ResourceLoader::path_remap(path); //remap for translation\n\tpath = ResourceLoader::import_remap(path); //remap for import\n\tif (!path.is_resource_file()) {\n\t\treturn;\n\t}\n\n\tload(path);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "csharp_051",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.Compiler/Compiler/DependencyAnalysis/DispatchCellSectionNode.cs lines 49-57 (class InterfaceDispatchCellSectionNode); license MIT; repo created 2026-07-15T13:49:14+09:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public class InterfaceDispatchCellSectionNode : DispatchCellSectionNode\n{\n    protected override bool ShouldEmitCell(DispatchCellNode cell) => !cell.TargetMethod.HasInstantiation;\n\n    public override void AppendMangledName(NameMangler nameMangler, Utf8StringBuilder sb)\n        => sb.Append(nameMangler.CompilationUnitPrefix).Append(\"__InterfaceDispatchCellSection_Start\"u8);\n\n    public override int ClassCode => (int)ObjectNodeOrder.InterfaceDispatchCellSection;\n}",
+  "identifiers": [
+    {
+      "name": "ShouldEmitCell",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-15T13:49:14+09:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.Compiler/Compiler/DependencyAnalysis/DispatchCellSectionNode.cs",
+    "startLine": 49,
+    "endLine": 57,
+    "unit": "class InterfaceDispatchCellSectionNode",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.Compiler__Compiler__DependencyAnalysis__DispatchCellSectionNode.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 6
+}

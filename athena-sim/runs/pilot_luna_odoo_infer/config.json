@@ -1,0 +1,151 @@
+{
+  "run_id": "pilot_luna_odoo_infer",
+  "harness_version": "0.1.0",
+  "status": "complete",
+  "started": "2026-10-22T14:01:38+00:00",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "args": {
+    "cmd": "run",
+    "pack": "odoo",
+    "corpus": null,
+    "ontology_variant": "human",
+    "task": "rename",
+    "conditions": "graph",
+    "embed_pin": null,
+    "languages": null,
+    "per_language": 0,
+    "limit": 0,
+    "seed": 42,
+    "split": "dev",
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "no_oracle": true,
+    "backend": "openai:openai/gpt-6-luna",
+    "model_pin": "luna",
+    "pins": null,
+    "repeats": 1,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "omit_temperature": true,
+    "no_think": false,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    },
+    "frozen": null,
+    "allow_rerun": false,
+    "timeout": 180.0,
+    "retries": 5,
+    "workers": 4,
+    "max_errors": 5,
+    "price_in": 0.1,
+    "price_out": 0.5,
+    "no_store_prompt": false,
+    "run_id": "pilot_luna_odoo_infer",
+    "out": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/athena-sim/runs",
+    "progress": 10,
+    "model_pin_sha256": "60e5573eb2805c1347ce76b19041db6e586f16041e584edf2306acfdb3fad7de"
+  },
+  "backend": {
+    "spec": "openai:openai/gpt-6-luna",
+    "is_llm": true,
+    "model": "openai/gpt-6-luna",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    }
+  },
+  "pack": {
+    "pack": "odoo",
+    "ontology": "odoo_ontology.json",
+    "ontology_sha256": "31209f0ced3f66f53787110111ee15823fb4d9a3e90500eee9a62aa7afb8f2df",
+    "ontology_variant": "human",
+    "rules_ontology_sha256": "31209f0ced3f66f53787110111ee15823fb4d9a3e90500eee9a62aa7afb8f2df",
+    "core_rules_sha256": "8f32b8ffefd53d1e2eded9ae359315ba33b3b444a530abc73950487dcfafc7df",
+    "standard_document_sha256": "04b8cb436658fa94324a000cdce336df2e23de07b88311e3bccf3bb97e4e6c0a",
+    "benchmark_index_sha256": "294d1bb503f1fad952fd52595e1b934ae950b063f3e840d29889ea165a76f547"
+  },
+  "conditions": [
+    "graph"
+  ],
+  "embedding": null,
+  "split": "dev",
+  "frozen": null,
+  "oracle_free": {
+    "pipeline_version": "0.1",
+    "curation_sha256": {
+      "kind_infer.py": "f9e6ddc16d7c487f172e1ec96e06b33441166a0f3e036502b7bc6fa2ac613fb0",
+      "scope_check.py": "54dccd3c1ed543a241075a26331accdf906073e97a472b667a8aba76547572dd",
+      "scope_common.py": "04077407a957de6c20930bbaf5f1bbbb3425a35c3936b8fd62fba61d011dddc1",
+      "scope_py.py": "c3c019c125bb628295ad51c65cc55a1d25698c94eb35c13966b1959a6b67c007",
+      "scope_ts.py": "fd5d94ecc4bfc0e68c3132ebf7df7253fde4bc28fa3ac7cf8ffa72dfc95f6721",
+      "lang_python.py": "b4880ce0187ad9af373e27b5cb0613a760ea5d386e6f514d5a916603e1b20a94",
+      "lang_ts.py": "2eef0e0141b368c69726d3a5f74db8d613772a3633cb665b9b22232cfdda19d2",
+      "tsbind.py": "6184f9216667f6ac752da9d9189cce14c4c620db2dc2fef4a202516678c8fb63",
+      "libtsall.so": "3b2a0ad1cebda1b601810fa2889942b66935099781a1bc3ab150f4252239f466",
+      "ALL": "be1435b8c94e87ca5bfc39bfdc300b611c4ba789d73b9d3bf98eef9f5acb7e03"
+    }
+  },
+  "n_units": 30,
+  "unit_ids": [
+    "py_021__kwargs__ODOO-PARAMETER-CASE",
+    "py_004__date__ODOO-PARAMETER-CASE",
+    "py_001__fields_list__ODOO-PARAMETER-CASE",
+    "py_024__ranges_to_remove__ODOO-PARAMETER-CASE",
+    "py_009__limit__ODOO-PARAMETER-CASE",
+    "py_008__token__ODOO-PARAMETER-CASE",
+    "py_025__field__ODOO-PARAMETER-CASE",
+    "py_005__attr__ODOO-PARAMETER-CASE",
+    "py_029__date__ODOO-PARAMETER-CASE",
+    "py_018__datetime_representation__ODOO-PARAMETER-CASE",
+    "py_003__tab_id__ODOO-PARAMETER-CASE",
+    "py_019__leave__ODOO-PARAMETER-CASE",
+    "py_014__version__ODOO-PARAMETER-CASE",
+    "py_002__docids__ODOO-PARAMETER-CASE",
+    "py_028__condition__ODOO-PARAMETER-CASE",
+    "py_017__vals__ODOO-PARAMETER-CASE",
+    "py_022__interval__ODOO-PARAMETER-CASE",
+    "py_030__kwargs__ODOO-PARAMETER-CASE",
+    "py_026__vals__ODOO-PARAMETER-CASE",
+    "py_010__file_manager__ODOO-PARAMETER-CASE",
+    "py_016__constraints__ODOO-PARAMETER-CASE",
+    "py_012__kwargs__ODOO-PARAMETER-CASE",
+    "py_013__order_sudo__ODOO-PARAMETER-CASE",
+    "py_006__eval_kwargs__ODOO-PARAMETER-CASE",
+    "py_007__basic_receipt__ODOO-PARAMETER-CASE",
+    "py_023__dashboard_data__ODOO-PARAMETER-CASE",
+    "py_027__template_code__ODOO-PARAMETER-CASE",
+    "py_011__session__ODOO-PARAMETER-CASE",
+    "py_015__picking__ODOO-PARAMETER-CASE",
+    "py_020__template_code__ODOO-PARAMETER-CASE"
+  ],
+  "finished": "2026-10-22T14:02:12+00:00",
+  "trials_ok": 30,
+  "trials_error": 0
+}

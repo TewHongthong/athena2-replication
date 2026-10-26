@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_090",
+  "language": "csharp",
+  "originalName": "GetCustomAttributes",
+  "injectedName": "get_custom_attributes",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_custom_attributes' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "        internal static void get_custom_attributes(RuntimeType type, RuntimeType caType, ref ListBuilder<Attribute> pcas)\n        {\n            Debug.Assert(type is not null);\n            Debug.Assert(caType is not null);\n\n            bool all = caType == typeof(object) || caType == typeof(Attribute);\n            if (!all && !s_pca.Contains(caType))\n                return;\n\n#pragma warning disable SYSLIB0050 // Legacy serialization infrastructure is obsolete\n            if (all || caType == typeof(SerializableAttribute))\n            {\n                if ((type.Attributes & TypeAttributes.Serializable) != 0)\n                    pcas.Add(new SerializableAttribute());\n            }\n#pragma warning restore SYSLIB0050\n            if (all || caType == typeof(ComImportAttribute))\n            {\n                if ((type.Attributes & TypeAttributes.Import) != 0)\n                    pcas.Add(new ComImportAttribute());\n            }\n        }",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

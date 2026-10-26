@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_044",
+  "language": "cpp",
+  "originalName": "on_spatial_container_closed",
+  "injectedName": "ON_SPATIAL_CONTAINER_CLOSED",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ON_SPATIAL_CONTAINER_CLOSED' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void OpenXRSpatialContainerSelfRenderingExtension::ON_SPATIAL_CONTAINER_CLOSED(const OpenXRSpatialContainerExtension::SpatialContainerData &p_container_data) {\n\tif (!is_enabled()) {\n\t\treturn;\n\t}\n\n\t_remove_spatial_container_from_render_set(p_container_data.spatial_container_handle);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

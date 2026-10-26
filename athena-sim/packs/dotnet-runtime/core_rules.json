@@ -1,0 +1,23 @@
+{
+ "schema": 1,
+ "core": {
+  "csharp": {
+   "method": [
+    "DOTNET-METHOD-CASE"
+   ],
+   "local_function": [
+    "DOTNET-LOCAL-FUNCTION-CASE"
+   ]
+  }
+ },
+ "excluded": {
+  "DOTNET-FIELD-NONPUBLIC-CASE": "Applies only to internal and private fields, and the casing must be checked after removing the applicable prefix, but the gate cannot separate accessibility or check the part of the name after the prefix from kind field alone.",
+  "DOTNET-FIELD-INSTANCE-PREFIX": "Applies only to internal and private instance fields; requiring _ on every field would reject static fields and public fields that are named correctly.",
+  "DOTNET-FIELD-STATIC-PREFIX": "Applies only to internal and private static fields that are not thread-static, but the gate cannot separate these conditions from kind field alone.",
+  "DOTNET-FIELD-THREADSTATIC-PREFIX": "Applies only to internal and private thread-static fields, but the gate cannot separate thread-static status and accessibility from kind field alone.",
+  "DOTNET-FIELD-PUBLIC-CASE": "Applies only to public fields; requiring PascalCase on every field would conflict with the naming rules for internal and private fields.",
+  "DOTNET-FIELD-PUBLIC-NO-PREFIX": "Applies only to public fields, and the current schema has no attribute that fully represents a ban on field prefixes without adding a restriction the document does not state.",
+  "DOTNET-CONSTANT-CASE": "There is an exception for constant names that must match interop code, but the gate cannot separate this exception from kind constant alone.",
+  "DOTNET-CONSTANT-INTEROP-NAME": "Applies only to constants related to interop and requires comparing the name with external code; no mechanical attribute in this schema can replace that check."
+ }
+}

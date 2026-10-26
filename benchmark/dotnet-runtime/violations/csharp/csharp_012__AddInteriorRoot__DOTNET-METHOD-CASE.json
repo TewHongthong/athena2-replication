@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_012",
+  "language": "csharp",
+  "originalName": "AddInteriorRoot",
+  "injectedName": "add_interior_root",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'add_interior_root' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private void add_interior_root(\n    List<ExternalMemoryHandleRootData> roots,\n    TargetPointer slotAddress,\n    bool resolveInteriorPointers)\n{\n    TargetPointer obj = _target.ReadPointer(slotAddress.Value);\n    ulong invalidPointer = _target.PointerSize == 8 ? ulong.MaxValue : uint.MaxValue;\n    if (obj == TargetPointer.Null || obj.Value == invalidPointer)\n        return;\n\n    if (resolveInteriorPointers)\n    {\n        obj = _interiorPointerResolver.Resolve(obj);\n        if (obj == TargetPointer.Null)\n            return;\n    }\n\n    roots.Add(new ExternalMemoryHandleRootData\n    {\n        IsInteriorPointer = true,\n        Address = slotAddress,\n        Object = obj,\n    });\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

@@ -1,0 +1,2 @@
+{"run_id": "test_godot_luna_meta", "event": "start", "backend": "openai:openai/gpt-6-luna", "rerun": false, "trials": 1260, "ts": "2026-10-24T16:54:20+00:00"}
+{"run_id": "test_godot_luna_meta", "event": "end", "status": "complete", "trials_ok": 1260, "trials_error": 0, "ts": "2026-10-24T17:19:09+00:00"}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_027",
+  "language": "csharp",
+  "originalName": "AddPendingDispatch",
+  "injectedName": "add_pending_dispatch",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'add_pending_dispatch' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private void add_pending_dispatch(\n    IMethodSymbol method,\n    ContractVersion label,\n    Dictionary<ITypeParameterSymbol, ITypeSymbol> substitutions)\n{\n    PendingDispatch dispatch = new(\n        method,\n        label,\n        new Dictionary<ITypeParameterSymbol, ITypeSymbol>(substitutions, _cmp));\n    if (!_pendingDispatches.TryGetValue(label, out List<PendingDispatch>? pending))\n        _pendingDispatches[label] = pending = [];\n    pending.Add(dispatch);\n\n    if (_constructedTypes.TryGetValue(label, out HashSet<INamedTypeSymbol>? types))\n    {\n        foreach (INamedTypeSymbol type in types)\n            EnqueueDispatchTarget(type, dispatch);\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

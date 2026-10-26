@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_056",
+  "language": "cpp",
+  "originalName": "p_exclude",
+  "injectedName": "P_EXCLUDE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_EXCLUDE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void PhysicsTestMotionParameters2D::set_exclude_objects(const TypedArray<uint64_t> &P_EXCLUDE) {\n\tparameters.exclude_objects.clear();\n\tfor (int i = 0; i < P_EXCLUDE.size(); ++i) {\n\t\tObjectID object_id = P_EXCLUDE[i];\n\t\tERR_CONTINUE(object_id.is_null());\n\t\tparameters.exclude_objects.insert(object_id);\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

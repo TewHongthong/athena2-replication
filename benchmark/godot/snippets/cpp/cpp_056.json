@@ -1,0 +1,30 @@
+{
+  "id": "cpp_056",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/physics_2d/queries/physics_testmotion_query_parameters_2d.cpp lines 67-74 (method PhysicsTestMotionParameters2D::set_exclude_objects); license MIT; repo created 2026-07-06T10:32:58+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void PhysicsTestMotionParameters2D::set_exclude_objects(const TypedArray<uint64_t> &p_exclude) {\n\tparameters.exclude_objects.clear();\n\tfor (int i = 0; i < p_exclude.size(); ++i) {\n\t\tObjectID object_id = p_exclude[i];\n\t\tERR_CONTINUE(object_id.is_null());\n\t\tparameters.exclude_objects.insert(object_id);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_exclude",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-06T10:32:58+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/physics_2d/queries/physics_testmotion_query_parameters_2d.cpp",
+    "startLine": 67,
+    "endLine": 74,
+    "unit": "method PhysicsTestMotionParameters2D::set_exclude_objects",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__physics_2d__queries__physics_testmotion_query_parameters_2d.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 3
+}

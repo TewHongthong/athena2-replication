@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_033",
+  "language": "csharp",
+  "originalName": "CosPiDecimalIeee754",
+  "injectedName": "cos_pi_decimal_ieee754",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'cos_pi_decimal_ieee754' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal static TValue cos_pi_decimal_ieee754<TDecimal, TValue>(TValue x)\n    where TDecimal : unmanaged, IDecimalIeee754ParseAndFormatInfo<TDecimal, TValue>\n    where TValue : unmanaged, IBinaryInteger<TValue>\n{\n    if (TDecimal.IsNaN(x))\n    {\n        return CanonicalizeIfNaN<TDecimal, TValue>(x);\n    }\n\n    if (TDecimal.IsInfinity(x))\n    {\n        // cosPi(+/-inf) is invalid and produces the canonical quiet NaN.\n        return TDecimal.NaNMask;\n    }\n\n    DecodedDecimalIeee754<TValue> decoded = UnpackDecimalIeee754<TDecimal, TValue>(x);\n\n    if (TValue.IsZero(decoded.Significand))\n    {\n        // cosPi(+/-0) = 1.\n        return DecimalIeee754FiniteNumberBinaryEncoding<TDecimal, TValue>(signed: false, TValue.One, 0);\n    }\n\n    if (DecimalIeee754UsesDouble<TValue>())\n    {\n        double value = ConvertDecimalIeee754ToFloat<TDecimal, TValue, double>(x);\n        return ConvertFloatToDecimalIeee754<double, TDecimal, TValue>(double.CosPi(value));\n    }\n\n    DiyFp128 argument = ReduceDecimalIeee754Pi<TDecimal, TValue>(decoded, out int octant);\n    return DiyFp128ToDecimal<TDecimal, TValue>(DiyFp128CosPi(argument, octant));\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

@@ -1,0 +1,365 @@
+{
+ "directed": true,
+ "multigraph": false,
+ "graph": {
+  "name": ".NET runtime C# naming ontology (human-authored)",
+  "version": "1.0",
+  "schemaRef": "ontology_schema.md"
+ },
+ "nodes": [
+  {
+   "id": "csharp",
+   "type": "Language",
+   "name": "C#",
+   "fileExtensions": [
+    ".cs"
+   ],
+   "defaultStandardId": "DOTNET"
+  },
+  {
+   "id": "field",
+   "type": "IdentifierKind",
+   "name": "Field",
+   "applicableLanguages": [
+    "csharp"
+   ]
+  },
+  {
+   "id": "constant",
+   "type": "IdentifierKind",
+   "name": "Constant",
+   "applicableLanguages": [
+    "csharp"
+   ]
+  },
+  {
+   "id": "method",
+   "type": "IdentifierKind",
+   "name": "Method",
+   "applicableLanguages": [
+    "csharp"
+   ]
+  },
+  {
+   "id": "local_function",
+   "type": "IdentifierKind",
+   "name": "Local function",
+   "applicableLanguages": [
+    "csharp"
+   ]
+  },
+  {
+   "id": "DOTNET",
+   "type": "Standard",
+   "name": ".NET runtime C# coding style",
+   "publisher": ".NET Foundation and Contributors",
+   "url": "https://github.com/dotnet/runtime",
+   "retrievedDate": "2026-10-14",
+   "scopeLanguages": [
+    "csharp"
+   ]
+  },
+  {
+   "id": "DOTNET-FIELD-NONPUBLIC-CASE",
+   "type": "NamingRule",
+   "casing": "camelCase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Internal and private fields use camelCase after their applicable field prefix.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-FIELD-INSTANCE-PREFIX",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": "_",
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Internal and private instance fields use the _ prefix.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-FIELD-STATIC-PREFIX",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": "s_",
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Internal and private static fields use the s_ prefix, except for thread-static fields.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-FIELD-THREADSTATIC-PREFIX",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": "t_",
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Internal and private thread-static fields use the t_ prefix.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-FIELD-PUBLIC-CASE",
+   "type": "NamingRule",
+   "casing": "PascalCase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Public fields should use PascalCase.",
+   "rationale": null,
+   "severity": "SHOULD",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-FIELD-PUBLIC-NO-PREFIX",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Public fields should not use a field prefix.",
+   "rationale": null,
+   "severity": "SHOULD",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-CONSTANT-CASE",
+   "type": "NamingRule",
+   "casing": "PascalCase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Constant local variables and constant fields use PascalCase, except when matching names from interop code.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-CONSTANT-INTEROP-NAME",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Constants representing values from interop code should use exactly the names used by that code.",
+   "rationale": null,
+   "severity": "SHOULD",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-METHOD-CASE",
+   "type": "NamingRule",
+   "casing": "PascalCase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Method names use PascalCase.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  },
+  {
+   "id": "DOTNET-LOCAL-FUNCTION-CASE",
+   "type": "NamingRule",
+   "casing": "PascalCase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Local function names use PascalCase.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "DOTNET",
+   "sourceSection": "C# Coding Style"
+  }
+ ],
+ "links": [
+  {
+   "source": "DOTNET-FIELD-NONPUBLIC-CASE",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-NONPUBLIC-CASE",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-NONPUBLIC-CASE",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-FIELD-INSTANCE-PREFIX",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-INSTANCE-PREFIX",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-INSTANCE-PREFIX",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-FIELD-STATIC-PREFIX",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-STATIC-PREFIX",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-STATIC-PREFIX",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-FIELD-THREADSTATIC-PREFIX",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-THREADSTATIC-PREFIX",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-THREADSTATIC-PREFIX",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-FIELD-PUBLIC-CASE",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-PUBLIC-CASE",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-PUBLIC-CASE",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-FIELD-PUBLIC-NO-PREFIX",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-PUBLIC-NO-PREFIX",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-FIELD-PUBLIC-NO-PREFIX",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-CONSTANT-CASE",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-CONSTANT-CASE",
+   "target": "constant",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-CONSTANT-CASE",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-CONSTANT-INTEROP-NAME",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-CONSTANT-INTEROP-NAME",
+   "target": "constant",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-CONSTANT-INTEROP-NAME",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-METHOD-CASE",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-METHOD-CASE",
+   "target": "method",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-METHOD-CASE",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "DOTNET-LOCAL-FUNCTION-CASE",
+   "target": "csharp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-LOCAL-FUNCTION-CASE",
+   "target": "local_function",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "DOTNET-LOCAL-FUNCTION-CASE",
+   "target": "DOTNET",
+   "relation": "DEFINED_IN"
+  }
+ ]
+}

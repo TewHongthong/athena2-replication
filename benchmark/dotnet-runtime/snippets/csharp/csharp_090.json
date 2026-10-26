@@ -1,0 +1,30 @@
+{
+  "id": "csharp_090",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Private.CoreLib/src/System/Reflection/RuntimeCustomAttributeData.cs lines 1323-1344 (method PseudoCustomAttribute.GetCustomAttributes); license MIT; repo created 2026-09-15T06:11:53+09:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "        internal static void GetCustomAttributes(RuntimeType type, RuntimeType caType, ref ListBuilder<Attribute> pcas)\n        {\n            Debug.Assert(type is not null);\n            Debug.Assert(caType is not null);\n\n            bool all = caType == typeof(object) || caType == typeof(Attribute);\n            if (!all && !s_pca.Contains(caType))\n                return;\n\n#pragma warning disable SYSLIB0050 // Legacy serialization infrastructure is obsolete\n            if (all || caType == typeof(SerializableAttribute))\n            {\n                if ((type.Attributes & TypeAttributes.Serializable) != 0)\n                    pcas.Add(new SerializableAttribute());\n            }\n#pragma warning restore SYSLIB0050\n            if (all || caType == typeof(ComImportAttribute))\n            {\n                if ((type.Attributes & TypeAttributes.Import) != 0)\n                    pcas.Add(new ComImportAttribute());\n            }\n        }",
+  "identifiers": [
+    {
+      "name": "GetCustomAttributes",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-15T06:11:53+09:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Private.CoreLib/src/System/Reflection/RuntimeCustomAttributeData.cs",
+    "startLine": 1323,
+    "endLine": 1344,
+    "unit": "method PseudoCustomAttribute.GetCustomAttributes",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Private.CoreLib__src__System__Reflection__RuntimeCustomAttributeData.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 61
+}

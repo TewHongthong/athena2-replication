@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_023",
+  "language": "cpp",
+  "originalName": "p_atlas_coords",
+  "injectedName": "P_ATLAS_COORDS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_ATLAS_COORDS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void GenericTilePolygonEditor::set_background_tile(const TileSetAtlasSource *p_atlas_source, const Vector2 &P_ATLAS_COORDS, int p_alternative_id) {\n\tERR_FAIL_NULL(p_atlas_source);\n\tbackground_atlas_source = p_atlas_source;\n\tbackground_atlas_coords = P_ATLAS_COORDS;\n\tbackground_alternative_id = p_alternative_id;\n\tbase_control->queue_redraw();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

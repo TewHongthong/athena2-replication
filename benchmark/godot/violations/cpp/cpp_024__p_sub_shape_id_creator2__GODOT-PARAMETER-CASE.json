@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_024",
+  "language": "cpp",
+  "originalName": "p_sub_shape_id_creator2",
+  "injectedName": "P_SUB_SHAPE_ID_CREATOR2",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_SUB_SHAPE_ID_CREATOR2' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void collide_instance_overrides_vs_shape(const JPH::Shape *p_shape1, const JPH::Shape *p_shape2, JPH::Vec3Arg p_scale1, JPH::Vec3Arg p_scale2, JPH::Mat44Arg p_center_of_mass_transform1, JPH::Mat44Arg p_center_of_mass_transform2, const JPH::SubShapeIDCreator &p_sub_shape_id_creator1, const JPH::SubShapeIDCreator &P_SUB_SHAPE_ID_CREATOR2, const JPH::CollideShapeSettings &p_collide_shape_settings, JPH::CollideShapeCollector &p_collector, const JPH::ShapeFilter &p_shape_filter) {\n\tERR_FAIL_COND(p_shape1->GetSubType() != JoltCustomShapeSubType::INSTANCE_OVERRIDES);\n\n\tconst JoltCustomInstanceOverridesShape *shape1 = static_cast<const JoltCustomInstanceOverridesShape *>(p_shape1);\n\n\tJPH::CollideShapeSettings new_collide_shape_settings = p_collide_shape_settings;\n\tif (shape1->object_has_back_face_collision() || shape1->shape_has_back_face_collision()) {\n\t\tnew_collide_shape_settings.mBackFaceMode = JPH::EBackFaceMode::CollideWithBackFaces;\n\t}\n\n\tJPH::CollisionDispatch::sCollideShapeVsShape(shape1->GetInnerShape(), p_shape2, p_scale1, p_scale2, p_center_of_mass_transform1, p_center_of_mass_transform2, p_sub_shape_id_creator1, P_SUB_SHAPE_ID_CREATOR2, new_collide_shape_settings, p_collector, p_shape_filter);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

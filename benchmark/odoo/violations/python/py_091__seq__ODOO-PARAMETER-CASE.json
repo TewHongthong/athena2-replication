@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_091",
+  "language": "python",
+  "originalName": "seq",
+  "injectedName": "SEQ",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SEQ' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def choice[T](self, SEQ: Sequence[T]) -> T:\n    \"\"\"Pick one element from a sequence.\"\"\"\n    if not SEQ:\n        msg = \"Cannot choose from an empty sequence\"\n        raise IndexError(msg)\n\n    if len(SEQ) == 1:\n        return SEQ[0]\n\n    idx = self.sample_discrete(0, len(SEQ) - 1)\n    assert 0 <= idx <= len(SEQ) - 1\n    return SEQ[idx]",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

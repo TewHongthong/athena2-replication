@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_036",
+  "language": "python",
+  "originalName": "kwargs",
+  "injectedName": "KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class Formatter(logging.Formatter):\n    default_format = '%(asctime)s %(process)s %(levelname)s %(dbname)s %(name)s: %(message)s'\n\n    def __init__(self, fmt=None, **KWARGS):\n        if fmt is None:\n            fmt = self.default_format\n        super().__init__(fmt=fmt, **KWARGS)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

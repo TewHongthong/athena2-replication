@@ -1,0 +1,30 @@
+{
+  "id": "py_097",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/hr_work_entry/models/hr_time_rule_source_mixin.py lines 99-104 (method HrTimeRuleSourceMixin._get_time_rule_output_vals); license LGPL-3.0; repo created 2026-09-15T23:44:35+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _get_time_rule_output_vals(self, rule, df, dt, pp):\n    \"\"\"Create vals for a new time rule output record.\n\n    df/dt are UTC datetimes; pp is a frozenset of premium pay rule IDs.\n    \"\"\"\n    raise NotImplementedError",
+  "identifiers": [
+    {
+      "name": "rule",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T23:44:35+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/hr_work_entry/models/hr_time_rule_source_mixin.py",
+    "startLine": 99,
+    "endLine": 104,
+    "unit": "method HrTimeRuleSourceMixin._get_time_rule_output_vals",
+    "corpusFile": "corpus/python/odoo__odoo__addons__hr_work_entry__models__hr_time_rule_source_mixin.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 10
+}

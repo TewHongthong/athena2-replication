@@ -1,0 +1,30 @@
+{
+  "id": "cpp_085",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/openxr/extensions/spatial_container/openxr_spatial_container_self_rendering_extension.cpp lines 94-102 (method OpenXRSpatialContainerSelfRenderingExtension::on_session_created); license MIT; repo created 2026-09-08T07:46:19-07:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void OpenXRSpatialContainerSelfRenderingExtension::on_session_created(const XrSession p_session) {\n\tif (!is_enabled()) {\n\t\treturn;\n\t}\n\n\tERR_FAIL_NULL(OpenXRAPI::get_singleton());\n\tOpenXRAPI::get_singleton()->register_frame_info_extension(this);\n\tOpenXRAPI::get_singleton()->register_projection_layer_extension(this);\n}",
+  "identifiers": [
+    {
+      "name": "p_session",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-08T07:46:19-07:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/openxr/extensions/spatial_container/openxr_spatial_container_self_rendering_extension.cpp",
+    "startLine": 94,
+    "endLine": 102,
+    "unit": "method OpenXRSpatialContainerSelfRenderingExtension::on_session_created",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__openxr__extensions__spatial_container__openxr_spatial_container_self_rendering_extension.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 10
+}

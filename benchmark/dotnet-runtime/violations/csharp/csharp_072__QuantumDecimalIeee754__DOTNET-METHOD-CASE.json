@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_072",
+  "language": "csharp",
+  "originalName": "QuantumDecimalIeee754",
+  "injectedName": "quantum_decimal_ieee754",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'quantum_decimal_ieee754' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal static TValue quantum_decimal_ieee754<TDecimal, TValue>(TValue bits)\n    where TDecimal : unmanaged, IDecimalIeee754ParseAndFormatInfo<TDecimal, TValue>\n    where TValue : unmanaged, IBinaryInteger<TValue>\n{\n    // This code is based on `bid32_quantum`, `bid64_quantum`, and `bid128_quantum` from Intel(R) Decimal Floating-Point Math Library\n    // Copyright (c) 2007-2025, Intel Corp. All rights reserved.\n    //\n    // Licensed under the BSD 3-Clause \"New\" or \"Revised\" License\n    // See THIRD-PARTY-NOTICES.TXT for the full license text\n\n    if (TDecimal.IsNaN(bits))\n    {\n        return PropagateNaN<TDecimal, TValue>(bits, bits);\n    }\n\n    if (TDecimal.IsInfinity(bits))\n    {\n        return TDecimal.PositiveInfinity;\n    }\n\n    DecodedDecimalIeee754<TValue> a = UnpackDecimalIeee754<TDecimal, TValue>(bits);\n    return DecimalIeee754FiniteNumberBinaryEncoding<TDecimal, TValue>(signed: false, TValue.One, a.UnbiasedExponent);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

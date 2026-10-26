@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_016",
+  "language": "python",
+  "originalName": "constraints",
+  "injectedName": "CONSTRAINTS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CONSTRAINTS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _l10n_fr_pdp_cii_check_peppol_fields(self, vals, CONSTRAINTS):\n    \"\"\"\n    [BR-FR-12] - Since the electronic invoice must be sent and is awaiting\n    lifecycle status updates in return, the Buyer's email address (BT-34) is\n    REQUIRED.\n    [BR-FR-13] - Since the electronic invoice must be sent and is awaiting\n    lifecycle status updates in return, the Seller's email address (BT-34) is\n    REQUIRED.\n    \"\"\"\n    if vals['company']._get_peppol_proxy_type() == 'pdp':\n        CONSTRAINTS.update({\n            'buyer_peppol_eas': self._check_required_fields(\n                vals['customer'].commercial_partner_id, 'routing_scheme'\n            ),\n            'buyer_peppol_endpoint': self._check_required_fields(\n                vals['customer'].commercial_partner_id, 'routing_endpoint'\n            ),\n            'seller_peppol_eas': self._check_required_fields(\n                vals['supplier'].commercial_partner_id, 'routing_scheme'\n            ),\n            'seller_peppol_endpoint': self._check_required_fields(\n                vals['supplier'].commercial_partner_id, 'routing_endpoint'\n            ),\n        })",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

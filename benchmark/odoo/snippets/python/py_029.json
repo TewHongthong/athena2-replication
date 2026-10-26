@@ -1,0 +1,30 @@
+{
+  "id": "py_029",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/account/report/account_stock_valuation_report.py lines 17-22 (method StockValuationReport._normalize_report_date); license LGPL-3.0; repo created 2026-09-10T14:43:56+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _normalize_report_date(self, date):\n    if isinstance(date, str):\n        date = fields.Date.from_string(date)\n    if date == fields.Date.context_today(self):\n        date = False\n    return date",
+  "identifiers": [
+    {
+      "name": "date",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-10T14:43:56+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/account/report/account_stock_valuation_report.py",
+    "startLine": 17,
+    "endLine": 22,
+    "unit": "method StockValuationReport._normalize_report_date",
+    "corpusFile": "corpus/python/odoo__odoo__addons__account__report__account_stock_valuation_report.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 2
+}

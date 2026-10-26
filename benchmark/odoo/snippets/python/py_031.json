@@ -1,0 +1,30 @@
+{
+  "id": "py_031",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/google_calendar/models/calendar_event.py lines 67-77 (method CalendarEvent.create); license LGPL-3.0; repo created 2026-09-15T19:55:01+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@api.model_create_multi\ndef create(self, vals_list):\n    description_context = self.env.context.get('skip_contact_description', False)\n    notify_context = self.env.context.get('dont_notify', False)\n    events = super(CalendarEvent, self.with_context(dont_notify=notify_context, skip_contact_description=description_context)).create([\n        dict(vals, need_sync=False) if vals.get('recurrence_id') or vals.get('recurrency') else vals\n        for vals in vals_list\n    ])\n    if any('alarm_ids' in vals for vals in vals_list):\n        events._check_alarm_ids_sync_limit()\n    return events",
+  "identifiers": [
+    {
+      "name": "vals_list",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T19:55:01+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/google_calendar/models/calendar_event.py",
+    "startLine": 67,
+    "endLine": 77,
+    "unit": "method CalendarEvent.create",
+    "corpusFile": "corpus/python/odoo__odoo__addons__google_calendar__models__calendar_event.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 7
+}

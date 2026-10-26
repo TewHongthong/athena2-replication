@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_004",
+  "language": "python",
+  "originalName": "date",
+  "injectedName": "DATE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DATE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@api.model\ndef get_report_values(self, DATE=False):\n    return {\n        'data': self.with_context(allowed_company_ids=self.env.company.ids)._get_report_data(date=DATE),\n        'context': {},\n    }",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

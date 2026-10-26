@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_046",
+  "language": "csharp",
+  "originalName": "IsRuntimeHelpersIntrinsic",
+  "injectedName": "is_runtime_helpers_intrinsic",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'is_runtime_helpers_intrinsic' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static bool is_runtime_helpers_intrinsic(MethodDesc method)\n{\n    return method.IsIntrinsic\n        && method.OwningType is MetadataType owningType\n        && owningType.Name == \"RuntimeHelpers\"u8\n        && owningType.Namespace == \"System.Runtime.CompilerServices\"u8\n        && owningType.Module == owningType.Context.SystemModule;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

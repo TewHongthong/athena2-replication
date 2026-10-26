@@ -1,0 +1,688 @@
+{
+  "standard": {
+    "id": "DOTNET_DESIGN",
+    "type": "Standard",
+    "name": ".NET Framework Design Guidelines — Naming Guidelines",
+    "publisher": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines",
+    "retrievedDate": "2026-09-25",
+    "scopeLanguages": [
+      "csharp"
+    ]
+  },
+  "namingRules": [
+    {
+      "id": "DOTNET-CLASS-PASCAL-NOUN",
+      "type": "NamingRule",
+      "identifierKind": "class",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^C[A-Z]"
+      ],
+      "description": "A class or struct is named with a noun or noun phrase, PascalCase throughout, and carries no artificial type marker; skip prefixes like a leading 'C' that some older C++ conventions used.",
+      "rationale": "A PascalCase noun reads as the thing the type represents; a Hungarian-style prefix like 'C' is redundant since the declaration already states it is a class.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Classes, Structs, and Interfaces"
+    },
+    {
+      "id": "DOTNET-INTERFACE-I-PREFIX",
+      "type": "NamingRule",
+      "identifierKind": "interface",
+      "casing": "PascalCase",
+      "prefix": "I",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Interfaces are PascalCase adjectives or noun phrases carrying a capital 'I' at the front, and a class implementing one is usually named identically minus that leading 'I' (an interface ISerializer typically has a concrete implementation simply called Serializer).",
+      "rationale": "The 'I' prefix lets a reader distinguish an interface reference from a class reference at a glance, and keeps the interface/implementation pair visually linked.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Classes, Structs, and Interfaces"
+    },
+    {
+      "id": "DOTNET-METHOD-VERB-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "method",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "A method's name is PascalCase and centers on a verb or verb phrase that names the action it carries out.",
+      "rationale": "Methods do something; a verb-led name makes call sites read like instructions rather than noun lookups.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Type Members"
+    },
+    {
+      "id": "DOTNET-PROPERTY-NOUN-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "property",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "List$",
+        "Collection$"
+      ],
+      "description": "Properties take PascalCase names built from a noun, noun phrase, or adjective. A property backed by a collection should be pluralized on its own (Orders, not OrderList), and no property should share its exact name with a Get-prefixed method on the same type.",
+      "rationale": "Properties represent state, so noun-shaped names read naturally as 'object.Attribute'; a plural collection name avoids implying the property itself is a single item.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Type Members"
+    },
+    {
+      "id": "DOTNET-FIELD-PASCAL-NOPREFIX",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^g_",
+        "^s_"
+      ],
+      "description": "A public or protected field gets the same PascalCase noun-phrase treatment as a property, with no scope-marking prefix tacked on (skip legacy conventions like a leading 'g' or 's' to flag global or static storage). Private and internal field casing is a choice this guideline leaves open.",
+      "rationale": "Public fields are part of the API surface and should follow the same PascalCase convention as properties and methods so the surface reads consistently.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Type Members"
+    },
+    {
+      "id": "DOTNET-PARAMETER-CAMEL-DESCRIPTIVE",
+      "type": "NamingRule",
+      "identifierKind": "parameter",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^(arg|param)\\d+$"
+      ],
+      "description": "Choose a parameter name that describes what the value means, not what type it is, and use camelCase. The one carve-out is an operator-overload parameter that has no natural name of its own: use generic placeholders such as 'first'/'second' for a two-operand operator or 'operand' for a one-operand operator, rather than an abbreviation or a numbered index.",
+      "rationale": "A descriptive camelCase parameter name doubles as inline documentation at every call site that uses named arguments or shows IntelliSense.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Naming Parameters"
+    },
+    {
+      "id": "DOTNET-NAMESPACE-DOTTED-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "namespace",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Namespaces are dot-separated PascalCase segments that generally widen from an organization identifier down to more specific areas, something like Organization, then a product or technology area, then an optional feature and sub-area, rather than mirroring an internal team or org-chart structure; a namespace should never reuse the exact name of a type defined within it, or vice versa.",
+      "rationale": "A company/product-rooted, PascalCase-dotted namespace avoids collisions across vendors and stays stable even when internal teams are reorganized.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Namespaces"
+    },
+    {
+      "id": "DOTNET-ENUM-SINGULAR-OR-PLURAL",
+      "type": "NamingRule",
+      "identifierKind": "enum",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "A plain enum type takes a singular PascalCase name; once it's marked with [Flags] so members can be OR-combined, switch to a plural PascalCase name instead.",
+      "rationale": "Singular vs. plural signals at the declaration whether a variable of that enum type holds exactly one value or a combinable set of values.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Classes, Structs, and Interfaces"
+    },
+    {
+      "id": "DOTNET-ENUM-NO-ENUM-FLAGS-SUFFIX",
+      "type": "NamingRule",
+      "identifierKind": "enum",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "Enum$",
+        "Flags?$"
+      ],
+      "description": "Skip appending words like 'Enum', 'Flag', or 'Flags' onto an enum type's own name; the enum keyword and an optional [Flags] attribute already make that clear without repeating it in the identifier.",
+      "rationale": "The suffix is redundant metadata the type system already expresses, and it makes names longer without adding information.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Classes, Structs, and Interfaces"
+    },
+    {
+      "id": "DOTNET-ENUM-MEMBER-PASCAL-NOPREFIX",
+      "type": "NamingRule",
+      "identifierKind": "enum_member",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-z]{2,4}[A-Z]"
+      ],
+      "description": "Enum members are PascalCase with no coded prefix tying them back to their containing enum; avoid an old-style abbreviation prefix the way some early COM-era APIs tagged every member of an enum with a short code.",
+      "rationale": "The member is always accessed through its enum type (EnumType.Member), so a per-member type prefix is redundant and adds noise.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Classes, Structs, and Interfaces"
+    },
+    {
+      "id": "DOTNET-TYPE-PARAM-T-PREFIX",
+      "type": "NamingRule",
+      "identifierKind": "type_parameter",
+      "casing": "PascalCase",
+      "prefix": "T",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "A generic type parameter's name usually starts with a capital 'T' followed by something descriptive, and echoing a constraint it must satisfy is a good source for that description. When there's only one type parameter and its role is obvious from context, the bare letter 'T' on its own is acceptable.",
+      "rationale": "The 'T' prefix marks the identifier as a type parameter rather than an ordinary type name at a glance, while still allowing a descriptive name when a type has more than one parameter.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Classes, Structs, and Interfaces"
+    },
+    {
+      "id": "DOTNET-CONSTANT-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "constant",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-z]",
+        "_"
+      ],
+      "description": "Name constants — both const fields and local constants — in PascalCase regardless of their access modifier, so public, internal, and private constants are all cased the same way.",
+      "rationale": "Keeping constant casing independent of visibility avoids a name having to change if its access modifier later changes, and keeps constants visually distinct from camelCase locals.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "C# identifier naming rules and conventions — Constants"
+    },
+    {
+      "id": "DOTNET-VARIABLE-CAMEL-DESCRIPTIVE",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[A-Z]"
+      ],
+      "description": "Local variables are camelCase with names clear enough that a reader doesn't have to guess their purpose; favor a few extra characters of clarity over brevity, except for a throwaway loop index where a single letter is fine.",
+      "rationale": "camelCase visually distinguishes a local variable from PascalCase types and members declared in the same scope, and a descriptive name reduces the need to trace a variable back to its declaration to understand it.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "C# identifier naming rules and conventions — Local variables"
+    },
+    {
+      "id": "DOTNET-BOOLEAN-AFFIRMATIVE-PREFIX",
+      "type": "NamingRule",
+      "identifierKind": "boolean_variable",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^(not|cant|isnt|dont)[A-Z]"
+      ],
+      "description": "State a boolean identifier's positive case rather than its negative one, preferring a name that reads true for the common, expected condition, and, when a prefix would clarify things further, common choices include forms like 'Is', 'Can', or 'Has'. As with any member, casing still follows whether it's a local (camelCase) or a public member (PascalCase).",
+      "rationale": "A negatively phrased boolean forces a double negative at every use site (e.g. '!NotConnected'), which is easy to misread; an affirmative name with an optional Is/Can/Has prefix reads directly as a yes/no question.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Names of Type Members; C# identifier naming rules and conventions"
+    },
+    {
+      "id": "DOTNET-NO-HUNGARIAN-NO-UNDERSCORE",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^str[A-Z]",
+        "^i[A-Z]",
+        "^b[A-Z]",
+        "^obj[A-Z]",
+        "^n[A-Z]",
+        "_"
+      ],
+      "description": "Skip Hungarian-notation prefixes that spell out a variable's type in miniature (things like 'str', 'i', or 'b' tacked onto the front of a name), and don't rely on underscores or other punctuation to break up words inside an identifier.",
+      "rationale": "Modern tooling shows a variable's declared type on hover, so an encoded type prefix only adds clutter and can go stale if the type changes; PascalCase/camelCase word boundaries already remove the need for separators.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "General Naming Conventions; Capitalization Conventions"
+    }
+  ],
+  "commentRules": [
+    {
+      "id": "DOTNET-XMLDOC-TYPE-SUMMARY",
+      "type": "CommentRule",
+      "identifierKind": "class",
+      "format": "xmldoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "A class, struct, interface, or enum is declared with public or protected visibility.",
+      "description": "Give every publicly visible type an XML doc comment with at least a <summary> element describing what it represents; documenting private types is optional.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Recommended XML documentation comment tags — General tags"
+    },
+    {
+      "id": "DOTNET-XMLDOC-METHOD-FULL",
+      "type": "CommentRule",
+      "identifierKind": "method",
+      "format": "xmldoc",
+      "requiredElements": [
+        "summary",
+        "param",
+        "returns"
+      ],
+      "triggerCondition": "A public or protected method is declared; a <param> element is expected for each declared parameter, and a <returns> element is expected when the method's return type is not void.",
+      "description": "Document every public/protected method with a <summary>, one <param> tag per parameter, and a <returns> tag describing the return value when the method returns one; the C# compiler warns when a method's <param> tags do not match its actual parameter list.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Recommended XML documentation comment tags — Member tags"
+    },
+    {
+      "id": "DOTNET-XMLDOC-PROPERTY-VALUE",
+      "type": "CommentRule",
+      "identifierKind": "property",
+      "format": "xmldoc",
+      "requiredElements": [
+        "summary",
+        "value"
+      ],
+      "triggerCondition": "A public or protected property is declared.",
+      "description": "Document every public/protected property with a <summary>, and add a <value> element describing what the property represents; Visual Studio's generated property doc template includes <value> by default.",
+      "severity": "SHOULD",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Recommended XML documentation comment tags — Member tags"
+    },
+    {
+      "id": "DOTNET-XMLDOC-TYPEPARAM",
+      "type": "CommentRule",
+      "identifierKind": "type_parameter",
+      "format": "xmldoc",
+      "requiredElements": [
+        "typeparam"
+      ],
+      "triggerCondition": "A public generic type or generic method declares one or more type parameters.",
+      "description": "Document each type parameter of a public generic type or method with a <typeparam name=\"...\"> element; the compiler verifies that documented type-parameter names match the declaration.",
+      "severity": "MUST",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Recommended XML documentation comment tags — Generic type documentation"
+    },
+    {
+      "id": "DOTNET-XMLDOC-METHOD-EXCEPTION",
+      "type": "CommentRule",
+      "identifierKind": "method",
+      "format": "xmldoc",
+      "requiredElements": [
+        "exception"
+      ],
+      "triggerCondition": "A public/protected method throws an exception as part of its documented, expected contract (e.g., it validates an argument and throws on failure).",
+      "description": "Where a public/protected method can throw an exception as part of its contract, add an <exception cref=\"...\"> element naming the exception type and describing the condition that triggers it.",
+      "severity": "SHOULD",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Recommended XML documentation comment tags — Member tags"
+    },
+    {
+      "id": "DOTNET-XMLDOC-ENUM-MEMBER-SUMMARY",
+      "type": "CommentRule",
+      "identifierKind": "enum_member",
+      "format": "xmldoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "A member of a publicly visible enum type is declared.",
+      "description": "Give each member of a publicly visible enum its own <summary> XML doc comment describing what that value represents, consistent with the general guidance to document all publicly visible types and members.",
+      "severity": "SHOULD",
+      "sourceStandardId": "DOTNET_DESIGN",
+      "sourceSection": "Recommended XML documentation comment tags — When to apply XML documentation comments"
+    }
+  ],
+  "examples": [
+    {
+      "id": "EX-DOTNET-CLASS-PASCAL-NOUN-1",
+      "type": "Example",
+      "ruleId": "DOTNET-CLASS-PASCAL-NOUN",
+      "code": "public class InvoiceGenerator { }",
+      "isCompliant": true,
+      "explanation": "PascalCase noun phrase, no type prefix."
+    },
+    {
+      "id": "EX-DOTNET-CLASS-PASCAL-NOUN-2",
+      "type": "Example",
+      "ruleId": "DOTNET-CLASS-PASCAL-NOUN",
+      "code": "public class CInvoiceGenerator { }",
+      "isCompliant": false,
+      "explanation": "Adds a redundant 'C' type-indicator prefix."
+    },
+    {
+      "id": "EX-DOTNET-INTERFACE-I-PREFIX-1",
+      "type": "Example",
+      "ruleId": "DOTNET-INTERFACE-I-PREFIX",
+      "code": "public interface IOrderRepository\n{\n    void Save(Order order);\n}",
+      "isCompliant": true,
+      "explanation": "Adjective-free noun phrase prefixed with 'I'."
+    },
+    {
+      "id": "EX-DOTNET-INTERFACE-I-PREFIX-2",
+      "type": "Example",
+      "ruleId": "DOTNET-INTERFACE-I-PREFIX",
+      "code": "public interface OrderRepository\n{\n    void Save(Order order);\n}",
+      "isCompliant": false,
+      "explanation": "Missing the 'I' prefix that marks this as an interface."
+    },
+    {
+      "id": "EX-DOTNET-METHOD-VERB-PASCAL-1",
+      "type": "Example",
+      "ruleId": "DOTNET-METHOD-VERB-PASCAL",
+      "code": "public decimal CalculateTotal() { return LineItems.Sum(i => i.Price); }",
+      "isCompliant": true,
+      "explanation": "PascalCase verb phrase describing the action."
+    },
+    {
+      "id": "EX-DOTNET-METHOD-VERB-PASCAL-2",
+      "type": "Example",
+      "ruleId": "DOTNET-METHOD-VERB-PASCAL",
+      "code": "public decimal TotalCalculation() { return LineItems.Sum(i => i.Price); }",
+      "isCompliant": false,
+      "explanation": "Noun phrase instead of a verb phrase."
+    },
+    {
+      "id": "EX-DOTNET-PROPERTY-NOUN-PASCAL-1",
+      "type": "Example",
+      "ruleId": "DOTNET-PROPERTY-NOUN-PASCAL",
+      "code": "public IReadOnlyList<Order> Orders { get; }",
+      "isCompliant": true,
+      "explanation": "Plural noun for a collection-valued property."
+    },
+    {
+      "id": "EX-DOTNET-PROPERTY-NOUN-PASCAL-2",
+      "type": "Example",
+      "ruleId": "DOTNET-PROPERTY-NOUN-PASCAL",
+      "code": "public IReadOnlyList<Order> OrderList { get; }",
+      "isCompliant": false,
+      "explanation": "Singular name plus a redundant 'List' suffix instead of a plural noun."
+    },
+    {
+      "id": "EX-DOTNET-FIELD-PASCAL-NOPREFIX-1",
+      "type": "Example",
+      "ruleId": "DOTNET-FIELD-PASCAL-NOPREFIX",
+      "code": "public static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);",
+      "isCompliant": true,
+      "explanation": "PascalCase public field with no scope prefix."
+    },
+    {
+      "id": "EX-DOTNET-FIELD-PASCAL-NOPREFIX-2",
+      "type": "Example",
+      "ruleId": "DOTNET-FIELD-PASCAL-NOPREFIX",
+      "code": "public static readonly TimeSpan s_DefaultTimeout = TimeSpan.FromSeconds(30);",
+      "isCompliant": false,
+      "explanation": "Uses a Hungarian-style 's_' scope prefix on a public field."
+    },
+    {
+      "id": "EX-DOTNET-PARAMETER-CAMEL-DESCRIPTIVE-1",
+      "type": "Example",
+      "ruleId": "DOTNET-PARAMETER-CAMEL-DESCRIPTIVE",
+      "code": "public decimal ConvertCurrency(decimal amount, string targetCurrencyCode) { ... }",
+      "isCompliant": true,
+      "explanation": "Descriptive camelCase parameter names."
+    },
+    {
+      "id": "EX-DOTNET-PARAMETER-CAMEL-DESCRIPTIVE-2",
+      "type": "Example",
+      "ruleId": "DOTNET-PARAMETER-CAMEL-DESCRIPTIVE",
+      "code": "public decimal ConvertCurrency(decimal a, string s) { ... }",
+      "isCompliant": false,
+      "explanation": "Single-letter, non-descriptive parameter names."
+    },
+    {
+      "id": "EX-DOTNET-NAMESPACE-DOTTED-PASCAL-1",
+      "type": "Example",
+      "ruleId": "DOTNET-NAMESPACE-DOTTED-PASCAL",
+      "code": "namespace Fabrikam.Billing.Invoicing\n{\n}",
+      "isCompliant": true,
+      "explanation": "PascalCase, dot-separated Company.Product.Feature pattern."
+    },
+    {
+      "id": "EX-DOTNET-NAMESPACE-DOTTED-PASCAL-2",
+      "type": "Example",
+      "ruleId": "DOTNET-NAMESPACE-DOTTED-PASCAL",
+      "code": "namespace fabrikam_billing.invoicing\n{\n}",
+      "isCompliant": false,
+      "explanation": "snake_case component and lowercase instead of PascalCase-dotted."
+    },
+    {
+      "id": "EX-DOTNET-ENUM-SINGULAR-OR-PLURAL-1",
+      "type": "Example",
+      "ruleId": "DOTNET-ENUM-SINGULAR-OR-PLURAL",
+      "code": "public enum InvoiceStatus\n{\n    Draft,\n    Sent,\n    Paid\n}",
+      "isCompliant": true,
+      "explanation": "Singular name for a non-flags enum."
+    },
+    {
+      "id": "EX-DOTNET-ENUM-SINGULAR-OR-PLURAL-2",
+      "type": "Example",
+      "ruleId": "DOTNET-ENUM-SINGULAR-OR-PLURAL",
+      "code": "public enum InvoiceStatuses\n{\n    Draft,\n    Sent,\n    Paid\n}",
+      "isCompliant": false,
+      "explanation": "Plural name used for a non-flags (single-value) enum."
+    },
+    {
+      "id": "EX-DOTNET-ENUM-NO-ENUM-FLAGS-SUFFIX-1",
+      "type": "Example",
+      "ruleId": "DOTNET-ENUM-NO-ENUM-FLAGS-SUFFIX",
+      "code": "public enum Color\n{\n    Red,\n    Green,\n    Blue\n}",
+      "isCompliant": true,
+      "explanation": "No redundant 'Enum' suffix."
+    },
+    {
+      "id": "EX-DOTNET-ENUM-NO-ENUM-FLAGS-SUFFIX-2",
+      "type": "Example",
+      "ruleId": "DOTNET-ENUM-NO-ENUM-FLAGS-SUFFIX",
+      "code": "public enum ColorEnum\n{\n    Red,\n    Green,\n    Blue\n}",
+      "isCompliant": false,
+      "explanation": "Adds a literal 'Enum' suffix to the type name."
+    },
+    {
+      "id": "EX-DOTNET-ENUM-MEMBER-PASCAL-NOPREFIX-1",
+      "type": "Example",
+      "ruleId": "DOTNET-ENUM-MEMBER-PASCAL-NOPREFIX",
+      "code": "public enum ConnectionState\n{\n    Closed,\n    Connecting,\n    Open\n}",
+      "isCompliant": true,
+      "explanation": "PascalCase members with no coded prefix."
+    },
+    {
+      "id": "EX-DOTNET-ENUM-MEMBER-PASCAL-NOPREFIX-2",
+      "type": "Example",
+      "ruleId": "DOTNET-ENUM-MEMBER-PASCAL-NOPREFIX",
+      "code": "public enum ConnectionState\n{\n    csClosed,\n    csConnecting,\n    csOpen\n}",
+      "isCompliant": false,
+      "explanation": "Legacy-style 'cs' abbreviation prefix on each member."
+    },
+    {
+      "id": "EX-DOTNET-TYPE-PARAM-T-PREFIX-1",
+      "type": "Example",
+      "ruleId": "DOTNET-TYPE-PARAM-T-PREFIX",
+      "code": "public class Cache<TKey, TValue>\n{\n    public TValue Get(TKey key) => default;\n}",
+      "isCompliant": true,
+      "explanation": "Descriptive type parameters prefixed with 'T'."
+    },
+    {
+      "id": "EX-DOTNET-TYPE-PARAM-T-PREFIX-2",
+      "type": "Example",
+      "ruleId": "DOTNET-TYPE-PARAM-T-PREFIX",
+      "code": "public class Cache<Key, Value>\n{\n    public Value Get(Key key) => default;\n}",
+      "isCompliant": false,
+      "explanation": "Type parameters omit the required 'T' prefix."
+    },
+    {
+      "id": "EX-DOTNET-CONSTANT-PASCAL-1",
+      "type": "Example",
+      "ruleId": "DOTNET-CONSTANT-PASCAL",
+      "code": "private const int MaxRetryCount = 3;",
+      "isCompliant": true,
+      "explanation": "PascalCase constant regardless of its private visibility."
+    },
+    {
+      "id": "EX-DOTNET-CONSTANT-PASCAL-2",
+      "type": "Example",
+      "ruleId": "DOTNET-CONSTANT-PASCAL",
+      "code": "private const int max_retry_count = 3;",
+      "isCompliant": false,
+      "explanation": "snake_case instead of PascalCase for a constant."
+    },
+    {
+      "id": "EX-DOTNET-VARIABLE-CAMEL-DESCRIPTIVE-1",
+      "type": "Example",
+      "ruleId": "DOTNET-VARIABLE-CAMEL-DESCRIPTIVE",
+      "code": "int retryCount = 0;",
+      "isCompliant": true,
+      "explanation": "camelCase, descriptive local variable name."
+    },
+    {
+      "id": "EX-DOTNET-VARIABLE-CAMEL-DESCRIPTIVE-2",
+      "type": "Example",
+      "ruleId": "DOTNET-VARIABLE-CAMEL-DESCRIPTIVE",
+      "code": "int RetryCount = 0;",
+      "isCompliant": false,
+      "explanation": "PascalCase used for a local variable, which reads like a type member."
+    },
+    {
+      "id": "EX-DOTNET-BOOLEAN-AFFIRMATIVE-PREFIX-1",
+      "type": "Example",
+      "ruleId": "DOTNET-BOOLEAN-AFFIRMATIVE-PREFIX",
+      "code": "public bool IsConnected { get; private set; }",
+      "isCompliant": true,
+      "explanation": "Affirmative phrasing with an 'Is' prefix."
+    },
+    {
+      "id": "EX-DOTNET-BOOLEAN-AFFIRMATIVE-PREFIX-2",
+      "type": "Example",
+      "ruleId": "DOTNET-BOOLEAN-AFFIRMATIVE-PREFIX",
+      "code": "public bool NotConnected { get; private set; }",
+      "isCompliant": false,
+      "explanation": "Negative phrasing forces double negatives like '!NotConnected'."
+    },
+    {
+      "id": "EX-DOTNET-NO-HUNGARIAN-NO-UNDERSCORE-1",
+      "type": "Example",
+      "ruleId": "DOTNET-NO-HUNGARIAN-NO-UNDERSCORE",
+      "code": "string customerName = \"Acme\";",
+      "isCompliant": true,
+      "explanation": "Plain descriptive camelCase, no type-coded prefix."
+    },
+    {
+      "id": "EX-DOTNET-NO-HUNGARIAN-NO-UNDERSCORE-2",
+      "type": "Example",
+      "ruleId": "DOTNET-NO-HUNGARIAN-NO-UNDERSCORE",
+      "code": "string strCustomerName = \"Acme\";",
+      "isCompliant": false,
+      "explanation": "Hungarian-notation 'str' type prefix on the variable name."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-TYPE-SUMMARY-1",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-TYPE-SUMMARY",
+      "code": "/// <summary>Represents a customer invoice and its line items.</summary>\npublic class Invoice\n{\n}",
+      "isCompliant": true,
+      "explanation": "Public class carries a <summary> XML doc comment."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-TYPE-SUMMARY-2",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-TYPE-SUMMARY",
+      "code": "public class Invoice\n{\n}",
+      "isCompliant": false,
+      "explanation": "Public class has no XML doc comment at all."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-METHOD-FULL-1",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-METHOD-FULL",
+      "code": "/// <summary>Applies a percentage discount to the order total.</summary>\n/// <param name=\"percentage\">The discount percentage, from 0 to 100.</param>\n/// <returns>The discounted total.</returns>\npublic decimal ApplyDiscount(int percentage)\n{\n    return Total * (1 - percentage / 100m);\n}",
+      "isCompliant": true,
+      "explanation": "Summary plus a <param> for the parameter and a <returns> for the result."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-METHOD-FULL-2",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-METHOD-FULL",
+      "code": "/// <summary>Applies a discount.</summary>\npublic decimal ApplyDiscount(int percentage)\n{\n    return Total * (1 - percentage / 100m);\n}",
+      "isCompliant": false,
+      "explanation": "Missing <param> for 'percentage' and <returns> for the result."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-PROPERTY-VALUE-1",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-PROPERTY-VALUE",
+      "code": "/// <summary>Gets the invoice's current status.</summary>\n/// <value>One of the <see cref=\"InvoiceStatus\"/> values.</value>\npublic InvoiceStatus Status { get; }",
+      "isCompliant": true,
+      "explanation": "Summary plus a <value> describing the property's meaning."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-TYPEPARAM-1",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-TYPEPARAM",
+      "code": "/// <summary>A simple key/value cache.</summary>\n/// <typeparam name=\"TKey\">The type used to look up entries.</typeparam>\n/// <typeparam name=\"TValue\">The type of value stored.</typeparam>\npublic class Cache<TKey, TValue>\n{\n}",
+      "isCompliant": true,
+      "explanation": "Every generic type parameter has a matching <typeparam> tag."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-METHOD-EXCEPTION-1",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-METHOD-EXCEPTION",
+      "code": "/// <summary>Parses a customer code from its string form.</summary>\n/// <param name=\"code\">The raw code text.</param>\n/// <returns>The parsed customer code.</returns>\n/// <exception cref=\"FormatException\">Thrown when <paramref name=\"code\"/> is not a valid customer code.</exception>\npublic CustomerCode Parse(string code)\n{\n    if (!CustomerCode.TryParse(code, out var result))\n    {\n        throw new FormatException(\"Invalid customer code.\");\n    }\n    return result;\n}",
+      "isCompliant": true,
+      "explanation": "Documents the specific exception the method can throw and why."
+    },
+    {
+      "id": "EX-DOTNET-XMLDOC-ENUM-MEMBER-SUMMARY-1",
+      "type": "Example",
+      "ruleId": "DOTNET-XMLDOC-ENUM-MEMBER-SUMMARY",
+      "code": "public enum InvoiceStatus\n{\n    /// <summary>The invoice has been created but not yet sent.</summary>\n    Draft,\n\n    /// <summary>The invoice has been sent to the customer.</summary>\n    Sent\n}",
+      "isCompliant": true,
+      "explanation": "Each public enum member has its own <summary>."
+    }
+  ],
+  "coverageGaps": [
+    "The Framework Design Guidelines hub and its sub-pages focus on the public API surface; local-variable, private-field, and constant casing are not addressed there and were instead sourced from the companion C# 'Identifier names — rules and conventions' page.",
+    "The 'Names of Type Members' field guidance is explicitly scoped to public/protected static fields; private/internal field casing (e.g. '_camelCase', 's_' prefixes) is a separate, newer C#-style convention, not a Framework Design Guidelines rule, so no conflict is implied between the two field rules.",
+    "Boolean-identifier prefixes ('Is'/'Can'/'Has') are only ever framed as 'Consider... where it adds value' — the guidelines give no crisp rule for when a prefix is required versus when the bare affirmative name is preferred.",
+    "Type/suffix pairing rules for classes derived from specific base types (e.g. 'Exception', 'Attribute', 'EventArgs', 'Collection', 'Dictionary', 'Stream', 'Permission' suffixes, and delegate suffixes 'EventHandler'/'Callback') exist on the Classes/Structs/Interfaces page but were left out to stay within the target rule count — they are narrow, base-type-specific sub-cases of the general class-naming rule rather than a distinct identifier kind.",
+    "There is no dedicated 'Names of Constants' page; constant PascalCase guidance was found only on the separate C# coding-style 'Identifier names' page, not within the naming-guidelines hub tree itself.",
+    "The recommended-XML-tags page does not use Do/Consider/Avoid/Do-not severity language the way the Framework Design Guidelines pages do, so CommentRule severities here are inferred from its 'required' vs. 'recommended' wording rather than mapped from those exact labels.",
+    "No explicit, enumerable list of 'widely accepted' acronyms is given (only examples like IO, UI, Id, Xml) — judging an acronym as acceptable is left to reviewer discretion."
+  ]
+}

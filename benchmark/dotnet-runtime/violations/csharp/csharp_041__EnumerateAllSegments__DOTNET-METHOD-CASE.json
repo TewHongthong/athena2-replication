@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_041",
+  "language": "csharp",
+  "originalName": "EnumerateAllSegments",
+  "injectedName": "enumerate_all_segments",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'enumerate_all_segments' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static class IGCExtensions\n{\n    public static IEnumerable<(GCHeapSegmentInfo Segment, GCHeapData Heap)> enumerate_all_segments(this IGC gc)\n    {\n        string[] gcIdentifiers = gc.GetGCIdentifiers();\n        bool isWorkstation = gcIdentifiers.Contains(GCIdentifiers.Workstation);\n        foreach (GCHeapData heap in EnumerateHeaps(gc, isWorkstation))\n        {\n            foreach (GCHeapSegmentInfo seg in gc.EnumerateHeapSegments(heap))\n            {\n                yield return (seg, heap);\n            }\n        }\n    }\n\n    private static IEnumerable<GCHeapData> EnumerateHeaps(IGC gc, bool isWorkstation)\n    {\n        if (isWorkstation)\n        {\n            yield return gc.GetHeapData();\n        }\n        else\n        {\n            foreach (TargetPointer heapAddress in gc.GetGCHeaps())\n                yield return gc.GetHeapData(heapAddress);\n        }\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

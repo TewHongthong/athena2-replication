@@ -1,0 +1,30 @@
+{
+  "id": "py_086",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/stock/report/stock_allocation_report.py lines 166-203 (method StockAllocationReport._get_out_move_values); license LGPL-3.0; repo created 2026-06-23T10:27:13+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _get_out_move_values(self, out_move):\n    picking = out_move.picking_id\n    source = out_move._get_source_document()\n    partner_info, picking_info, source_info = False, False, False\n    if source and source != picking:\n        source_info = {\n            'id': source.id,\n            'res_model': source._name,\n            'display_name': source.display_name,\n        }\n    if picking:\n        picking_info = {\n            'id': picking.id,\n            'res_model': 'stock.picking',\n            'display_name': picking.display_name,\n        }\n        partner_info = {\n            'id': picking.partner_id.id,\n            'res_model': 'res.partner',\n            'display_name': picking.partner_id.display_name,\n        } if picking.partner_id else False\n    # To handle different UoM quantities, all qties will be expressed in product's UoM.\n    reserved_quantity = out_move.quantity\n    if out_move.uom_id != out_move.product_id.uom_id:\n        reserved_quantity = out_move.product_id.uom_id._compute_quantity(reserved_quantity, out_move.uom_id)\n    return {\n        **out_move.read(['date', 'priority', 'state'])[0],\n        'favorite': out_move.priority == '1',\n        'id': out_move.id,\n        'is_reserved': bool(out_move.move_orig_ids),\n        'move_orig_ids': out_move.move_orig_ids.ids,\n        'partner': partner_info,\n        'picking': picking_info,\n        'reserved_quantity': reserved_quantity,\n        'quantity': out_move.product_qty,\n        'source': source_info,\n        'uom': out_move.product_id.uom_id.read(['display_name', 'factor'])[0],\n    }",
+  "identifiers": [
+    {
+      "name": "out_move",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-23T10:27:13+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/stock/report/stock_allocation_report.py",
+    "startLine": 166,
+    "endLine": 203,
+    "unit": "method StockAllocationReport._get_out_move_values",
+    "corpusFile": "corpus/python/odoo__odoo__addons__stock__report__stock_allocation_report.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 11
+}

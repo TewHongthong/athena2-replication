@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_015",
+  "language": "csharp",
+  "originalName": "ReadName",
+  "injectedName": "read_name",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'read_name' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private string read_name()\n{\n    uint length = ReadULEB128();\n    byte[] bytes = ReadBytes(checked((int)length));\n    return Encoding.UTF8.GetString(bytes);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_065",
+  "language": "cpp",
+  "originalName": "queue_redraw",
+  "injectedName": "QUEUE_REDRAW",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'QUEUE_REDRAW' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileAtlasView::QUEUE_REDRAW() {\n\tbase_tiles_draw->QUEUE_REDRAW();\n\tbase_tiles_texture_grid->QUEUE_REDRAW();\n\tbase_tiles_shape_grid->QUEUE_REDRAW();\n\talternatives_draw->QUEUE_REDRAW();\n\tbackground_left->QUEUE_REDRAW();\n\tbackground_right->QUEUE_REDRAW();\n}",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_082",
+  "language": "csharp",
+  "originalName": "CreateEmptyEnumerable",
+  "injectedName": "create_empty_enumerable",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_empty_enumerable' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static Array create_empty_enumerable(Type serviceType)\n{\n    Type itemType = serviceType.GenericTypeArguments[0];\n    if (!IsDynamicCodeSupported && itemType.IsValueType)\n    {\n        // Native AOT apps are not able to make an Enumerable of a ValueType service\n        // since there is no guarantee the ValueType[] code has been generated.\n        throw new InvalidOperationException(SR.Format(SR.AotCannotCreateEnumerableValueType, itemType));\n    }\n\n    return Array.CreateInstance(itemType, 0);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

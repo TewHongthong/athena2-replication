@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_009",
+  "language": "cpp",
+  "originalName": "get_input_device_list",
+  "injectedName": "GET_INPUT_DEVICE_LIST",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GET_INPUT_DEVICE_LIST' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "PackedStringArray AudioDriver::GET_INPUT_DEVICE_LIST() {\n\tPackedStringArray list;\n\n\tlist.push_back(\"Default\");\n\n\treturn list;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

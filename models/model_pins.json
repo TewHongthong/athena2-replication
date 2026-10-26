@@ -1,0 +1,385 @@
+{
+  "schema": "athena2-model-pins/1",
+  "description": "Request settings of the Vol. 2 model panel (D6, revised by D16). Used by `athena_sim.py --model-pin NAME`; the SHA-256 of the entry is recorded in run configs and freezes. See README.md for what each pin fixes and what it cannot fix. The \"embeddings\" section holds the embedding model of the dense retrieval condition (`--embed-pin NAME`).",
+  "models": {
+    "luna": {
+      "panel_name": "GPT-6 Luna",
+      "status": "pinned",
+      "route": "OpenRouter, provider locked to OpenAI (no fallback)",
+      "request": {
+        "backend": "openai:openai/gpt-6-luna",
+        "base_url": "https://openrouter.ai/api/v1",
+        "omit_temperature": true,
+        "max_tokens": 8192,
+        "extra_body": {
+          "provider": {
+            "order": [
+              "openai"
+            ],
+            "allow_fallbacks": false,
+            "require_parameters": true
+          },
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "price_in": 0.1,
+        "price_out": 0.5
+      },
+      "identity": {
+        "vendor_model_id": "gpt-6-luna",
+        "dated_snapshot": null,
+        "note": "The vendor model page lists gpt-6-luna as the only snapshot; no dated identifier exists, so the served version cannot be fixed by the request. Reasoning effort is set to the documented default (medium) so that a later change of the default does not change the request."
+      },
+      "vendor_facts": {
+        "release_date": "2026-09-22",
+        "knowledge_cutoff": "2026-05-18",
+        "context_window": 1050000,
+        "temperature": "not among the supported parameters of any OpenRouter endpoint of this model"
+      },
+      "vol1": {
+        "backend": "openai:openai/gpt-6-luna",
+        "settings": "temperature 0.2 sent, max_tokens 8192, reasoning effort not sent (provider default), provider not locked",
+        "remark": "temperature is not a supported parameter of the model's endpoints, so the 0.2 sent in Vol. 1 is unlikely to have had an effect; omitting it is expected to give the same request as served"
+      },
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "https://openrouter.ai/openai/gpt-6-luna",
+        "https://openrouter.ai/api/v1/models/openai/gpt-6-luna/endpoints"
+      ]
+    },
+    "luna_draft": {
+      "panel_name": "GPT-6 Luna (ontology drafting)",
+      "status": "pinned",
+      "route": "OpenRouter, provider locked to OpenAI (no fallback)",
+      "request": {
+        "backend": "openai:openai/gpt-6-luna",
+        "base_url": "https://openrouter.ai/api/v1",
+        "omit_temperature": true,
+        "max_tokens": 32768,
+        "extra_body": {
+          "provider": {
+            "order": [
+              "openai"
+            ],
+            "allow_fallbacks": false,
+            "require_parameters": true
+          },
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "price_in": 0.1,
+        "price_out": 0.5
+      },
+      "identity": {
+        "vendor_model_id": "gpt-6-luna",
+        "dated_snapshot": null,
+        "note": "The vendor model page lists gpt-6-luna as the only snapshot; no dated identifier exists, so the served version cannot be fixed by the request. Reasoning effort is set to the documented default (medium) so that a later change of the default does not change the request."
+      },
+      "vendor_facts": {
+        "release_date": "2026-09-22",
+        "knowledge_cutoff": "2026-05-18",
+        "context_window": 1050000,
+        "temperature": "not among the supported parameters of any OpenRouter endpoint of this model"
+      },
+      "vol1": {
+        "backend": "openai:openai/gpt-6-luna",
+        "settings": "temperature 0.2 sent, max_tokens 8192, reasoning effort not sent (provider default), provider not locked",
+        "remark": "temperature is not a supported parameter of the model's endpoints, so the 0.2 sent in Vol. 1 is unlikely to have had an effect; omitting it is expected to give the same request as served"
+      },
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "https://openrouter.ai/openai/gpt-6-luna",
+        "https://openrouter.ai/api/v1/models/openai/gpt-6-luna/endpoints"
+      ],
+      "drafting_note": "Same request as the 'luna' entry except max_tokens (32768), because the answer holds hidden reasoning plus a complete ontology in one pass and a cut answer cannot be repeated. Used only for the LLM-drafted ontologies of the three standards."
+    },
+    "gemini31fl": {
+      "panel_name": "Gemini 3.1 Flash-Lite",
+      "status": "pinned",
+      "route": "OpenRouter, provider locked to Google Vertex (no fallback)",
+      "request": {
+        "backend": "openai:google/gemini-3.1-flash-lite",
+        "base_url": "https://openrouter.ai/api/v1",
+        "omit_temperature": true,
+        "max_tokens": 8192,
+        "extra_body": {
+          "provider": {
+            "order": [
+              "google-vertex"
+            ],
+            "allow_fallbacks": false,
+            "require_parameters": true
+          }
+        },
+        "price_in": 0.25,
+        "price_out": 1.5
+      },
+      "identity": {
+        "vendor_model_id": "gemini-3.1-flash-lite",
+        "dated_snapshot": null,
+        "note": "Stable (GA) model code; the vendor page lists no dated version. A separate preview code (gemini-3.1-flash-lite-preview) exists and is not used. Thinking level is left at the provider default, as in Vol. 1."
+      },
+      "vendor_facts": {
+        "release_date": "2026-05-07",
+        "knowledge_cutoff": "2025-01",
+        "context_window": 1048576
+      },
+      "vol1": {
+        "backend": "openai:google/gemini-3.1-flash-lite",
+        "settings": "temperature omitted (vendor default), max_tokens 8192, provider-default thinking, provider not locked",
+        "served_by": "Google (Vertex) in every recorded ablation trial"
+      },
+      "sources": [
+        "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite",
+        "https://openrouter.ai/google/gemini-3.1-flash-lite",
+        "https://openrouter.ai/api/v1/models/google/gemini-3.1-flash-lite/endpoints"
+      ]
+    },
+    "deepseek41f": {
+      "panel_name": "DeepSeek V4.1-Flash",
+      "status": "pinned",
+      "route": "OpenRouter, provider locked to DeepSeek (no fallback); the request accepts data collection by the provider",
+      "request": {
+        "backend": "openai:deepseek/deepseek-v4.1-flash",
+        "base_url": "https://openrouter.ai/api/v1",
+        "omit_temperature": true,
+        "max_tokens": 8192,
+        "extra_body": {
+          "provider": {
+            "order": [
+              "deepseek"
+            ],
+            "allow_fallbacks": false,
+            "require_parameters": true,
+            "data_collection": "allow"
+          }
+        },
+        "price_in": 0.3,
+        "price_out": 1.2
+      },
+      "identity": {
+        "vendor_model_id": "deepseek-flash",
+        "dated_snapshot": null,
+        "note": "Decision D11 pins V4.1-Flash, whose identifier on the vendor API is deepseek-flash; the OpenRouter slug deepseek/deepseek-v4.1-flash is locked to the DeepSeek provider so that the vendor's own deployment answers (the slug has 33 endpoints from different providers). Prices are the vendor's peak-hour rates; off-peak rates are half."
+      },
+      "vendor_facts": {
+        "release_date": "2026-09-10",
+        "knowledge_cutoff": null,
+        "context_window": 1048576
+      },
+      "vol1": {
+        "backend": "openai:deepseek/deepseek-v4-flash",
+        "settings": "temperature omitted (vendor default), max_tokens 8192, provider-default reasoning, provider not locked",
+        "remark": "Vol. 1 ran DeepSeek V4 Flash, not V4.1-Flash"
+      },
+      "sources": [
+        "https://api-docs.deepseek.com/updates/",
+        "https://api-docs.deepseek.com/quick_start/pricing",
+        "https://openrouter.ai/api/v1/models/deepseek/deepseek-v4.1-flash/endpoints"
+      ]
+    },
+    "gemma4": {
+      "panel_name": "Gemma 4 26B (A4B, instruction-tuned)",
+      "status": "pinned",
+      "route": "OpenRouter, provider locked to CoreWeave at bf16 (no fallback)",
+      "request": {
+        "backend": "openai:google/gemma-4-26b-a4b-it",
+        "base_url": "https://openrouter.ai/api/v1",
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "extra_body": {
+          "provider": {
+            "order": [
+              "coreweave"
+            ],
+            "allow_fallbacks": false,
+            "quantizations": [
+              "bf16"
+            ],
+            "require_parameters": true
+          },
+          "reasoning": {
+            "effort": "none"
+          }
+        },
+        "price_in": 0.1,
+        "price_out": 0.3
+      },
+      "identity": {
+        "vendor_model_id": "google/gemma-4-26b-a4b-it (open weights)",
+        "dated_snapshot": null,
+        "note": "Open weights, but the hosted deployment does not state which weight revision it serves. Without a provider lock the slug is served by any of 13 endpoints with different or unstated quantization. CoreWeave is chosen among the bf16 endpoints for its stated quantization, uptime and support of every parameter sent; if it becomes unavailable during the run, the replacement provider is reported."
+      },
+      "vendor_facts": {
+        "release_date": "2026-04-03",
+        "knowledge_cutoff": "2025-01",
+        "context_window": 262144
+      },
+      "vol1": {
+        "backend": "openai:gemma4:26b (Ollama, local)",
+        "settings": "main runs: local Ollama gemma4:26b, Q4_K_M, thinking off, temperature 0.2, max_tokens 2048; ablation: OpenRouter bf16 with reasoning effort none, provider not locked",
+        "served_by": "ablation trials were answered by at least five providers (NextBit, DekaLLM, Parasail, Venice, Novita)",
+        "remark": "the Vol. 1 main runs used a 4-bit local model, which is not the deployment pinned here"
+      },
+      "sources": [
+        "https://openrouter.ai/google/gemma-4-26b-a4b-it",
+        "https://openrouter.ai/api/v1/models/google/gemma-4-26b-a4b-it/endpoints"
+      ]
+    },
+    "mistral_large4": {
+      "panel_name": "Mistral Large 4",
+      "status": "pinned",
+      "route": "OpenRouter, provider locked to Mistral (no fallback)",
+      "request": {
+        "backend": "openai:mistralai/mistral-large-4-0",
+        "base_url": "https://openrouter.ai/api/v1",
+        "temperature": 0.2,
+        "max_tokens": 8192,
+        "extra_body": {
+          "provider": {
+            "order": [
+              "mistral"
+            ],
+            "allow_fallbacks": false,
+            "require_parameters": true
+          }
+        },
+        "price_in": 0.68,
+        "price_out": 2.09
+      },
+      "identity": {
+        "vendor_model_id": "mistral-large-4-0 (also listed as mistral-large-4)",
+        "version": "26.10",
+        "dated_snapshot": null,
+        "note": "The vendor lists the model as Public Preview, so its behaviour may change before or during the runs. The vendor page does not say which of the two names is the alias. Prices are discounted rates without a stated end; list prices are 1.36 / 4.18 USD per million tokens. Open weights are announced but not released. Reasoning effort is left at the provider default (not documented)."
+      },
+      "vendor_facts": {
+        "release_date": "2026-10-06",
+        "knowledge_cutoff": null,
+        "latest_data_collection": "2026-09 (vendor training-content summary; see decision D10)",
+        "context_window": 1048576
+      },
+      "vol1": null,
+      "sources": [
+        "https://docs.mistral.ai/models/mistral-large-4-0",
+        "https://openrouter.ai/mistralai/mistral-large-4-0",
+        "https://openrouter.ai/api/v1/models/mistralai/mistral-large-4-0/endpoints"
+      ]
+    },
+    "qwen35_9b": {
+      "panel_name": "Qwen3.5-9B",
+      "status": "pinned",
+      "route": "local llama-server (Windows machine, RTX 4000 Ada 20 GB), reached through an SSH tunnel; no hosted provider",
+      "request": {
+        "backend": "openai:qwen3.5-9b-ud-q8_k_xl",
+        "temperature": 0.2,
+        "max_tokens": 1024,
+        "no_think": true
+      },
+      "identity": {
+        "vendor_model_id": "Qwen/Qwen3.5-9B (open weights, Apache-2.0, post-trained; thinking is on by default)",
+        "gguf_repository": "unsloth/Qwen3.5-9B-GGUF",
+        "gguf_revision": "3885219b6810b007914f3a7950a8d1b469d598a5",
+        "gguf_file": "Qwen3.5-9B-UD-Q8_K_XL.gguf",
+        "gguf_size_bytes": 12974040288,
+        "gguf_sha256_listed": "2c4e08e0e72c68d8c1835a26f5be4075894df9ea5be9cc20a246517afd6a0cb6",
+        "gguf_sha256_local": "2c4e08e0e72c68d8c1835a26f5be4075894df9ea5be9cc20a246517afd6a0cb6",
+        "llama_cpp_build": "version 0.6.0-dev (build 11433, commit 50569eb87), built with Clang 20.1.8 for Windows x86_64",
+        "server_alias": "qwen3.5-9b-ud-q8_k_xl",
+        "server_context": 32768,
+        "note": "The server is started with --alias so that the model id in the request does not depend on the file path. base_url is not part of the pin: the harness uses $OPENAI_BASE_URL, which points to the local end of the SSH tunnel. gguf_sha256_listed is the LFS hash shown by the repository at the pinned revision; gguf_sha256_local, computed on the serving machine, matches it. A different llama.cpp build or server command is a different deployment.",
+        "server_command": "llama-server.exe -m Qwen3.5-9B-UD-Q8_K_XL.gguf --alias qwen3.5-9b-ud-q8_k_xl -ngl 99 -c 32768 -np 1 --jinja --host 127.0.0.1 --port 8080"
+      },
+      "vendor_facts": {
+        "release_date": null,
+        "knowledge_cutoff": null,
+        "context_window": 262144
+      },
+      "vol1": {
+        "backend": "openai:/home/tew/llama.cpp/models/Qwen3.5-9B-Q4_K_M.gguf",
+        "settings": "Q4_K_M on a different machine (since retired), temperature 0.2, max_tokens 1024, thinking disabled through chat_template_kwargs, server context 4096",
+        "remark": "Vol. 2 uses an 8-bit quantization (UD-Q8_K_XL) on new hardware, so the Vol. 1 Qwen3.5-9B anchors were produced by a different deployment"
+      },
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3.5-9B",
+        "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF"
+      ]
+    },
+    "gemma4_local": {
+      "panel_name": "Gemma 4 26B (A4B, instruction-tuned), local",
+      "status": "pinned",
+      "route": "local llama-server (Windows machine, RTX 4000 Ada 20 GB), reached through an SSH tunnel; no hosted provider",
+      "request": {
+        "backend": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "no_think": true
+      },
+      "identity": {
+        "vendor_model_id": "google/gemma-4-26b-a4b-it (open weights)",
+        "gguf_repository": "unsloth/gemma-4-26B-A4B-it-GGUF",
+        "gguf_revision": "c099eb48e663fd284577b04978a94ffccb261841",
+        "gguf_file": "gemma-4-26B-A4B-it-UD-Q4_K_M.gguf",
+        "gguf_sha256_listed": "f2c28b3dc4776931ac6f879e11f203dec637ea0f14267a86ec8f6165f63f293f",
+        "gguf_sha256_local": "f2c28b3dc4776931ac6f879e11f203dec637ea0f14267a86ec8f6165f63f293f",
+        "llama_cpp_build": "version 0.6.0-dev (build 11433, commit 50569eb87), built with Clang 20.1.8 for Windows x86_64",
+        "server_alias": "gemma-4-26b-a4b-it-ud-q4_k_m",
+        "server_context": 32768,
+        "note": "The server is started with --alias so that the model id in the request does not depend on the file path. base_url is not part of the pin: the harness uses $OPENAI_BASE_URL, which points to the local end of the SSH tunnel. The chat template thinks by default; no_think sends chat_template_kwargs.enable_thinking=false with every request, which the server honours (the answer is returned in content and no reasoning is produced). gguf_sha256_listed is the LFS hash shown by the repository for this file; gguf_sha256_local, computed on the serving machine, matches it. A different llama.cpp build, quantization or server command is a different deployment.",
+        "server_command": "llama-server.exe -m gemma-4-26B-A4B-it-UD-Q4_K_M.gguf --alias gemma-4-26b-a4b-it-ud-q4_k_m -ngl 99 -c 32768 -np 1 --jinja --host 127.0.0.1 --port 8080"
+      },
+      "vendor_facts": {
+        "release_date": "2026-04-03",
+        "knowledge_cutoff": "2025-01",
+        "context_window": 262144
+      },
+      "vol1": {
+        "backend": "openai:gemma4:26b (Ollama, local)",
+        "settings": "main runs: local Ollama gemma4:26b, Q4_K_M, thinking off, temperature 0.2, max_tokens 2048; ablation: OpenRouter bf16 with reasoning effort none, provider not locked",
+        "served_by": "ablation trials were answered by at least five providers (NextBit, DekaLLM, Parasail, Venice, Novita)",
+        "remark": "the Vol. 1 main runs used a local Ollama Q4_K_M build of gemma4:26b; this entry serves a different GGUF (Unsloth UD-Q4_K_M) with llama.cpp, so it is a different deployment"
+      },
+      "sources": [
+        "https://huggingface.co/google/gemma-4-26b-a4b-it",
+        "https://huggingface.co/unsloth/gemma-4-26B-A4B-it-GGUF"
+      ]
+    }
+  },
+  "embeddings": {
+    "qwen3_embedding_06b": {
+      "panel_name": "Qwen3-Embedding-0.6B (embedding model of the dense retrieval condition)",
+      "status": "pinned",
+      "route": "local llama-server in embedding mode on the lab Windows machine, reached through an SSH tunnel; the address is read from $ATHENA_EMBED_BASE_URL and is not part of the pin",
+      "request": {
+        "model": "qwen3-embedding-0.6b-q8_0",
+        "query_template": "Instruct: Given an identifier and the code around it, retrieve the passages of the coding standard that apply to it\nQuery:{query}",
+        "document_template": "{text}",
+        "batch": 8
+      },
+      "identity": {
+        "vendor_model_id": "Qwen/Qwen3-Embedding-0.6B (open weights, Apache-2.0)",
+        "gguf_repository": "Qwen/Qwen3-Embedding-0.6B-GGUF",
+        "gguf_revision": "370f27d7550e0def9b39c1f16d3fbaa13aa67728",
+        "gguf_file": "Qwen3-Embedding-0.6B-Q8_0.gguf",
+        "gguf_size_bytes": 639150592,
+        "gguf_sha256_listed": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+        "gguf_sha256_local": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+        "llama_cpp_build": "version 0.6.0-dev (build 11433, commit 50569eb87), built with Clang 20.1.8 for Windows x86_64",
+        "server_alias": "qwen3-embedding-0.6b-q8_0",
+        "server_context": 8192,
+        "server_command": "llama-server.exe -m Qwen3-Embedding-0.6B-Q8_0.gguf --alias qwen3-embedding-0.6b-q8_0 --embedding --pooling last -c 8192 -b 8192 -ub 8192 -np 1 -ngl 99 --host 127.0.0.1 --port 8081",
+        "note": "Queries are embedded with the instruction of query_template and passages without one, as the model card prescribes; the instruction is fixed here and is not tuned. Vectors are L2-normalised by the harness and compared by dot product. gguf_sha256_listed is the LFS hash shown by the repository at the pinned revision; gguf_sha256_local, computed on the serving machine, matches it. A different llama.cpp build or server command is a different deployment."
+      },
+      "vendor_facts": {
+        "context_window": 32768,
+        "embedding_dimension": 1024
+      },
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+        "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B-GGUF"
+      ]
+    }
+  }
+}

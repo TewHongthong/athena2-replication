@@ -1,0 +1,30 @@
+{
+  "id": "py_066",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/mrp/report/stock_traceability.py lines 7-27 (method StockTraceabilityReport._get_reference); license LGPL-3.0; repo created 2026-09-08T19:25:02+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@api.model\ndef _get_reference(self, move_line):\n    res_model, res_id, ref = super()._get_reference(move_line)\n    move = move_line.move_id\n    if move.production_id and move.location_dest_usage != 'inventory':\n        res_model = 'mrp.production'\n        res_id = move.production_id.id\n        ref = move.production_id.name\n    elif move.raw_material_production_id and move.location_dest_usage != 'inventory':\n        res_model = 'mrp.production'\n        res_id = move.raw_material_production_id.id\n        ref = move.raw_material_production_id.name\n    elif move.unbuild_id:\n        res_model = 'mrp.unbuild'\n        res_id = move.unbuild_id.id\n        ref = move.unbuild_id.name\n    elif move.consume_unbuild_id:\n        res_model = 'mrp.unbuild'\n        res_id = move.consume_unbuild_id.id\n        ref = move.consume_unbuild_id.name\n    return res_model, res_id, ref",
+  "identifiers": [
+    {
+      "name": "move_line",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-08T19:25:02+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/mrp/report/stock_traceability.py",
+    "startLine": 7,
+    "endLine": 27,
+    "unit": "method StockTraceabilityReport._get_reference",
+    "corpusFile": "corpus/python/odoo__odoo__addons__mrp__report__stock_traceability.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

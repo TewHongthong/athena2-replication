@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_086",
+  "language": "csharp",
+  "originalName": "WriteAsyncCore",
+  "injectedName": "write_async_core",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'write_async_core' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private async ValueTask write_async_core(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken)\n{\n    cancellationToken.ThrowIfCancellationRequested();\n    ThrowIfNotWritable();\n    if (!_headerWritten)\n    {\n        await WriteHeaderAsync(cancellationToken).ConfigureAwait(false);\n    }\n\n    byte[] workBuffer = GetWriteWorkBuffer();\n\n    while (!buffer.IsEmpty)\n    {\n        int bytesToProcess = Math.Min(buffer.Length, workBuffer.Length);\n\n        buffer[..bytesToProcess].CopyTo(workBuffer);\n        ProcessBlock(workBuffer.AsSpan(0, bytesToProcess));\n        await _baseStream.WriteAsync(workBuffer.AsMemory(0, bytesToProcess), cancellationToken).ConfigureAwait(false);\n\n        buffer = buffer[bytesToProcess..];\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

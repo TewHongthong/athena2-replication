@@ -1,0 +1,30 @@
+{
+  "id": "py_079",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_pk_edi/models/account_move.py lines 157-165 (method AccountMove._l10n_pk_edi_tax_details_by_line); license LGPL-3.0; repo created 2026-09-09T09:22:13+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@api.model\ndef _l10n_pk_edi_tax_details_by_line(self, tax_details):\n    \"\"\"Aggregate tax details by tax group.\"\"\"\n    aggregated_by_group = defaultdict(lambda: {'rates': [], 'amount': 0.0})\n    for tax_data in tax_details['taxes_data']:\n        tax_total_group = tax_data['tax']._l10n_pk_edi_total_tax_group()\n        aggregated_by_group[tax_total_group]['rates'].append(tax_data['tax'].amount)\n        aggregated_by_group[tax_total_group]['amount'] += tax_data['tax_amount']\n    return dict(aggregated_by_group)",
+  "identifiers": [
+    {
+      "name": "tax_details",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-09T09:22:13+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_pk_edi/models/account_move.py",
+    "startLine": 157,
+    "endLine": 165,
+    "unit": "method AccountMove._l10n_pk_edi_tax_details_by_line",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_pk_edi__models__account_move.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 9
+}

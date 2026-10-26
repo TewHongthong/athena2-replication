@@ -1,0 +1,615 @@
+{
+  "standard": {
+    "id": "GOOGLE_TS",
+    "type": "Standard",
+    "name": "Google TypeScript Style Guide",
+    "publisher": "Google",
+    "url": "https://google.github.io/styleguide/tsguide.html",
+    "retrievedDate": "2026-09-25",
+    "scopeLanguages": [
+      "typescript"
+    ]
+  },
+  "namingRules": [
+    {
+      "id": "GTS-CLASS-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "class",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Class names use UpperCamelCase (PascalCase).",
+      "rationale": "Consistent casing lets readers recognize a declaration's kind from its name alone.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: class"
+    },
+    {
+      "id": "GTS-INTERFACE-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "interface",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^I[A-Z]"
+      ],
+      "description": "Interface names use UpperCamelCase, the same as classes; do not prefix an interface with 'I' or otherwise decorate the name to mark it as an interface — name it for what it represents.",
+      "rationale": "Names should not carry redundant type information; TypeScript's type system already distinguishes interfaces from classes.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifiers / Naming style"
+    },
+    {
+      "id": "GTS-TYPEPARAM-CASE",
+      "type": "NamingRule",
+      "identifierKind": "type_parameter",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "A type parameter's name can simply be one capital letter (T, U, or similar), or, when extra clarity helps, a complete descriptive name written in UpperCamelCase.",
+      "rationale": "Short generics stay terse for simple containers while descriptive names aid readability when a type parameter's role isn't obvious.",
+      "severity": "MAY",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: type parameters"
+    },
+    {
+      "id": "GTS-FUNCTION-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "function",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Functions use lowerCamelCase, and an acronym inside the name is capitalized like an ordinary word rather than left in all caps (write parseJsonBody, not parseJSONBody), with narrow exceptions where an external platform interface's exact spelling must be preserved as-is.",
+      "rationale": "Uniform camelCase capitalization of acronyms keeps names visually consistent and avoids ambiguous runs of capitals.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: functions / Descriptive names"
+    },
+    {
+      "id": "GTS-METHOD-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "method",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Method names use lowerCamelCase, the same convention as functions and variables.",
+      "rationale": "Keeps callable members visually consistent across classes and modules.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: methods"
+    },
+    {
+      "id": "GTS-VARIABLE-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^_",
+        "_$"
+      ],
+      "description": "Variables, local or module-scoped, are lowerCamelCase and never bracketed by underscores. Skip abbreviations a newcomer to the codebase wouldn't recognize; a single letter is only acceptable when the variable's whole lifetime fits in a couple of lines.",
+      "rationale": "Underscore decoration and cryptic abbreviations obscure meaning instead of encoding it in the name itself.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: variables / Descriptive names"
+    },
+    {
+      "id": "GTS-CONSTANT-CASE",
+      "type": "NamingRule",
+      "identifierKind": "constant",
+      "casing": "CONSTANT_CASE",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "CONSTANT_CASE is for a value that is both genuinely global and genuinely immutable: a module-scope constant, a static readonly field on a class defined at module scope, or an enum member. The moment a 'constant' can exist as more than one instance, such as a const declared inside a function body or a static field on a locally-scoped class, it drops back to lowerCamelCase regardless of its own immutability.",
+      "rationale": "CONSTANT_CASE signals module-wide, singleton-like immutability; reserving it for genuinely global values keeps the signal meaningful.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: constants / Global constant names"
+    },
+    {
+      "id": "GTS-PARAMETER-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "parameter",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^opt_"
+      ],
+      "description": "Parameter names use lowerCamelCase. Do not prefix an optional parameter with opt_; express optionality with TypeScript's ? syntax or a default value instead.",
+      "rationale": "TypeScript's own optional-parameter syntax already conveys optionality, making an opt_ prefix redundant type decoration.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifiers / Naming style"
+    },
+    {
+      "id": "GTS-FIELD-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^_",
+        "_$",
+        "^#"
+      ],
+      "description": "Class fields use lowerCamelCase. Do not signal visibility with a leading/trailing underscore or the native #private syntax; use the private/protected/public/readonly modifiers instead.",
+      "rationale": "Visibility is already expressed by TypeScript's access modifiers, so underscore or # decoration is redundant and inconsistent across a codebase.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifiers / Naming style"
+    },
+    {
+      "id": "GTS-PROPERTY-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "property",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Object and interface properties use lowerCamelCase, consistent with class fields and variables.",
+      "rationale": "A single casing convention for data members keeps object shapes and class shapes visually interchangeable.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: properties"
+    },
+    {
+      "id": "GTS-ENUM-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "enum",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Enum type names use UpperCamelCase, the same as classes and interfaces.",
+      "rationale": "An enum introduces a new type, so it follows the same casing convention as other type declarations.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: enums"
+    },
+    {
+      "id": "GTS-ENUM-MEMBER-CONST",
+      "type": "NamingRule",
+      "identifierKind": "enum_member",
+      "casing": "CONSTANT_CASE",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Enum members use CONSTANT_CASE, since each member is effectively a global constant value.",
+      "rationale": "Enum values behave like named constants at every call site, so they take the constant naming convention.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: enums / Global constant names"
+    },
+    {
+      "id": "GTS-MODULE-ALIAS-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "module",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "When importing an entire module under a namespace alias (import * as fooBar from './foo_bar'), the alias is lowerCamelCase regardless of how the source file itself is named. A small set of long-standing third-party aliasing conventions, such as a dollar sign for jQuery or an all-caps namespace for a library like three.js, can be kept rather than forced into camelCase.",
+      "rationale": "Aliasing a module binds it to an ordinary identifier, so it follows the ordinary variable/module casing rule rather than the file-naming convention.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Naming — Identifier type: module aliases"
+    }
+  ],
+  "commentRules": [
+    {
+      "id": "GTS-JSDOC-TOPLEVEL-EXPORT",
+      "type": "CommentRule",
+      "identifierKind": "function",
+      "format": "jsdoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "The declaration (function, class, constant, type, etc.) is exported at the top level of a module.",
+      "description": "Every symbol exported from the top level of a module must carry a JSDoc comment describing what it does, so a consumer of the module can understand it without reading its implementation.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Comments and Documentation — JSDoc general form"
+    },
+    {
+      "id": "GTS-JSDOC-CLASS",
+      "type": "CommentRule",
+      "identifierKind": "class",
+      "format": "jsdoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "A class is declared, particularly one that is exported.",
+      "description": "Class-level JSDoc should describe the class's purpose, how and when to use it, and any special considerations; the constructor itself typically needs no separate description when its behavior is obvious from its parameters.",
+      "severity": "SHOULD",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Comments and Documentation — Class comments"
+    },
+    {
+      "id": "GTS-JSDOC-METHOD-PARAMS",
+      "type": "CommentRule",
+      "identifierKind": "method",
+      "format": "jsdoc",
+      "requiredElements": [
+        "summary",
+        "params",
+        "returns"
+      ],
+      "triggerCondition": "A method or function's behavior, parameters, or return value are not obvious from its name and type signature alone.",
+      "description": "A method whose behavior isn't self-evident gets a short summary phrased as a verb, plus @param/@return entries where they contribute something. Skip a parameter or return description, or the whole comment, once the name and type signature already say the same thing.",
+      "severity": "SHOULD",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Comments and Documentation — Method and function comments"
+    },
+    {
+      "id": "GTS-JSDOC-PARAM-PROPERTY",
+      "type": "CommentRule",
+      "identifierKind": "parameter",
+      "format": "jsdoc",
+      "requiredElements": [
+        "params"
+      ],
+      "triggerCondition": "A constructor parameter is declared with a private/protected/public/readonly modifier (a TypeScript 'parameter property').",
+      "description": "Constructor parameter properties must be documented with an @param tag, each on its own line, because TypeScript collapses the parameter and the field declaration into a single line that leaves nowhere else to describe them.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Comments and Documentation — Parameter property comments"
+    },
+    {
+      "id": "GTS-COMMENT-STYLE-SEPARATION",
+      "type": "CommentRule",
+      "identifierKind": "module",
+      "format": "jsdoc",
+      "requiredElements": [],
+      "triggerCondition": "Any comment is written in the source, whether documenting an API or explaining implementation detail.",
+      "description": "Keep the two comment styles doing different jobs: JSDoc blocks (/** */) are for tool-parseable, user-facing documentation, while plain // lines cover implementation notes aimed at future maintainers. When an implementation note runs long, stack several // lines rather than switching to a /* */ block, and never wrap a comment in a border of asterisks.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Comments and Documentation — JSDoc vs. non-JSDoc comments"
+    },
+    {
+      "id": "GTS-JSDOC-MARKDOWN",
+      "type": "CommentRule",
+      "identifierKind": "module",
+      "format": "jsdoc",
+      "requiredElements": [],
+      "triggerCondition": "A JSDoc comment contains formatted content, such as a list.",
+      "description": "Tooling renders JSDoc text as Markdown, not as preformatted text, so a bulleted list inside a doc comment needs an actual Markdown dash rather than just extra indentation, or the generated docs will show it as a single run-on paragraph.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_TS",
+      "sourceSection": "Google TypeScript Style Guide § Comments and Documentation — Markdown"
+    }
+  ],
+  "examples": [
+    {
+      "id": "EX-GTS-CLASS-PASCAL-1",
+      "type": "Example",
+      "ruleId": "GTS-CLASS-PASCAL",
+      "code": "class OrderProcessor {\n  process(): void {}\n}",
+      "isCompliant": true,
+      "explanation": "Class name uses UpperCamelCase."
+    },
+    {
+      "id": "EX-GTS-CLASS-PASCAL-2",
+      "type": "Example",
+      "ruleId": "GTS-CLASS-PASCAL",
+      "code": "class order_processor {\n  process(): void {}\n}",
+      "isCompliant": false,
+      "explanation": "snake_case instead of UpperCamelCase."
+    },
+    {
+      "id": "EX-GTS-INTERFACE-PASCAL-1",
+      "type": "Example",
+      "ruleId": "GTS-INTERFACE-PASCAL",
+      "code": "interface PaymentGateway {\n  charge(amount: number): Promise<void>;\n}",
+      "isCompliant": true,
+      "explanation": "UpperCamelCase name with no interface marker prefix."
+    },
+    {
+      "id": "EX-GTS-INTERFACE-PASCAL-2",
+      "type": "Example",
+      "ruleId": "GTS-INTERFACE-PASCAL",
+      "code": "interface IPaymentGateway {\n  charge(amount: number): Promise<void>;\n}",
+      "isCompliant": false,
+      "explanation": "Leading 'I' decorates the name with redundant type information."
+    },
+    {
+      "id": "EX-GTS-TYPEPARAM-CASE-1",
+      "type": "Example",
+      "ruleId": "GTS-TYPEPARAM-CASE",
+      "code": "class Box<T> {\n  constructor(private value: T) {}\n}",
+      "isCompliant": true,
+      "explanation": "Single uppercase letter T for a simple generic container."
+    },
+    {
+      "id": "EX-GTS-TYPEPARAM-CASE-2",
+      "type": "Example",
+      "ruleId": "GTS-TYPEPARAM-CASE",
+      "code": "interface Repository<EntityType> {\n  find(id: string): EntityType | undefined;\n}",
+      "isCompliant": true,
+      "explanation": "Descriptive UpperCamelCase type parameter, also acceptable."
+    },
+    {
+      "id": "EX-GTS-FUNCTION-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GTS-FUNCTION-CAMEL",
+      "code": "function loadHttpUrl(url: string): Promise<Response> {\n  return fetch(url);\n}",
+      "isCompliant": true,
+      "explanation": "camelCase name treats the HTTP/URL acronyms as ordinary words."
+    },
+    {
+      "id": "EX-GTS-FUNCTION-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GTS-FUNCTION-CAMEL",
+      "code": "function loadHTTPURL(url: string): Promise<Response> {\n  return fetch(url);\n}",
+      "isCompliant": false,
+      "explanation": "Acronyms left in all caps break the camelCase pattern."
+    },
+    {
+      "id": "EX-GTS-METHOD-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GTS-METHOD-CAMEL",
+      "code": "class Cart {\n  addItem(sku: string): void {}\n}",
+      "isCompliant": true,
+      "explanation": "Method name uses lowerCamelCase."
+    },
+    {
+      "id": "EX-GTS-METHOD-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GTS-METHOD-CAMEL",
+      "code": "class Cart {\n  add_item(sku: string): void {}\n}",
+      "isCompliant": false,
+      "explanation": "snake_case method name."
+    },
+    {
+      "id": "EX-GTS-VARIABLE-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GTS-VARIABLE-CAMEL",
+      "code": "const retryCount = 3;",
+      "isCompliant": true,
+      "explanation": "lowerCamelCase variable with no underscore decoration."
+    },
+    {
+      "id": "EX-GTS-VARIABLE-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GTS-VARIABLE-CAMEL",
+      "code": "const _retryCount = 3;",
+      "isCompliant": false,
+      "explanation": "Leading underscore is disallowed."
+    },
+    {
+      "id": "EX-GTS-CONSTANT-CASE-1",
+      "type": "Example",
+      "ruleId": "GTS-CONSTANT-CASE",
+      "code": "export const MAX_RETRY_COUNT = 3;",
+      "isCompliant": true,
+      "explanation": "Module-level immutable global uses CONSTANT_CASE."
+    },
+    {
+      "id": "EX-GTS-CONSTANT-CASE-2",
+      "type": "Example",
+      "ruleId": "GTS-CONSTANT-CASE",
+      "code": "export const maxRetryCount = 3;",
+      "isCompliant": false,
+      "explanation": "Module-level global constant written in camelCase instead of CONSTANT_CASE."
+    },
+    {
+      "id": "EX-GTS-PARAMETER-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GTS-PARAMETER-CAMEL",
+      "code": "function resize(width: number, height?: number): void {}",
+      "isCompliant": true,
+      "explanation": "Optional parameter uses TypeScript's ? syntax, no opt_ prefix."
+    },
+    {
+      "id": "EX-GTS-PARAMETER-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GTS-PARAMETER-CAMEL",
+      "code": "function resize(width: number, opt_height?: number): void {}",
+      "isCompliant": false,
+      "explanation": "opt_ prefix redundantly decorates an already-optional parameter."
+    },
+    {
+      "id": "EX-GTS-FIELD-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GTS-FIELD-CAMEL",
+      "code": "class UserAccount {\n  private balance: number = 0;\n}",
+      "isCompliant": true,
+      "explanation": "Private field uses lowerCamelCase and the private modifier for visibility."
+    },
+    {
+      "id": "EX-GTS-FIELD-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GTS-FIELD-CAMEL",
+      "code": "class UserAccount {\n  private _balance: number = 0;\n}",
+      "isCompliant": false,
+      "explanation": "Leading underscore duplicates what the private modifier already says."
+    },
+    {
+      "id": "EX-GTS-PROPERTY-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GTS-PROPERTY-CAMEL",
+      "code": "interface Point {\n  x: number;\n  y: number;\n}",
+      "isCompliant": true,
+      "explanation": "Properties named in lowerCamelCase."
+    },
+    {
+      "id": "EX-GTS-PROPERTY-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GTS-PROPERTY-CAMEL",
+      "code": "interface Point {\n  X_Coord: number;\n  Y_Coord: number;\n}",
+      "isCompliant": false,
+      "explanation": "PascalCase-with-underscore property names."
+    },
+    {
+      "id": "EX-GTS-ENUM-PASCAL-1",
+      "type": "Example",
+      "ruleId": "GTS-ENUM-PASCAL",
+      "code": "enum OrderStatus {\n  Pending,\n  Shipped,\n}",
+      "isCompliant": true,
+      "explanation": "Enum type name uses UpperCamelCase."
+    },
+    {
+      "id": "EX-GTS-ENUM-PASCAL-2",
+      "type": "Example",
+      "ruleId": "GTS-ENUM-PASCAL",
+      "code": "enum order_status {\n  Pending,\n  Shipped,\n}",
+      "isCompliant": false,
+      "explanation": "snake_case enum type name."
+    },
+    {
+      "id": "EX-GTS-ENUM-MEMBER-CONST-1",
+      "type": "Example",
+      "ruleId": "GTS-ENUM-MEMBER-CONST",
+      "code": "enum OrderStatus {\n  PENDING,\n  SHIPPED,\n}",
+      "isCompliant": true,
+      "explanation": "Enum members use CONSTANT_CASE."
+    },
+    {
+      "id": "EX-GTS-ENUM-MEMBER-CONST-2",
+      "type": "Example",
+      "ruleId": "GTS-ENUM-MEMBER-CONST",
+      "code": "enum OrderStatus {\n  pending,\n  shipped,\n}",
+      "isCompliant": false,
+      "explanation": "Enum members written in lowercase instead of CONSTANT_CASE."
+    },
+    {
+      "id": "EX-GTS-MODULE-ALIAS-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GTS-MODULE-ALIAS-CAMEL",
+      "code": "import * as orderUtils from './order_utils';",
+      "isCompliant": true,
+      "explanation": "Namespace import alias uses lowerCamelCase even though the file is snake_case."
+    },
+    {
+      "id": "EX-GTS-MODULE-ALIAS-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GTS-MODULE-ALIAS-CAMEL",
+      "code": "import * as OrderUtils from './order_utils';",
+      "isCompliant": false,
+      "explanation": "PascalCase alias instead of lowerCamelCase."
+    },
+    {
+      "id": "EX-GTS-JSDOC-TOPLEVEL-EXPORT-1",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-TOPLEVEL-EXPORT",
+      "code": "/** Charges the given amount to the customer's default payment method. */\nexport function chargeCustomer(amount: number): Promise<void> {\n  return gateway.charge(amount);\n}",
+      "isCompliant": true,
+      "explanation": "Top-level exported function carries a JSDoc summary."
+    },
+    {
+      "id": "EX-GTS-JSDOC-TOPLEVEL-EXPORT-2",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-TOPLEVEL-EXPORT",
+      "code": "export function chargeCustomer(amount: number): Promise<void> {\n  return gateway.charge(amount);\n}",
+      "isCompliant": false,
+      "explanation": "Exported function has no JSDoc at all."
+    },
+    {
+      "id": "EX-GTS-JSDOC-CLASS-1",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-CLASS",
+      "code": "/**\n * Buffers log records in memory and flushes them to the server\n * every 30 seconds.\n */\nexport class LogBuffer {\n  flush(): void {}\n}",
+      "isCompliant": true,
+      "explanation": "Class JSDoc explains purpose and timing behavior."
+    },
+    {
+      "id": "EX-GTS-JSDOC-METHOD-PARAMS-1",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-METHOD-PARAMS",
+      "code": "/**\n * Splits a full name into its parts.\n * @param fullName The name to split, e.g. \"Ada Lovelace\".\n * @return The [first, last] name pair.\n */\nfunction splitName(fullName: string): [string, string] {\n  return fullName.split(' ') as [string, string];\n}",
+      "isCompliant": true,
+      "explanation": "Non-obvious method documented with summary, @param, and @return."
+    },
+    {
+      "id": "EX-GTS-JSDOC-PARAM-PROPERTY-1",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-PARAM-PROPERTY",
+      "code": "class Rectangle {\n  /**\n   * @param width The rectangle's width in pixels.\n   * @param height The rectangle's height in pixels.\n   */\n  constructor(private readonly width: number, private readonly height: number) {}\n}",
+      "isCompliant": true,
+      "explanation": "Parameter properties documented with @param tags, one per line."
+    },
+    {
+      "id": "EX-GTS-JSDOC-PARAM-PROPERTY-2",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-PARAM-PROPERTY",
+      "code": "class Rectangle {\n  constructor(private readonly width: number, private readonly height: number) {}\n}",
+      "isCompliant": false,
+      "explanation": "Parameter properties left undocumented."
+    },
+    {
+      "id": "EX-GTS-COMMENT-STYLE-SEPARATION-1",
+      "type": "Example",
+      "ruleId": "GTS-COMMENT-STYLE-SEPARATION",
+      "code": "/** Computes the shipping cost for an order. */\nexport function shippingCost(order: Order): number {\n  // Free shipping kicks in above this threshold.\n  const freeThreshold = 50;\n  return order.total >= freeThreshold ? 0 : 5;\n}",
+      "isCompliant": true,
+      "explanation": "JSDoc documents the public API; a // line comment explains an internal detail."
+    },
+    {
+      "id": "EX-GTS-COMMENT-STYLE-SEPARATION-2",
+      "type": "Example",
+      "ruleId": "GTS-COMMENT-STYLE-SEPARATION",
+      "code": "/*\n *****************************\n * Computes the shipping cost.\n *****************************\n */\nexport function shippingCost(order: Order): number {\n  return order.total >= 50 ? 0 : 5;\n}",
+      "isCompliant": false,
+      "explanation": "Decorative asterisk-boxed block comment instead of JSDoc or line comments."
+    },
+    {
+      "id": "EX-GTS-JSDOC-MARKDOWN-1",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-MARKDOWN",
+      "code": "/**\n * Supported export formats:\n * - `csv`\n * - `json`\n */\nexport type ExportFormat = 'csv' | 'json';",
+      "isCompliant": true,
+      "explanation": "List uses Markdown dash syntax so it renders correctly."
+    },
+    {
+      "id": "EX-GTS-JSDOC-MARKDOWN-2",
+      "type": "Example",
+      "ruleId": "GTS-JSDOC-MARKDOWN",
+      "code": "/**\n * Supported export formats:\n *   csv\n *   json\n */\nexport type ExportFormat = 'csv' | 'json';",
+      "isCompliant": false,
+      "explanation": "Plain indentation instead of Markdown list syntax will not render as a list."
+    }
+  ],
+  "coverageGaps": [
+    "The guide has no rule for boolean-specific naming (is/has/should prefixes), so no rule was created for the boolean_variable IdentifierKind.",
+    "Google does not distinguish 'field' from 'property' naming — both got the same lowerCamelCase rule since the guide treats class members and object/interface members identically.",
+    "@return/@throws content is only loosely specified ('may be omitted if obvious'); there is no strict content mandate, so GTS-JSDOC-METHOD-PARAMS is marked SHOULD rather than MUST.",
+    "Type parameter casing explicitly permits either a single uppercase letter or UpperCamelCase; both are folded into one MAY-severity rule rather than split in two.",
+    "The 'module' IdentifierKind was reused for two comment rules (style separation, Markdown-in-JSDoc) that are file/codebase-wide stylistic rules not tied to one declaration kind, because the schema requires an identifierKind per rule and none of the other kinds fit better."
+  ]
+}

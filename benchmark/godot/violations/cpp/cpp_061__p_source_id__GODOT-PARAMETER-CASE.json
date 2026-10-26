@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_061",
+  "language": "cpp",
+  "originalName": "p_source_id",
+  "injectedName": "P_SOURCE_ID",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_SOURCE_ID' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileAtlasView::set_atlas_source(TileSet *p_tile_set, TileSetAtlasSource *p_tile_set_atlas_source, int P_SOURCE_ID) {\n\ttile_set = Ref<TileSet>(p_tile_set);\n\ttile_set_atlas_source = Ref<TileSetAtlasSource>(p_tile_set_atlas_source);\n\n\t_clear_material_canvas_items();\n\n\tif (tile_set.is_null()) {\n\t\treturn;\n\t}\n\n\tERR_FAIL_COND(P_SOURCE_ID < 0);\n\tERR_FAIL_COND(p_tile_set->get_source(P_SOURCE_ID) != p_tile_set_atlas_source);\n\n\tsource_id = P_SOURCE_ID;\n\n\t// Show or hide the view.\n\tbool valid = tile_set_atlas_source->get_texture().is_valid();\n\thbox->set_visible(valid);\n\tmissing_source_label->set_visible(!valid);\n\n\t// Update the rect cache.\n\t_update_alternative_tiles_rect_cache();\n\n\t// Update everything.\n\t_update_zoom_and_panning();\n\n\tbase_tiles_drawing_root->set_size(_compute_base_tiles_control_size());\n\talternative_tiles_drawing_root->set_size(_compute_alternative_tiles_control_size());\n\n\t// Update.\n\tbase_tiles_draw->queue_redraw();\n\tbase_tiles_texture_grid->queue_redraw();\n\tbase_tiles_shape_grid->queue_redraw();\n\talternatives_draw->queue_redraw();\n\tbackground_left->queue_redraw();\n\tbackground_right->queue_redraw();\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

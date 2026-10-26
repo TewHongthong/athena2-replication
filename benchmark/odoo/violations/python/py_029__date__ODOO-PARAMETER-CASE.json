@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_029",
+  "language": "python",
+  "originalName": "date",
+  "injectedName": "DATE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DATE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _normalize_report_date(self, DATE):\n    if isinstance(DATE, str):\n        DATE = fields.Date.from_string(DATE)\n    if DATE == fields.Date.context_today(self):\n        DATE = False\n    return DATE",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

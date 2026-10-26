@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_079",
+  "language": "cpp",
+  "originalName": "p_settings",
+  "injectedName": "P_SETTINGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_SETTINGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "JoltCustomInstanceOverridesShape(const JoltCustomInstanceOverridesShapeSettings &P_SETTINGS, JPH::Shape::ShapeResult &p_result) :\n\t\tJPH::DecoratedShape(JoltCustomShapeSubType::INSTANCE_OVERRIDES, P_SETTINGS, p_result),\n\t\tobject_back_face_collision(P_SETTINGS.object_back_face_collision),\n\t\tshape_back_face_collision(P_SETTINGS.shape_back_face_collision) {\n\tif (!p_result.HasError()) {\n\t\tp_result.Set(this);\n\t}\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

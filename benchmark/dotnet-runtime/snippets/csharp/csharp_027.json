@@ -1,0 +1,30 @@
+{
+  "id": "csharp_027",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/tools/CdacUsageGraph/src/CdacUsageGraph/Analysis/UsageWalker.cs lines 604-622 (method UsageWalker.AddPendingDispatch); license MIT; repo created 2026-07-24T02:06:51+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private void AddPendingDispatch(\n    IMethodSymbol method,\n    ContractVersion label,\n    Dictionary<ITypeParameterSymbol, ITypeSymbol> substitutions)\n{\n    PendingDispatch dispatch = new(\n        method,\n        label,\n        new Dictionary<ITypeParameterSymbol, ITypeSymbol>(substitutions, _cmp));\n    if (!_pendingDispatches.TryGetValue(label, out List<PendingDispatch>? pending))\n        _pendingDispatches[label] = pending = [];\n    pending.Add(dispatch);\n\n    if (_constructedTypes.TryGetValue(label, out HashSet<INamedTypeSymbol>? types))\n    {\n        foreach (INamedTypeSymbol type in types)\n            EnqueueDispatchTarget(type, dispatch);\n    }\n}",
+  "identifiers": [
+    {
+      "name": "AddPendingDispatch",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-24T02:06:51+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/tools/CdacUsageGraph/src/CdacUsageGraph/Analysis/UsageWalker.cs",
+    "startLine": 604,
+    "endLine": 622,
+    "unit": "method UsageWalker.AddPendingDispatch",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__tools__CdacUsageGraph__src__CdacUsageGraph__Analysis__UsageWalker.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 22
+}

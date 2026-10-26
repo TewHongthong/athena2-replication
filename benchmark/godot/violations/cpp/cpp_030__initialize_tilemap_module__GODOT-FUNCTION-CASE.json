@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_030",
+  "language": "cpp",
+  "originalName": "initialize_tilemap_module",
+  "injectedName": "INITIALIZE_TILEMAP_MODULE",
+  "identifierKind": "function",
+  "violatedRuleId": "GODOT-FUNCTION-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'INITIALIZE_TILEMAP_MODULE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void INITIALIZE_TILEMAP_MODULE(ModuleInitializationLevel p_level) {\n\tif (p_level == MODULE_INITIALIZATION_LEVEL_SCENE) {\n\t\tGDREGISTER_CLASS(TileSet);\n\t\tGDREGISTER_ABSTRACT_CLASS(TileSetSource);\n\t\tGDREGISTER_CLASS(TileSetAtlasSource);\n\t\tGDREGISTER_CLASS(TileSetScenesCollectionSource);\n\t\tGDREGISTER_CLASS(TileMapPattern);\n\t\tGDREGISTER_CLASS(TileData);\n\t\tGDREGISTER_CLASS(TileMapLayer);\n#ifndef DISABLE_DEPRECATED\n\t\tGDREGISTER_CLASS(TileMap);\n#endif\n\n#ifndef NAVIGATION_2D_DISABLED\n\t\tTileMapLayer::navmesh_parse_init();\n#ifndef DISABLE_DEPRECATED\n\t\tTileMap::navmesh_parse_init();\n#endif\n#endif // NAVIGATION_2D_DISABLED\n\t}\n#ifdef TOOLS_ENABLED\n\tif (p_level == MODULE_INITIALIZATION_LEVEL_EDITOR) {\n\t\tEditorPlugins::add_by_type<TileSetEditorPlugin>();\n\t\tEditorPlugins::add_by_type<TileMapEditorPlugin>();\n\t}\n#endif\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_037",
+  "language": "python",
+  "originalName": "incoming",
+  "injectedName": "INCOMING",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'INCOMING' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _payu_generate_signature(self, payment_data, INCOMING=False):\n    \"\"\"Generate the signature for the provided payment data.\n\n    See: https://docs.payu.in/docs/hashing-request-and-response\n\n    :param dict payment_data: The payment data to sign\n    :param bool incoming: Whether the signature must be generated for an incoming (PayU to Odoo)\n                          or for outgoing (Odoo to PayU) communication\n    :return: The generated signature\n    :rtype: str\n    \"\"\"\n    signature_data = {**payment_data, \"salt\": self.payu_merchant_salt}\n    signature_keys = const.SIGNATURE_KEYS[\"incoming\" if INCOMING else \"outgoing\"]\n    signature_string = \"|\".join(str(signature_data.get(field, \"\")) for field in signature_keys)\n    return hashlib.sha512(signature_string.encode()).hexdigest().lower()",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

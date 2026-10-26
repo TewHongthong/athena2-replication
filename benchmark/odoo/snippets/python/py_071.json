@@ -1,0 +1,30 @@
+{
+  "id": "py_071",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_mm/models/res_bank.py lines 99-106 (method ResPartnerBank._check_for_qr_code_errors); license LGPL-3.0; repo created 2026-08-07T10:09:24+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _check_for_qr_code_errors(self, qr_method, amount, currency, debtor_partner, free_communication, structured_communication):\n    if qr_method == 'emv_qr' and self.country_code == 'MM':\n        if self.proxy_type != 'merchant_id':\n            return _(\"The account identifier type of an MMQR code must be a Merchant ID.\")\n        if not self.l10n_mm_merchant_name:\n            return _(\"Missing Merchant Name (Myanmar Unicode).\")\n\n    return super()._check_for_qr_code_errors(qr_method, amount, currency, debtor_partner, free_communication, structured_communication)",
+  "identifiers": [
+    {
+      "name": "currency",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-07T10:09:24+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_mm/models/res_bank.py",
+    "startLine": 99,
+    "endLine": 106,
+    "unit": "method ResPartnerBank._check_for_qr_code_errors",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_mm__models__res_bank.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 9
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_050",
+  "language": "csharp",
+  "originalName": "VerifyLowering",
+  "injectedName": "verify_lowering",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'verify_lowering' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "[Theory]\n[MemberData(nameof(DiscoverSwiftTypes))]\npublic void verify_lowering(string typeName, EcmaType type, CORINFO_SWIFT_LOWERING expectedLowering)\n{\n    _ = typeName;\n\n    Assert.Equal(expectedLowering, SwiftPhysicalLowering.LowerTypeForSwiftSignature(type));\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

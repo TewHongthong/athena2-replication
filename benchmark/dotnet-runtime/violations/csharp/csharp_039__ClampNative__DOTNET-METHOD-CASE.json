@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_039",
+  "language": "csharp",
+  "originalName": "ClampNative",
+  "injectedName": "clamp_native",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'clamp_native' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public static Decimal32 clamp_native(Decimal32 value, Decimal32 min, Decimal32 max)\n{\n    if (min > max)\n    {\n        Math.ThrowMinMaxException(min, max);\n    }\n    return MinNative(MaxNative(value, min), max);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

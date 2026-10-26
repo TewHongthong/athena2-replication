@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_055",
+  "language": "csharp",
+  "originalName": "TryExportPkcs8PrivateKeyCore",
+  "injectedName": "try_export_pkcs8_private_key_core",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'try_export_pkcs8_private_key_core' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal sealed partial class CompositeMLKemImplementation : CompositeMLKem\n{\n    public CompositeMLKemImplementation(CompositeMLKemAlgorithm algorithm)\n        : base(algorithm)\n    {\n        throw new PlatformNotSupportedException();\n    }\n\n    internal static partial bool IsAlgorithmSupportedImpl(CompositeMLKemAlgorithm algorithm) => false;\n\n    internal static partial CompositeMLKem GenerateKeyImpl(CompositeMLKemAlgorithm algorithm) =>\n        throw new PlatformNotSupportedException();\n\n    internal static partial CompositeMLKem ImportEncapsulationKeyImpl(CompositeMLKemAlgorithm algorithm, ReadOnlySpan<byte> source) =>\n        throw new PlatformNotSupportedException();\n\n    internal static partial CompositeMLKem ImportDecapsulationKeyImpl(CompositeMLKemAlgorithm algorithm, ReadOnlySpan<byte> source) =>\n        throw new PlatformNotSupportedException();\n\n    protected override void EncapsulateCore(Span<byte> ciphertext, Span<byte> sharedSecret) =>\n        throw new PlatformNotSupportedException();\n\n    protected override void DecapsulateCore(ReadOnlySpan<byte> ciphertext, Span<byte> sharedSecret) =>\n        throw new PlatformNotSupportedException();\n\n    protected override bool try_export_pkcs8_private_key_core(Span<byte> destination, out int bytesWritten) =>\n        throw new PlatformNotSupportedException();\n\n    protected override int ExportEncapsulationKeyCore(Span<byte> destination) =>\n        throw new PlatformNotSupportedException();\n\n    protected override int ExportDecapsulationKeyCore(Span<byte> destination) =>\n        throw new PlatformNotSupportedException();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

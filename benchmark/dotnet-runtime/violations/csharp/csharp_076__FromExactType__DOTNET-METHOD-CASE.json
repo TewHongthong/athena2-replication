@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_076",
+  "language": "csharp",
+  "originalName": "FromExactType",
+  "injectedName": "from_exact_type",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'from_exact_type' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal SignatureTypeInfo from_exact_type(ITypeHandle exactType)\n{\n    ReadOnlySpan<ITypeHandle> exactArguments = _rts.GetInstantiation(exactType);\n    ImmutableArray<SignatureTypeInfo>.Builder typeArguments =\n        ImmutableArray.CreateBuilder<SignatureTypeInfo>(exactArguments.Length);\n    for (int i = 0; i < exactArguments.Length; i++)\n    {\n        typeArguments.Add(from_exact_type(exactArguments[i]));\n    }\n\n    return new SignatureTypeInfo(\n        _rts.GetSignatureCorElementType(exactType),\n        exactType,\n        genericTypeDefinition: null,\n        typeArguments.MoveToImmutable());\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

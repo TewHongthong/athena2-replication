@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_096",
+  "language": "csharp",
+  "originalName": "EmitAnsiStringInstruction",
+  "injectedName": "emit_ansi_string_instruction",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'emit_ansi_string_instruction' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal void emit_ansi_string_instruction(IToken opcodeToken, string value)\n{\n    int byteCount = Encoding.UTF8.GetByteCount(value);\n    if ((byteCount % 2) != 0)\n    {\n        byteCount++;\n    }\n\n    Span<byte> utf8Bytes = new byte[byteCount];\n    Encoding.UTF8.GetBytes(value, utf8Bytes);\n    EmitStringInstruction(opcodeToken, new string(MemoryMarshal.Cast<byte, char>(utf8Bytes)));\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

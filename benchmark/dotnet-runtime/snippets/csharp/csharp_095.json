@@ -1,0 +1,30 @@
+{
+  "id": "csharp_095",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.Manifest.Files.cs lines 71-78 (method GrammarActions.MaterializeFileDeclaration); license MIT; repo created 2026-10-02T03:59:46+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal EntityRegistry.FileEntity MaterializeFileDeclaration(\n    CILParser.FileDeclContext context)\n{\n    Debug.Assert(context.Value is not null);\n    FileDeclarationValue declaration =\n        context.Value ?? new(string.Empty, HasMetadata: true, IsEntryPoint: false, Hash: null);\n    return MaterializeFileDeclaration(declaration);\n}",
+  "identifiers": [
+    {
+      "name": "MaterializeFileDeclaration",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-02T03:59:46+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.Manifest.Files.cs",
+    "startLine": 71,
+    "endLine": 78,
+    "unit": "method GrammarActions.MaterializeFileDeclaration",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tools__ilasm__src__ILAssembler__Actions__GrammarActions.Manifest.Files.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 9
+}

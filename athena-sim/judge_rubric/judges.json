@@ -1,0 +1,11 @@
+{
+  "_defaults": {"options": {"temperature": 0, "seed": 0, "num_ctx": 4096, "num_predict": 400}},
+  "muse": {"label": "Meta Muse Glimmer 30B via OpenRouter (DeepInfra, bf16)", "family": "meta", "backend": "openrouter",
+           "model": "meta/muse-glimmer-30b", "max_tokens": 2000, "max_cost_usd": 3.0,
+           "extra_body": {"provider": {"order": ["DeepInfra"], "allow_fallbacks": false},
+                          "reasoning": {"effort": "low", "exclude": true}}},
+  "haiku": {"label": "Anthropic Claude Haiku 4.5 via OpenRouter", "family": "anthropic", "backend": "openrouter",
+            "model": "anthropic/claude-haiku-4.5", "max_tokens": 400, "max_cost_usd": 5.0, "send_seed": false,
+            "extra_body": {"provider": {"order": ["Anthropic"], "allow_fallbacks": true}}},
+  "mock": {"label": "mock (pipeline test only)", "family": "none", "backend": "mock", "model": "mock"}
+}

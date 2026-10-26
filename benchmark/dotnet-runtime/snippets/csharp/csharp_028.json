@@ -1,0 +1,30 @@
+{
+  "id": "csharp_028",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Text.Json/src/System/Text/Json/Serialization/Converters/Value/Ieee754FloatingPointConverter.cs lines 234-256 (method Ieee754FloatingPointConverter.TryGetFloatingPointConstant); license MIT; repo created 2026-07-30T15:38:01+03:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static bool TryGetFloatingPointConstant(ReadOnlySpan<byte> span, out T value)\n{\n    if (span.SequenceEqual(JsonConstants.NaNValue))\n    {\n        value = T.NaN;\n        return true;\n    }\n\n    if (span.SequenceEqual(JsonConstants.PositiveInfinityValue))\n    {\n        value = T.PositiveInfinity;\n        return true;\n    }\n\n    if (span.SequenceEqual(JsonConstants.NegativeInfinityValue))\n    {\n        value = T.NegativeInfinity;\n        return true;\n    }\n\n    value = default;\n    return false;\n}",
+  "identifiers": [
+    {
+      "name": "TryGetFloatingPointConstant",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-30T15:38:01+03:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Text.Json/src/System/Text/Json/Serialization/Converters/Value/Ieee754FloatingPointConverter.cs",
+    "startLine": 234,
+    "endLine": 256,
+    "unit": "method Ieee754FloatingPointConverter.TryGetFloatingPointConstant",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Text.Json__src__System__Text__Json__Serialization__Converters__Value__Ieee754FloatingPointConverter.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 15
+}

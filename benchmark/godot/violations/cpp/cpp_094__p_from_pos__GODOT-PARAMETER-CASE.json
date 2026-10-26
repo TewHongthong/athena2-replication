@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_094",
+  "language": "cpp",
+  "originalName": "p_from_pos",
+  "injectedName": "P_FROM_POS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_FROM_POS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AudioStreamPlaybackPolyphonic::start(double P_FROM_POS) {\n\tif (active) {\n\t\tstop();\n\t}\n\n\tactive = true;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

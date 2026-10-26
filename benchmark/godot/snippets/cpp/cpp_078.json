@@ -1,0 +1,30 @@
+{
+  "id": "cpp_078",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "drivers/metal/metal_allocator.cpp lines 295-320 (method MetalHeapAllocator::new_buffer); license MIT; repo created 2026-08-25T09:23:50+10:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "MetalBuffer MetalHeapAllocator::new_buffer(NS::UInteger p_length, MTL::ResourceOptions p_options) {\n\tuint32_t pool_index = _pool_for_options(p_options);\n\tMTL::SizeAndAlign sa = device->heapBufferSizeAndAlign(p_length, p_options);\n\t// Placement-heap resources inherit the heap's hazard tracking; strip\n\t// hazard bits and pass storage/cache + untracked only.\n\tMTL::ResourceOptions heap_options = (p_options & (RESOURCE_STORAGE_MODE_MASK | RESOURCE_CPU_CACHE_MODE_MASK)) | MTL::ResourceHazardTrackingModeUntracked;\n\n\tMetalBuffer result;\n\tMTL::Heap *heap = nullptr;\n\tif (sa.size > _preferred_block_size(pool_index) / 2) {\n\t\tif (!_dedicated_allocate(pool_index, sa.size, result.allocation, heap)) {\n\t\t\treturn result;\n\t\t}\n\t\tresult.buffer = NS::TransferPtr(heap->newBuffer(p_length, heap_options, 0));\n\t} else {\n\t\tuint64_t offset = 0;\n\t\tif (!_pool_allocate(pool_index, sa.size, sa.align, result.allocation, heap, offset)) {\n\t\t\treturn result;\n\t\t}\n\t\tresult.buffer = NS::TransferPtr(heap->newBuffer(p_length, heap_options, offset));\n\t}\n\tif (!result.buffer) {\n\t\t_free_allocation(result.allocation);\n\t}\n\treturn result;\n}",
+  "identifiers": [
+    {
+      "name": "pool_index",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-25T09:23:50+10:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "drivers/metal/metal_allocator.cpp",
+    "startLine": 295,
+    "endLine": 320,
+    "unit": "method MetalHeapAllocator::new_buffer",
+    "corpusFile": "corpus/cpp/godotengine__godot__drivers__metal__metal_allocator.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 17
+}

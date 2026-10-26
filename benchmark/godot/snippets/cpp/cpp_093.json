@@ -1,0 +1,30 @@
+{
+  "id": "cpp_093",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_set_atlas_source_editor.h lines 54-60 (method TileSelection.operator<); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "bool operator<(const TileSelection &p_other) const {\n\tif (tile == p_other.tile) {\n\t\treturn alternative < p_other.alternative;\n\t} else {\n\t\treturn tile < p_other.tile;\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_other",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_set_atlas_source_editor.h",
+    "startLine": 54,
+    "endLine": 60,
+    "unit": "method TileSelection.operator<",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_set_atlas_source_editor.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 0
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_068",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/account_edi_ubl_cii/models/account_edi_ubl_pint.py lines 80-89 (method AccountEdiUBLPint._ubl_add_delivery_nodes); license LGPL-3.0; repo created 2026-06-12T11:06:19+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _ubl_add_delivery_nodes(self, vals):\n    # [ibr-107]-Deliver to information (ibg-13) MUST occur maximum once.\n    super()._ubl_add_delivery_nodes(vals)\n\n    if self._is_document(vals, 'invoice', 'credit_note', 'self_invoice', 'self_credit_note'):\n        document_node = vals['document_node']\n        if document_node['cac:Delivery']:\n            document_node['cac:Delivery'] = document_node['cac:Delivery'][0]\n        else:\n            document_node['cac:Delivery'] = None",
+  "identifiers": [
+    {
+      "name": "vals",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-12T11:06:19+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/account_edi_ubl_cii/models/account_edi_ubl_pint.py",
+    "startLine": 80,
+    "endLine": 89,
+    "unit": "method AccountEdiUBLPint._ubl_add_delivery_nodes",
+    "corpusFile": "corpus/python/odoo__odoo__addons__account_edi_ubl_cii__models__account_edi_ubl_pint.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 5
+}

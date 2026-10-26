@@ -1,0 +1,30 @@
+{
+  "id": "cpp_023",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_data_editors.cpp lines 811-817 (method GenericTilePolygonEditor::set_background_tile); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void GenericTilePolygonEditor::set_background_tile(const TileSetAtlasSource *p_atlas_source, const Vector2 &p_atlas_coords, int p_alternative_id) {\n\tERR_FAIL_NULL(p_atlas_source);\n\tbackground_atlas_source = p_atlas_source;\n\tbackground_atlas_coords = p_atlas_coords;\n\tbackground_alternative_id = p_alternative_id;\n\tbase_control->queue_redraw();\n}",
+  "identifiers": [
+    {
+      "name": "p_atlas_coords",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_data_editors.cpp",
+    "startLine": 811,
+    "endLine": 817,
+    "unit": "method GenericTilePolygonEditor::set_background_tile",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_data_editors.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 25
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_093",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_th/controllers/download_tawi_reports.py lines 5-25 (class TawiReportsDownloadController); license LGPL-3.0; repo created 2026-07-29T06:05:13+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class TawiReportsDownloadController(Controller):\n\n    @route('/l10n_th/download_tawi_reports/<models(\"ir.attachment\"):attachments>', type='http', auth='user')\n    def download_tawi_reports(self, attachments):\n        attachments.check_access('read')\n        assert all(attachment.res_id and attachment.res_model == 'account.payment' for attachment in attachments)\n        if len(attachments) == 1:\n            return request.make_response(attachments.raw.content, [\n                ('Content-Type', attachments.mimetype),\n                ('Content-Length', len(attachments.raw.content)),\n                ('Content-Disposition', content_disposition(attachments.name)),\n                ('X-Content-Type-Options', 'nosniff'),\n            ])\n        filename = request.env._('50_Tawi_Reports') + '.zip'\n        content = attachments._build_zip_from_attachments()\n        return request.make_response(content, [\n            ('Content-Type', 'zip'),\n            ('Content-Length', len(content)),\n            ('Content-Disposition', content_disposition(filename)),\n            ('X-Content-Type-Options', 'nosniff'),\n        ])",
+  "identifiers": [
+    {
+      "name": "attachments",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-07-29T06:05:13+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_th/controllers/download_tawi_reports.py",
+    "startLine": 5,
+    "endLine": 25,
+    "unit": "class TawiReportsDownloadController",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_th__controllers__download_tawi_reports.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

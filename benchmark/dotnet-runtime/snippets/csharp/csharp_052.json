@@ -1,0 +1,30 @@
+{
+  "id": "csharp_052",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.MethodHeaders.Actions.cs lines 240-247 (method GrammarActions.CreateCharMapErrorPInvokeAttribute); license MIT; repo created 2026-10-02T03:59:46+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal CILParser.AttributeValue<MethodImportAttributes>\n    CreateCharMapErrorPInvokeAttribute(IToken setting)\n    => new(\n        setting.Text == \"on\"\n            ? MethodImportAttributes.ThrowOnUnmappableCharEnable\n            : MethodImportAttributes.ThrowOnUnmappableCharDisable,\n        0,\n        true);",
+  "identifiers": [
+    {
+      "name": "CreateCharMapErrorPInvokeAttribute",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-02T03:59:46+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tools/ilasm/src/ILAssembler/Actions/GrammarActions.MethodHeaders.Actions.cs",
+    "startLine": 240,
+    "endLine": 247,
+    "unit": "method GrammarActions.CreateCharMapErrorPInvokeAttribute",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tools__ilasm__src__ILAssembler__Actions__GrammarActions.MethodHeaders.Actions.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 16
+}

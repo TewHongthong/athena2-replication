@@ -1,0 +1,30 @@
+{
+  "id": "py_085",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/http/server.py lines 374-406 (method HTTPBodyReader.readinto); license LGPL-3.0; repo created 2026-06-01T15:52:58+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def readinto(self, buff):\n    if self._buffered is None:  # eof\n        return 0\n\n    if self._buffered:\n        size = min(len(buff), len(self._buffered))\n        buff[:size], self._buffered = self._buffered[:size], self._buffered[size:]\n        return size\n\n    try:  # noqa: PLW0717\n        event = self._conn.next_event()\n        while event is h11.NEED_DATA:\n            try:\n                self._conn.receive_data(self._sock.recv(max(len(buff), RECV_SIZE)))\n            except ConnectionError as exc:\n                exc.loglevel = logging.WARNING\n                raise\n            except TimeoutError as exc:\n                raise RequestTimeout from exc\n            event = self._conn.next_event()\n    except h11.RemoteProtocolError as exc:\n        raise werkzeug_exceptions[exc.error_status_hint] from exc\n\n    if type(event) is h11.EndOfMessage:\n        self._buffered = None  # eof\n        return 0\n\n    assert type(event) is h11.Data, event\n    size = min(len(buff), len(event.data))\n    data = memoryview(event.data)\n    buff[:size] = data[:size]\n    self._buffered = data[size:]\n    return size",
+  "identifiers": [
+    {
+      "name": "buff",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-01T15:52:58+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/http/server.py",
+    "startLine": 374,
+    "endLine": 406,
+    "unit": "method HTTPBodyReader.readinto",
+    "corpusFile": "corpus/python/odoo__odoo__odoo__http__server.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 12
+}

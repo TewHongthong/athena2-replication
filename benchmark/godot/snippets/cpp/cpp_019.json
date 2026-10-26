@@ -1,0 +1,30 @@
+{
+  "id": "cpp_019",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_generator.cpp lines 196-203 (method AudioStreamGeneratorPlayback::start); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamGeneratorPlayback::start(double p_from_pos) {\n\tif (mixed == 0.0) {\n\t\tbegin_resample();\n\t}\n\tskips = 0;\n\tactive = true;\n\tmixed = 0.0;\n}",
+  "identifiers": [
+    {
+      "name": "start",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_generator.cpp",
+    "startLine": 196,
+    "endLine": 203,
+    "unit": "method AudioStreamGeneratorPlayback::start",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_generator.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 19
+}

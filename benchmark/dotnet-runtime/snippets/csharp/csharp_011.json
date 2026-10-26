@@ -1,0 +1,30 @@
+{
+  "id": "csharp_011",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs lines 175-187 (class FactoryActivitySource); license MIT; repo created 2026-06-23T14:06:09+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class FactoryActivitySource : ActivitySource\n{\n    public FactoryActivitySource(ActivitySourceOptions options) : base(options)\n    {\n    }\n\n    public void Release() => base.Dispose(true); // call the protected Dispose(bool)\n\n    protected override void Dispose(bool disposing)\n    {\n        // no-op, disallow users from disposing of the activity sources created by the factory.\n    }\n}",
+  "identifiers": [
+    {
+      "name": "Release",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-23T14:06:09+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs",
+    "startLine": 175,
+    "endLine": 187,
+    "unit": "class FactoryActivitySource",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Microsoft.Extensions.Diagnostics__src__Tracing__DefaultActivitySourceFactory.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 6
+}

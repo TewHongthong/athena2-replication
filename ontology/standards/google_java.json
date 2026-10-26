@@ -1,0 +1,733 @@
+{
+  "standard": {
+    "id": "GOOGLE_JAVA",
+    "type": "Standard",
+    "name": "Google Java Style Guide",
+    "publisher": "Google",
+    "url": "https://google.github.io/styleguide/javaguide.html",
+    "retrievedDate": "2026-09-25",
+    "scopeLanguages": [
+      "java"
+    ]
+  },
+  "namingRules": [
+    {
+      "id": "GJAVA-IDENT-ASCII",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "[^A-Za-z0-9_]"
+      ],
+      "description": "Every identifier, of any kind, may contain only ASCII letters and digits, plus underscores in the small number of cases the guide calls out separately (e.g. constant names, JUnit test method names). No other characters or diacritics are used even where Java would allow them.",
+      "rationale": "Restricting identifiers to ASCII keeps code portable and easy to type, read and search across tools, locales and fonts.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.1 (Rules common to all identifiers)"
+    },
+    {
+      "id": "GJAVA-FIELD-NO-HUNGARIAN",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^m[A-Z]",
+        "^s[A-Z]",
+        "^k[A-Z]",
+        "_$"
+      ],
+      "description": "Field names never encode their scope or type through a prefix or suffix; conventions such as a leading letter to flag a member, static, or constant field, or a trailing underscore, are all out of scope for this style.",
+      "rationale": "Encoding scope/type in the name duplicates information already visible from the declaration's modifiers and type, adding noise without benefit.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.1 (Rules common to all identifiers)"
+    },
+    {
+      "id": "GJAVA-PACKAGE-LOWERCASE",
+      "type": "NamingRule",
+      "identifierKind": "package",
+      "casing": "lowercase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "[A-Z]",
+        "_"
+      ],
+      "description": "A package name is built entirely from lowercase ASCII letters and digits, with no underscores anywhere, and multi-word segments are simply run together instead of separated.",
+      "rationale": "All-lowercase package names avoid case-sensitivity mismatches across filesystems and match long-standing Java conventions.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.1 (Package names)"
+    },
+    {
+      "id": "GJAVA-CLASS-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "class",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-z]",
+        "_"
+      ],
+      "description": "Classes use UpperCamelCase and read as a noun or noun phrase. For a class whose whole purpose is testing some other class, form the name by appending 'Test' to that class's own name (a suite covering PaymentGateway becomes PaymentGatewayTest).",
+      "rationale": "Uniform PascalCase for types lets readers instantly distinguish type names from methods, fields and constants.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.2 (Class names)"
+    },
+    {
+      "id": "GJAVA-INTERFACE-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "interface",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-z]",
+        "_"
+      ],
+      "description": "Interface names follow the same UpperCamelCase convention as classes, but unlike classes may be adjective or adjective-phrase names describing a capability, in addition to noun/noun-phrase names.",
+      "rationale": "Sharing casing with classes keeps all type names visually uniform, while allowing adjective names communicates capability-style interfaces clearly.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.2 (Class names)"
+    },
+    {
+      "id": "GJAVA-ENUM-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "enum",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-z]",
+        "_"
+      ],
+      "description": "Not called out as its own bullet, but since an enum declaration is structurally a kind of class declaration in Java, an enum type's name follows the same UpperCamelCase class-naming convention as an ordinary class.",
+      "rationale": "Treating enum types like classes keeps type-name casing consistent across every kind of type declaration.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.2 (Class names) — extrapolated, not a separate bullet"
+    },
+    {
+      "id": "GJAVA-METHOD-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "method",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[A-Z]",
+        "_"
+      ],
+      "description": "Methods are named in lowerCamelCase, and the name is usually built around a verb or verb phrase describing what the method does.",
+      "rationale": "lowerCamelCase visually separates callable behavior from type names (PascalCase) and constants (UPPER_SNAKE_CASE).",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.3 (Method names)"
+    },
+    {
+      "id": "GJAVA-METHOD-TEST-UNDERSCORE",
+      "type": "NamingRule",
+      "identifierKind": "method",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "JUnit test methods get one carve-out from the usual naming rule: an underscore may separate distinct parts of the scenario under test, provided each part on its own still reads as lowerCamelCase.",
+      "rationale": "Underscore-separated components make a long test-scenario name easier to parse than one run-on camelCase phrase.",
+      "severity": "MAY",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.3 (Method names)"
+    },
+    {
+      "id": "GJAVA-CONSTANT-UPPER-SNAKE",
+      "type": "NamingRule",
+      "identifierKind": "constant",
+      "casing": "UPPER_SNAKE_CASE",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "[a-z]"
+      ],
+      "description": "UPPER_SNAKE_CASE is reserved for genuine constants: static final fields whose value and everything it points to stay unchanged after initialization (primitives, Strings, and other deeply immutable types qualify). A static final field pointing at something mutable, like a list a caller can modify or a Logger, does not meet that bar and takes ordinary field casing instead.",
+      "rationale": "Distinguishing constants from ordinary fields purely by casing signals to readers that the value can never change at runtime.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.4 (Constant names)"
+    },
+    {
+      "id": "GJAVA-FIELD-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[A-Z]",
+        "^[a-z]+_[A-Z]"
+      ],
+      "description": "Outside of true constants, every field, static or per-instance, is named in lowerCamelCase as a noun or noun phrase, static fields included.",
+      "rationale": "Keeping non-constant fields in lowerCamelCase rather than UPPER_SNAKE_CASE makes the constant/non-constant distinction visible from casing alone.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.5 (Non-constant field names)"
+    },
+    {
+      "id": "GJAVA-PARAMETER-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "parameter",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[A-Z]",
+        "_"
+      ],
+      "description": "Parameters, whether on a method or a constructor, follow lowerCamelCase.",
+      "rationale": "Consistent camelCase for parameters matches local variables and keeps call sites readable.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.6 (Parameter names)"
+    },
+    {
+      "id": "GJAVA-PARAMETER-NO-SINGLE-CHAR",
+      "type": "NamingRule",
+      "identifierKind": "parameter",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Public methods should not take parameters named with a single character; give each one a real word or short phrase instead.",
+      "rationale": "A single-letter name gives a caller of a public API no hint about what the argument represents.",
+      "severity": "SHOULD",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.6 (Parameter names)"
+    },
+    {
+      "id": "GJAVA-VARIABLE-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[A-Z]",
+        "_"
+      ],
+      "description": "Local variables are lowerCamelCase across the board. Marking one final and never reassigning it does not turn it into a constant, so it keeps ordinary camelCase rather than switching to UPPER_SNAKE_CASE.",
+      "rationale": "Reserving UPPER_SNAKE_CASE for true constants keeps that casing a reliable signal, uncluttered by merely-final locals.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.7 (Local variable names)"
+    },
+    {
+      "id": "GJAVA-TYPE-PARAM-STYLE",
+      "type": "NamingRule",
+      "identifierKind": "type_parameter",
+      "casing": "custom",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-z]"
+      ],
+      "description": "A generic type parameter takes one of two shapes: a bare capital letter, with an optional trailing digit for a second parameter of a similar kind (as in a pair like K and K2); or, when a descriptive name is clearer, a class-like word ending in a capital 'T' (for example ResultT).",
+      "rationale": "A short, distinct visual form for type parameters keeps them from being mistaken for ordinary type or variable names.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.8 (Type variable names)"
+    },
+    {
+      "id": "GJAVA-ENUM-MEMBER-UPPER-SNAKE",
+      "type": "NamingRule",
+      "identifierKind": "enum_member",
+      "casing": "UPPER_SNAKE_CASE",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "[a-z]"
+      ],
+      "description": "Not called out with its own example in the current text, but an enum constant is an implicitly static, final, immutable instance of its enum type, so it meets the general constant definition and is named in UPPER_SNAKE_CASE like any other constant.",
+      "rationale": "Consistent with treating deeply-immutable static final values as constants regardless of how they are declared.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 5.2.4 (Constant names) — extrapolated, not a separate bullet"
+    }
+  ],
+  "commentRules": [
+    {
+      "id": "GJAVA-JAVADOC-CLASS-REQUIRED",
+      "type": "CommentRule",
+      "identifierKind": "class",
+      "format": "javadoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "the class or interface is public (or otherwise part of the visible API), or is a protected member of a visible class",
+      "description": "At minimum, a Javadoc comment is present for every visible class or interface.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 7.3 (Where Javadoc is used)"
+    },
+    {
+      "id": "GJAVA-JAVADOC-METHOD-REQUIRED",
+      "type": "CommentRule",
+      "identifierKind": "method",
+      "format": "javadoc",
+      "requiredElements": [
+        "summary",
+        "params",
+        "returns",
+        "throws"
+      ],
+      "triggerCondition": "the method is public or protected on a visible class, is not a simple/self-explanatory member with nothing worthwhile to add, and is not an override whose contract is already documented on the supertype method",
+      "description": "Public and protected methods on visible classes carry a Javadoc comment with, as applicable to the signature, a summary, @param entries, an @return entry and @throws entries — in that order, never left with an empty description. The rule relaxes for members simple enough that there is truly nothing else worth saying, and for overrides that inherit their documented contract.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 7.3, § 7.3.1, § 7.3.2 and § 7.1.3"
+    },
+    {
+      "id": "GJAVA-JAVADOC-FIELD-REQUIRED",
+      "type": "CommentRule",
+      "identifierKind": "field",
+      "format": "javadoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "the field is public or protected on a visible class",
+      "description": "Public or protected fields on visible classes carry at least a short Javadoc summary explaining what they represent.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 7.3 (Where Javadoc is used)"
+    },
+    {
+      "id": "GJAVA-JAVADOC-SUMMARY-FRAGMENT",
+      "type": "CommentRule",
+      "identifierKind": "method",
+      "format": "javadoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "any Javadoc block",
+      "description": "Every Javadoc block opens with a brief summary fragment — a noun phrase or verb phrase, not a full sentence, and not a restatement like 'A Foo is a...'. Despite being a fragment, it is still capitalized and ends with a period as if it were a complete sentence.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 7.2 (The summary fragment)"
+    },
+    {
+      "id": "GJAVA-JAVADOC-PARAGRAPHS",
+      "type": "CommentRule",
+      "identifierKind": "class",
+      "format": "javadoc",
+      "requiredElements": [
+        "summary"
+      ],
+      "triggerCondition": "a Javadoc block contains more than one paragraph",
+      "description": "When a Javadoc comment spans more than one paragraph, paragraphs are separated by a genuinely blank documentation line (a line with only the aligned leading asterisk in traditional Javadoc, or a blank line with a leading /// in Markdown Javadoc), and in traditional Javadoc each paragraph after the first opens with a <p> tag placed immediately before its first word.",
+      "severity": "MUST",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 7.1.2 (Paragraphs)"
+    },
+    {
+      "id": "GJAVA-JAVADOC-AS-NEEDED",
+      "type": "CommentRule",
+      "identifierKind": "field",
+      "format": "javadoc",
+      "requiredElements": [],
+      "triggerCondition": "a class, member or record component that is not part of the mandatory-Javadoc set (e.g. a private or package-private member)",
+      "description": "Beyond the mandatory minimum, classes, members and record components may carry Javadoc whenever the author finds it useful ('as needed or desired'); such non-required Javadoc is not strictly held to the formatting rules for general form, paragraphs, block-tag order or the summary-fragment rule, though following them anyway is recommended.",
+      "severity": "MAY",
+      "sourceStandardId": "GOOGLE_JAVA",
+      "sourceSection": "Google Java Style Guide § 7.4 (Non-required Javadoc)"
+    }
+  ],
+  "examples": [
+    {
+      "id": "EX-GJAVA-IDENT-ASCII-1",
+      "type": "Example",
+      "ruleId": "GJAVA-IDENT-ASCII",
+      "code": "int retryCount = 3;",
+      "isCompliant": true,
+      "explanation": "plain ASCII identifier"
+    },
+    {
+      "id": "EX-GJAVA-IDENT-ASCII-2",
+      "type": "Example",
+      "ruleId": "GJAVA-IDENT-ASCII",
+      "code": "int réessais = 3;",
+      "isCompliant": false,
+      "explanation": "contains a non-ASCII character (é)"
+    },
+    {
+      "id": "EX-GJAVA-FIELD-NO-HUNGARIAN-1",
+      "type": "Example",
+      "ruleId": "GJAVA-FIELD-NO-HUNGARIAN",
+      "code": "private int retryCount;",
+      "isCompliant": true,
+      "explanation": "plain field name, no scope-encoding prefix"
+    },
+    {
+      "id": "EX-GJAVA-FIELD-NO-HUNGARIAN-2",
+      "type": "Example",
+      "ruleId": "GJAVA-FIELD-NO-HUNGARIAN",
+      "code": "private int mRetryCount;",
+      "isCompliant": false,
+      "explanation": "Hungarian-style 'm' prefix encoding member scope"
+    },
+    {
+      "id": "EX-GJAVA-PACKAGE-LOWERCASE-1",
+      "type": "Example",
+      "ruleId": "GJAVA-PACKAGE-LOWERCASE",
+      "code": "package com.example.orderservice;",
+      "isCompliant": true,
+      "explanation": "all lowercase, words concatenated"
+    },
+    {
+      "id": "EX-GJAVA-PACKAGE-LOWERCASE-2",
+      "type": "Example",
+      "ruleId": "GJAVA-PACKAGE-LOWERCASE",
+      "code": "package com.example.order_Service;",
+      "isCompliant": false,
+      "explanation": "mixed case and underscore in package segment"
+    },
+    {
+      "id": "EX-GJAVA-CLASS-PASCAL-1",
+      "type": "Example",
+      "ruleId": "GJAVA-CLASS-PASCAL",
+      "code": "class InvoiceGenerator { }",
+      "isCompliant": true,
+      "explanation": "PascalCase noun-phrase class name"
+    },
+    {
+      "id": "EX-GJAVA-CLASS-PASCAL-2",
+      "type": "Example",
+      "ruleId": "GJAVA-CLASS-PASCAL",
+      "code": "class invoice_generator { }",
+      "isCompliant": false,
+      "explanation": "snake_case instead of PascalCase"
+    },
+    {
+      "id": "EX-GJAVA-CLASS-PASCAL-3",
+      "type": "Example",
+      "ruleId": "GJAVA-CLASS-PASCAL",
+      "code": "class InvoiceGeneratorTest { }",
+      "isCompliant": true,
+      "explanation": "test class named after class under test plus 'Test' suffix"
+    },
+    {
+      "id": "EX-GJAVA-INTERFACE-PASCAL-1",
+      "type": "Example",
+      "ruleId": "GJAVA-INTERFACE-PASCAL",
+      "code": "interface PaymentGateway { }",
+      "isCompliant": true,
+      "explanation": "PascalCase noun-phrase interface name"
+    },
+    {
+      "id": "EX-GJAVA-INTERFACE-PASCAL-2",
+      "type": "Example",
+      "ruleId": "GJAVA-INTERFACE-PASCAL",
+      "code": "interface payment_gateway { }",
+      "isCompliant": false,
+      "explanation": "snake_case instead of PascalCase"
+    },
+    {
+      "id": "EX-GJAVA-ENUM-PASCAL-1",
+      "type": "Example",
+      "ruleId": "GJAVA-ENUM-PASCAL",
+      "code": "enum OrderStatus { }",
+      "isCompliant": true,
+      "explanation": "PascalCase enum type name"
+    },
+    {
+      "id": "EX-GJAVA-ENUM-PASCAL-2",
+      "type": "Example",
+      "ruleId": "GJAVA-ENUM-PASCAL",
+      "code": "enum order_status { }",
+      "isCompliant": false,
+      "explanation": "snake_case instead of PascalCase"
+    },
+    {
+      "id": "EX-GJAVA-METHOD-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GJAVA-METHOD-CAMEL",
+      "code": "void sendInvoice() { }",
+      "isCompliant": true,
+      "explanation": "lowerCamelCase verb-phrase method name"
+    },
+    {
+      "id": "EX-GJAVA-METHOD-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GJAVA-METHOD-CAMEL",
+      "code": "void send_invoice() { }",
+      "isCompliant": false,
+      "explanation": "snake_case instead of lowerCamelCase"
+    },
+    {
+      "id": "EX-GJAVA-METHOD-TEST-UNDERSCORE-1",
+      "type": "Example",
+      "ruleId": "GJAVA-METHOD-TEST-UNDERSCORE",
+      "code": "@Test\nvoid refund_returnsFundsToOriginalPaymentMethod() { }",
+      "isCompliant": true,
+      "explanation": "underscore separates scenario from expected outcome, each part still lowerCamelCase"
+    },
+    {
+      "id": "EX-GJAVA-METHOD-TEST-UNDERSCORE-2",
+      "type": "Example",
+      "ruleId": "GJAVA-METHOD-TEST-UNDERSCORE",
+      "code": "@Test\nvoid Refund_ReturnsFunds() { }",
+      "isCompliant": false,
+      "explanation": "components are PascalCase, not lowerCamelCase, even though underscore separation is allowed"
+    },
+    {
+      "id": "EX-GJAVA-CONSTANT-UPPER-SNAKE-1",
+      "type": "Example",
+      "ruleId": "GJAVA-CONSTANT-UPPER-SNAKE",
+      "code": "static final int MAX_RETRIES = 5;",
+      "isCompliant": true,
+      "explanation": "deeply-immutable static final int named UPPER_SNAKE_CASE"
+    },
+    {
+      "id": "EX-GJAVA-CONSTANT-UPPER-SNAKE-2",
+      "type": "Example",
+      "ruleId": "GJAVA-CONSTANT-UPPER-SNAKE",
+      "code": "static final int maxRetries = 5;",
+      "isCompliant": false,
+      "explanation": "true constant styled in lowerCamelCase instead of UPPER_SNAKE_CASE"
+    },
+    {
+      "id": "EX-GJAVA-FIELD-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GJAVA-FIELD-CAMEL",
+      "code": "private int retryCount;",
+      "isCompliant": true,
+      "explanation": "instance field in lowerCamelCase"
+    },
+    {
+      "id": "EX-GJAVA-FIELD-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GJAVA-FIELD-CAMEL",
+      "code": "private static List<String> REGISTERED_NAMES = new ArrayList<>();",
+      "isCompliant": false,
+      "explanation": "mutable static field is not a constant, so UPPER_SNAKE_CASE is wrong; should be registeredNames"
+    },
+    {
+      "id": "EX-GJAVA-PARAMETER-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GJAVA-PARAMETER-CAMEL",
+      "code": "void charge(double amountDue) { }",
+      "isCompliant": true,
+      "explanation": "parameter name in lowerCamelCase"
+    },
+    {
+      "id": "EX-GJAVA-PARAMETER-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GJAVA-PARAMETER-CAMEL",
+      "code": "void charge(double amount_due) { }",
+      "isCompliant": false,
+      "explanation": "snake_case parameter name"
+    },
+    {
+      "id": "EX-GJAVA-PARAMETER-NO-SINGLE-CHAR-1",
+      "type": "Example",
+      "ruleId": "GJAVA-PARAMETER-NO-SINGLE-CHAR",
+      "code": "public void resize(int newWidth, int newHeight) { }",
+      "isCompliant": true,
+      "explanation": "descriptive public-method parameter names"
+    },
+    {
+      "id": "EX-GJAVA-PARAMETER-NO-SINGLE-CHAR-2",
+      "type": "Example",
+      "ruleId": "GJAVA-PARAMETER-NO-SINGLE-CHAR",
+      "code": "public void resize(int w, int h) { }",
+      "isCompliant": false,
+      "explanation": "single-character parameter names on a public method"
+    },
+    {
+      "id": "EX-GJAVA-VARIABLE-CAMEL-1",
+      "type": "Example",
+      "ruleId": "GJAVA-VARIABLE-CAMEL",
+      "code": "final int lineTotal = price * quantity;",
+      "isCompliant": true,
+      "explanation": "final local variable still styled in lowerCamelCase, not as a constant"
+    },
+    {
+      "id": "EX-GJAVA-VARIABLE-CAMEL-2",
+      "type": "Example",
+      "ruleId": "GJAVA-VARIABLE-CAMEL",
+      "code": "final int LINE_TOTAL = price * quantity;",
+      "isCompliant": false,
+      "explanation": "local variable incorrectly styled as if it were a constant"
+    },
+    {
+      "id": "EX-GJAVA-TYPE-PARAM-STYLE-1",
+      "type": "Example",
+      "ruleId": "GJAVA-TYPE-PARAM-STYLE",
+      "code": "class Box<T> { }",
+      "isCompliant": true,
+      "explanation": "single-capital-letter type parameter"
+    },
+    {
+      "id": "EX-GJAVA-TYPE-PARAM-STYLE-2",
+      "type": "Example",
+      "ruleId": "GJAVA-TYPE-PARAM-STYLE",
+      "code": "interface ResponseHandler<ResultT> { }",
+      "isCompliant": true,
+      "explanation": "descriptive class-name-like form ending in capital T"
+    },
+    {
+      "id": "EX-GJAVA-TYPE-PARAM-STYLE-3",
+      "type": "Example",
+      "ruleId": "GJAVA-TYPE-PARAM-STYLE",
+      "code": "class Box<type> { }",
+      "isCompliant": false,
+      "explanation": "lowercase full-word type parameter matches neither accepted form"
+    },
+    {
+      "id": "EX-GJAVA-ENUM-MEMBER-UPPER-SNAKE-1",
+      "type": "Example",
+      "ruleId": "GJAVA-ENUM-MEMBER-UPPER-SNAKE",
+      "code": "enum OrderStatus { PENDING, SHIPPED, DELIVERED }",
+      "isCompliant": true,
+      "explanation": "enum constants in UPPER_SNAKE_CASE"
+    },
+    {
+      "id": "EX-GJAVA-ENUM-MEMBER-UPPER-SNAKE-2",
+      "type": "Example",
+      "ruleId": "GJAVA-ENUM-MEMBER-UPPER-SNAKE",
+      "code": "enum OrderStatus { pending, shipped, delivered }",
+      "isCompliant": false,
+      "explanation": "enum constants in lowercase instead of UPPER_SNAKE_CASE"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-CLASS-REQUIRED-1",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-CLASS-REQUIRED",
+      "code": "/** Generates PDF invoices from order data. */\npublic class InvoiceGenerator { }",
+      "isCompliant": true,
+      "explanation": "public class has a Javadoc summary"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-CLASS-REQUIRED-2",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-CLASS-REQUIRED",
+      "code": "public class InvoiceGenerator { }",
+      "isCompliant": false,
+      "explanation": "public class has no Javadoc at all"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-METHOD-REQUIRED-1",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-METHOD-REQUIRED",
+      "code": "/**\n * Charges the given amount to the customer's default payment method.\n *\n * @param amount the amount to charge, in the account's currency\n * @return a receipt for the completed charge\n * @throws PaymentDeclinedException if the charge is rejected\n */\npublic Receipt charge(Money amount) throws PaymentDeclinedException { ... }",
+      "isCompliant": true,
+      "explanation": "summary plus @param, @return and @throws in the correct order"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-METHOD-REQUIRED-2",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-METHOD-REQUIRED",
+      "code": "public Receipt charge(Money amount) throws PaymentDeclinedException { ... }",
+      "isCompliant": false,
+      "explanation": "public method with parameters and a checked exception has no Javadoc"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-FIELD-REQUIRED-1",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-FIELD-REQUIRED",
+      "code": "/** Maximum number of retry attempts before giving up. */\npublic static final int MAX_RETRIES = 5;",
+      "isCompliant": true,
+      "explanation": "public constant field has a Javadoc summary"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-FIELD-REQUIRED-2",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-FIELD-REQUIRED",
+      "code": "public static final int MAX_RETRIES = 5;",
+      "isCompliant": false,
+      "explanation": "public field has no Javadoc"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-SUMMARY-FRAGMENT-1",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-SUMMARY-FRAGMENT",
+      "code": "/** Returns the customer's current loyalty tier. */",
+      "isCompliant": true,
+      "explanation": "terse verb-phrase summary fragment, capitalized and punctuated"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-SUMMARY-FRAGMENT-2",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-SUMMARY-FRAGMENT",
+      "code": "/** This method returns the customer's current loyalty tier. */",
+      "isCompliant": false,
+      "explanation": "written as a full sentence restating the obvious rather than a terse fragment"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-PARAGRAPHS-1",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-PARAGRAPHS",
+      "code": "/**\n * Parses a currency string into a Money value.\n *\n * <p>Whitespace around the string is ignored.\n */",
+      "isCompliant": true,
+      "explanation": "second paragraph separated by a blank doc line and opened with <p>"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-PARAGRAPHS-2",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-PARAGRAPHS",
+      "code": "/**\n * Parses a currency string into a Money value.\n * Whitespace around the string is ignored.\n */",
+      "isCompliant": false,
+      "explanation": "second paragraph runs on with no blank line or <p> tag"
+    },
+    {
+      "id": "EX-GJAVA-JAVADOC-AS-NEEDED-1",
+      "type": "Example",
+      "ruleId": "GJAVA-JAVADOC-AS-NEEDED",
+      "code": "/** Cache entries older than this are considered stale. */\nprivate static final Duration STALE_AFTER = Duration.ofMinutes(10);",
+      "isCompliant": true,
+      "explanation": "private field is not required to have Javadoc, but the author chose to add it anyway"
+    }
+  ],
+  "coverageGaps": [
+    "The guide does not address boolean-specific naming conventions (e.g. isX/hasX prefixes for boolean methods or fields) anywhere on the page; no boolean_variable rule could be extracted, so that IdentifierKind is omitted entirely.",
+    "Enum type naming (UpperCamelCase) and enum constant naming (UPPER_SNAKE_CASE) are not given their own bullets or examples in the current guide text; both are extrapolated from the general class-naming and constant-naming definitions, flagged accordingly in their sourceSection fields.",
+    "The guide explicitly states there are no specific rules or well-established conventions for naming annotation types — left unaddressed on purpose, not something this extraction omitted by mistake.",
+    "Getter/setter method-naming conventions (get*/set*) are not codified beyond the general 'verb or verb phrase' rule for methods.",
+    "Javadoc's required block tags (@param/@return/@throws) are only mandatory 'as applicable' to the method's actual signature (e.g. a void no-arg method needs neither) — the guide gives no rigid universal checklist.",
+    "The 'Non-required Javadoc' subsection is cited here as § 7.4 per the guide's visible numbering; one fetch of the page returned it as § 7.3.4, so the exact numbering has a small residual uncertainty."
+  ]
+}

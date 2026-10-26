@@ -1,0 +1,30 @@
+{
+  "id": "cpp_071",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_wav.cpp lines 520-526 (method AudioStreamWAV::set_data); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamWAV::set_data(const Vector<uint8_t> &p_data) {\n\tAudioServer::get_singleton()->lock();\n\n\tdata = p_data;\n\n\tAudioServer::get_singleton()->unlock();\n}",
+  "identifiers": [
+    {
+      "name": "set_data",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_wav.cpp",
+    "startLine": 520,
+    "endLine": 526,
+    "unit": "method AudioStreamWAV::set_data",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_wav.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 30
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_029",
+  "language": "cpp",
+  "originalName": "err",
+  "injectedName": "ERR",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ERR' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void RemoteDebuggerPeerMessagePort::on_debug_message(void *p_ref, const uint8_t *p_buffer, size_t p_len) {\n\tRemoteDebuggerPeerMessagePort *peer = static_cast<RemoteDebuggerPeerMessagePort *>(p_ref);\n\tERR_FAIL_COND(peer->in_queue.size() >= peer->max_queued_messages);\n\tVariant var;\n\tError ERR = decode_variant(var, p_buffer, p_len);\n\tERR_FAIL_COND(ERR != OK);\n\tERR_FAIL_COND(var.get_type() != Variant::ARRAY);\n\tpeer->in_queue.push_back(var);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

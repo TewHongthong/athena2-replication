@@ -1,0 +1,30 @@
+{
+  "id": "csharp_064",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Legacy/Dbi/Helpers/RefWalk.cs lines 34-54 (method RefWalk.Walk); license MIT; repo created 2026-06-24T18:37:53-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private IEnumerable<DacGcReference> Walk()\n{\n    if (_handleWalkMask != 0)\n    {\n        foreach (DacGcReference reference in WalkHandles())\n            yield return reference;\n    }\n\n    // External memory handles are strong roots, but are stored independently of the GC handle table.\n    if (_handleWalkMask.HasFlag(CorGCReferenceType.CorHandleStrong))\n    {\n        foreach (DacGcReference reference in WalkExternalMemoryHandles())\n            yield return reference;\n    }\n\n    if (_walkStacks)\n    {\n        foreach (DacGcReference reference in WalkStacks())\n            yield return reference;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "Walk",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-24T18:37:53-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Legacy/Dbi/Helpers/RefWalk.cs",
+    "startLine": 34,
+    "endLine": 54,
+    "unit": "method RefWalk.Walk",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Legacy__Dbi__Helpers__RefWalk.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 2
+}

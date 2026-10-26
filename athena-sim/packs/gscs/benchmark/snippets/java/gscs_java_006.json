@@ -1,0 +1,45 @@
+{
+  "id": "gscs_java_006",
+  "language": "java",
+  "source": "authored:gscs-seed",
+  "sourceDetail": "hand-authored seed written to follow the GSCS document; not real-world code",
+  "standardId": "GSCS",
+  "split": "dev",
+  "codeContext": "class word_Type {\n    /* Function Objective: Count the vowels of a word\n       Input parameters : str_word (string) the word to check\n       Function description: Walk through the characters of the word and count every vowel\n       Return Value : int number of vowels\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    static int i_Count_Vowels(String str_word) {\n        final String VOWEL_LIST = \"aeiou\";\n        int i_vowel_total = 0;\n        // check every character of the word\n        for (int i_pos = 0; i_pos < str_word.length(); i_pos++) {\n            // check whether the character is a vowel\n            if (VOWEL_LIST.indexOf(str_word.charAt(i_pos)) >= 0) {\n                i_vowel_total = i_vowel_total + 1;\n            }\n            // else the character is not a vowel, skip it\n            else {\n                i_vowel_total = i_vowel_total + 0;\n            }\n        }\n        return i_vowel_total;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "word_Type",
+      "kind": "class",
+      "isCompliant": true
+    },
+    {
+      "name": "i_Count_Vowels",
+      "kind": "function",
+      "isCompliant": true
+    },
+    {
+      "name": "str_word",
+      "kind": "parameter",
+      "isCompliant": true
+    },
+    {
+      "name": "VOWEL_LIST",
+      "kind": "constant",
+      "isCompliant": true
+    },
+    {
+      "name": "i_vowel_total",
+      "kind": "variable",
+      "isCompliant": true
+    },
+    {
+      "name": "i_pos",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "authored": "2026-09-28",
+    "license": "project-internal"
+  }
+}

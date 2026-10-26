@@ -1,0 +1,30 @@
+{
+  "id": "cpp_020",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/openxr/scene/openxr_foveated_inset_viewport.cpp lines 62-71 (method OpenXRFoveatedInsetViewport::~OpenXRFoveatedInsetViewport); license MIT; repo created 2026-09-11T14:49:03+10:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "OpenXRFoveatedInsetViewport::~OpenXRFoveatedInsetViewport() {\n\tOpenXRFoveatedInsetExtension *fi_ext = OpenXRFoveatedInsetExtension::get_singleton();\n\tif (!fi_ext) {\n\t\t// Silently fail, this is likely being called after we instantiated our class for\n\t\t// populating ClassDB.\n\t\treturn;\n\t}\n\n\tfi_ext->unregister_viewport(get_viewport_rid());\n}",
+  "identifiers": [
+    {
+      "name": "fi_ext",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-11T14:49:03+10:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/openxr/scene/openxr_foveated_inset_viewport.cpp",
+    "startLine": 62,
+    "endLine": 71,
+    "unit": "method OpenXRFoveatedInsetViewport::~OpenXRFoveatedInsetViewport",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__openxr__scene__openxr_foveated_inset_viewport.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 1
+}

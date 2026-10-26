@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_072",
+  "language": "cpp",
+  "originalName": "get_stats",
+  "injectedName": "GET_STATS",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'GET_STATS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void MetalHeapAllocator::GET_STATS(MetalAllocatorStats &r_stats) {\n\tfor (uint32_t p = 0; p < POOL_COUNT; p++) {\n\t\tSpinLockGuard lock(pools[p].mutex);\n\t\tr_stats.pools[p] = pools[p].stats;\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

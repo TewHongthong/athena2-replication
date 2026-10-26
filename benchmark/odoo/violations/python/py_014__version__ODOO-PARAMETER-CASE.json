@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_014",
+  "language": "python",
+  "originalName": "version",
+  "injectedName": "VERSION",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VERSION' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def migrate(cr, VERSION):\n    env = api.Environment(cr, SUPERUSER_ID, {})\n    env['account.report.expression'].search([\n        ('label', '=', 'balance'),\n        ('report_line_id.code', 'in', [f'VL{n}' for n in (3, 4, 32, 33)]),\n        ('report_line_id.report_id.name', '=', 'VL VAT Report'),\n    ]).unlink()",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "csharp_057",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ExecutionManager/Helpers/WasmFunctionTableIndexLookup.cs lines 109-121 (method WasmFunctionTableIndexLookup.TryGetUnwindData); license MIT; repo created 2026-09-29T20:49:01+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public bool TryGetUnwindData(uint functionTableIndex, out TargetPointer unwindDataAddress)\n{\n    unwindDataAddress = TargetPointer.Null;\n    Data.FunctionTableIndexRangeSection? section = FindSection(functionTableIndex);\n    if (section is null)\n        return false;\n\n    Data.ReadyToRunInfo r2rInfo = GetReadyToRunInfo(section);\n    uint localIndex = functionTableIndex - section.MinFunctionTableIndex;\n    Data.RuntimeFunction runtimeFunction = GetRuntimeFunction(r2rInfo, localIndex);\n    unwindDataAddress = new TargetPointer(r2rInfo.LoadedImageBase.Value + runtimeFunction.UnwindData);\n    return true;\n}",
+  "identifiers": [
+    {
+      "name": "TryGetUnwindData",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-29T20:49:01+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ExecutionManager/Helpers/WasmFunctionTableIndexLookup.cs",
+    "startLine": 109,
+    "endLine": 121,
+    "unit": "method WasmFunctionTableIndexLookup.TryGetUnwindData",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__ExecutionManager__Helpers__WasmFunctionTableIndexLookup.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 7
+}

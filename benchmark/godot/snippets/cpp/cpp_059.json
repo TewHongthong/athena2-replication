@@ -1,0 +1,30 @@
+{
+  "id": "cpp_059",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/visual_shader/shader_graph.cpp lines 1140-1149 (method ShaderGraph::attach_node_to_frame); license MIT; repo created 2026-08-25T02:46:01+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void ShaderGraph::attach_node_to_frame(int p_node, int p_frame) {\n\tERR_FAIL_COND(!nodes.has(p_node));\n\n\tnodes[p_node].node->set_frame(p_frame);\n\n\tRef<VisualShaderNodeFrame> vsnode_frame = nodes[p_frame].node;\n\tif (vsnode_frame.is_valid()) {\n\t\tvsnode_frame->add_attached_node(p_node);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_frame",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-25T02:46:01+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/visual_shader/shader_graph.cpp",
+    "startLine": 1140,
+    "endLine": 1149,
+    "unit": "method ShaderGraph::attach_node_to_frame",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__visual_shader__shader_graph.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 24
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_004",
+  "language": "cpp",
+  "originalName": "p_tiling_multiplier",
+  "injectedName": "P_TILING_MULTIPLIER",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_TILING_MULTIPLIER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void Trail3D::set_tiling_multiplier(float P_TILING_MULTIPLIER) {\n\tif (P_TILING_MULTIPLIER != tiling_multiplier) {\n\t\t_needs_rebuilding = true;\n\t}\n\ttiling_multiplier = P_TILING_MULTIPLIER;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

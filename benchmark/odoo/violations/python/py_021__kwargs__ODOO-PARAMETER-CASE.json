@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_021",
+  "language": "python",
+  "originalName": "kwargs",
+  "injectedName": "KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _check_delivery_address(self, **KWARGS):\n    \"\"\"Override of `website_sale`to check that the shipping address is compliant with Gelato.\n\n    :param res.partner partner_sudo: The partner whose delivery address to check.\n    :return: Whether all checked fields are within length limit.\n    :rtype: bool\n    \"\"\"\n    res = super()._check_delivery_address(**KWARGS)\n    order_sudo = KWARGS.get(\"order_sudo\")\n    if not res or not order_sudo:\n        return res\n\n    if any(order_sudo.order_line.product_id.mapped(\"gelato_product_uid\")):\n        try:\n            self._gelato_check_address_length_limit()\n        except ValidationError:\n            return False\n    return True",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

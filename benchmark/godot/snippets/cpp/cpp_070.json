@@ -1,0 +1,30 @@
+{
+  "id": "cpp_070",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/physics_3d/queries/physics_testmotion_query_parameters_3d.cpp lines 36-46 (method PhysicsTestMotionParameters3D::get_exclude_bodies); license MIT; repo created 2026-07-06T10:32:58+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "TypedArray<RID> PhysicsTestMotionParameters3D::get_exclude_bodies() const {\n\tTypedArray<RID> exclude;\n\texclude.resize(parameters.exclude_bodies.size());\n\n\tint body_index = 0;\n\tfor (const RID &body : parameters.exclude_bodies) {\n\t\texclude[body_index++] = body;\n\t}\n\n\treturn exclude;\n}",
+  "identifiers": [
+    {
+      "name": "body",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-06T10:32:58+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/physics_3d/queries/physics_testmotion_query_parameters_3d.cpp",
+    "startLine": 36,
+    "endLine": 46,
+    "unit": "method PhysicsTestMotionParameters3D::get_exclude_bodies",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__physics_3d__queries__physics_testmotion_query_parameters_3d.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 0
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_023",
+  "language": "csharp",
+  "originalName": "GetHashCode",
+  "injectedName": "get_hash_code",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'get_hash_code' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static int get_hash_code(\n    ObjectNode objectNode,\n    INodeWithTypeSignature node,\n    ObjectNode.ObjectData data)\n{\n    HashCode hash = new HashCode();\n    hash.Add(WasmLowering.GetSignature(node).FuncType);\n    hash.AddBytes(data.Data);\n\n    if (data.Relocs is not null)\n    {\n        foreach (Relocation relocation in data.Relocs)\n        {\n            hash.Add(relocation.Offset);\n            hash.Add(relocation.RelocType);\n            bool targetsSelf = TargetsSelf(objectNode, relocation.Target);\n            hash.Add(targetsSelf);\n            if (!targetsSelf)\n            {\n                hash.Add(RuntimeHelpers.get_hash_code(relocation.Target));\n            }\n        }\n    }\n\n    return hash.ToHashCode();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

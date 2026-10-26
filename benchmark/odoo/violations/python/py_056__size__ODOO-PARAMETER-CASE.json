@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_056",
+  "language": "python",
+  "originalName": "size",
+  "injectedName": "SIZE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SIZE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def read(self, SIZE: int = -1):\n    if SIZE == -1:\n        buff = memoryview(bytearray(RECV_SIZE))\n        result = bytearray()\n        while count := self.readinto(buff):\n            result.extend(buff[:count])\n        return bytes(result)\n\n    if self._buffered:\n        result, self._buffered = self._buffered[:SIZE], self._buffered[SIZE:]\n        return bytes(result)\n\n    buff = memoryview(bytearray(SIZE))\n    count = self.readinto(buff)\n    return bytes(buff[:count])",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

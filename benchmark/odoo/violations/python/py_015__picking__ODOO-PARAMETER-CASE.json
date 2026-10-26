@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_015",
+  "language": "python",
+  "originalName": "picking",
+  "injectedName": "PICKING",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'PICKING' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _create_stock_moves(self, PICKING=False):\n    \"\"\"\n        There is no bridge module between project_purchase_stock and\n        mrp_subcontracting, so we have passed the context here. The project\n        is used while creating the Resupply.\n    \"\"\"\n    stock_moves = super()._create_stock_moves(PICKING)\n    if project := PICKING.project_id if PICKING else self.order_id.project_id:\n        return stock_moves.with_context(project_id=project.id)\n    return stock_moves",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

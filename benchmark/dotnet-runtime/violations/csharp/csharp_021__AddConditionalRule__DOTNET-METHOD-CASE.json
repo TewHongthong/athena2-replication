@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_021",
+  "language": "csharp",
+  "originalName": "AddConditionalRule",
+  "injectedName": "add_conditional_rule",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'add_conditional_rule' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public void add_conditional_rule(string depender, string otherdepender, string dependedOn, string reason)\n{\n    HashSet<Tuple<string, Tuple<string, string>>> knownEdges = null;\n    if (!_staticConditionalRules.TryGetValue(depender, out knownEdges))\n    {\n        knownEdges = new HashSet<Tuple<string, Tuple<string, string>>>();\n        _staticConditionalRules[depender] = knownEdges;\n    }\n\n    knownEdges.Add(new Tuple<string, Tuple<string, string>>(dependedOn, new Tuple<string,string>(otherdepender, reason)));\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

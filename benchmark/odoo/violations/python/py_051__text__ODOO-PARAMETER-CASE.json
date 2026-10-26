@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_051",
+  "language": "python",
+  "originalName": "text",
+  "injectedName": "TEXT",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TEXT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class PosSession(models.Model):\n    _inherit = \"pos.session\"\n\n    def l10n_tw_edi_check_mobile_barcode(self, TEXT):\n        self.ensure_one()\n        json_data = {\n            \"MerchantID\": self.company_id.sudo().l10n_tw_edi_ecpay_merchant_id,\n            \"BarCode\": TEXT,\n        }\n        response_data = call_ecpay_api(\"/CheckBarcode\", json_data, self.company_id)\n        if response_data.get(\"RtnCode\") != 1 or response_data.get(\"IsExist\") != \"Y\":\n            raise UserError(self.env._(\"Mobile barcode is invalid!\"))\n\n    def l10n_tw_edi_check_love_code(self, TEXT):\n        self.ensure_one()\n        json_data = {\n            \"MerchantID\": self.company_id.sudo().l10n_tw_edi_ecpay_merchant_id,\n            \"LoveCode\": TEXT,\n        }\n\n        response_data = call_ecpay_api(\"/CheckLoveCode\", json_data, self.company_id)\n        if response_data.get(\"RtnCode\") != 1 or response_data.get(\"IsExist\") != \"Y\":\n            raise UserError(self.env._(\"Love code is invalid!\"))",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

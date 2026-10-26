@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_068",
+  "language": "cpp",
+  "originalName": "on_state_loss_pending",
+  "injectedName": "ON_STATE_LOSS_PENDING",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ON_STATE_LOSS_PENDING' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void OpenXRSpatialContainerExtension::ON_STATE_LOSS_PENDING() {\n\tif (!is_enabled()) {\n\t\treturn;\n\t}\n\n\tdestroy_spatial_container();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

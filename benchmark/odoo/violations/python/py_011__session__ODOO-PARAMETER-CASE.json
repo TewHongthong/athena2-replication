@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_011",
+  "language": "python",
+  "originalName": "session",
+  "injectedName": "SESSION",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SESSION' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@contextmanager\ndef populate_session_lock(SESSION: Session):\n    \"\"\"Acquire the advisory lock that prevents concurrent execution of a session.\n\n    :param session: Singleton session to protect.\n    :return: Context manager that releases the lock on exit.\n    :raise LockError: If another transaction already holds the session lock.\n    \"\"\"\n    SESSION.ensure_one()\n    lock_key = SESSION._running_lock_key()\n    if not SESSION.env.execute_query(SQL(\n        'SELECT pg_try_advisory_lock(hashtext(%s), %s)',\n        *lock_key,\n    ))[0][0]:\n        raise LockError(SESSION.env._(\"Cannot grab the advisory lock on the session %s.\", SESSION.id))\n\n    try:\n        yield\n    finally:\n        SESSION.env.execute_query(SQL(\n            'SELECT pg_advisory_unlock(hashtext(%s), %s)',\n            *lock_key,\n        ))",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

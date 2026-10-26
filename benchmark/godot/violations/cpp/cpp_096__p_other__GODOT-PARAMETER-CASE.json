@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_096",
+  "language": "cpp",
+  "originalName": "p_other",
+  "injectedName": "P_OTHER",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_OTHER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "StreamingState(const StreamingState &P_OTHER) {\n\ttexture = P_OTHER.texture;\n\twidth = P_OTHER.width;\n\theight = P_OTHER.height;\n\tformat = P_OTHER.format;\n\treload_callable = P_OTHER.reload_callable;\n\tmin_lod_override = P_OTHER.min_lod_override;\n\tmax_lod_override = P_OTHER.max_lod_override;\n\tfeedback_mip = P_OTHER.feedback_mip;\n\trequest_mip = P_OTHER.request_mip;\n\tfit_mip = P_OTHER.fit_mip.load(std::memory_order_relaxed);\n\tcurrent_mip = P_OTHER.current_mip.load(std::memory_order_relaxed);\n\tpending_reload_mip = P_OTHER.pending_reload_mip.load(std::memory_order_relaxed);\n\tremoving = P_OTHER.removing.load(std::memory_order_relaxed);\n\trequested_tick_msec = P_OTHER.requested_tick_msec;\n}",
+  "occurrencesRenamed": 15,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

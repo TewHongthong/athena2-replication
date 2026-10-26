@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_030",
+  "language": "csharp",
+  "originalName": "UpdateRules",
+  "injectedName": "update_rules",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'update_rules' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private void update_rules(TracingOptions options, bool overwrite = true)\n{\n    if (Volatile.Read(ref _disposed))\n    {\n        return;\n    }\n\n    List<TracingRule> rules = options.Rules;\n    foreach (ActivityListenerRegistration registration in _listenerRegistrations)\n    {\n        registration.update_rules(rules, overwrite);\n    }\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

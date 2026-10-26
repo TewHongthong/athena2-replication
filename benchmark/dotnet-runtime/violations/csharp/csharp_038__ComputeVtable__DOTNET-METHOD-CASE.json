@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_038",
+  "language": "csharp",
+  "originalName": "ComputeVtable",
+  "injectedName": "compute_vtable",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'compute_vtable' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private (MethodDesc Slot, MethodDesc Implementation)[] compute_vtable(TypeDesc type)\n{\n    // Do not recompute the same things for all the generics\n    Debug.Assert(type.IsTypeDefinition);\n\n    var result = new ArrayBuilder<(MethodDesc Slot, MethodDesc Implementation)>(3 /* At least Equals/GetHashCode/ToString */);\n\n    foreach (MethodDesc slotDecl in base.ComputeAllVirtualSlots(type))\n    {\n        result.Add((slotDecl, base.FindVirtualFunctionTargetMethodOnObjectType(slotDecl, type)));\n    }\n\n    return result.ToArray();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

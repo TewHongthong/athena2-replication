@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_034",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _cii_get_specified_trade_settlement_header_monetary_summary_node(self, VALS):\n    node = {}\n    sub_vals = {\n        **VALS,\n        'monetary_summation_node': node,\n    }\n    self._cii_add_monetary_summation_line_total_amount_node(sub_vals)\n    self._cii_add_monetary_summation_tax_basis_total_amount_node(sub_vals)\n    self._cii_add_monetary_summation_tax_total_amount_node(sub_vals)\n    self._cii_add_monetary_summation_rounding_amount_node(sub_vals)\n    self._cii_add_monetary_summation_grand_total_amount_node(sub_vals)\n    self._cii_add_monetary_summation_total_prepaid_amount(sub_vals)\n    self._cii_add_monetary_summation_due_payable_amount_node(sub_vals)\n    return node",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

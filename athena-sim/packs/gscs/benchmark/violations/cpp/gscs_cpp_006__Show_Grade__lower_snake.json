@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_006",
+  "language": "cpp",
+  "originalName": "Show_Grade",
+  "injectedName": "show_grade",
+  "identifierKind": "procedure",
+  "violatedRuleId": "GSCS-PROC-VERB-OBJECT",
+  "injectionMethod": "lower_snake",
+  "split": "dev",
+  "expectedViolationReasons": [
+    "name 'show_grade' matches forbidden pattern '^(?![A-Z][a-z0-9]*_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "#include <iostream>\n/* Function Objective: Print pass or fail for a score\n   Input parameters : f_score_point (float) the score of a student\n   Function description: Print pass when the score reaches the pass point, otherwise print fail\n   Return Value : void\n   Created By : Programmer A\n   Create Date: 2026-09-28\n   Revised By:\n   Revised Date:\n*/\nvoid show_grade(float f_score_point) {\n    const float PASS_POINT = 50.0f;\n    bool bln_Has_Passed = f_score_point >= PASS_POINT;\n    // check whether the score reaches the pass point\n    if (bln_Has_Passed) {\n        std::cout << \"pass\" << std::endl;\n    }\n    // else the score is below the pass point\n    else {\n        std::cout << \"fail\" << std::endl;\n    }\n}",
+  "occurrencesRenamed": 1
+}

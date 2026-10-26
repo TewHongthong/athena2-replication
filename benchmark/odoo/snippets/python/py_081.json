@@ -1,0 +1,30 @@
+{
+  "id": "py_081",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/crm/models/discuss_channel.py lines 10-23 (method DiscussChannel._prepare_lead_create_values); license LGPL-3.0; repo created 2026-09-02T18:54:14+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _prepare_lead_create_values(self, partner, key):\n    \"\"\"Hook to prepare lead creation values from a discuss channel.\n\n    :param partner: internal user partner (operator) that created the lead;\n    :param key: operator input in chat ('/lead Lead about Product')\n    \"\"\"\n    self.ensure_one()\n    values = {\n        \"name\": html2plaintext(key[5:]),  # remove the leading '/lead' part\n        \"user_id\": False,\n        \"team_id\": False,\n        \"referred\": partner.name,\n    }\n    return values",
+  "identifiers": [
+    {
+      "name": "key",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-02T18:54:14+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/crm/models/discuss_channel.py",
+    "startLine": 10,
+    "endLine": 23,
+    "unit": "method DiscussChannel._prepare_lead_create_values",
+    "corpusFile": "corpus/python/odoo__odoo__addons__crm__models__discuss_channel.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

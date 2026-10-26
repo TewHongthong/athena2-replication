@@ -1,0 +1,30 @@
+{
+  "id": "csharp_017",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/tools/CdacUsageGraph/src/CdacUsageGraph/Semantic/CdacAttributeMatcher.cs lines 141-155 (method CdacAttributeMatcher.GetAttributes); license MIT; repo created 2026-07-24T02:06:51+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static IEnumerable<AttributeData> GetAttributes(ISymbol member)\n{\n    HashSet<ISymbol> visited = new(SymbolEqualityComparer.Default);\n    foreach (ISymbol symbol in GetRelatedSymbols(member))\n    {\n        foreach (ISymbol part in GetParts(symbol))\n        {\n            if (!visited.Add(part))\n                continue;\n\n            foreach (AttributeData attribute in part.GetAttributes())\n                yield return attribute;\n        }\n    }\n}",
+  "identifiers": [
+    {
+      "name": "GetAttributes",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-24T02:06:51+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/tools/CdacUsageGraph/src/CdacUsageGraph/Semantic/CdacAttributeMatcher.cs",
+    "startLine": 141,
+    "endLine": 155,
+    "unit": "method CdacAttributeMatcher.GetAttributes",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__tools__CdacUsageGraph__src__CdacUsageGraph__Semantic__CdacAttributeMatcher.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 11
+}

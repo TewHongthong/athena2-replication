@@ -1,0 +1,30 @@
+{
+  "id": "csharp_072",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.cs lines 2247-2269 (method Number.QuantumDecimalIeee754); license MIT; repo created 2026-07-03T10:54:18-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal static TValue QuantumDecimalIeee754<TDecimal, TValue>(TValue bits)\n    where TDecimal : unmanaged, IDecimalIeee754ParseAndFormatInfo<TDecimal, TValue>\n    where TValue : unmanaged, IBinaryInteger<TValue>\n{\n    // This code is based on `bid32_quantum`, `bid64_quantum`, and `bid128_quantum` from Intel(R) Decimal Floating-Point Math Library\n    // Copyright (c) 2007-2025, Intel Corp. All rights reserved.\n    //\n    // Licensed under the BSD 3-Clause \"New\" or \"Revised\" License\n    // See THIRD-PARTY-NOTICES.TXT for the full license text\n\n    if (TDecimal.IsNaN(bits))\n    {\n        return PropagateNaN<TDecimal, TValue>(bits, bits);\n    }\n\n    if (TDecimal.IsInfinity(bits))\n    {\n        return TDecimal.PositiveInfinity;\n    }\n\n    DecodedDecimalIeee754<TValue> a = UnpackDecimalIeee754<TDecimal, TValue>(bits);\n    return DecimalIeee754FiniteNumberBinaryEncoding<TDecimal, TValue>(signed: false, TValue.One, a.UnbiasedExponent);\n}",
+  "identifiers": [
+    {
+      "name": "QuantumDecimalIeee754",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-03T10:54:18-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.cs",
+    "startLine": 2247,
+    "endLine": 2269,
+    "unit": "method Number.QuantumDecimalIeee754",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Private.CoreLib__src__System__Number.DecimalIeee754.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 36
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_071",
+  "language": "cpp",
+  "originalName": "set_data",
+  "injectedName": "SET_DATA",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SET_DATA' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AudioStreamWAV::SET_DATA(const Vector<uint8_t> &p_data) {\n\tAudioServer::get_singleton()->lock();\n\n\tdata = p_data;\n\n\tAudioServer::get_singleton()->unlock();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

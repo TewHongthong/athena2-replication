@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_097",
+  "language": "cpp",
+  "originalName": "physics_servers",
+  "injectedName": "PHYSICS_SERVERS",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'PHYSICS_SERVERS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void PhysicsServer2DManager::on_servers_changed() {\n\tString PHYSICS_SERVERS(\"DEFAULT\");\n\tfor (int i = get_servers_count() - 1; 0 <= i; --i) {\n\t\tPHYSICS_SERVERS += \",\" + get_server_name(i);\n\t}\n\tProjectSettings::get_singleton()->set_custom_property_info(PropertyInfo(Variant::STRING, setting_property_name, PROPERTY_HINT_ENUM, PHYSICS_SERVERS));\n\tProjectSettings::get_singleton()->set_restart_if_changed(setting_property_name, true);\n\tProjectSettings::get_singleton()->set_as_basic(setting_property_name, true);\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

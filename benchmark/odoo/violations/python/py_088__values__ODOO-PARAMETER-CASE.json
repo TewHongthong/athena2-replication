@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_088",
+  "language": "python",
+  "originalName": "values",
+  "injectedName": "VALUES",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALUES' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _check_modify_event_permission(self, VALUES):\n    \"\"\" Check if event modification attempt by attendee is valid to avoid duplicate events creation. \"\"\"\n    # Edge case: when restarting the synchronization, guests can write 'need_sync=True' on events.\n    google_sync_restart = VALUES.get('need_sync') and len(VALUES)\n    # Edge case 2: when resetting an account, we must be able to erase the event's google_id.\n    skip_event_permission = self.env.context.get('skip_event_permission', False)\n    # Edge case 3: check if event is synchronizable in order to make sure the error is worth it.\n    is_synchronizable = self._check_values_to_sync(VALUES)\n    # Edge case 4: archiving an event should always be allowed.\n    archiving = 'active' in VALUES and not VALUES['active']\n    if google_sync_restart or skip_event_permission or not is_synchronizable or archiving:\n        return\n    if any(event.guests_readonly and self.env.user.id != event.user_id.id for event in self):\n        raise ValidationError(\n            _(\"The following event can only be updated by the organizer \"\n            \"according to the event permissions set on Google Calendar.\")\n        )",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

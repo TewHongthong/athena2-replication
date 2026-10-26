@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_099",
+  "language": "cpp",
+  "originalName": "enum_qualified_name_to_class_info_name",
+  "injectedName": "ENUM_QUALIFIED_NAME_TO_CLASS_INFO_NAME",
+  "identifierKind": "function",
+  "violatedRuleId": "GODOT-FUNCTION-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ENUM_QUALIFIED_NAME_TO_CLASS_INFO_NAME' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "String ENUM_QUALIFIED_NAME_TO_CLASS_INFO_NAME(const char *p_qualified_name) {\n\tVector<String> parts = String(p_qualified_name).split(\"::\", false);\n\tif (parts.size() <= 2) {\n\t\treturn String(\".\").join(parts);\n\t}\n\t// Contains namespace. We only want the class and enum names.\n\treturn parts[parts.size() - 2] + \".\" + parts[parts.size() - 1];\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

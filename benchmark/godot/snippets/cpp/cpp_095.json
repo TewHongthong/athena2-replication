@@ -1,0 +1,30 @@
+{
+  "id": "cpp_095",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_atlas_view.h lines 152-160 (method TileAtlasView.add_control_over_alternative_tiles); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void add_control_over_alternative_tiles(Control *p_control, bool scaled = true) {\n\tif (scaled) {\n\t\talternative_tiles_drawing_root->add_child(p_control);\n\t} else {\n\t\talternative_tiles_root_control->add_child(p_control);\n\t}\n\tp_control->set_anchors_and_offsets_preset(Control::PRESET_FULL_RECT);\n\tp_control->set_mouse_filter(Control::MOUSE_FILTER_PASS);\n}",
+  "identifiers": [
+    {
+      "name": "p_control",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_atlas_view.h",
+    "startLine": 152,
+    "endLine": 160,
+    "unit": "method TileAtlasView.add_control_over_alternative_tiles",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_atlas_view.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 3
+}

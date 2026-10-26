@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_037",
+  "language": "csharp",
+  "originalName": "LabeledExpand",
+  "injectedName": "labeled_expand",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'labeled_expand' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "protected void labeled_expand(\n    ReadOnlySpan<byte> prk,\n    ReadOnlySpan<byte> label,\n    ReadOnlySpan<byte> info,\n    Span<byte> output)\n{\n    Debug.Assert(KeyDerivationKdf.IsTwoStage);\n    Debug.Assert(prk.Length == KeyDerivationKdf.Nh);\n    Debug.Assert(output.Length <= ushort.MaxValue);\n\n    ReadOnlySpan<byte> suiteId = Suite.KemMetadata.SuiteId;\n    int labeledInfoLength =\n        checked(sizeof(ushort) + VersionLabel.Length + suiteId.Length + label.Length + info.Length);\n    const int MaxStackLabeledInfoLength = 512;\n    Span<byte> labeledInfoBuffer = stackalloc byte[MaxStackLabeledInfoLength];\n    Span<byte> destination = labeledInfoBuffer.Slice(0, labeledInfoLength);\n    BinaryPrimitives.WriteUInt16BigEndian(destination, checked((ushort)output.Length));\n    int offset = sizeof(ushort);\n    VersionLabel.CopyTo(destination.Slice(offset));\n    offset += VersionLabel.Length;\n    suiteId.CopyTo(destination.Slice(offset));\n    offset += suiteId.Length;\n    label.CopyTo(destination.Slice(offset));\n    offset += label.Length;\n    info.CopyTo(destination.Slice(offset));\n\n    HKDF.Expand(KeyDerivationKdf.HkdfHashAlgorithm, prk, output, destination);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

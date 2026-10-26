@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_024",
+  "language": "csharp",
+  "originalName": "ProcessEventSourceDirective",
+  "injectedName": "process_event_source_directive",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'process_event_source_directive' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal void process_event_source_directive(\n    CILParser.EventBodyValue body,\n    CILParser.ExtSourceSpecContext context)\n{\n    _ = body;\n    _ = context;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

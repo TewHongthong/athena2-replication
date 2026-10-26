@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_007",
+  "language": "python",
+  "originalName": "basic_receipt",
+  "injectedName": "BASIC_RECEIPT",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'BASIC_RECEIPT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def order_receipt_generate_data(self, BASIC_RECEIPT=False):\n    data = super().order_receipt_generate_data(BASIC_RECEIPT)\n    if self.company_id.account_fiscal_country_id.code == 'PE' and self.partner_id:\n        identifier_vals = self.partner_id._get_preferred_legal_entity_identifier_vals()\n        if value := identifier_vals.get('value'):\n            data['partner']['vat'] = value\n            if label := identifier_vals.get('label'):\n                data['extra_data']['partner_vat_label'] = str(label)\n    return data",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

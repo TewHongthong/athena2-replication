@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_082",
+  "language": "python",
+  "originalName": "attrs",
+  "injectedName": "ATTRS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ATTRS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "@classmethod\ndef convert_to_kwargs(cls, ATTRS):\n    kwargs = super().convert_to_kwargs(ATTRS)\n\n    if 'eval' in ATTRS:\n        kwargs['expr'] = ATTRS['eval']\n\n    return kwargs",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

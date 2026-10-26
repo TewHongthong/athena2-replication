@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_086",
+  "language": "python",
+  "originalName": "out_move",
+  "injectedName": "OUT_MOVE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'OUT_MOVE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _get_out_move_values(self, OUT_MOVE):\n    picking = OUT_MOVE.picking_id\n    source = OUT_MOVE._get_source_document()\n    partner_info, picking_info, source_info = False, False, False\n    if source and source != picking:\n        source_info = {\n            'id': source.id,\n            'res_model': source._name,\n            'display_name': source.display_name,\n        }\n    if picking:\n        picking_info = {\n            'id': picking.id,\n            'res_model': 'stock.picking',\n            'display_name': picking.display_name,\n        }\n        partner_info = {\n            'id': picking.partner_id.id,\n            'res_model': 'res.partner',\n            'display_name': picking.partner_id.display_name,\n        } if picking.partner_id else False\n    # To handle different UoM quantities, all qties will be expressed in product's UoM.\n    reserved_quantity = OUT_MOVE.quantity\n    if OUT_MOVE.uom_id != OUT_MOVE.product_id.uom_id:\n        reserved_quantity = OUT_MOVE.product_id.uom_id._compute_quantity(reserved_quantity, OUT_MOVE.uom_id)\n    return {\n        **OUT_MOVE.read(['date', 'priority', 'state'])[0],\n        'favorite': OUT_MOVE.priority == '1',\n        'id': OUT_MOVE.id,\n        'is_reserved': bool(OUT_MOVE.move_orig_ids),\n        'move_orig_ids': OUT_MOVE.move_orig_ids.ids,\n        'partner': partner_info,\n        'picking': picking_info,\n        'reserved_quantity': reserved_quantity,\n        'quantity': OUT_MOVE.product_qty,\n        'source': source_info,\n        'uom': OUT_MOVE.product_id.uom_id.read(['display_name', 'factor'])[0],\n    }",
+  "occurrencesRenamed": 15,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_027",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_es_website_sale/models/account_chart_template.py lines 6-32 (class AccountChartTemplate); license LGPL-3.0; repo created 2026-09-11T16:27:31+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class AccountChartTemplate(models.AbstractModel):\n    _inherit = 'account.chart.template'\n\n    @template(model='account.journal')\n    def _get_simplified_journal(self, template_code):\n        \"\"\"Add a journal for simplified invoices.\n\n        Its default income account is aligned with the regular Sales journal.\n        When that journal isn't available yet (e.g. while gathering the journals\n        during the initial chart-template load) we fall back to the company's\n        income account, which is exactly what the Sales journal is set to.\n        \"\"\"\n        sale_journal = self.ref('sale', raise_if_not_found=False)\n        default_account = (\n            sale_journal.default_account_id\n            if sale_journal\n            else self.env.company.income_account_id\n        )\n        journal_vals = {\n            'name': self.env._(\"Simplified Invoice\"),\n            'type': 'sale',\n            'code': 'SINV',\n            'show_on_dashboard': False,\n        }\n        if default_account:\n            journal_vals['default_account_id'] = default_account.id\n        return {'simplified_journal': journal_vals}",
+  "identifiers": [
+    {
+      "name": "template_code",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-11T16:27:31+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_es_website_sale/models/account_chart_template.py",
+    "startLine": 6,
+    "endLine": 32,
+    "unit": "class AccountChartTemplate",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_es_website_sale__models__account_chart_template.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 0
+}

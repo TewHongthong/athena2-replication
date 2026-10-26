@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_030",
+  "language": "python",
+  "originalName": "kwargs",
+  "injectedName": "KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class MailMessage(models.Model):\n    _inherit = \"mail.message\"\n\n    def _store_message_fields(self, res: Store.FieldList, **KWARGS):\n        super()._store_message_fields(res, **KWARGS)\n        slides = self._records_by_model_name().get(\"slide.slide\")\n        if not slides:\n            return\n        res.many(\n            \"records\",\n            [\"comments_count\"],\n            as_thread=True,\n            only_data=True,\n            value=slides,\n        )",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

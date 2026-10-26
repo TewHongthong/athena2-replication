@@ -1,0 +1,679 @@
+{
+  "standard": {
+    "id": "AIRBNB_JS",
+    "type": "Standard",
+    "name": "Airbnb JavaScript Style Guide",
+    "publisher": "Airbnb",
+    "url": "https://github.com/airbnb/javascript",
+    "retrievedDate": "2026-09-25",
+    "scopeLanguages": [
+      "javascript"
+    ]
+  },
+  "namingRules": [
+    {
+      "id": "AIRBNB-VAR-DESCRIPTIVE",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": 2,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-zA-Z]$"
+      ],
+      "description": "Avoid single-letter variable names; choose names descriptive enough that they communicate what the value represents.",
+      "rationale": "A single letter gives a reader no clue about intent, forcing them to trace usage to understand the code.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.1 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-PARAM-DESCRIPTIVE",
+      "type": "NamingRule",
+      "identifierKind": "parameter",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": 2,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-zA-Z]$"
+      ],
+      "description": "Avoid single-letter parameter names; a parameter's name should describe what is passed in.",
+      "rationale": "Same descriptive-naming rationale as general identifiers, applied to function parameters (the guide's id-length reference is not kind-specific).",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.1 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-VARIABLE-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "_",
+        "^[A-Z]"
+      ],
+      "description": "Give ordinary variables and instances of a class the standard camelCase treatment.",
+      "rationale": "camelCase is the guide's baseline casing for ordinary bindings, keeping identifiers consistent across a codebase.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.2 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-FUNCTION-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "function",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "_",
+        "^[A-Z]"
+      ],
+      "description": "Functions, like variables, are named in camelCase.",
+      "rationale": "Distinguishes ordinary callables from constructors/classes, which use PascalCase instead.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.2 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-METHOD-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "method",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "_",
+        "^[A-Z]"
+      ],
+      "description": "Name object and class methods in camelCase, the same as standalone functions.",
+      "rationale": "Methods are functions attached to an object/class, so the same camelCase rule applies.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.2 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-CLASS-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "class",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[a-z]"
+      ],
+      "description": "Reserve PascalCase for the names of classes and the functions used as constructors.",
+      "rationale": "Reserving PascalCase for constructors/classes lets a reader tell at a glance that a name must be invoked with `new`.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.3 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-FIELD-NO-UNDERSCORE",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^_",
+        "_$"
+      ],
+      "description": "Leading or trailing underscores on an instance field are not used as a signal of privacy; there's no enforcement benefit, so skip the convention.",
+      "rationale": "JavaScript (pre-# private fields) has no real property privacy, so a leading/trailing underscore is a misleading convention rather than an enforced guarantee.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.4 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-PROPERTY-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "property",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "_",
+        "^[A-Z]"
+      ],
+      "description": "Keep object property/key names in camelCase, including the nested keys of an object whose own exported binding is written in UPPER_SNAKE_CASE.",
+      "rationale": "Uppercasing is reserved for the exported constant identifier itself, not for the properties nested inside it, so property keys stay camelCase throughout.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.2, § 23.10 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-CONST-UPPER",
+      "type": "NamingRule",
+      "identifierKind": "constant",
+      "casing": "UPPER_SNAKE_CASE",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "UPPER_SNAKE_CASE for a constant is allowed, but only under three conditions at once: it's declared with const so it can never be reassigned, it's exported for use elsewhere, and neither it nor anything nested inside it is expected to ever change.",
+      "rationale": "Uppercasing signals true, trustworthy immutability to any consumer of the export; using it elsewhere would be a false signal.",
+      "severity": "MAY",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.10 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-CONST-LOCAL-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "constant",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^[A-Z0-9_]+$"
+      ],
+      "description": "Do not uppercase a constant that is only used locally within a file; UPPER_SNAKE_CASE is reserved for exported, truly-immutable constants.",
+      "rationale": "Uppercasing every local constant adds visual noise without conveying any additional guarantee, since local constants are not part of a public contract.",
+      "severity": "SHOULD",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.10 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-MODULE-CLASS-EXPORT-PASCAL",
+      "type": "NamingRule",
+      "identifierKind": "module",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "When a file's default export is something class-like, such as a constructor, a class itself, a singleton instance, a namespace of related functions, or a plain object used as one, name that export in PascalCase and make sure the file it lives in shares that exact name.",
+      "rationale": "Matching the filename to the export makes the exported symbol discoverable from the file system alone.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.6, § 23.8 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-MODULE-FUNCTION-EXPORT-CAMEL",
+      "type": "NamingRule",
+      "identifierKind": "module",
+      "casing": "camelCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "When the default export is instead a single function, camelCase applies to both the export's name and the filename, and the two should match exactly.",
+      "rationale": "Same filename-matches-export rationale as class exports, applied to the camelCase casing used for functions.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.6, § 23.7 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-ACRONYM-CASING",
+      "type": "NamingRule",
+      "identifierKind": "class",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Pick one casing convention for an acronym embedded in an identifier and hold to it everywhere: either spell it out in full capitals or treat it like an ordinary word, instead of mixing the two conventions in the same name (an HTTP client class should be HttpClient or HTTPClient, not a mixed form).",
+      "rationale": "Mixed-case acronyms are ambiguous to read and inconsistent to type; picking one convention keeps names predictable.",
+      "severity": "SHOULD",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 23.9 Naming Conventions"
+    },
+    {
+      "id": "AIRBNB-METHOD-BOOLEAN-ISHAS",
+      "type": "NamingRule",
+      "identifierKind": "method",
+      "casing": "camelCase",
+      "prefix": "is/has",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "A boolean-returning accessor's name may optionally lead with a verb like is or has (as in isActive() or hasName()) to make its truthy return value obvious. Airbnb frames this as encouraged style rather than a strict requirement, so treat it as a strong recommendation, not a hard rule.",
+      "rationale": "The prefix makes the method read as a yes/no question at the call site, signalling its boolean return type without checking the implementation.",
+      "severity": "SHOULD",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 24.3 Accessors"
+    },
+    {
+      "id": "AIRBNB-BOOLEAN-VARIABLE-ISHAS",
+      "type": "NamingRule",
+      "identifierKind": "boolean_variable",
+      "casing": "camelCase",
+      "prefix": "is/has",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "By extension of Airbnb's boolean-accessor convention, prefix boolean variables with is or has so the name reads as a yes/no question (e.g. isVisible, hasPermission).",
+      "rationale": "Same readability rationale as the accessor-method rule; applying it to boolean variables keeps naming consistent across kinds. Note: the guide states this explicitly only for accessor properties/methods (§24.3), not for plain boolean variable declarations — this rule is an inferred extension, rated lower accordingly.",
+      "severity": "SHOULD",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 24.3 Accessors (extended)"
+    }
+  ],
+  "commentRules": [
+    {
+      "id": "AIRBNB-COMMENT-MULTILINE",
+      "type": "CommentRule",
+      "identifierKind": "function",
+      "format": "block-comment-slash-star",
+      "requiredElements": [],
+      "triggerCondition": "a comment spans multiple lines, such as documentation above a function, class, or block",
+      "description": "For a comment spanning several lines, use the /** ... */ block form instead of piling up consecutive // lines.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 18.1 Comments"
+    },
+    {
+      "id": "AIRBNB-COMMENT-LINE",
+      "type": "CommentRule",
+      "identifierKind": "variable",
+      "format": "plain-line-comment",
+      "requiredElements": [
+        "own line above the code",
+        "blank line before it (unless first line of a block)"
+      ],
+      "triggerCondition": "a short explanatory comment about the statement(s) that follow",
+      "description": "A single-line comment uses //, sits on its own line immediately above whatever it explains, and is set off from the code above it by a blank line, except when it opens a block, where no blank line is needed.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 18.2 Comments"
+    },
+    {
+      "id": "AIRBNB-COMMENT-SPACING",
+      "type": "CommentRule",
+      "identifierKind": "function",
+      "format": "space-prefixed-comment",
+      "requiredElements": [
+        "single leading space after the comment marker"
+      ],
+      "triggerCondition": "any // or /** */ comment",
+      "description": "Leave exactly one space between the comment marker, // or the opening /**, and the text that follows it, for every comment in the codebase.",
+      "severity": "MUST",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 18.3 Comments (eslint: spaced-comment)"
+    },
+    {
+      "id": "AIRBNB-COMMENT-FIXME",
+      "type": "CommentRule",
+      "identifierKind": "method",
+      "format": "fixme-annotated-line-comment",
+      "requiredElements": [
+        "FIXME: prefix"
+      ],
+      "triggerCondition": "a known problem in the code that needs to be revisited or investigated",
+      "description": "Annotate a known problem with a `// FIXME:` prefixed comment so it is easy to find and search for later.",
+      "severity": "SHOULD",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 18.4-18.5 Comments"
+    },
+    {
+      "id": "AIRBNB-COMMENT-TODO",
+      "type": "CommentRule",
+      "identifierKind": "function",
+      "format": "todo-annotated-line-comment",
+      "requiredElements": [
+        "TODO: prefix"
+      ],
+      "triggerCondition": "a solution or enhancement that is known but not yet implemented",
+      "description": "Annotate planned-but-unimplemented work with a `// TODO:` prefixed comment.",
+      "severity": "SHOULD",
+      "sourceStandardId": "AIRBNB_JS",
+      "sourceSection": "Airbnb JavaScript Style Guide § 18.4, § 18.6 Comments"
+    }
+  ],
+  "examples": [
+    {
+      "id": "EX-AIRBNB-VAR-DESCRIPTIVE-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-VAR-DESCRIPTIVE",
+      "code": "const shippingAddress = order.address;",
+      "isCompliant": true,
+      "explanation": "descriptive variable name"
+    },
+    {
+      "id": "EX-AIRBNB-VAR-DESCRIPTIVE-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-VAR-DESCRIPTIVE",
+      "code": "const a = order.address;",
+      "isCompliant": false,
+      "explanation": "single-letter name gives no context"
+    },
+    {
+      "id": "EX-AIRBNB-PARAM-DESCRIPTIVE-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-PARAM-DESCRIPTIVE",
+      "code": "function calculateTax(orderTotal) {\n  return orderTotal * 0.07;\n}",
+      "isCompliant": true,
+      "explanation": "parameter name describes what is passed in"
+    },
+    {
+      "id": "EX-AIRBNB-PARAM-DESCRIPTIVE-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-PARAM-DESCRIPTIVE",
+      "code": "function calculateTax(x) {\n  return x * 0.07;\n}",
+      "isCompliant": false,
+      "explanation": "single-letter parameter name"
+    },
+    {
+      "id": "EX-AIRBNB-VARIABLE-CAMEL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-VARIABLE-CAMEL",
+      "code": "let currentUser = fetchUser();",
+      "isCompliant": true,
+      "explanation": "camelCase variable"
+    },
+    {
+      "id": "EX-AIRBNB-VARIABLE-CAMEL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-VARIABLE-CAMEL",
+      "code": "let current_user = fetchUser();",
+      "isCompliant": false,
+      "explanation": "snake_case instead of camelCase"
+    },
+    {
+      "id": "EX-AIRBNB-FUNCTION-CAMEL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-FUNCTION-CAMEL",
+      "code": "function fetchOrderHistory() { /* ... */ }",
+      "isCompliant": true,
+      "explanation": "camelCase function name"
+    },
+    {
+      "id": "EX-AIRBNB-FUNCTION-CAMEL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-FUNCTION-CAMEL",
+      "code": "function FetchOrderHistory() { /* ... */ }",
+      "isCompliant": false,
+      "explanation": "PascalCase used for a plain function, not a constructor"
+    },
+    {
+      "id": "EX-AIRBNB-METHOD-CAMEL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-METHOD-CAMEL",
+      "code": "class Cart {\n  addItem(item) { this.items.push(item); }\n}",
+      "isCompliant": true,
+      "explanation": "camelCase method name"
+    },
+    {
+      "id": "EX-AIRBNB-METHOD-CAMEL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-METHOD-CAMEL",
+      "code": "class Cart {\n  AddItem(item) { this.items.push(item); }\n}",
+      "isCompliant": false,
+      "explanation": "PascalCase used for a method"
+    },
+    {
+      "id": "EX-AIRBNB-CLASS-PASCAL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-CLASS-PASCAL",
+      "code": "class InvoiceGenerator { }",
+      "isCompliant": true,
+      "explanation": "PascalCase class name"
+    },
+    {
+      "id": "EX-AIRBNB-CLASS-PASCAL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-CLASS-PASCAL",
+      "code": "class invoiceGenerator { }",
+      "isCompliant": false,
+      "explanation": "camelCase used for a class"
+    },
+    {
+      "id": "EX-AIRBNB-FIELD-NO-UNDERSCORE-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-FIELD-NO-UNDERSCORE",
+      "code": "class Account {\n  constructor(balance) {\n    this.balance = balance;\n  }\n}",
+      "isCompliant": true,
+      "explanation": "plain field name, no underscore"
+    },
+    {
+      "id": "EX-AIRBNB-FIELD-NO-UNDERSCORE-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-FIELD-NO-UNDERSCORE",
+      "code": "class Account {\n  constructor(balance) {\n    this._balance = balance;\n  }\n}",
+      "isCompliant": false,
+      "explanation": "leading underscore falsely implies privacy"
+    },
+    {
+      "id": "EX-AIRBNB-PROPERTY-CAMEL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-PROPERTY-CAMEL",
+      "code": "const config = { retryCount: 3, timeoutMs: 500 };",
+      "isCompliant": true,
+      "explanation": "camelCase property keys"
+    },
+    {
+      "id": "EX-AIRBNB-PROPERTY-CAMEL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-PROPERTY-CAMEL",
+      "code": "const config = { retry_count: 3, TimeoutMS: 500 };",
+      "isCompliant": false,
+      "explanation": "snake_case and PascalCase keys instead of camelCase"
+    },
+    {
+      "id": "EX-AIRBNB-CONST-UPPER-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-CONST-UPPER",
+      "code": "export const MAX_RETRY_COUNT = 3;",
+      "isCompliant": true,
+      "explanation": "exported, const, guaranteed-immutable value"
+    },
+    {
+      "id": "EX-AIRBNB-CONST-UPPER-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-CONST-UPPER",
+      "code": "export let MAX_RETRY_COUNT = 3;",
+      "isCompliant": false,
+      "explanation": "uppercased but declared with let, so it can be reassigned"
+    },
+    {
+      "id": "EX-AIRBNB-CONST-LOCAL-CAMEL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-CONST-LOCAL-CAMEL",
+      "code": "const defaultTimeout = 5000;",
+      "isCompliant": true,
+      "explanation": "local, unexported constant kept in camelCase"
+    },
+    {
+      "id": "EX-AIRBNB-CONST-LOCAL-CAMEL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-CONST-LOCAL-CAMEL",
+      "code": "const DEFAULT_TIMEOUT = 5000;",
+      "isCompliant": false,
+      "explanation": "uppercased even though it is only used locally in the file"
+    },
+    {
+      "id": "EX-AIRBNB-MODULE-CLASS-EXPORT-PASCAL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-MODULE-CLASS-EXPORT-PASCAL",
+      "code": "// file: PaymentProcessor.js\nexport default class PaymentProcessor { }",
+      "isCompliant": true,
+      "explanation": "filename matches PascalCase default class export"
+    },
+    {
+      "id": "EX-AIRBNB-MODULE-CLASS-EXPORT-PASCAL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-MODULE-CLASS-EXPORT-PASCAL",
+      "code": "// file: paymentProcessor.js\nexport default class PaymentProcessor { }",
+      "isCompliant": false,
+      "explanation": "filename casing does not match the exported class name"
+    },
+    {
+      "id": "EX-AIRBNB-MODULE-FUNCTION-EXPORT-CAMEL-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-MODULE-FUNCTION-EXPORT-CAMEL",
+      "code": "// file: formatCurrency.js\nexport default function formatCurrency(amount) {\n  return `$${amount}`;\n}",
+      "isCompliant": true,
+      "explanation": "filename matches camelCase default function export"
+    },
+    {
+      "id": "EX-AIRBNB-MODULE-FUNCTION-EXPORT-CAMEL-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-MODULE-FUNCTION-EXPORT-CAMEL",
+      "code": "// file: format-currency.js\nexport default function formatCurrency(amount) {\n  return `$${amount}`;\n}",
+      "isCompliant": false,
+      "explanation": "kebab-case filename does not match the camelCase export name"
+    },
+    {
+      "id": "EX-AIRBNB-ACRONYM-CASING-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-ACRONYM-CASING",
+      "code": "class SMSGateway { }",
+      "isCompliant": true,
+      "explanation": "acronym SMS is fully uppercase, consistently applied"
+    },
+    {
+      "id": "EX-AIRBNB-ACRONYM-CASING-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-ACRONYM-CASING",
+      "code": "class SmsGateway { }",
+      "isCompliant": false,
+      "explanation": "acronym is mixed-case (Sms) instead of fully upper or fully lower"
+    },
+    {
+      "id": "EX-AIRBNB-METHOD-BOOLEAN-ISHAS-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-METHOD-BOOLEAN-ISHAS",
+      "code": "class Feature {\n  isEnabled() { return this.enabled; }\n}",
+      "isCompliant": true,
+      "explanation": "boolean accessor method prefixed with is"
+    },
+    {
+      "id": "EX-AIRBNB-METHOD-BOOLEAN-ISHAS-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-METHOD-BOOLEAN-ISHAS",
+      "code": "class Feature {\n  enabled() { return this.enabled; }\n}",
+      "isCompliant": false,
+      "explanation": "boolean accessor method has no is/has prefix"
+    },
+    {
+      "id": "EX-AIRBNB-BOOLEAN-VARIABLE-ISHAS-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-BOOLEAN-VARIABLE-ISHAS",
+      "code": "const hasDiscount = order.total > 100;",
+      "isCompliant": true,
+      "explanation": "boolean variable prefixed with has"
+    },
+    {
+      "id": "EX-AIRBNB-BOOLEAN-VARIABLE-ISHAS-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-BOOLEAN-VARIABLE-ISHAS",
+      "code": "const discount = order.total > 100;",
+      "isCompliant": false,
+      "explanation": "boolean variable name reads as a noun, not a yes/no question"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-MULTILINE-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-MULTILINE",
+      "code": "/**\n * Calculates the shipping cost for an order.\n */\nfunction getShippingCost(order) { /* ... */ }",
+      "isCompliant": true,
+      "explanation": "multiline doc comment uses /** */ block syntax"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-MULTILINE-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-MULTILINE",
+      "code": "// Calculates the shipping cost for an order.\n// Takes into account weight and destination.\nfunction getShippingCost(order) { /* ... */ }",
+      "isCompliant": false,
+      "explanation": "stacked // lines used instead of a /** */ block for a multiline comment"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-LINE-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-LINE",
+      "code": "const items = cart.items;\n\n// Filter out items that are out of stock before checkout.\nconst available = items.filter((item) => item.inStock);",
+      "isCompliant": true,
+      "explanation": "comment on its own line, blank line before it"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-LINE-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-LINE",
+      "code": "const items = cart.items;\n// Filter out items that are out of stock before checkout.\nconst available = items.filter((item) => item.inStock);",
+      "isCompliant": false,
+      "explanation": "missing blank line before the comment"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-SPACING-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-SPACING",
+      "code": "// Get the active user",
+      "isCompliant": true,
+      "explanation": "space after the // marker"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-SPACING-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-SPACING",
+      "code": "//Get the active user",
+      "isCompliant": false,
+      "explanation": "no space after the // marker"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-FIXME-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-FIXME",
+      "code": "// FIXME: throws when the cart is empty",
+      "isCompliant": true,
+      "explanation": "known problem flagged with FIXME prefix"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-FIXME-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-FIXME",
+      "code": "// this breaks when the cart is empty, need to fix",
+      "isCompliant": false,
+      "explanation": "known problem noted without the FIXME marker"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-TODO-1",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-TODO",
+      "code": "// TODO: add pagination once the API supports it",
+      "isCompliant": true,
+      "explanation": "pending work flagged with TODO prefix"
+    },
+    {
+      "id": "EX-AIRBNB-COMMENT-TODO-2",
+      "type": "Example",
+      "ruleId": "AIRBNB-COMMENT-TODO",
+      "code": "// need to add pagination later",
+      "isCompliant": false,
+      "explanation": "pending work noted without the TODO marker"
+    }
+  ],
+  "coverageGaps": [
+    "Airbnb's guide does not mandate a structured documentation-comment format (no required @param/@returns/@throws-style tags as in Javadoc/JSDoc); §18 covers only /** */ vs // syntax, leading-space spacing, and FIXME/TODO markers, not documentation content — so no JSDoc-block CommentRule was invented.",
+    "No naming guidance exists for TypeScript-only kinds (interface, type_parameter) or a general enum/object-freeze-as-enum pattern; the guide is JS-only and doesn't discuss frozen-object enums, so those kinds were excluded entirely.",
+    "The is/has boolean-prefix convention (§24.3) is stated explicitly only for accessor properties/methods, not for ordinary boolean variable declarations; AIRBNB-BOOLEAN-VARIABLE-ISHAS extrapolates it to `boolean_variable` and is rated SHOULD rather than MUST for that reason.",
+    "§23.4 (no leading/trailing underscores) and §23.2 (camelCase) don't explicitly distinguish class instance fields from plain object-literal properties; the `field` vs `property` split used here is an interpretation of the guide's `this.firstName`-style examples, not a distinction the guide itself names.",
+    "§23.5 (avoid `const self = this` / `that = this`, prefer arrow functions) is a `this`-binding pattern rule rather than an identifier-casing rule, so it was not mapped to any NamingRule.",
+    "The guide gives no parameter-specific naming rule beyond the general 'avoid single-letter, be descriptive' guidance (§23.1); it does not call out function parameters by name separately from other identifiers."
+  ]
+}

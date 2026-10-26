@@ -1,0 +1,5 @@
+{"run_id": "test_odoo_qwen35_9b_infer", "event": "start", "backend": "openai:qwen3.5-9b-ud-q8_k_xl", "rerun": false, "trials": 210, "ts": "2026-10-25T13:03:02+00:00"}
+{"run_id": "test_odoo_qwen35_9b_infer", "event": "start", "backend": "openai:qwen3.5-9b-ud-q8_k_xl", "rerun": false, "trials": 210, "ts": "2026-10-25T18:42:32+00:00"}
+{"run_id": "test_odoo_qwen35_9b_infer", "event": "end", "status": "complete", "trials_ok": 210, "trials_error": 0, "ts": "2026-10-25T19:03:43+00:00"}
+{"run_id": "test_odoo_qwen35_9b_infer", "event": "start", "backend": "openai:qwen3.5-9b-ud-q8_k_xl", "rerun": false, "trials": 210, "ts": "2026-10-25T19:04:06+00:00"}
+{"run_id": "test_odoo_qwen35_9b_infer", "event": "end", "status": "complete", "trials_ok": 0, "trials_error": 0, "ts": "2026-10-25T19:04:06+00:00"}

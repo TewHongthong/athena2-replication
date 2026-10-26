@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_013",
+  "language": "csharp",
+  "originalName": "FindCore",
+  "injectedName": "find_core",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'find_core' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private IEnumerable<ulong> find_core(\n    TargetPointer fieldDesc,\n    ulong baseOffset,\n    int depth,\n    bool isInlineArrayElement = false)\n{\n    CorElementType fieldType = _rts.GetFieldDescType(fieldDesc);\n    uint fieldOffset = isInlineArrayElement\n        ? 0\n        : _rts.GetFieldDescOffset(fieldDesc, fieldDef: null);\n\n    if (fieldType == CorElementType.ValueType)\n    {\n        ITypeHandle? fieldTypeHandle = _rts.GetFieldDescApproxTypeHandle(fieldDesc);\n        if (fieldTypeHandle is not null && _rts.IsByRefLike(fieldTypeHandle))\n        {\n            foreach (ulong slot in find_core(fieldTypeHandle, baseOffset + fieldOffset, depth + 1))\n                yield return slot;\n        }\n    }\n    else if (fieldType == CorElementType.Byref)\n    {\n        yield return baseOffset + fieldOffset;\n    }\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

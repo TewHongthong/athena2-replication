@@ -1,0 +1,30 @@
+{
+  "id": "cpp_036",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/tile_map_layer.cpp lines 3713-3719 (method TerrainConstraint::TerrainConstraint); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "TerrainConstraint::TerrainConstraint(Ref<TileSet> p_tile_set, const Vector2i &p_position, int p_terrain) {\n\tERR_FAIL_COND(p_tile_set.is_null());\n\ttile_set = p_tile_set;\n\tbit = 0;\n\tbase_cell_coords = p_position;\n\tterrain = p_terrain;\n}",
+  "identifiers": [
+    {
+      "name": "p_position",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/tile_map_layer.cpp",
+    "startLine": 3713,
+    "endLine": 3719,
+    "unit": "method TerrainConstraint::TerrainConstraint",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__tile_map_layer.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 121
+}

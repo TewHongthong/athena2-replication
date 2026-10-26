@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_070",
+  "language": "csharp",
+  "originalName": "Create",
+  "injectedName": "create",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal static HpkeManagedKdfAdapter create(HpkeSuite suite)\n{\n    switch (suite.KdfAlgorithm)\n    {\n        case HpkeKdf.HKDF_SHA256:\n        case HpkeKdf.HKDF_SHA384:\n        case HpkeKdf.HKDF_SHA512:\n            return new HpkeManagedHkdfAdapter(suite, suite.KdfMetadata.HkdfHashAlgorithm);\n        case HpkeKdf.SHAKE128:\n            return new HpkeManagedShake128KdfAdapter(suite);\n        case HpkeKdf.SHAKE256:\n            return new HpkeManagedShake256KdfAdapter(suite);\n        default:\n            Debug.Fail($\"Unmapped KDF adapter algorithm {suite.KdfAlgorithm}.\");\n            throw new CryptographicException();\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

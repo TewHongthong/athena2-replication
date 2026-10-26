@@ -1,0 +1,657 @@
+{
+  "standard": {
+    "id": "PEP8",
+    "type": "Standard",
+    "name": "PEP 8 – Style Guide for Python Code",
+    "publisher": "Python Software Foundation",
+    "url": "https://peps.python.org/pep-0008/",
+    "retrievedDate": "2026-09-25",
+    "scopeLanguages": [
+      "python"
+    ]
+  },
+  "namingRules": [
+    {
+      "id": "PEP8-MODULE-SNAKE",
+      "type": "NamingRule",
+      "identifierKind": "module",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Keep module filenames brief and entirely lowercase. An underscore inside the name is fine when it makes a multi-word module easier to read at a glance, but is not required otherwise.",
+      "rationale": "Lowercase module names keep import statements predictable and avoid case-sensitivity issues across filesystems.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Package and Module Names"
+    },
+    {
+      "id": "PEP8-PACKAGE-LOWER",
+      "type": "NamingRule",
+      "identifierKind": "package",
+      "casing": "lowercase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "_"
+      ],
+      "description": "Packages follow the same short, all-lowercase style as modules, but underscores are actively avoided at the package level rather than merely optional.",
+      "rationale": "Short, underscore-free package names are easier to type in import paths and match long-standing PyPI conventions.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Package and Module Names"
+    },
+    {
+      "id": "PEP8-CLASS-CAPWORDS",
+      "type": "NamingRule",
+      "identifierKind": "class",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "By default, name a class using the CapWords style: each word capitalized and concatenated without separators (also known as PascalCase).",
+      "rationale": "CapWords visually distinguishes types from functions and variables, which use lowercase conventions.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Class Names"
+    },
+    {
+      "id": "PEP8-EXCEPTION-ERROR-SUFFIX",
+      "type": "NamingRule",
+      "identifierKind": "class",
+      "casing": "PascalCase",
+      "prefix": null,
+      "suffix": "Error",
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Exceptions are named like any other class, in CapWords, with one addition: if the exception actually represents a genuine error state (rather than, say, a control-flow signal), its name should end in 'Error'.",
+      "rationale": "The Error suffix lets readers identify exception types at a glance and distinguishes true errors from control-flow-only exceptions.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Exception Names"
+    },
+    {
+      "id": "PEP8-FUNC-SNAKE",
+      "type": "NamingRule",
+      "identifierKind": "function",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Functions are named in all-lowercase snake_case; insert underscores between words only where doing so makes the name easier to read, since a short function name needs none.",
+      "rationale": "A single consistent case style for callables makes function names instantly recognizable and distinguishes them from class names.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Function and Variable Names"
+    },
+    {
+      "id": "PEP8-METHOD-SNAKE",
+      "type": "NamingRule",
+      "identifierKind": "method",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Method names follow the same lowercase-with-underscores rule as functions.",
+      "rationale": "Applying the function-naming rule uniformly to methods keeps a class's public interface consistent with the rest of the codebase.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Method Names and Instance Variables"
+    },
+    {
+      "id": "PEP8-VAR-SNAKE",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Variable names follow the same convention as function names: lowercase with underscores separating words.",
+      "rationale": "Uniform casing for variables and functions avoids arbitrary style decisions and keeps identifiers scannable.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Function and Variable Names"
+    },
+    {
+      "id": "PEP8-CONST-UPPER",
+      "type": "NamingRule",
+      "identifierKind": "constant",
+      "casing": "UPPER_SNAKE_CASE",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Module-level constants are written entirely in capital letters, with underscores marking the boundaries between words.",
+      "rationale": "All-caps names flag values that are meant to be treated as fixed, reducing accidental reassignment.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Constants"
+    },
+    {
+      "id": "PEP8-PARAM-SELF-CLS",
+      "type": "NamingRule",
+      "identifierKind": "parameter",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "The first parameter of an instance method must always be named 'self'; the first parameter of a class method must always be named 'cls'.",
+      "rationale": "Fixed conventional names for the implicit first argument let readers immediately recognize instance vs. class methods.",
+      "severity": "MUST",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Function and Method Arguments"
+    },
+    {
+      "id": "PEP8-PARAM-KEYWORD-TRAILING-UNDERSCORE",
+      "type": "NamingRule",
+      "identifierKind": "parameter",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": "_",
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "If the most natural parameter name happens to clash with a Python reserved word, resolve the clash with one trailing underscore on the name rather than misspelling or shortening it.",
+      "rationale": "A trailing underscore keeps the parameter's meaning intact instead of obscuring it with an abbreviation.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Function and Method Arguments"
+    },
+    {
+      "id": "PEP8-FIELD-NONPUBLIC-UNDERSCORE",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": "snake_case",
+      "prefix": "_",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Instance attributes intended as non-public should carry a single leading underscore; attributes without one are considered part of the public interface.",
+      "rationale": "A single leading underscore is a widely understood, weak 'internal use' signal that documents intent without enforcing access control.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Method Names and Instance Variables"
+    },
+    {
+      "id": "PEP8-FIELD-NAME-MANGLE",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": "snake_case",
+      "prefix": "__",
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "A double leading underscore (with no trailing underscore) may be used on an attribute to invoke Python's name-mangling mechanism, helping avoid attribute name clashes when the class is subclassed.",
+      "rationale": "Name mangling is an opt-in mechanism reserved for attributes that genuinely need subclass-clash protection, so it is optional rather than a default rule.",
+      "severity": "MAY",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Method Names and Instance Variables"
+    },
+    {
+      "id": "PEP8-AVOID-CONFUSING-CHARS",
+      "type": "NamingRule",
+      "identifierKind": "variable",
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^l$",
+        "^O$",
+        "^I$"
+      ],
+      "description": "Do not choose a bare lowercase L, uppercase O, or uppercase I as a standalone identifier; depending on the font, each can be mistaken for the digit 1 or 0.",
+      "rationale": "Visually ambiguous single-letter names cause misreadings that are hard to catch in code review.",
+      "severity": "MUST",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Names to Avoid"
+    },
+    {
+      "id": "PEP8-FIELD-PUBLIC-NO-PREFIX",
+      "type": "NamingRule",
+      "identifierKind": "field",
+      "casing": "snake_case",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Public instance attributes should be exposed as plain, simply-named attributes with no leading underscore, rather than hidden behind getter/setter accessor methods unless additional behavior is actually needed.",
+      "rationale": "Plain attribute access is more idiomatic and readable in Python; properties can be introduced later without breaking the public interface.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Naming Conventions — Designing for Inheritance"
+    }
+  ],
+  "commentRules": [
+    {
+      "id": "PEP8-DOC-MODULE",
+      "type": "CommentRule",
+      "identifierKind": "module",
+      "format": "plain-line-comment",
+      "requiredElements": [
+        "one-line summary"
+      ],
+      "triggerCondition": "the module is public (not prefixed with an underscore) and forms part of the package's API",
+      "description": "Public modules should have a docstring summarizing their contents. Neither PEP 8 nor PEP 257 mandates a specific docstring markup style (no required Google-, NumPy-, or reST-style sections) — only the high-level convention that it exists and starts with a one-line summary.",
+      "severity": "MUST",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Comments — Documentation Strings; PEP 257"
+    },
+    {
+      "id": "PEP8-DOC-CLASS",
+      "type": "CommentRule",
+      "identifierKind": "class",
+      "format": "plain-line-comment",
+      "requiredElements": [
+        "one-line summary",
+        "list of public methods/attributes (per PEP 257)"
+      ],
+      "triggerCondition": "the class is public",
+      "description": "Public classes should have a docstring summarizing the class's behavior; PEP 257 additionally suggests listing public methods and instance variables, but prescribes no required markup syntax for how that content is formatted.",
+      "severity": "MUST",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Comments — Documentation Strings; PEP 257"
+    },
+    {
+      "id": "PEP8-DOC-FUNC",
+      "type": "CommentRule",
+      "identifierKind": "function",
+      "format": "plain-line-comment",
+      "requiredElements": [
+        "one-line summary"
+      ],
+      "triggerCondition": "the function is public",
+      "description": "Public functions should have a docstring describing their behavior. Per PEP 257 it should cover arguments, return value, side effects, and exceptions where applicable, but no specific markup style (e.g. Google-style Args:/Returns: sections) is mandated by PEP 8 or PEP 257 — the content, not the format, is the requirement.",
+      "severity": "MUST",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Comments — Documentation Strings; PEP 257"
+    },
+    {
+      "id": "PEP8-DOC-METHOD",
+      "type": "CommentRule",
+      "identifierKind": "method",
+      "format": "plain-line-comment",
+      "requiredElements": [],
+      "triggerCondition": "the method is public; if the method is non-public (leading underscore) a docstring is optional",
+      "description": "Public methods should carry a docstring. Docstrings are not necessary for non-public methods, but PEP 8 recommends at least an explanatory comment describing what a non-public method does.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Comments — Documentation Strings"
+    },
+    {
+      "id": "PEP8-COMMENT-BLOCK-STYLE",
+      "type": "CommentRule",
+      "identifierKind": "module",
+      "format": "plain-line-comment",
+      "requiredElements": [],
+      "triggerCondition": "a block comment precedes a block of code",
+      "description": "Write block comments as full, properly capitalized sentences, prefix each line with a hash and one space, and update them whenever the code they explain changes, since an outdated comment misleads more than an absent one.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Comments — Block Comments"
+    },
+    {
+      "id": "PEP8-COMMENT-INLINE-STYLE",
+      "type": "CommentRule",
+      "identifierKind": "variable",
+      "format": "plain-line-comment",
+      "requiredElements": [],
+      "triggerCondition": "an inline comment follows a statement on the same line",
+      "description": "Reserve inline comments for cases that genuinely need them; keep at least two spaces before the hash, follow it with one space, and use the comment to say something the code alone does not already convey.",
+      "severity": "SHOULD",
+      "sourceStandardId": "PEP8",
+      "sourceSection": "PEP 8 § Comments — Inline Comments"
+    }
+  ],
+  "examples": [
+    {
+      "id": "EX-PEP8-MODULE-SNAKE-1",
+      "type": "Example",
+      "ruleId": "PEP8-MODULE-SNAKE",
+      "code": "import text_utils",
+      "isCompliant": true,
+      "explanation": "all-lowercase module name"
+    },
+    {
+      "id": "EX-PEP8-MODULE-SNAKE-2",
+      "type": "Example",
+      "ruleId": "PEP8-MODULE-SNAKE",
+      "code": "import TextUtils",
+      "isCompliant": false,
+      "explanation": "CapWords used for a module name instead of lowercase"
+    },
+    {
+      "id": "EX-PEP8-PACKAGE-LOWER-1",
+      "type": "Example",
+      "ruleId": "PEP8-PACKAGE-LOWER",
+      "code": "from imgtools import loader",
+      "isCompliant": true,
+      "explanation": "short, all-lowercase, underscore-free package name"
+    },
+    {
+      "id": "EX-PEP8-PACKAGE-LOWER-2",
+      "type": "Example",
+      "ruleId": "PEP8-PACKAGE-LOWER",
+      "code": "from img_tools import loader",
+      "isCompliant": false,
+      "explanation": "underscore in a package name, which PEP 8 discourages"
+    },
+    {
+      "id": "EX-PEP8-CLASS-CAPWORDS-1",
+      "type": "Example",
+      "ruleId": "PEP8-CLASS-CAPWORDS",
+      "code": "class OrderProcessor:\n    pass",
+      "isCompliant": true,
+      "explanation": "CapWords class name"
+    },
+    {
+      "id": "EX-PEP8-CLASS-CAPWORDS-2",
+      "type": "Example",
+      "ruleId": "PEP8-CLASS-CAPWORDS",
+      "code": "class order_processor:\n    pass",
+      "isCompliant": false,
+      "explanation": "snake_case used for a class name instead of CapWords"
+    },
+    {
+      "id": "EX-PEP8-EXCEPTION-ERROR-SUFFIX-1",
+      "type": "Example",
+      "ruleId": "PEP8-EXCEPTION-ERROR-SUFFIX",
+      "code": "class InvalidConfigError(Exception):\n    pass",
+      "isCompliant": true,
+      "explanation": "CapWords name with the Error suffix for an error condition"
+    },
+    {
+      "id": "EX-PEP8-EXCEPTION-ERROR-SUFFIX-2",
+      "type": "Example",
+      "ruleId": "PEP8-EXCEPTION-ERROR-SUFFIX",
+      "code": "class InvalidConfig(Exception):\n    pass",
+      "isCompliant": false,
+      "explanation": "exception class representing an error but missing the Error suffix"
+    },
+    {
+      "id": "EX-PEP8-FUNC-SNAKE-1",
+      "type": "Example",
+      "ruleId": "PEP8-FUNC-SNAKE",
+      "code": "def calculate_total(items):\n    return sum(items)",
+      "isCompliant": true,
+      "explanation": "snake_case function name"
+    },
+    {
+      "id": "EX-PEP8-FUNC-SNAKE-2",
+      "type": "Example",
+      "ruleId": "PEP8-FUNC-SNAKE",
+      "code": "def calculateTotal(items):\n    return sum(items)",
+      "isCompliant": false,
+      "explanation": "camelCase instead of snake_case"
+    },
+    {
+      "id": "EX-PEP8-METHOD-SNAKE-1",
+      "type": "Example",
+      "ruleId": "PEP8-METHOD-SNAKE",
+      "code": "def get_balance(self):\n    return self._balance",
+      "isCompliant": true,
+      "explanation": "snake_case method name"
+    },
+    {
+      "id": "EX-PEP8-METHOD-SNAKE-2",
+      "type": "Example",
+      "ruleId": "PEP8-METHOD-SNAKE",
+      "code": "def GetBalance(self):\n    return self._balance",
+      "isCompliant": false,
+      "explanation": "PascalCase used for a method name"
+    },
+    {
+      "id": "EX-PEP8-VAR-SNAKE-1",
+      "type": "Example",
+      "ruleId": "PEP8-VAR-SNAKE",
+      "code": "max_retries = 3",
+      "isCompliant": true,
+      "explanation": "snake_case variable name"
+    },
+    {
+      "id": "EX-PEP8-VAR-SNAKE-2",
+      "type": "Example",
+      "ruleId": "PEP8-VAR-SNAKE",
+      "code": "maxRetries = 3",
+      "isCompliant": false,
+      "explanation": "camelCase instead of snake_case"
+    },
+    {
+      "id": "EX-PEP8-CONST-UPPER-1",
+      "type": "Example",
+      "ruleId": "PEP8-CONST-UPPER",
+      "code": "MAX_CONNECTIONS = 10",
+      "isCompliant": true,
+      "explanation": "all-caps constant with underscores"
+    },
+    {
+      "id": "EX-PEP8-CONST-UPPER-2",
+      "type": "Example",
+      "ruleId": "PEP8-CONST-UPPER",
+      "code": "maxConnections = 10",
+      "isCompliant": false,
+      "explanation": "camelCase used for a module-level constant"
+    },
+    {
+      "id": "EX-PEP8-PARAM-SELF-CLS-1",
+      "type": "Example",
+      "ruleId": "PEP8-PARAM-SELF-CLS",
+      "code": "class Widget:\n    def resize(self, factor):\n        self.size *= factor",
+      "isCompliant": true,
+      "explanation": "instance method's first parameter is named self"
+    },
+    {
+      "id": "EX-PEP8-PARAM-SELF-CLS-2",
+      "type": "Example",
+      "ruleId": "PEP8-PARAM-SELF-CLS",
+      "code": "class Widget:\n    def resize(this, factor):\n        this.size *= factor",
+      "isCompliant": false,
+      "explanation": "first parameter named 'this' instead of the required 'self'"
+    },
+    {
+      "id": "EX-PEP8-PARAM-KEYWORD-TRAILING-UNDERSCORE-1",
+      "type": "Example",
+      "ruleId": "PEP8-PARAM-KEYWORD-TRAILING-UNDERSCORE",
+      "code": "def build_filter(class_, value):\n    return {\"class\": class_, \"value\": value}",
+      "isCompliant": true,
+      "explanation": "trailing underscore avoids clashing with the 'class' keyword"
+    },
+    {
+      "id": "EX-PEP8-PARAM-KEYWORD-TRAILING-UNDERSCORE-2",
+      "type": "Example",
+      "ruleId": "PEP8-PARAM-KEYWORD-TRAILING-UNDERSCORE",
+      "code": "def build_filter(klass, value):\n    return {\"class\": klass, \"value\": value}",
+      "isCompliant": false,
+      "explanation": "keyword clash avoided by an abbreviation instead of a trailing underscore"
+    },
+    {
+      "id": "EX-PEP8-FIELD-NONPUBLIC-UNDERSCORE-1",
+      "type": "Example",
+      "ruleId": "PEP8-FIELD-NONPUBLIC-UNDERSCORE",
+      "code": "class Account:\n    def __init__(self):\n        self._cache = {}",
+      "isCompliant": true,
+      "explanation": "leading underscore marks an internal-use attribute"
+    },
+    {
+      "id": "EX-PEP8-FIELD-NONPUBLIC-UNDERSCORE-2",
+      "type": "Example",
+      "ruleId": "PEP8-FIELD-NONPUBLIC-UNDERSCORE",
+      "code": "class Account:\n    def __init__(self):\n        self.cache = {}",
+      "isCompliant": false,
+      "explanation": "internal attribute exposed without the leading-underscore convention"
+    },
+    {
+      "id": "EX-PEP8-FIELD-NAME-MANGLE-1",
+      "type": "Example",
+      "ruleId": "PEP8-FIELD-NAME-MANGLE",
+      "code": "class Base:\n    def __init__(self):\n        self.__id = 0",
+      "isCompliant": true,
+      "explanation": "double leading underscore invokes name mangling to protect against subclass clashes"
+    },
+    {
+      "id": "EX-PEP8-FIELD-NAME-MANGLE-2",
+      "type": "Example",
+      "ruleId": "PEP8-FIELD-NAME-MANGLE",
+      "code": "class Base:\n    def __init__(self):\n        self.id__ = 0",
+      "isCompliant": false,
+      "explanation": "trailing double underscore is reserved for magic names and does not trigger mangling"
+    },
+    {
+      "id": "EX-PEP8-AVOID-CONFUSING-CHARS-1",
+      "type": "Example",
+      "ruleId": "PEP8-AVOID-CONFUSING-CHARS",
+      "code": "count = 0",
+      "isCompliant": true,
+      "explanation": "clear, unambiguous variable name"
+    },
+    {
+      "id": "EX-PEP8-AVOID-CONFUSING-CHARS-2",
+      "type": "Example",
+      "ruleId": "PEP8-AVOID-CONFUSING-CHARS",
+      "code": "l = 0",
+      "isCompliant": false,
+      "explanation": "single-letter 'l' is easily confused with the digit 1"
+    },
+    {
+      "id": "EX-PEP8-FIELD-PUBLIC-NO-PREFIX-1",
+      "type": "Example",
+      "ruleId": "PEP8-FIELD-PUBLIC-NO-PREFIX",
+      "code": "class Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y",
+      "isCompliant": true,
+      "explanation": "public attributes exposed directly, no accessor boilerplate"
+    },
+    {
+      "id": "EX-PEP8-FIELD-PUBLIC-NO-PREFIX-2",
+      "type": "Example",
+      "ruleId": "PEP8-FIELD-PUBLIC-NO-PREFIX",
+      "code": "class Point:\n    def __init__(self, x, y):\n        self._x = x\n        self._y = y\n    def get_x(self):\n        return self._x",
+      "isCompliant": false,
+      "explanation": "needless getter for a simple public data attribute"
+    },
+    {
+      "id": "EX-PEP8-DOC-MODULE-1",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-MODULE",
+      "code": "\"\"\"Utilities for formatting currency values.\"\"\"\n\nimport re",
+      "isCompliant": true,
+      "explanation": "public module opens with a one-line summary docstring"
+    },
+    {
+      "id": "EX-PEP8-DOC-MODULE-2",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-MODULE",
+      "code": "import re\n\ndef normalize(text):\n    ...",
+      "isCompliant": false,
+      "explanation": "public module has no module-level docstring at all"
+    },
+    {
+      "id": "EX-PEP8-DOC-CLASS-1",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-CLASS",
+      "code": "class Cache:\n    \"\"\"Store recently used items up to a fixed capacity.\"\"\"",
+      "isCompliant": true,
+      "explanation": "public class has a summarizing docstring"
+    },
+    {
+      "id": "EX-PEP8-DOC-CLASS-2",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-CLASS",
+      "code": "class Cache:\n    def __init__(self, capacity):\n        self.capacity = capacity",
+      "isCompliant": false,
+      "explanation": "public class defined with no docstring"
+    },
+    {
+      "id": "EX-PEP8-DOC-FUNC-1",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-FUNC",
+      "code": "def parse_config(path):\n    \"\"\"Load and return the configuration stored at path.\"\"\"\n    ...",
+      "isCompliant": true,
+      "explanation": "public function documents its behavior in a docstring"
+    },
+    {
+      "id": "EX-PEP8-DOC-FUNC-2",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-FUNC",
+      "code": "def parse_config(path):\n    return open(path).read()",
+      "isCompliant": false,
+      "explanation": "public function with no docstring"
+    },
+    {
+      "id": "EX-PEP8-DOC-METHOD-1",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-METHOD",
+      "code": "def _normalize(self, value):\n    # Strip whitespace and lowercase before comparison.\n    return value.strip().lower()",
+      "isCompliant": true,
+      "explanation": "non-public method lacks a docstring but has an explanatory comment"
+    },
+    {
+      "id": "EX-PEP8-DOC-METHOD-2",
+      "type": "Example",
+      "ruleId": "PEP8-DOC-METHOD",
+      "code": "def _normalize(self, value):\n    return value.strip().lower()",
+      "isCompliant": false,
+      "explanation": "non-public method has neither a docstring nor an explanatory comment"
+    },
+    {
+      "id": "EX-PEP8-COMMENT-BLOCK-STYLE-1",
+      "type": "Example",
+      "ruleId": "PEP8-COMMENT-BLOCK-STYLE",
+      "code": "# Recompute the cache because the configuration file changed.\nrefresh_cache()",
+      "isCompliant": true,
+      "explanation": "block comment is a complete, capitalized sentence with '# ' prefix"
+    },
+    {
+      "id": "EX-PEP8-COMMENT-BLOCK-STYLE-2",
+      "type": "Example",
+      "ruleId": "PEP8-COMMENT-BLOCK-STYLE",
+      "code": "#recompute cache\nrefresh_cache()",
+      "isCompliant": false,
+      "explanation": "missing space after '#' and not a properly capitalized sentence"
+    },
+    {
+      "id": "EX-PEP8-COMMENT-INLINE-STYLE-1",
+      "type": "Example",
+      "ruleId": "PEP8-COMMENT-INLINE-STYLE",
+      "code": "retry_count = 0  # reset after a successful connection",
+      "isCompliant": true,
+      "explanation": "two spaces before '# ' and a comment that adds real context"
+    },
+    {
+      "id": "EX-PEP8-COMMENT-INLINE-STYLE-2",
+      "type": "Example",
+      "ruleId": "PEP8-COMMENT-INLINE-STYLE",
+      "code": "retry_count = 0 #set to zero",
+      "isCompliant": false,
+      "explanation": "only one space before the comment, no space after '#', and it just restates the obvious"
+    }
+  ],
+  "coverageGaps": [
+    "PEP 8/257 say nothing about is_/has_ prefixes for boolean variables or methods, unlike some other community style guides — no boolean_variable rule was included since none is actually stated.",
+    "PEP 8 defines no interface-naming convention (e.g. Java's Runnable or C#'s 'I' prefix), since Python has no first-class interface construct.",
+    "PEP 8 gives no enum-member casing rule distinct from the general constant convention (Java/C# often specify ALL_CAPS or PascalCase enum members explicitly).",
+    "PEP 8 gives no acronym-casing rule for CapWords/PascalCase identifiers (e.g. whether 'HTTPServer' or 'HttpServer' is preferred), unlike some Java/C# guides.",
+    "PEP 8 defines no minimum/maximum identifier-length rule, unlike some enterprise Java/C# style guides.",
+    "PEP 8 does define a Type Variable naming convention (CapWords, short names like T/AnyStr, with _co/_contra suffixes for variance) but it has no slot in the given identifierKind set (no 'type_parameter' kind), so it could not be represented as a NamingRule here.",
+    "Neither PEP 8 nor PEP 257 mandates a required docstring markup format (no enforced Google-style Args/Returns, NumPy-style, or reST field list) — tooling that expects one is layering an external convention (e.g. Google or NumPy docstring style guides) on top of PEP 8/257, not enforcing PEP 8 itself."
+  ]
+}

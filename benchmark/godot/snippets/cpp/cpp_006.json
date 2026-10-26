@@ -1,0 +1,30 @@
+{
+  "id": "cpp_006",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_data_editors.cpp lines 1334-1369 (method TileDataDefaultEditor::setup_property_editor); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileDataDefaultEditor::setup_property_editor(Variant::Type p_type, const String &p_property, const String &p_label, const Variant &p_default_value) {\n\tERR_FAIL_COND_MSG(!property.is_empty(), \"Cannot setup TileDataDefaultEditor twice\");\n\tproperty = p_property;\n\tproperty_type = p_type;\n\n\t// Update everything.\n\tif (property_editor) {\n\t\tproperty_editor->queue_free();\n\t}\n\n\t// Update the dummy object.\n\tdummy_object->add_dummy_property(p_property);\n\n\t// Get the default value for the type.\n\tif (p_default_value == Variant()) {\n\t\tCallable::CallError error;\n\t\tVariant painted_value;\n\t\tVariant::construct(p_type, painted_value, nullptr, 0, error);\n\t\tdummy_object->set(p_property, painted_value);\n\t} else {\n\t\tdummy_object->set(p_property, p_default_value);\n\t}\n\n\t// Create and setup the property editor.\n\tproperty_editor = EditorInspectorDefaultPlugin::get_editor_for_property(dummy_object, p_type, p_property, PROPERTY_HINT_NONE, \"\", PROPERTY_USAGE_DEFAULT);\n\tproperty_editor->set_object_and_property(dummy_object, p_property);\n\tif (p_label.is_empty()) {\n\t\tproperty_editor->set_label(EditorPropertyNameProcessor::get_singleton()->process_name(p_property, EditorPropertyNameProcessor::get_default_inspector_style(), p_property));\n\t} else {\n\t\tproperty_editor->set_label(p_label);\n\t}\n\tproperty_editor->connect(\"property_changed\", callable_mp(this, &TileDataDefaultEditor::_property_value_changed).unbind(1));\n\tproperty_editor->set_tooltip_text(p_property);\n\tproperty_editor->update_property();\n\tadd_child(property_editor);\n}",
+  "identifiers": [
+    {
+      "name": "painted_value",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_data_editors.cpp",
+    "startLine": 1334,
+    "endLine": 1369,
+    "unit": "method TileDataDefaultEditor::setup_property_editor",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_data_editors.cpp.md"
+  },
+  "pack": "godot",
+  "split": "dev",
+  "unitIndex": 48
+}

@@ -1,0 +1,14 @@
+{
+  "finish": "stop",
+  "json": "ok",
+  "checks": {
+    "harness_reader": "ok",
+    "curation_reader": "ok",
+    "n_rules": 8,
+    "graph_loader": "ok",
+    "graph_loader_note": "networkx 3.2.1 with the edges= to link= adapter"
+  },
+  "schema_findings": [],
+  "accepted": true,
+  "ontology_sha256": "f4e58aa96619de5a052b0ff7e7c2c8e6a1ceb6e8b678a9771cbb5229768b6b5a"
+}

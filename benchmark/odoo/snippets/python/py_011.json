@@ -1,0 +1,30 @@
+{
+  "id": "py_011",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/models/session.py lines 519-541 (function populate_session_lock); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@contextmanager\ndef populate_session_lock(session: Session):\n    \"\"\"Acquire the advisory lock that prevents concurrent execution of a session.\n\n    :param session: Singleton session to protect.\n    :return: Context manager that releases the lock on exit.\n    :raise LockError: If another transaction already holds the session lock.\n    \"\"\"\n    session.ensure_one()\n    lock_key = session._running_lock_key()\n    if not session.env.execute_query(SQL(\n        'SELECT pg_try_advisory_lock(hashtext(%s), %s)',\n        *lock_key,\n    ))[0][0]:\n        raise LockError(session.env._(\"Cannot grab the advisory lock on the session %s.\", session.id))\n\n    try:\n        yield\n    finally:\n        session.env.execute_query(SQL(\n            'SELECT pg_advisory_unlock(hashtext(%s), %s)',\n            *lock_key,\n        ))",
+  "identifiers": [
+    {
+      "name": "session",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/models/session.py",
+    "startLine": 519,
+    "endLine": 541,
+    "unit": "function populate_session_lock",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__models__session.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 33
+}

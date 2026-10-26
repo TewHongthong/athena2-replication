@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_083",
+  "language": "cpp",
+  "originalName": "finalize_server",
+  "injectedName": "FINALIZE_SERVER",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FINALIZE_SERVER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void PhysicsServer2DManager::FINALIZE_SERVER() {\n\tERR_FAIL_NULL(physics_server_2d);\n\tphysics_server_2d->finish();\n\tmemdelete(physics_server_2d);\n\tphysics_server_2d = nullptr;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

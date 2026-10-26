@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_003",
+  "language": "python",
+  "originalName": "tab_id",
+  "injectedName": "TAB_ID",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TAB_ID' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _get_menu_tab_domain(self, TAB_ID):\n    match TAB_ID:\n        case \"notification\":\n            return super()._get_menu_tab_domain(TAB_ID) & Domain(\n                \"model\",\n                \"!=\",\n                \"discuss.channel\",\n            )\n        case \"chat\":\n            return Domain(\n                [\n                    (\"channel_type\", \"in\", [\"chat\", \"group\"]),\n                    (\"default_display_mode\", \"!=\", \"video_full_screen\"),\n                    (\"self_member_id.is_pinned\", \"=\", True),\n                ],\n            )\n        case \"channel\":\n            channel_domain = Domain(\"self_member_id.is_pinned\", \"=\", True)\n            if self.env.user._is_internal():\n                channel_domain |= Domain(\"message_needaction\", \"=\", True)\n            return Domain(\"channel_type\", \"=\", \"channel\") & channel_domain\n        case \"meeting\":\n            is_video_full_screen = Domain(\n                \"default_display_mode\",\n                \"=\",\n                \"video_full_screen\",\n            ) | Domain(\"parent_channel_id.default_display_mode\", \"=\", \"video_full_screen\")\n            return (\n                Domain(\"channel_type\", \"=\", \"group\")\n                & Domain(\"self_member_id.is_pinned\", \"=\", True)\n                & is_video_full_screen\n            )\n        case _:\n            return super()._get_menu_tab_domain(TAB_ID)",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

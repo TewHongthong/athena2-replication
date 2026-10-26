@@ -1,0 +1,30 @@
+{
+  "id": "csharp_032",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Security.Cryptography.Pkcs/src/Internal/Cryptography/Pal/AnyOS/ManagedPal.Kem.cs lines 164-192 (method ManagedKemRecipientInfoPal.DecryptCek); license MIT; repo created 2026-09-20T11:18:53-04:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal byte[]? DecryptCek(X509Certificate2 cert, out Exception? exception)\n{\n    string kemAlgorithm = _asn.Kem.Algorithm;\n\n    if (PkcsHelpers.IsCompositeMLKemAlgorithm(kemAlgorithm))\n    {\n        exception = new PlatformNotSupportedException(\n            SR.Format(SR.Cryptography_AlgorithmNotSupported, nameof(CompositeMLKem)));\n\n        return null;\n    }\n\n    if (PkcsHelpers.IsMLKemAlgorithm(kemAlgorithm))\n    {\n        using (MLKem? certificatePrivateKey = cert.GetMLKemPrivateKey())\n        {\n            if (certificatePrivateKey is null)\n            {\n                exception = new CryptographicException(SR.Cryptography_Cms_Signing_RequiresPrivateKey);\n                return null;\n            }\n\n            return DecryptCek(certificatePrivateKey, out exception);\n        }\n    }\n\n    exception = new CryptographicException(SR.Cryptography_Cms_UnknownAlgorithm, kemAlgorithm);\n    return null;\n}",
+  "identifiers": [
+    {
+      "name": "DecryptCek",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-20T11:18:53-04:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Security.Cryptography.Pkcs/src/Internal/Cryptography/Pal/AnyOS/ManagedPal.Kem.cs",
+    "startLine": 164,
+    "endLine": 192,
+    "unit": "method ManagedKemRecipientInfoPal.DecryptCek",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Security.Cryptography.Pkcs__src__Internal__Cryptography__Pal__AnyOS__ManagedPal.Kem.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 6
+}

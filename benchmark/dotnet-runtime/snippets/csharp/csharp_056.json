@@ -1,0 +1,30 @@
+{
+  "id": "csharp_056",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKem.cs lines 2031-2070 (method CompositeMLKem.TryExportDecapsulationKey); license MIT; repo created 2026-08-19T15:36:12-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public bool TryExportDecapsulationKey(Span<byte> destination, out int bytesWritten)\n{\n    ThrowIfDisposed();\n\n    if (destination.Length < Algorithm.MinDecapsulationKeySizeInBytes)\n    {\n        bytesWritten = 0;\n        return false;\n    }\n\n    using (CryptoPoolLease lease = CryptoPoolLease.RentConditionally(Algorithm.MaxDecapsulationKeySizeInBytes, destination, skipClearIfNotRented: true))\n    {\n        int localBytesWritten = ExportDecapsulationKeyCore(lease.Span);\n\n        if (!Algorithm.IsValidDecapsulationKeySize(localBytesWritten))\n        {\n            if (!lease.IsRented)\n            {\n                CryptographicOperations.ZeroMemory(destination);\n            }\n\n            bytesWritten = 0;\n            throw new CryptographicException();\n        }\n\n        if (lease.IsRented)\n        {\n            if (localBytesWritten > destination.Length)\n            {\n                bytesWritten = 0;\n                return false;\n            }\n\n            lease.Span.Slice(0, localBytesWritten).CopyTo(destination);\n        }\n\n        bytesWritten = localBytesWritten;\n        return true;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "TryExportDecapsulationKey",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-19T15:36:12-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKem.cs",
+    "startLine": 2031,
+    "endLine": 2070,
+    "unit": "method CompositeMLKem.TryExportDecapsulationKey",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Common__src__System__Security__Cryptography__CompositeMLKem.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 49
+}

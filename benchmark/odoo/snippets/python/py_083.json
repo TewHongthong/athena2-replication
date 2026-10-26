@@ -1,0 +1,30 @@
+{
+  "id": "py_083",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/utils/distributions.py lines 501-516 (method TriangularDistribution.__init__); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __init__(self, min: float, max: float, mode: float, **kwargs):\n    \"\"\"\n    :param min: Minimum value\n    :param max: Maximum value\n    :param mode: Most likely value (peak of distribution)\n    \"\"\"\n    super().__init__(**kwargs)\n    if not (min <= mode <= max):\n        raise ValueError(\n            f\"`mode` must be between `min` and `max`, \"\n            f\"got min={min}, max={max}, mode={mode} instead.\",\n        )\n\n    self.min = min\n    self.max = max\n    self.mode = mode",
+  "identifiers": [
+    {
+      "name": "kwargs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/utils/distributions.py",
+    "startLine": 501,
+    "endLine": 516,
+    "unit": "method TriangularDistribution.__init__",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__utils__distributions.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 47
+}

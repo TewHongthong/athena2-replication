@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_069",
+  "language": "csharp",
+  "originalName": "CreateBooleanSerializedInitializer",
+  "injectedName": "create_boolean_serialized_initializer",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_boolean_serialized_initializer' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal BlobBuilder create_boolean_serialized_initializer(IToken type, bool value)\n{\n    Debug.Assert(type.Type == CILParser.BOOL);\n    BlobBuilder blob = CreateSerializedInitializer(SerializationTypeCode.Boolean);\n    blob.WriteBoolean(value);\n    return blob;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

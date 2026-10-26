@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_036",
+  "language": "csharp",
+  "originalName": "MoveNext",
+  "injectedName": "move_next",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'move_next' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public bool move_next()\n{\n    byte b = _buffer[_pos];\n\n    while ((b & 0xC0) == 0xC0)\n    {\n        // Compression pointer: follow it.\n        Debug.Assert(_pos + 1 < _buffer.Length, \"Truncated compression pointer\");\n        int pointer = ((b & 0x3F) << 8) | _buffer[_pos + 1];\n        Debug.Assert(pointer < _pos, \"Forward or self-referencing compression pointer\");\n        _pos = pointer;\n        b = _buffer[_pos];\n    }\n\n    if (b == 0)\n    {\n        // End, root label.\n        return false;\n    }\n\n    Debug.Assert(b <= 63, \"Invalid label length byte\");\n    int labelLen = b;\n    _pos++;\n    Debug.Assert(_pos + labelLen <= _buffer.Length, \"Label extends past buffer\");\n    _current = _buffer.Slice(_pos, labelLen);\n    _pos += labelLen;\n    return true;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

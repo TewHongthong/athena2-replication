@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_002",
+  "language": "cpp",
+  "originalName": "tile_map_layer",
+  "injectedName": "TILE_MAP_LAYER",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TILE_MAP_LAYER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileMapLayerEditor::edit(Object *p_edited) {\n\tif (p_edited && p_edited->get_instance_id() == edited_tile_map_layer_id) {\n\t\treturn;\n\t}\n\n\t_clear_all_layers_highlighting();\n\n\t// Disconnect to changes.\n\tTileMapLayer *TILE_MAP_LAYER = _get_edited_layer();\n\tif (TILE_MAP_LAYER) {\n\t\tTILE_MAP_LAYER->disconnect(CoreStringName(changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t\tTILE_MAP_LAYER->disconnect(SceneStringName(visibility_changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t}\n\n\t// Update the edited layer.\n\tTileMapLayer *new_layer = Object::cast_to<TileMapLayer>(p_edited);\n\tif (new_layer) {\n\t\t// Change the edited object.\n\t\tedited_tile_map_layer_id = new_layer->get_instance_id();\n\n\t\tTILE_MAP_LAYER = _get_edited_layer();\n\t\t// Connect to changes.\n\t\tif (!TILE_MAP_LAYER->is_connected(CoreStringName(changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed))) {\n\t\t\tTILE_MAP_LAYER->connect(CoreStringName(changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t\t\tTILE_MAP_LAYER->connect(SceneStringName(visibility_changed), callable_mp(this, &TileMapLayerEditor::_tile_map_layer_changed));\n\t\t}\n\t} else {\n\t\tedited_tile_map_layer_id = ObjectID();\n\t}\n\n\t// Check if we are trying to use a MultiNodeEdit.\n\tis_multi_node_edit = Object::cast_to<MultiNodeEdit>(p_edited);\n\n\t// Call the plugins and update everything.\n\ttabs_plugins[tabs_bar->get_current_tab()]->edit(edited_tile_map_layer_id);\n\t_update_layers_selector();\n\t_update_all_layers_highlighting();\n\n\t_tile_map_layer_changed();\n}",
+  "occurrencesRenamed": 8,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

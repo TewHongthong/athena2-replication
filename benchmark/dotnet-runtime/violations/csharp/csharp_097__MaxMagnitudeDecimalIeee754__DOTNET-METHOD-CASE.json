@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_097",
+  "language": "csharp",
+  "originalName": "MaxMagnitudeDecimalIeee754",
+  "injectedName": "max_magnitude_decimal_ieee754",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'max_magnitude_decimal_ieee754' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal static TValue max_magnitude_decimal_ieee754<TDecimal, TValue>(TValue x, TValue y)\n    where TDecimal : unmanaged, IDecimalIeee754ParseAndFormatInfo<TDecimal, TValue>\n    where TValue : unmanaged, IBinaryInteger<TValue>\n{\n    TValue ax = AbsDecimalIeee754<TDecimal, TValue>(x);\n    TValue ay = AbsDecimalIeee754<TDecimal, TValue>(y);\n\n    if (GreaterThanDecimalIeee754<TDecimal, TValue>(ax, ay) || TDecimal.IsNaN(ax))\n    {\n        return CanonicalizeIfNaN<TDecimal, TValue>(x);\n    }\n\n    if (EqualsDecimalIeee754<TDecimal, TValue>(ax, ay))\n    {\n        return TDecimal.IsNegative(x) ? y : x;\n    }\n\n    return CanonicalizeIfNaN<TDecimal, TValue>(y);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

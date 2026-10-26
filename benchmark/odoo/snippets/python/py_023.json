@@ -1,0 +1,30 @@
+{
+  "id": "py_023",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_es_edi_verifactu/models/account_journal_dashboard.py lines 7-28 (method AccountJournal._fill_sale_purchase_dashboard_data); license LGPL-3.0; repo created 2026-09-24T01:06:31+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _fill_sale_purchase_dashboard_data(self, dashboard_data):\n    super()._fill_sale_purchase_dashboard_data(dashboard_data)\n    sale_journals = self.filtered(\n        lambda j: j.type == 'sale' and j.company_id.l10n_es_edi_verifactu_required\n    )\n    if not sale_journals:\n        return\n    rejected_count_by_journal = {\n        journal.id: count\n        for journal, count in self.env['account.move']._read_group(\n            domain=[\n                ('l10n_es_edi_verifactu_state', 'in', ('rejected', 'invalid')),\n                ('journal_id', 'in', sale_journals.ids),\n            ],\n            groupby=['journal_id'],\n            aggregates=['__count'],\n        )\n    }\n    for sale_journal in sale_journals:\n        dashboard_data[sale_journal.id].update({\n            'vf_rejected': rejected_count_by_journal.get(sale_journal.id, 0),\n        })",
+  "identifiers": [
+    {
+      "name": "dashboard_data",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-24T01:06:31+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_es_edi_verifactu/models/account_journal_dashboard.py",
+    "startLine": 7,
+    "endLine": 28,
+    "unit": "method AccountJournal._fill_sale_purchase_dashboard_data",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_es_edi_verifactu__models__account_journal_dashboard.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

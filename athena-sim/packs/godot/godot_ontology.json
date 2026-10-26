@@ -1,0 +1,764 @@
+{
+ "directed": true,
+ "multigraph": false,
+ "graph": {
+  "name": "Godot C++ naming ontology (human-authored)",
+  "version": "1.0",
+  "schemaRef": "ontology_schema.md"
+ },
+ "nodes": [
+  {
+   "id": "cpp",
+   "type": "Language",
+   "name": "C++",
+   "fileExtensions": [
+    ".cpp",
+    ".h"
+   ],
+   "defaultStandardId": "GODOT"
+  },
+  {
+   "id": "class",
+   "type": "IdentifierKind",
+   "name": "Class",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "struct",
+   "type": "IdentifierKind",
+   "name": "Struct",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "union",
+   "type": "IdentifierKind",
+   "name": "Union",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "enum",
+   "type": "IdentifierKind",
+   "name": "Enum",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "enum_member",
+   "type": "IdentifierKind",
+   "name": "Enum member",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "namespace",
+   "type": "IdentifierKind",
+   "name": "Namespace",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "function",
+   "type": "IdentifierKind",
+   "name": "Function",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "method",
+   "type": "IdentifierKind",
+   "name": "Method",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "variable",
+   "type": "IdentifierKind",
+   "name": "Variable",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "constant",
+   "type": "IdentifierKind",
+   "name": "Constant",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "parameter",
+   "type": "IdentifierKind",
+   "name": "Parameter",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "field",
+   "type": "IdentifierKind",
+   "name": "Field",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "type_parameter",
+   "type": "IdentifierKind",
+   "name": "Type parameter",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "type_alias",
+   "type": "IdentifierKind",
+   "name": "Type alias",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "macro",
+   "type": "IdentifierKind",
+   "name": "Macro",
+   "applicableLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "GODOT",
+   "type": "Standard",
+   "name": "C++ rules and guidelines (Godot contributor documentation)",
+   "publisher": "Juan Linietsky, Ariel Manzur and the Godot community",
+   "url": "https://github.com/godotengine/godot-contributing-docs",
+   "retrievedDate": "2026-10-14",
+   "scopeLanguages": [
+    "cpp"
+   ]
+  },
+  {
+   "id": "GODOT-TYPE-CASE",
+   "type": "NamingRule",
+   "casing": "PascalCase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Type names use PascalCase.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-NAMESPACE-CASE",
+   "type": "NamingRule",
+   "casing": "PascalCase",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Namespace names use PascalCase.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-MACRO-CASE",
+   "type": "NamingRule",
+   "casing": "UPPER_SNAKE_CASE",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Macro names use UPPER_SNAKE_CASE.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-CONSTANT-CASE",
+   "type": "NamingRule",
+   "casing": "UPPER_SNAKE_CASE",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Constant names use UPPER_SNAKE_CASE.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-FUNCTION-CASE",
+   "type": "NamingRule",
+   "casing": "snake_case",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Function names use snake_case under the rule for all other identifiers.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-METHOD-CASE",
+   "type": "NamingRule",
+   "casing": "snake_case",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Method names use snake_case under the rule for all other identifiers.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-VARIABLE-CASE",
+   "type": "NamingRule",
+   "casing": "snake_case",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Non-constant variable names use snake_case under the rule for all other identifiers.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-FIELD-CASE",
+   "type": "NamingRule",
+   "casing": "snake_case",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Non-constant member variable names use snake_case under the rule for all other identifiers.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-PARAMETER-CASE",
+   "type": "NamingRule",
+   "casing": "snake_case",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Parameter names use snake_case under the rule for all other identifiers.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-OTHER-IDENTIFIER-CASE",
+   "type": "NamingRule",
+   "casing": "snake_case",
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Identifiers other than types, namespaces, macros, and constants use snake_case.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-PARAM-INPUT-PREFIX",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": "p_",
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Method parameter names start with p_ unless the parameter is used to return a value.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-PARAM-OUTPUT-PREFIX",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": "r_",
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Method parameter names start with r_ when the parameter is used to return a value.",
+   "rationale": null,
+   "severity": "MUST",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-IDENTIFIER-FULL-WORDS",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Prefer full words when naming identifiers.",
+   "rationale": null,
+   "severity": "SHOULD",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  },
+  {
+   "id": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "type": "NamingRule",
+   "casing": null,
+   "prefix": null,
+   "suffix": null,
+   "minLength": null,
+   "maxLength": null,
+   "forbiddenPatterns": [],
+   "description": "Avoid abbreviations in identifier names unless using the full name makes the code hard to read.",
+   "rationale": null,
+   "severity": "SHOULD",
+   "sourceStandardId": "GODOT",
+   "sourceSection": "Naming"
+  }
+ ],
+ "links": [
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "class",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "struct",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "union",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "enum",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "type_alias",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "type_parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-TYPE-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-NAMESPACE-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-NAMESPACE-CASE",
+   "target": "namespace",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-NAMESPACE-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-MACRO-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-MACRO-CASE",
+   "target": "macro",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-MACRO-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-CONSTANT-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-CONSTANT-CASE",
+   "target": "constant",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-CONSTANT-CASE",
+   "target": "enum_member",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-CONSTANT-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-FUNCTION-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-FUNCTION-CASE",
+   "target": "function",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-FUNCTION-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-METHOD-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-METHOD-CASE",
+   "target": "method",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-METHOD-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-VARIABLE-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-VARIABLE-CASE",
+   "target": "variable",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-VARIABLE-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-FIELD-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-FIELD-CASE",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-FIELD-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-PARAMETER-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-PARAMETER-CASE",
+   "target": "parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-PARAMETER-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-OTHER-IDENTIFIER-CASE",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-OTHER-IDENTIFIER-CASE",
+   "target": "function",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-OTHER-IDENTIFIER-CASE",
+   "target": "method",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-OTHER-IDENTIFIER-CASE",
+   "target": "variable",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-OTHER-IDENTIFIER-CASE",
+   "target": "parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-OTHER-IDENTIFIER-CASE",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-OTHER-IDENTIFIER-CASE",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-PARAM-INPUT-PREFIX",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-PARAM-INPUT-PREFIX",
+   "target": "parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-PARAM-INPUT-PREFIX",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-PARAM-OUTPUT-PREFIX",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-PARAM-OUTPUT-PREFIX",
+   "target": "parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-PARAM-OUTPUT-PREFIX",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "class",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "struct",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "union",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "enum",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "enum_member",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "namespace",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "function",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "method",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "variable",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "constant",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "type_parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "type_alias",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "macro",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-FULL-WORDS",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "cpp",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "class",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "struct",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "union",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "enum",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "enum_member",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "namespace",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "function",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "method",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "variable",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "constant",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "field",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "type_parameter",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "type_alias",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "macro",
+   "relation": "APPLIES_TO"
+  },
+  {
+   "source": "GODOT-IDENTIFIER-ABBREVIATION-LIMIT",
+   "target": "GODOT",
+   "relation": "DEFINED_IN"
+  }
+ ]
+}

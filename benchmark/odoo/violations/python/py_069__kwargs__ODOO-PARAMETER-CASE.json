@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_069",
+  "language": "python",
+  "originalName": "kwargs",
+  "injectedName": "KWARGS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'KWARGS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def __init__(\n    self,\n    domain: DomainType | DynamicDomain | None = None,\n    comodel_name: str | None = None,\n    **KWARGS,\n):\n    \"\"\"Initialize a relation generator and infer dynamic-domain dependencies.\n\n    :param domain: Static domain or dynamic domain evaluated per generated record.\n    :param comodel_name: Explicit comodel name, required for generated values.\n    \"\"\"\n    depends: list[str] = KWARGS.pop('depends', [])\n    if isinstance(domain, DynamicDomain):\n        depends.extend(domain.dynamic_fields)\n\n    super().__init__(depends=depends, **KWARGS)\n\n    if self.target.type == 'value' and not comodel_name:\n        raise ValueError(self.env._(\"'comodel_name' needs to be provided for generated values.\"))\n\n    comodel_name = self.target.comodel_name or comodel_name\n\n    if comodel_name not in self.env:\n        raise ValueError(self.env._(\n            \"'%(comodel_name)s' isn't a valid model name.\",\n            comodel_name=comodel_name,\n        ))\n\n    self.comodel_name = comodel_name\n    self.domain = domain if domain is not None else Domain.TRUE",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "cpp_075",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/tile_map_layer.h lines 287-296 (method PhysicsBodyKeyHasher.hash); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "static uint32_t hash(const PhysicsBodyKey &p_hash) {\n\tuint32_t h = hash_murmur3_one_32(p_hash.physics_layer);\n\th = hash_murmur3_one_real(p_hash.linear_velocity.x);\n\th = hash_murmur3_one_real(p_hash.linear_velocity.y, h);\n\th = hash_murmur3_one_real(p_hash.angular_velocity, h);\n\tif (p_hash.one_way_collision) {\n\t\th = hash_murmur3_one_32(p_hash.y_origin, h);\n\t}\n\treturn h;\n}",
+  "identifiers": [
+    {
+      "name": "p_hash",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/tile_map_layer.h",
+    "startLine": 287,
+    "endLine": 296,
+    "unit": "method PhysicsBodyKeyHasher.hash",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__tile_map_layer.h.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 22
+}

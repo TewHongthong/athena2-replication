@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_098",
+  "language": "cpp",
+  "originalName": "p_instance",
+  "injectedName": "P_INSTANCE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_INSTANCE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void push_internal(const char *p_method_name, T *P_INSTANCE, M p_method, Args &&...p_args) {\n\tusing CommandType = Command<T, M, Args...>;\n\tstatic_assert(sizeof(CommandType) <= MAX_COMMAND_SIZE);\n\n\tMutexLock lock(mutex);\n\tcreate_command<CommandType>(p_method_name, P_INSTANCE, p_method, std::forward<Args>(p_args)...);\n\tpending = true;\n\tcondvar.notify_one();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

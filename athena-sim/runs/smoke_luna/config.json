@@ -1,0 +1,105 @@
+{
+  "run_id": "smoke_luna",
+  "harness_version": "0.1.0",
+  "status": "complete",
+  "started": "2026-10-17T15:06:59+00:00",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "args": {
+    "cmd": "run",
+    "pack": "gscs",
+    "corpus": null,
+    "task": "rename",
+    "conditions": "none",
+    "embed_pin": null,
+    "languages": null,
+    "per_language": 10,
+    "limit": 2,
+    "seed": 42,
+    "split": "dev",
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "no_oracle": false,
+    "backend": "openai:openai/gpt-6-luna",
+    "model_pin": "luna",
+    "pins": null,
+    "repeats": 1,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "omit_temperature": true,
+    "no_think": false,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    },
+    "frozen": null,
+    "allow_rerun": false,
+    "timeout": 120.0,
+    "retries": 1,
+    "workers": 1,
+    "max_errors": 2,
+    "price_in": 0.1,
+    "price_out": 0.5,
+    "no_store_prompt": false,
+    "run_id": "smoke_luna",
+    "out": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/athena-sim/runs",
+    "progress": 10,
+    "model_pin_sha256": "60e5573eb2805c1347ce76b19041db6e586f16041e584edf2306acfdb3fad7de"
+  },
+  "backend": {
+    "spec": "openai:openai/gpt-6-luna",
+    "is_llm": true,
+    "model": "openai/gpt-6-luna",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    }
+  },
+  "pack": {
+    "pack": "gscs",
+    "ontology": "gscs_ontology.json",
+    "ontology_sha256": "99b5ba83efb7b5254bd33069fe172ea45e0a8a036f5b62f4fe62c9bfc7e234a4",
+    "source_sha256": "6c77e8f8365df031a9e4142ed9f5f20a57127b92aa0e83352ad962d514d32281",
+    "units_sha256": "ab3b7fe233c2f51f20fd8aa8ae4878db0a72d9f607aaafe7349b1b4e63dd160e"
+  },
+  "conditions": [
+    "none"
+  ],
+  "embedding": null,
+  "split": "dev",
+  "frozen": null,
+  "oracle_free": null,
+  "n_units": 2,
+  "unit_ids": [
+    "gscs_cpp_006__bln_Has_Passed__camel_no_prefix",
+    "gscs_cpp_006__PASS_POINT__lower_camel"
+  ],
+  "finished": "2026-10-17T15:07:30+00:00",
+  "trials_ok": 2,
+  "trials_error": 0
+}

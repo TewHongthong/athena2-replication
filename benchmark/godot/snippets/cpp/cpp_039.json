@@ -1,0 +1,30 @@
+{
+  "id": "cpp_039",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "core/string/regex.cpp lines 280-297 (method RegEx::search_all); license MIT; repo created 2026-07-28T09:45:06-05:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "TypedArray<RegExMatch> RegEx::search_all(const String &p_subject, int p_offset, int p_end) const {\n\tERR_FAIL_COND_V_MSG(p_offset < 0, TypedArray<RegExMatch>(), \"RegEx search offset must be >= 0\");\n\n\tint last_end = 0;\n\tTypedArray<RegExMatch> result;\n\tRef<RegExMatch> match = search(p_subject, p_offset, p_end);\n\n\twhile (match.is_valid()) {\n\t\tlast_end = match->get_end(0);\n\t\tif (match->get_start(0) == last_end) {\n\t\t\tlast_end++;\n\t\t}\n\n\t\tresult.push_back(match);\n\t\tmatch = search(p_subject, last_end, p_end);\n\t}\n\treturn result;\n}",
+  "identifiers": [
+    {
+      "name": "last_end",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-28T09:45:06-05:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "core/string/regex.cpp",
+    "startLine": 280,
+    "endLine": 297,
+    "unit": "method RegEx::search_all",
+    "corpusFile": "corpus/cpp/godotengine__godot__core__string__regex.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 16
+}

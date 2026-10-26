@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_061",
+  "language": "python",
+  "originalName": "vals",
+  "injectedName": "VALS",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'VALS' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _cii_add_invoice_config_vals(self, VALS):\n    invoice = VALS['invoice']\n    VALS['currency_id'] = invoice.currency_id\n    VALS['company_currency'] = invoice.company_id.currency_id\n    VALS['supplier'] = invoice.company_id.partner_id\n    VALS['customer'] = invoice.partner_id\n    VALS['partner_shipping'] = invoice.partner_shipping_id or invoice.partner_id\n    VALS['company'] = invoice.company_id\n\n    if invoice.is_purchase_document():\n        VALS['supplier'], VALS['customer'] = VALS['customer'], VALS['supplier']\n        VALS['partner_shipping'] = VALS['customer'].child_ids.filtered(lambda p: p.type == 'delivery')[:1] or VALS['customer']\n\n    self._cii_add_values_delivery_date(VALS, invoice.delivery_date or invoice.invoice_date)\n\n    VALS['base_lines'], VALS['tax_lines'] = invoice._get_rounded_base_and_tax_lines()\n\n    self._turn_price_unit_positive(VALS)\n    self._cii_extract_cash_rounding_lines(VALS)\n    self._cii_extract_early_pay_discount_lines(VALS)\n\n    AccountTax = self.env['account.tax']\n    AccountTax._round_raw_total_excluded(VALS['base_lines'], invoice.company_id)\n    AccountTax._add_and_round_raw_gross_total_excluded_and_discount(VALS['base_lines'], invoice.company_id)\n    AccountTax._round_raw_gross_total_excluded_and_discount(VALS['base_lines'], invoice.company_id)",
+  "occurrencesRenamed": 24,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

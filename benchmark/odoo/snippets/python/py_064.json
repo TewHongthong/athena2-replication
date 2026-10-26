@@ -1,0 +1,30 @@
+{
+  "id": "py_064",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/hr_expense/models/ir_attachment.py lines 7-45 (class IrAttachment); license LGPL-3.0; repo created 2026-07-02T12:40:14+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "class IrAttachment(models.Model):\n    _inherit = 'ir.attachment'\n\n    @api.ondelete(at_uninstall=False)\n    def _prevent_delete_from_submitted_expense(self):\n        expense_attachments = self.filtered(lambda a: a.res_model == 'hr.expense' and a.res_id)\n        expenses = self.env['hr.expense'].browse(expense_attachments.mapped('res_id'))\n        if not all(\n            (expense.exists() and expense.state in {'draft', 'submitted'} and expense.has_access('write')) or self.env.su\n            for expense in expenses\n        ):\n            raise AccessError(self.env._(\"You can't delete attachments from an expense once it has been submitted.\"))\n\n    def _inaccessible_comodel_records(self, model_and_ids: dict[str, Collection[int]], operation: str):\n        expense_ids = list(filter(None, model_and_ids.get('hr.expense', [])))\n        expenses = self.env['hr.expense'].browse(expense_ids)\n        accessible_user_expense_ids = set(expenses._filtered_access('read').filtered(\n            lambda e: e.state in {'draft', 'submitted'} and e.employee_id.user_id == self.env.user\n        ).ids)\n        blocked_expense_ids = []\n        if operation != 'read' and not self.env.su:\n            blocked_expense_ids = expenses.filtered(  # Attachments cannot be added/modified once an expense has been posted\n                lambda e: not (e.id in accessible_user_expense_ids or (e.state in {'draft', 'submitted'} and e.has_access('write'))),\n            ).ids\n            for expense_id in blocked_expense_ids:\n                yield 'hr.expense', expense_id\n\n        model_and_ids = {\n            **model_and_ids,\n            'hr.expense': [id_ for id_ in expense_ids if id_ not in blocked_expense_ids and id_ not in accessible_user_expense_ids],\n        }\n        yield from super()._inaccessible_comodel_records(model_and_ids, operation)\n\n    def _has_attachments_ownership(self, attachment_tokens):\n        expense_attachments = self.filtered(lambda a: a.has_access('read') and a.res_model == 'hr.expense' and a.res_id)\n        expenses = self.env['hr.expense'].browse(expense_attachments.mapped('res_id'))\n        if expenses.filtered(lambda e: e.state == 'submitted' and e.employee_id.user_id == self.env.user) and not self.env.su:\n            return False\n        return super()._has_attachments_ownership(attachment_tokens)",
+  "identifiers": [
+    {
+      "name": "model_and_ids",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-07-02T12:40:14+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/hr_expense/models/ir_attachment.py",
+    "startLine": 7,
+    "endLine": 45,
+    "unit": "class IrAttachment",
+    "corpusFile": "corpus/python/odoo__odoo__addons__hr_expense__models__ir_attachment.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 0
+}

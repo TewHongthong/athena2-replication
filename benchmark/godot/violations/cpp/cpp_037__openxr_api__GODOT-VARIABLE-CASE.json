@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_037",
+  "language": "cpp",
+  "originalName": "openxr_api",
+  "injectedName": "OPENXR_API",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'OPENXR_API' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void OpenXRFoveatedInsetExtension::on_post_render() {\n\tif (render_state.viewports.size() == 0) {\n\t\treturn;\n\t}\n\n\tOpenXRAPI *OPENXR_API = OpenXRAPI::get_singleton();\n\tERR_FAIL_NULL(OPENXR_API);\n\n\tif (OPENXR_API->get_view_configuration() != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET) {\n\t\treturn;\n\t}\n\n\t// Release our swapchain image if we acquired it.\n\tfor (int i = 0; i < SWAPCHAIN_MAX; i++) {\n\t\tif (render_state.swapchains[i].is_image_acquired()) {\n\t\t\trender_state.swapchains[i].release();\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

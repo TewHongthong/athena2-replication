@@ -1,0 +1,78 @@
+{
+  "harness_version": "0.1.0",
+  "code_sha256": {
+    "athena/__init__.py": "4b17cf5c0b303903fc4cfe9a3f4b66a7e852812c84b1b87967ba25973a1cd388",
+    "athena/agreement.py": "0a60ca93535ecade7f4c92f66a78c4b75f24b4bff3cefc15c96f6ef667455b1a",
+    "athena/confirmatory.py": "052aded938eda1fd039fbe962b40e584c1692c91741ece3e2605abc5a4df1fc8",
+    "athena/embed.py": "a71fbfa3de2b238c623a00fb7591da5f478139998798e51a530d2b2278640b17",
+    "athena/evaluate.py": "266c34e882404bdfba342c70cc0bc39607ced957ae349ca31addc43efc8e50f6",
+    "athena/freeze.py": "39eb18d9394e44a821c8b37af9d6b5444b88f7dc271d2a0a411102e200bc4aac",
+    "athena/llm.py": "afdaeff06b4111990663b9839cf92479f8ff1fcc471eca8792f8dfca6e9d1b80",
+    "athena/ontology.py": "a23253f7cb25a2f7272f9fcf61df13aa5c53b57de35b212a2c40799fdc56eda4",
+    "athena/packs.py": "f66c5ab96925716231d5c35a8683f23fabb8dad55a645976c477a5e379c8f977",
+    "athena/passages.py": "0c38f297e100f083bc037ee00088aeecccadc1d1f3f4f0bd3fb8c9d594079ceb",
+    "athena/pins.py": "44ea252f901cfb1e324a5458e8d7792dab862be0e5dbf3a446f74a0ec1558f77",
+    "athena/pipeline.py": "93231f9a0c3ddfe49af657af62e3368357ad3c1cde05a2bb0bbe5a49dc96487e",
+    "athena/prompts.py": "3f31801e2f9c1055ab978d2d2ee9eb11b91dbc8eb7370521f028888091ffadb9",
+    "athena/report.py": "21dccf4c9284b609b82c0150c2e02f1ea01193cb2be5556eab62a59762d118e9",
+    "athena/retrieval.py": "e0091a580374e183a07790cb7ba600c30515212d3c74142d282d7bf2635384c5",
+    "athena/runner.py": "4e76b62727c6e66b70f8e6bdd06f1623b270eb0269125bf66b8df709035273a9",
+    "athena/secondary.py": "4d0820d43f6f096efa6b1030306fba93bac07bb6f2c0b2bb864a76cccc925e6c",
+    "athena_sim.py": "28cd5dd3bbd4eceb0767eb88ceaf883385aa046f6930b546df4dff1e575c8973",
+    "vendor/output_validator.py": "d154237dfca677eacfbed82cf0db332eee19519a70557ff5065d67e0a6aa14da",
+    "ALL": "21f6c01e6254729a05c3b2ef6ac8e82a2d1e0d360bc343df1501614db2be9e22"
+  },
+  "pack": {
+    "pack": "odoo",
+    "ontology": "odoo_ontology.json",
+    "ontology_sha256": "31209f0ced3f66f53787110111ee15823fb4d9a3e90500eee9a62aa7afb8f2df",
+    "ontology_variant": "human",
+    "rules_ontology_sha256": "31209f0ced3f66f53787110111ee15823fb4d9a3e90500eee9a62aa7afb8f2df",
+    "core_rules_sha256": "8f32b8ffefd53d1e2eded9ae359315ba33b3b444a530abc73950487dcfafc7df",
+    "standard_document_sha256": "04b8cb436658fa94324a000cdce336df2e23de07b88311e3bccf3bb97e4e6c0a",
+    "benchmark_index_sha256": "294d1bb503f1fad952fd52595e1b934ae950b063f3e840d29889ea165a76f547"
+  },
+  "settings": {
+    "pack": "odoo",
+    "task": "rename",
+    "conditions": [
+      "none",
+      "fulldoc",
+      "chunk",
+      "bm25",
+      "dense",
+      "graph"
+    ],
+    "languages": null,
+    "per_language": 0,
+    "limit": 0,
+    "seed": 42,
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "backend": "openai:google/gemini-3.1-flash-lite",
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "repeats": 3,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "google-vertex"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      }
+    },
+    "model_pin": "gemini31fl",
+    "model_pin_sha256": "084cbaa850cd3961d15994053d1fff69119ab79db4ede83305e135e46517b529",
+    "embed_pin": "qwen3_embedding_06b",
+    "embed_pin_sha256": "6974b1ce201c8bea297f6bf6e437e02c6c0030c3b9cf3b5f761a43510b03cb99",
+    "split": "test"
+  },
+  "hypotheses_sha256": null,
+  "hypotheses_v2_sha256": "3ea18e6dc0f9a22e0e118b42e7f4ba6e42c62a39dc42d82e95b9d1930182b86e",
+  "frozen_at": "2026-10-24T16:39:51+00:00",
+  "note": ""
+}

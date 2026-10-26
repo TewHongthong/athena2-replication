@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_019",
+  "language": "cpp",
+  "originalName": "start",
+  "injectedName": "START",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'START' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AudioStreamGeneratorPlayback::START(double p_from_pos) {\n\tif (mixed == 0.0) {\n\t\tbegin_resample();\n\t}\n\tskips = 0;\n\tactive = true;\n\tmixed = 0.0;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

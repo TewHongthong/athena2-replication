@@ -1,0 +1,30 @@
+{
+  "id": "py_067",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/google_calendar/utils/google_api_resource.py lines 18-29 (method GoogleApiResource.__init__); license LGPL-3.0; repo created 2026-09-15T19:55:01+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __init__(self, iterable=()):\n    items = {}\n    for item in iterable:\n        if isinstance(item, self.__class__):\n            items[item.id] = item._items[item.id]\n        elif isinstance(item, abc.Mapping):\n            items[item.get('id')] = item\n        else:\n            raise TypeError(\n                _(\"Only %s or iterable of dict are supported\", self.__class__.__name__)\n            )\n    self._items = frozendict(items)",
+  "identifiers": [
+    {
+      "name": "iterable",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T19:55:01+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/google_calendar/utils/google_api_resource.py",
+    "startLine": 18,
+    "endLine": 29,
+    "unit": "method GoogleApiResource.__init__",
+    "corpusFile": "corpus/python/odoo__odoo__addons__google_calendar__utils__google_api_resource.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

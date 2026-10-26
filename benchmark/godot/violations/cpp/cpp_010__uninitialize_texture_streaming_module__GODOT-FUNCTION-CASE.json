@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_010",
+  "language": "cpp",
+  "originalName": "uninitialize_texture_streaming_module",
+  "injectedName": "UNINITIALIZE_TEXTURE_STREAMING_MODULE",
+  "identifierKind": "function",
+  "violatedRuleId": "GODOT-FUNCTION-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'UNINITIALIZE_TEXTURE_STREAMING_MODULE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void UNINITIALIZE_TEXTURE_STREAMING_MODULE(ModuleInitializationLevel p_level) {\n\tif (p_level == MODULE_INITIALIZATION_LEVEL_SCENE) {\n\t\tif (_texture_streaming_server) {\n\t\t\tmemdelete(_texture_streaming_server);\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

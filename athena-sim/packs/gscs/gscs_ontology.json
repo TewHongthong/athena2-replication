@@ -1,0 +1,1169 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "Athena GSCS user-defined standard",
+    "version": "0.1",
+    "generatedDate": "2026-09-28",
+    "assumptions": [
+      "The document lists type prefixes for Boolean (bl, bln), char, short, long, float, double, bit, byte and string, but its own examples also use 'i' (integer) and 'dt' (date time); both are accepted as prefixes.",
+      "The document shows lowercase words after a variable prefix (i_student_total_num) but capitalised words in booleans, functions and in code (bln_Save_Completed, i_Get_Time, i_max_Score, str_Student_Name). Only the prefix and the underscore separation are enforced; capitalisation of the words after the prefix is not.",
+      "'bl' and 'bln' are both listed for Boolean; every example uses 'bln'. Both are accepted.",
+      "Functions that return a value use kind 'function'; functions with no return value use kind 'procedure' (the document calls them 'function without return type'). A code analyzer knows the return type, so this split is available at retrieval time.",
+      "The document says a type name is [noun]_Type. Class, enum and interface names are all treated as types.",
+      "The document's own Java figure declares 'calcSqrt', which does not follow its own function rule; the rule text, not the figure, is treated as normative.",
+      "Structure rules (else after if, comments before conditionals/loops/external calls, try/catch/finally) are recorded but not evaluated by Athena Sim v0.1; the retrieval index is keyed by identifier kind, so they are only reachable through the full-document and chunk conditions.",
+      "The stray bullet 'cxcx' at the end of the document is treated as an editing artefact and dropped."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "java",
+      "type": "Language",
+      "name": "Java",
+      "defaultStandardId": "GSCS"
+    },
+    {
+      "id": "python",
+      "type": "Language",
+      "name": "Python",
+      "defaultStandardId": "GSCS"
+    },
+    {
+      "id": "cpp",
+      "type": "Language",
+      "name": "C++",
+      "defaultStandardId": "GSCS"
+    },
+    {
+      "id": "csharp",
+      "type": "Language",
+      "name": "C#",
+      "defaultStandardId": "GSCS"
+    },
+    {
+      "id": "javascript",
+      "type": "Language",
+      "name": "JavaScript",
+      "defaultStandardId": "GSCS"
+    },
+    {
+      "id": "typescript",
+      "type": "Language",
+      "name": "TypeScript",
+      "defaultStandardId": "GSCS"
+    },
+    {
+      "id": "boolean_variable",
+      "type": "IdentifierKind",
+      "name": "Boolean Variable"
+    },
+    {
+      "id": "class",
+      "type": "IdentifierKind",
+      "name": "Class"
+    },
+    {
+      "id": "conditional",
+      "type": "IdentifierKind",
+      "name": "Conditional"
+    },
+    {
+      "id": "constant",
+      "type": "IdentifierKind",
+      "name": "Constant"
+    },
+    {
+      "id": "enum",
+      "type": "IdentifierKind",
+      "name": "Enum"
+    },
+    {
+      "id": "exception_handling",
+      "type": "IdentifierKind",
+      "name": "Exception Handling"
+    },
+    {
+      "id": "external_call",
+      "type": "IdentifierKind",
+      "name": "External Call"
+    },
+    {
+      "id": "field",
+      "type": "IdentifierKind",
+      "name": "Field"
+    },
+    {
+      "id": "function",
+      "type": "IdentifierKind",
+      "name": "Function"
+    },
+    {
+      "id": "interface",
+      "type": "IdentifierKind",
+      "name": "Interface"
+    },
+    {
+      "id": "loop",
+      "type": "IdentifierKind",
+      "name": "Loop"
+    },
+    {
+      "id": "parameter",
+      "type": "IdentifierKind",
+      "name": "Parameter"
+    },
+    {
+      "id": "procedure",
+      "type": "IdentifierKind",
+      "name": "Procedure"
+    },
+    {
+      "id": "variable",
+      "type": "IdentifierKind",
+      "name": "Variable"
+    },
+    {
+      "id": "GSCS",
+      "type": "Standard",
+      "name": "General Style and Coding Standards for Software Projects (preliminary version, 2015)",
+      "publisher": "Standards Group, IT department (author date 2015-03-20; approved 2015-03-26)",
+      "url": null,
+      "retrievedDate": "2026-09-28",
+      "scopeLanguages": [
+        "java",
+        "python",
+        "cpp",
+        "csharp",
+        "javascript",
+        "typescript"
+      ]
+    },
+    {
+      "id": "GSCS-VAR-TYPED-PREFIX",
+      "type": "NamingRule",
+      "identifierKinds": [
+        "variable",
+        "parameter",
+        "field"
+      ],
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Za-z0-9])"
+      ],
+      "hidePatterns": true,
+      "allowedPrefixes": [
+        "bln",
+        "bl",
+        "ch",
+        "uc",
+        "us",
+        "ul",
+        "by",
+        "str",
+        "dt",
+        "s",
+        "l",
+        "f",
+        "d",
+        "b",
+        "i"
+      ],
+      "description": "Names of variables should be a noun with or without a modifier and use a prefix to identify the data type of the variable: [type prefix]_[noun], [type prefix]_[adjective] or [type prefix]_[adjective]_[noun]. The prefix is followed by an underscore and the words are separated by underscores. Clear, complete and meaningful names make the code more readable.",
+      "rationale": "The prefix shows the data type at every use of the variable.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Naming Variables; Identifying variable types",
+      "identifierKind": "variable"
+    },
+    {
+      "id": "GSCS-BOOL-BLN-PREFIX",
+      "type": "NamingRule",
+      "identifierKinds": [
+        "boolean_variable"
+      ],
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^(?!(?:bln|bl)_[A-Za-z0-9])"
+      ],
+      "hidePatterns": true,
+      "allowedPrefixes": [
+        "bln",
+        "bl"
+      ],
+      "description": "The name of a Boolean variable starts with the Boolean type prefix (bln; the type table also lists bl), then a verb and an object or an adjective: [return_type]_[verb]_[noun]_[adjective].",
+      "rationale": "A Boolean reads like a question or state: bln_Is_File_Opened.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Naming Boolean variables",
+      "identifierKind": "boolean_variable"
+    },
+    {
+      "id": "GSCS-CONST-UPPER",
+      "type": "NamingRule",
+      "identifierKinds": [
+        "constant"
+      ],
+      "casing": "UPPER_SNAKE_CASE",
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "Names of constants are nouns in capital letters, with or without modifiers: [adjective]_[noun] (MAX_LINES, PI, AVERAGE_GPA).",
+      "rationale": "Capital letters make constants recognisable at a glance.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Naming Constants",
+      "identifierKind": "constant"
+    },
+    {
+      "id": "GSCS-PROC-VERB-OBJECT",
+      "type": "NamingRule",
+      "identifierKinds": [
+        "procedure"
+      ],
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^(?![A-Z][a-z0-9]*_[A-Za-z0-9])"
+      ],
+      "hidePatterns": true,
+      "description": "A function without a return value (procedure) is named with a verb and, whenever appropriate, an object: [verb]_[object]. The verb starts with a capital letter and words are separated by underscores (Enter_Height_and_Weight, Calculate_GPAX). No type prefix.",
+      "rationale": "Verb-object names say what the procedure does.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Naming Convention for Functions - function without return type",
+      "identifierKind": "procedure"
+    },
+    {
+      "id": "GSCS-FUNC-RETURN-PREFIX",
+      "type": "NamingRule",
+      "identifierKinds": [
+        "function"
+      ],
+      "casing": null,
+      "prefix": null,
+      "suffix": null,
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [
+        "^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Z][A-Za-z0-9]*_[A-Za-z0-9])"
+      ],
+      "hidePatterns": true,
+      "allowedPrefixes": [
+        "bln",
+        "bl",
+        "ch",
+        "uc",
+        "us",
+        "ul",
+        "by",
+        "str",
+        "dt",
+        "s",
+        "l",
+        "f",
+        "d",
+        "b",
+        "i"
+      ],
+      "description": "A function that returns a value uses a prefix identifying the return type, then a verb and a noun: [return_type]_[verb]_[noun]. The verb starts with a capital letter and words are separated by underscores (i_Get_Time, bln_Create_OutputFile).",
+      "rationale": "The prefix shows the return type at every call.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Naming Convention for Functions - function with return type",
+      "identifierKind": "function"
+    },
+    {
+      "id": "GSCS-TYPE-SUFFIX",
+      "type": "NamingRule",
+      "identifierKinds": [
+        "class",
+        "enum",
+        "interface"
+      ],
+      "casing": null,
+      "prefix": null,
+      "suffix": "_Type",
+      "minLength": null,
+      "maxLength": null,
+      "forbiddenPatterns": [],
+      "description": "All names of types use the letters Type: [noun]_Type (subject_Type, license_Type, bankAccount_Type).",
+      "rationale": "Type names are recognisable by their suffix.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Naming Types",
+      "identifierKind": "class"
+    },
+    {
+      "id": "GSCS-DOC-FUNC-HEADER",
+      "type": "CommentRule",
+      "identifierKinds": [
+        "function",
+        "procedure"
+      ],
+      "format": "block-comment",
+      "requiredLabels": [
+        "Function Objective",
+        "Input parameters",
+        "Function description",
+        "Return Value",
+        "Created By",
+        "Create Date",
+        "Revised By",
+        "Revised Date"
+      ],
+      "optionalFilledLabels": [
+        "Revised By",
+        "Revised Date"
+      ],
+      "triggerCondition": "every function or procedure",
+      "description": "Put a comment before starting a function or procedure to describe the objective of the function, its input parameters and its returned value, using this template:\n/* Function Objective:\nInput parameters :\nFunction description:\nReturn Value : [void, int, float, string] GPA value\nCreated By : Programmer A\nCreate Date:\nRevised By:\nRevised Date:\n*/",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Function/Procedure",
+      "identifierKind": "function"
+    },
+    {
+      "id": "GSCS-IF-ELSE",
+      "type": "StructureRule",
+      "identifierKinds": [
+        "conditional"
+      ],
+      "evaluated": false,
+      "description": "When using IF, always use Else (the else branch carries a comment explaining why the condition failed).",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Conditionals and comparisons",
+      "identifierKind": "conditional"
+    },
+    {
+      "id": "GSCS-COMMENT-BEFORE-CONTROL",
+      "type": "StructureRule",
+      "identifierKinds": [
+        "conditional",
+        "loop",
+        "external_call"
+      ],
+      "evaluated": false,
+      "description": "Always put a comment before starting a conditional or loop, and a comment for each call to an external function that explains the input parameters and the returned output.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Conditionals and comparisons",
+      "identifierKind": "conditional"
+    },
+    {
+      "id": "GSCS-TRY-CATCH-FINALLY",
+      "type": "StructureRule",
+      "identifierKinds": [
+        "exception_handling"
+      ],
+      "evaluated": false,
+      "description": "Use Try..Catch..and Finally as always inside the program. Catch exceptions that exactly match the possible exceptions. All lines of code have to be under a Try..Catch block or within a thrown exception.",
+      "severity": "MUST",
+      "sourceStandardId": "GSCS",
+      "sourceSection": "Error Handling",
+      "identifierKind": "exception_handling"
+    },
+    {
+      "id": "EX-GSCS-VAR-TYPED-PREFIX-1",
+      "type": "Example",
+      "ruleId": "GSCS-VAR-TYPED-PREFIX",
+      "code": "dt_current_time",
+      "isCompliant": true,
+      "explanation": "date-time prefix, adjective 'current', noun 'time' (from the document)"
+    },
+    {
+      "id": "EX-GSCS-VAR-TYPED-PREFIX-2",
+      "type": "Example",
+      "ruleId": "GSCS-VAR-TYPED-PREFIX",
+      "code": "currentTime",
+      "isCompliant": false,
+      "explanation": "no type prefix (authored example)"
+    },
+    {
+      "id": "EX-GSCS-VAR-TYPED-PREFIX-3",
+      "type": "Example",
+      "ruleId": "GSCS-VAR-TYPED-PREFIX",
+      "code": "i_student_total_num",
+      "isCompliant": true,
+      "explanation": "integer prefix (from the document)"
+    },
+    {
+      "id": "EX-GSCS-VAR-TYPED-PREFIX-4",
+      "type": "Example",
+      "ruleId": "GSCS-VAR-TYPED-PREFIX",
+      "code": "studentTotalNum",
+      "isCompliant": false,
+      "explanation": "no type prefix, camelCase instead of underscores (authored example)"
+    },
+    {
+      "id": "EX-GSCS-VAR-TYPED-PREFIX-5",
+      "type": "Example",
+      "ruleId": "GSCS-VAR-TYPED-PREFIX",
+      "code": "f_gpax",
+      "isCompliant": true,
+      "explanation": "float prefix (from the document)"
+    },
+    {
+      "id": "EX-GSCS-BOOL-BLN-PREFIX-1",
+      "type": "Example",
+      "ruleId": "GSCS-BOOL-BLN-PREFIX",
+      "code": "bln_Save_Completed",
+      "isCompliant": true,
+      "explanation": "Boolean prefix + verb + adjective (from the document)"
+    },
+    {
+      "id": "EX-GSCS-BOOL-BLN-PREFIX-2",
+      "type": "Example",
+      "ruleId": "GSCS-BOOL-BLN-PREFIX",
+      "code": "saveCompleted",
+      "isCompliant": false,
+      "explanation": "missing Boolean prefix (authored example)"
+    },
+    {
+      "id": "EX-GSCS-BOOL-BLN-PREFIX-3",
+      "type": "Example",
+      "ruleId": "GSCS-BOOL-BLN-PREFIX",
+      "code": "bln_Is_File_Opened",
+      "isCompliant": true,
+      "explanation": "Boolean prefix + verb + object (from the document)"
+    },
+    {
+      "id": "EX-GSCS-BOOL-BLN-PREFIX-4",
+      "type": "Example",
+      "ruleId": "GSCS-BOOL-BLN-PREFIX",
+      "code": "isFileOpened",
+      "isCompliant": false,
+      "explanation": "missing Boolean prefix (authored example)"
+    },
+    {
+      "id": "EX-GSCS-CONST-UPPER-1",
+      "type": "Example",
+      "ruleId": "GSCS-CONST-UPPER",
+      "code": "MAX_LINES",
+      "isCompliant": true,
+      "explanation": "capital letters, adjective + noun (from the document)"
+    },
+    {
+      "id": "EX-GSCS-CONST-UPPER-2",
+      "type": "Example",
+      "ruleId": "GSCS-CONST-UPPER",
+      "code": "maxLines",
+      "isCompliant": false,
+      "explanation": "not in capital letters (authored example)"
+    },
+    {
+      "id": "EX-GSCS-CONST-UPPER-3",
+      "type": "Example",
+      "ruleId": "GSCS-CONST-UPPER",
+      "code": "AVERAGE_GPA",
+      "isCompliant": true,
+      "explanation": "from the document"
+    },
+    {
+      "id": "EX-GSCS-CONST-UPPER-4",
+      "type": "Example",
+      "ruleId": "GSCS-CONST-UPPER",
+      "code": "Average_Gpa",
+      "isCompliant": false,
+      "explanation": "mixed case (authored example)"
+    },
+    {
+      "id": "EX-GSCS-PROC-VERB-OBJECT-1",
+      "type": "Example",
+      "ruleId": "GSCS-PROC-VERB-OBJECT",
+      "code": "Calculate_GPAX",
+      "isCompliant": true,
+      "explanation": "verb + object (from the document)"
+    },
+    {
+      "id": "EX-GSCS-PROC-VERB-OBJECT-2",
+      "type": "Example",
+      "ruleId": "GSCS-PROC-VERB-OBJECT",
+      "code": "calculateGPAX",
+      "isCompliant": false,
+      "explanation": "camelCase, no underscore between verb and object (authored example)"
+    },
+    {
+      "id": "EX-GSCS-PROC-VERB-OBJECT-3",
+      "type": "Example",
+      "ruleId": "GSCS-PROC-VERB-OBJECT",
+      "code": "Enter_Height_and_Weight",
+      "isCompliant": true,
+      "explanation": "verb + object (from the document)"
+    },
+    {
+      "id": "EX-GSCS-PROC-VERB-OBJECT-4",
+      "type": "Example",
+      "ruleId": "GSCS-PROC-VERB-OBJECT",
+      "code": "calculate_gpax",
+      "isCompliant": false,
+      "explanation": "verb not capitalised (authored example)"
+    },
+    {
+      "id": "EX-GSCS-FUNC-RETURN-PREFIX-1",
+      "type": "Example",
+      "ruleId": "GSCS-FUNC-RETURN-PREFIX",
+      "code": "i_Get_Time",
+      "isCompliant": true,
+      "explanation": "integer prefix + verb + noun (from the document)"
+    },
+    {
+      "id": "EX-GSCS-FUNC-RETURN-PREFIX-2",
+      "type": "Example",
+      "ruleId": "GSCS-FUNC-RETURN-PREFIX",
+      "code": "getTime",
+      "isCompliant": false,
+      "explanation": "no return-type prefix (authored example)"
+    },
+    {
+      "id": "EX-GSCS-FUNC-RETURN-PREFIX-3",
+      "type": "Example",
+      "ruleId": "GSCS-FUNC-RETURN-PREFIX",
+      "code": "bln_Create_OutputFile",
+      "isCompliant": true,
+      "explanation": "Boolean prefix + verb + noun (from the document)"
+    },
+    {
+      "id": "EX-GSCS-FUNC-RETURN-PREFIX-4",
+      "type": "Example",
+      "ruleId": "GSCS-FUNC-RETURN-PREFIX",
+      "code": "Get_Time",
+      "isCompliant": false,
+      "explanation": "missing return-type prefix (authored example)"
+    },
+    {
+      "id": "EX-GSCS-TYPE-SUFFIX-1",
+      "type": "Example",
+      "ruleId": "GSCS-TYPE-SUFFIX",
+      "code": "subject_Type",
+      "isCompliant": true,
+      "explanation": "noun + _Type (from the document)"
+    },
+    {
+      "id": "EX-GSCS-TYPE-SUFFIX-2",
+      "type": "Example",
+      "ruleId": "GSCS-TYPE-SUFFIX",
+      "code": "Subject",
+      "isCompliant": false,
+      "explanation": "missing _Type suffix (authored example)"
+    },
+    {
+      "id": "EX-GSCS-TYPE-SUFFIX-3",
+      "type": "Example",
+      "ruleId": "GSCS-TYPE-SUFFIX",
+      "code": "license_Type",
+      "isCompliant": true,
+      "explanation": "from the document"
+    },
+    {
+      "id": "EX-GSCS-TYPE-SUFFIX-4",
+      "type": "Example",
+      "ruleId": "GSCS-TYPE-SUFFIX",
+      "code": "LicenseType",
+      "isCompliant": false,
+      "explanation": "suffix must be _Type with an underscore (authored example)"
+    },
+    {
+      "id": "EX-GSCS-DOC-FUNC-HEADER-1",
+      "type": "Example",
+      "ruleId": "GSCS-DOC-FUNC-HEADER",
+      "code": "/* Function Objective: ...\nInput parameters : ...\nFunction description: ...\nReturn Value : float GPA value\nCreated By : Programmer A\nCreate Date:\nRevised By:\nRevised Date:\n*/\nfloat f_Calculate_Gpax(float f_point_total, float f_credit_total) {",
+      "isCompliant": true,
+      "explanation": "header template placed directly above the function (from the document)"
+    },
+    {
+      "id": "EX-GSCS-DOC-FUNC-HEADER-2",
+      "type": "Example",
+      "ruleId": "GSCS-DOC-FUNC-HEADER",
+      "code": "// calculates gpax\nfloat f_Calculate_Gpax(float f_point_total, float f_credit_total) {",
+      "isCompliant": false,
+      "explanation": "one-line comment; the header template labels are missing (authored example)"
+    }
+  ],
+  "links": [
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "variable",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "parameter",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "field",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "boolean_variable",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "constant",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "procedure",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "function",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "class",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "enum",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "interface",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "function",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "procedure",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "conditional",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-IF-ELSE",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "conditional",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "loop",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "external_call",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-COMMENT-BEFORE-CONTROL",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "java",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "python",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "cpp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "csharp",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "javascript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "typescript",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "exception_handling",
+      "relation": "APPLIES_TO"
+    },
+    {
+      "source": "GSCS-TRY-CATCH-FINALLY",
+      "target": "GSCS",
+      "relation": "DEFINED_IN"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "EX-GSCS-VAR-TYPED-PREFIX-1",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "EX-GSCS-VAR-TYPED-PREFIX-2",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "EX-GSCS-VAR-TYPED-PREFIX-3",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "EX-GSCS-VAR-TYPED-PREFIX-4",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-VAR-TYPED-PREFIX",
+      "target": "EX-GSCS-VAR-TYPED-PREFIX-5",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "EX-GSCS-BOOL-BLN-PREFIX-1",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "EX-GSCS-BOOL-BLN-PREFIX-2",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "EX-GSCS-BOOL-BLN-PREFIX-3",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-BOOL-BLN-PREFIX",
+      "target": "EX-GSCS-BOOL-BLN-PREFIX-4",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "EX-GSCS-CONST-UPPER-1",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "EX-GSCS-CONST-UPPER-2",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "EX-GSCS-CONST-UPPER-3",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-CONST-UPPER",
+      "target": "EX-GSCS-CONST-UPPER-4",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "EX-GSCS-PROC-VERB-OBJECT-1",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "EX-GSCS-PROC-VERB-OBJECT-2",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "EX-GSCS-PROC-VERB-OBJECT-3",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-PROC-VERB-OBJECT",
+      "target": "EX-GSCS-PROC-VERB-OBJECT-4",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "EX-GSCS-FUNC-RETURN-PREFIX-1",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "EX-GSCS-FUNC-RETURN-PREFIX-2",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "EX-GSCS-FUNC-RETURN-PREFIX-3",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-FUNC-RETURN-PREFIX",
+      "target": "EX-GSCS-FUNC-RETURN-PREFIX-4",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "EX-GSCS-TYPE-SUFFIX-1",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "EX-GSCS-TYPE-SUFFIX-2",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "EX-GSCS-TYPE-SUFFIX-3",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-TYPE-SUFFIX",
+      "target": "EX-GSCS-TYPE-SUFFIX-4",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "EX-GSCS-DOC-FUNC-HEADER-1",
+      "relation": "HAS_EXAMPLE"
+    },
+    {
+      "source": "GSCS-DOC-FUNC-HEADER",
+      "target": "EX-GSCS-DOC-FUNC-HEADER-2",
+      "relation": "HAS_EXAMPLE"
+    }
+  ]
+}

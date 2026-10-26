@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_091",
+  "language": "cpp",
+  "originalName": "find_server_id",
+  "injectedName": "FIND_SERVER_ID",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FIND_SERVER_ID' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "int PhysicsServer3DManager::FIND_SERVER_ID(const String &p_name) {\n\tfor (int i = physics_servers.size() - 1; 0 <= i; --i) {\n\t\tif (p_name == physics_servers[i].name) {\n\t\t\treturn i;\n\t\t}\n\t}\n\treturn -1;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

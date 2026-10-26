@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_067",
+  "language": "python",
+  "originalName": "iterable",
+  "injectedName": "ITERABLE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ITERABLE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def __init__(self, ITERABLE=()):\n    items = {}\n    for item in ITERABLE:\n        if isinstance(item, self.__class__):\n            items[item.id] = item._items[item.id]\n        elif isinstance(item, abc.Mapping):\n            items[item.get('id')] = item\n        else:\n            raise TypeError(\n                _(\"Only %s or iterable of dict are supported\", self.__class__.__name__)\n            )\n    self._items = frozendict(items)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

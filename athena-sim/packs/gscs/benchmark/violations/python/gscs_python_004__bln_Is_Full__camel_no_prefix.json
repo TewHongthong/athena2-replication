@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_python_004",
+  "language": "python",
+  "originalName": "bln_Is_Full",
+  "injectedName": "isFull",
+  "identifierKind": "boolean_variable",
+  "violatedRuleId": "GSCS-BOOL-BLN-PREFIX",
+  "injectionMethod": "camel_no_prefix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'isFull' matches forbidden pattern '^(?!(?:bln|bl)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "class counter_Type:\n    def __init__(self):\n        self.i_count_total = 0\n    # Function Objective: Increase the counter by a step\n    # Input parameters : i_step_size (integer) amount to add\n    # Function description: Add the step to the counter, but never let the counter pass the maximum count\n    # Return Value : void\n    # Created By : Programmer A\n    # Create Date: 2026-09-28\n    # Revised By:\n    # Revised Date:\n    def Add_Count(self, i_step_size):\n        MAX_COUNT = 100\n        isFull = self.i_count_total + i_step_size > MAX_COUNT\n        # check whether the counter would pass the limit\n        if isFull:\n            self.i_count_total = MAX_COUNT\n        # else the counter still fits under the limit\n        else:\n            self.i_count_total = self.i_count_total + i_step_size",
+  "occurrencesRenamed": 2
+}

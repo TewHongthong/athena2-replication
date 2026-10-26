@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_084",
+  "language": "cpp",
+  "originalName": "p_name",
+  "injectedName": "P_NAME",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_NAME' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void PhysicsServer3DManager::register_server(const String &P_NAME, const Callable &p_create_callback) {\n\t//ERR_FAIL_COND(!p_create_callback.is_valid());\n\tERR_FAIL_COND(find_server_id(P_NAME) != -1);\n\tphysics_servers.push_back(ClassInfo(P_NAME, p_create_callback));\n\ton_servers_changed();\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

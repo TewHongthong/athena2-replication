@@ -1,0 +1,341 @@
+breaks,aware,blind,set,pack,language,id,status
+1,1,1,hand,,cpp,name used in a nested block captures the outer variable,ok
+1,1,1,hand,,cpp,name of a variable in a nested sibling block,ok
+1,1,1,hand,,cpp,name of a parameter in the same scope,ok
+1,1,1,hand,,cpp,reserved word,ok
+1,1,1,hand,,cpp,outer variable is captured by an inner declaration,ok
+1,1,1,hand,,cpp,inline method: field used unqualified is captured by the renamed parameter,ok
+1,1,1,hand,,cpp,out-of-class method: unresolved member name is captured by the renamed parameter,ok
+1,1,1,hand,,cpp,called function is captured by the renamed parameter,ok
+1,1,1,hand,,cpp,renaming an out-of-class method: recursive call is captured by a parameter of the new name,ok
+1,1,1,hand,,cpp,loop variable captures,ok
+1,1,1,hand,,cpp,lambda parameter captures,ok
+1,1,1,hand,,cpp,second declaration in the same scope,ok
+1,1,1,hand,,cpp,unscoped enumerator is visible in the enclosing scope,ok
+1,1,1,hand,,cpp,structured binding names share the scope,ok
+1,1,1,hand,,cpp,shadowing a field that is read in the body,ok
+1,1,1,hand,,csharp,name of a parameter,ok
+1,1,1,hand,,csharp,name of a foreach variable in a nested scope,ok
+1,1,1,hand,,csharp,name of a for variable in a nested scope,ok
+1,1,1,hand,,csharp,name of a local in a nested block,ok
+1,1,1,hand,,csharp,field read unqualified is captured by the renamed local,ok
+1,1,1,hand,,csharp,method called unqualified is captured by the renamed local,ok
+1,1,1,hand,,csharp,reserved word,ok
+1,1,1,hand,,csharp,pattern variable in the same member,ok
+1,1,1,hand,,csharp,out variable in the same member,ok
+1,1,1,hand,,csharp,lambda parameter,ok
+1,1,1,hand,,csharp,local function parameter is a separate scope but the C# rule still rejects the shadowing,ok
+1,1,1,hand,,csharp,property read unqualified is captured,ok
+1,1,1,hand,,csharp,tuple deconstruction names,ok
+1,1,1,hand,,csharp,using variable scope,ok
+1,1,1,hand,,csharp,catch variable scope,ok
+1,1,1,hand,,csharp,name reused after the nested scope ended,ok
+1,1,1,hand,,csharp,constructor without its class: name of a local,ok
+1,1,1,hand,,csharp,constructor without its class: name of another parameter,ok
+1,1,1,hand,,csharp,constructor without its class: field read unqualified is captured,ok
+1,1,1,hand,,python,name of a parameter,ok
+1,1,1,hand,,python,name of the loop variable,ok
+1,1,1,hand,,python,builtin used in the body is captured,ok
+1,1,1,hand,,python,reserved word,ok
+1,1,1,hand,,python,global read in the function is captured,ok
+1,1,1,hand,,python,except variable,ok
+0,0,0,fresh,godot,cpp,dev:cpp_007__reload_from_file__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_010__uninitialize_texture_streaming_module__GODOT-FUNCTION-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_001__p_canvas_item__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_006__painted_value__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_030__initialize_tilemap_module__GODOT-FUNCTION-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_013__clear__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_028__p_edited_tile_map_layer_id__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_022__list__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_011__tile_set_changed__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_003__p_port__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_020__fi_ext__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_008__set_width__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_005__p_on_setup_completed__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_002__tile_map_layer__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_017__draw_over_tile__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_024__p_sub_shape_id_creator2__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_027__peer__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_021__set_exclude__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_012__p_port__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_029__err__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_019__start__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_016__p_transpose__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_009__get_input_device_list__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_026__p_exclude__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_015__on_servers_changed__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_025__p_id__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_018__add_driver__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_004__p_tiling_multiplier__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_023__p_atlas_coords__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,dev:cpp_014__p_id__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_099__enum_qualified_name_to_class_info_name__GODOT-FUNCTION-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_072__get_stats__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_094__p_from_pos__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_100__object_index__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_038__create_from_string__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_067__p_node__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_041__openxr_api__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_031__on_session_destroyed__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_035__p_enabled__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_073__len__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_081__reset__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_059__p_frame__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_037__openxr_api__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_047__draw_selection_rect__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_082__p_control__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_060__write__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_045__finalize_server__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_075__p_hash__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_048__pos__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_086__on_session_destroyed__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_096__p_other__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_064__pool__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_042__move_stream__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_040__p_other__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_063__shader_inc__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_090__set_sample_playback__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_046__p_other__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_054__check__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_068__on_state_loss_pending__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_079__p_settings__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_097__physics_servers__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_034__generate_sample__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_098__p_instance__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_089__group__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_053__integrate_forces__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_036__p_position__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_032__request_extensions__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_033__navmesh_parse_init__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_088__p_bone__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_070__body__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_087__set_id__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_061__p_source_id__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_058__volume_offset_db__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_066__reset_temp_pivot__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_074__p_shape__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_039__last_end__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_091__find_server_id__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_084__p_name__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_057__world_scale__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_071__set_data__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_085__p_session__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_078__pool_index__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_083__finalize_server__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_056__p_exclude__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_092__peer__GODOT-VARIABLE-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_049__get_group_count__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_077__p_element_pattern__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_065__queue_redraw__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_095__p_control__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_051__queue_pattern_preview__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_062__p_data_type__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_052__make_visible__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_093__p_other__GODOT-PARAMETER-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_043__get_node__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_044__on_spatial_container_closed__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_076__set_exclude__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_080__generate_sample__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_055__new_server__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_050__get_length__GODOT-METHOD-CASE,ok
+0,0,0,fresh,godot,cpp,test:cpp_069__set_callbacks__GODOT-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_021__AddConditionalRule__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_004__HasRunnableTestMethod__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_001__TryCreateSegments__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_024__ProcessEventSourceDirective__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_009__BuildVTableFixupInfos__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_008__TryComputeLength__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_025__GetParts__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_005__AddDottedNamePart__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_029__GetTypeFromReference__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_018__ReplaceFirstCoreModule__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_019__GetFPReturnSize__DOTNET-METHOD-CASE,ok
+0,0,1,fresh,dotnet-runtime,csharp,dev:csharp_003__Main__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_014__ReadAsync__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_002__ThrowIfInvalidEncapsulatedSecretLength__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_028__TryGetFloatingPointConstant__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_017__GetAttributes__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_022__TrigXMulXAddC__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_030__UpdateRules__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_026__IsSpecialTypeMeetingConstraint__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_010__CreateRecipient__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_016__GetSelfInstallingPayloadSegment__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_012__AddInteriorRoot__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_013__FindCore__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_006__ExportEncapsulationKey__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_007__ListAllPids__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_023__GetHashCode__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_027__AddPendingDispatch__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_011__Release__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_015__ReadName__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,dev:csharp_020__FixupSymbolName__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_045__NarrowVectorsAreNotMultiSlot__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_034__AddSection__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_066__Compare__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_062__CreateRawOwnedCustomAttribute__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_059__HandleFlushTargetState__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_048__DiyFp128ExpM1__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_044__IsAllowed__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_074__AddImplementation__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_078__TryGetWasmSectionBounds__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_088__IsPropertyNameEquivalent__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_065__CreateTypedSecurityAttribute__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_036__MoveNext__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_068__DivideSmallPrime__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_058__WideDivideByPow10__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_033__CosPiDecimalIeee754__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_032__DecryptCek__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_089__Read__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_094__TryExportEncryptedPkcs8PrivateKey__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_100__CreateSerializedStringValue__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_063__GetPrimitiveSize__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_069__CreateBooleanSerializedInitializer__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_085__ExportEncapsulationKeyCore__DOTNET-METHOD-CASE,ok
+0,1,1,fresh,dotnet-runtime,csharp,test:csharp_098__DivideSmallPrime__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_043__EnumerateContainingTypes__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_076__FromExactType__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_072__QuantumDecimalIeee754__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_090__GetCustomAttributes__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_057__TryGetUnwindData__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_082__CreateEmptyEnumerable__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_096__EmitAnsiStringInstruction__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_091__ThreeBitEncodingToRegMask__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_095__MaterializeFileDeclaration__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_031__PortableCallHelpersGeneratorRejectsUnsupportedSignatureTokens__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_041__EnumerateAllSegments__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_087__DivideByPowerOfTwo__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_052__CreateCharMapErrorPInvokeAttribute__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_080__Max__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_040__CompareToImpl__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_083__ClosedStaticDelegateSignaturePreservesHiddenArguments__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_061__ApplyMarshalAs__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_055__TryExportPkcs8PrivateKeyCore__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_067__GetBaseDefinition__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_099__OnHandshakeCompleted__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_086__WriteAsyncCore__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_077__AwaitInheritedValueTask__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_092__AppendNameForNamespaceType__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_042__CreateFloat32BitsSerializedInitializer__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_054__TryFastWrite__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_050__VerifyLowering__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_039__ClampNative__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_079__GetPseudoCustomAttributes__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_075__NotifyOnThreadPool__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_064__Walk__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_060__EncodeHeader__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_056__TryExportDecapsulationKey__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_093__MethodsRetainDistinctFunctionDefinitionsAndTableSlots__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_051__ShouldEmitCell__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_035__ApplyAttribute__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_071__GetStringBytes__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_081__MaterializeIidNativeType__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_084__GetSystemVAmd64PassStructInRegisterDescriptor__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_047__TryResolveTypedefAsType__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_049__ReadWasmName__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_070__Create__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_053__CreateKey__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_038__ComputeVtable__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_073__WithDebugName__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_037__LabeledExpand__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_097__MaxMagnitudeDecimalIeee754__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,dotnet-runtime,csharp,test:csharp_046__IsRuntimeHelpersIntrinsic__DOTNET-METHOD-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_021__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,dev:py_004__date__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_001__fields_list__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_024__ranges_to_remove__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,dev:py_009__limit__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_008__token__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,dev:py_025__field__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_005__attr__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_029__date__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_018__datetime_representation__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_003__tab_id__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_019__leave__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_014__version__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_002__docids__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_028__condition__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_017__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_022__interval__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_030__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_026__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_010__file_manager__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_016__constraints__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_012__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_013__order_sudo__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_006__eval_kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_007__basic_receipt__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_023__dashboard_data__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_027__template_code__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,dev:py_011__session__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_015__picking__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,dev:py_020__template_code__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_045__collected_values__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_034__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_066__move_line__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_062__args__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_059__body__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_048__attrs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_044__intervals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_074__record__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_078__client_sock__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_088__values__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_065__font__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_036__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_068__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_058__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_033__location_ids__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_032__attrs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_089__google_values__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_094__invoice__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_100__out_move__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_063__invoice_line__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_069__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_085__buff__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_098__vals__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_043__should_pad__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_076__filename__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_072__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_090__value__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_057__create_date__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_082__attrs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_096__error_message__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_091__seq__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_095__codepoint__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_031__vals_list__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_041__data__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_087__docids__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_052__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_080__lot__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_040__args__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_083__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_061__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_055__accumulated_pp__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_067__iterable__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_099__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_086__out_move__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_077__topic__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_092__kwargs__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_042__vals_list__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_054__topics__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_050__headers__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_039__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_079__tax_details__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_075__google_service__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_064__model_and_ids__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_060__template_code__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_056__size__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_093__attachments__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_051__text__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_035__records__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_071__currency__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_084__file_manager__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_081__key__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_047__address_type__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_049__calendar__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_070__topic__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_053__tax_data__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_038__vals__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_073__entry__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_037__incoming__ODOO-PARAMETER-CASE,ok
+0,0,1,fresh,odoo,python,test:py_097__rule__ODOO-PARAMETER-CASE,ok
+0,0,0,fresh,odoo,python,test:py_046__basic_receipt__ODOO-PARAMETER-CASE,ok

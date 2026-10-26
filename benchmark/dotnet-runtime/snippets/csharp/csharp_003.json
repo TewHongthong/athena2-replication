@@ -1,0 +1,30 @@
+{
+  "id": "csharp_003",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/mono/wasm/testassets/EntryPoints/PInvoke/UnsupportedOSPlatform.cs lines 5-12 (class Test); license MIT; repo created 2026-07-19T10:07:33-05:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public class Test\n{\n    public static int Main(string[] argv)\n    {\n        Console.WriteLine(\"TestOutput -> Main running\");\n        return 42;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "Main",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T10:07:33-05:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/mono/wasm/testassets/EntryPoints/PInvoke/UnsupportedOSPlatform.cs",
+    "startLine": 5,
+    "endLine": 12,
+    "unit": "class Test",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__mono__wasm__testassets__EntryPoints__PInvoke__UnsupportedOSPlatform.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 0
+}

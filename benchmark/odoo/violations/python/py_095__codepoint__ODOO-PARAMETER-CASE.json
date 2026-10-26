@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_095",
+  "language": "python",
+  "originalName": "codepoint",
+  "injectedName": "CODEPOINT",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CODEPOINT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def fill_codepoint(CODEPOINT: int) -> int:\n    \"\"\"Return the codepoint encoding the filled form of *codepoint*.\n\n    See :data:`FILL_CODEPOINT_PLANE` for why the low word is mirrored instead of\n    the whole codepoint being offset.\n    \"\"\"\n    return FILL_CODEPOINT_PLANE + (CODEPOINT & 0xFFFF)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_080",
+  "language": "python",
+  "originalName": "lot",
+  "injectedName": "LOT",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'LOT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _prepare_label_values(self, LOT, copies):\n    label = super()._prepare_label_values(LOT, copies)\n    if LOT.use_expiration_date:\n        label.update({\n            'use_date': format_date(self.env, LOT.use_date),\n            'expiration_date': format_date(self.env, LOT.expiration_date),\n        })\n    return label",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_java_004",
+  "language": "java",
+  "originalName": "d_balance",
+  "injectedName": "dBalance",
+  "identifierKind": "field",
+  "violatedRuleId": "GSCS-VAR-TYPED-PREFIX",
+  "injectionMethod": "glued_prefix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'dBalance' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "class account_Type {\n    private double dBalance = 0.0;\n    /* Function Objective: Add money to an account\n       Input parameters : d_amount (double) money to add\n       Function description: Add the amount to the balance only when it reaches the minimum deposit\n       Return Value : void\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    void Deposit_Money(double d_amount) {\n        final double MIN_DEPOSIT = 1.0;\n        boolean bln_Is_Valid = d_amount >= MIN_DEPOSIT;\n        // check that the amount is large enough to deposit\n        if (bln_Is_Valid) {\n            dBalance = dBalance + d_amount;\n        }\n        // else the amount is too small, keep the balance\n        else {\n            dBalance = dBalance + 0.0;\n        }\n    }\n}",
+  "occurrencesRenamed": 5
+}

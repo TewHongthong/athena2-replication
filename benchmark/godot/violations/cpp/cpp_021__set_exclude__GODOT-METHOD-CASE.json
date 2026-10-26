@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_021",
+  "language": "cpp",
+  "originalName": "set_exclude",
+  "injectedName": "SET_EXCLUDE",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SET_EXCLUDE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void PhysicsRayQueryParameters3D::SET_EXCLUDE(const TypedArray<RID> &p_exclude) {\n\tparameters.exclude.clear();\n\tfor (int i = 0; i < p_exclude.size(); i++) {\n\t\tparameters.exclude.insert(p_exclude[i]);\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

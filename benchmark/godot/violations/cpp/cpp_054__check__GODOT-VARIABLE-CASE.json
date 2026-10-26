@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_054",
+  "language": "cpp",
+  "originalName": "check",
+  "injectedName": "CHECK",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CHECK' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "Error GDScriptLinter::lint() {\n\t// We use the fact that all nodes form a linked list for memory management purposes to iterate all nodes without actually walking the tree.\n\t// The iteration order is undefined, this should not matter since the tree is immutable for the linter.\n\tGDScriptParser::Node *curr = tree->list;\n\tfor (; curr != nullptr; curr = curr->next) {\n\t\tif (curr->start_line == -1) {\n\t\t\t// Sometimes we allocate synthetic nodes with no correspondence in code e.g. identifiers containing the synthetic names of getter functions.\n\t\t\t// We shouldn't analyze those nodes directly, since suppressing them with `@warning_ignore` would be impossible.\n\t\t\tcontinue;\n\t\t}\n\t\tfor (CallbackWithValidation *CHECK : checks) {\n\t\t\tCHECK(curr, *tree);\n\t\t}\n\t}\n\n\ttree->apply_pending_warnings();\n\treturn tree->get_errors().is_empty() ? OK : ERR_PARSE_ERROR;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

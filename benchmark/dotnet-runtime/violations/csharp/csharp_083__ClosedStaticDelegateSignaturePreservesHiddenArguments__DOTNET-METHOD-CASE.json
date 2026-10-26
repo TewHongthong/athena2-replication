@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_083",
+  "language": "csharp",
+  "originalName": "ClosedStaticDelegateSignaturePreservesHiddenArguments",
+  "injectedName": "closed_static_delegate_signature_preserves_hidden_arguments",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'closed_static_delegate_signature_preserves_hidden_arguments' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "[Theory]\n[InlineData(WasmLowering.LoweringFlags.None, \"viiS16p\", 5)]\n[InlineData(WasmLowering.LoweringFlags.HasGenericContextArg, \"viiiS16p\", 6)]\n[InlineData(WasmLowering.LoweringFlags.IsAsyncCall, \"vaiiS16p\", 6)]\n[InlineData(WasmLowering.LoweringFlags.HasGenericContextArg | WasmLowering.LoweringFlags.IsAsyncCall, \"viaiiS16p\", 7)]\npublic void closed_static_delegate_signature_preserves_hidden_arguments(WasmLowering.LoweringFlags flags, string expectedSignature, int expectedParameters)\n{\n    ReadyToRunCompilerContext context = CreateWasmContext();\n    MethodSignature invokeSignature = new MethodSignature(0, 0, context.GetWellKnownType(WellKnownType.Void),\n        [context.GetWellKnownType(WellKnownType.Int32), MakeAlignedEightBlob(context, 16)]);\n\n    MethodSignature targetSignature = WasmLowering.GetClosedStaticDelegateTargetSignature(invokeSignature);\n    WasmSignature lowered = WasmLowering.GetSignature(targetSignature, flags);\n\n    Assert.Equal(expectedSignature, lowered.SignatureString);\n    Assert.Equal(expectedParameters, lowered.FuncType.Params.Types.Length);\n    Assert.True(lowered.FuncType.Returns.Types.IsEmpty);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

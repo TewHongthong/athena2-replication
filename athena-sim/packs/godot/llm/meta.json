@@ -1,0 +1,39 @@
+{
+  "standard": "godot",
+  "pin": "luna_draft",
+  "pin_sha256": "75dc73114422e0ed5930ce6b9e6b646f0f3111ecf6d254a452a62947b2507d65",
+  "backend": {
+    "spec": "openai:openai/gpt-6-luna",
+    "is_llm": true,
+    "model": "openai/gpt-6-luna",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": null,
+    "max_tokens": 32768,
+    "reasoning_effort": null,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    }
+  },
+  "model": "openai/gpt-6-luna",
+  "provider": "OpenAI",
+  "response_id": "gen-1792637774-Z5RJP9SirwaMN0bxSD7D",
+  "system_fingerprint": "",
+  "finish": "stop",
+  "prompt_tokens": 2838,
+  "completion_tokens": 4408,
+  "latency_s": 28.09,
+  "cost_usd_estimate": 0.00249,
+  "prompt_sha256": "407e886853b0d500f1d74159026dbd19448b7e14d188de7839e5c7931c9e7404",
+  "response_sha256": "35edc23842625d8b6ec96059ac326748f9bce6e79265ac23c8a6b4c704e768f3"
+}

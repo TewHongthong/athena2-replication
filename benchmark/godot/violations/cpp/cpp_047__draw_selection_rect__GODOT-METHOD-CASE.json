@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_047",
+  "language": "cpp",
+  "originalName": "draw_selection_rect",
+  "injectedName": "DRAW_SELECTION_RECT",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'DRAW_SELECTION_RECT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TilesEditorUtils::DRAW_SELECTION_RECT(CanvasItem *p_ci, const Rect2 &p_rect, const Color &p_color) {\n\tRef<Texture2D> selection_texture = EditorNode::get_singleton()->get_editor_theme()->get_icon(SNAME(\"TileSelection\"), EditorStringName(EditorIcons));\n\n\treal_t scale = p_ci->get_global_transform().get_scale().x * 0.5;\n\tp_ci->draw_set_transform(p_rect.position, 0, Vector2(1, 1) / scale);\n\tRS::get_singleton()->canvas_item_add_nine_patch(\n\t\t\tp_ci->get_canvas_item(), Rect2(Vector2(), p_rect.size * scale), Rect2(), selection_texture->get_rid(),\n\t\t\tVector2(2, 2), Vector2(2, 2), RSE::NINE_PATCH_STRETCH, RSE::NINE_PATCH_STRETCH, false, p_color);\n\tp_ci->draw_set_transform_matrix(Transform2D());\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

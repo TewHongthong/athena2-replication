@@ -1,0 +1,30 @@
+{
+  "id": "py_073",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/scripts/plot_distributions.py lines 190-203 (function get_theoretical_probabilities); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def get_theoretical_probabilities(\n    entry: dict,\n    distribution_index: int,\n    value_range: np.ndarray,\n) -> np.ndarray | None:\n    \"\"\"Compute theoretical probabilities for discrete sampling.\"\"\"\n    if entry['discrete']:\n        return poisson_pmf(value_range, lam=entry['dist'].lam)\n\n    theoretical_function = THEORETICAL_BOUNDED[distribution_index]\n    if theoretical_function is None:\n        return None\n\n    return theoretical_function(value_range)",
+  "identifiers": [
+    {
+      "name": "entry",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/scripts/plot_distributions.py",
+    "startLine": 190,
+    "endLine": 203,
+    "unit": "function get_theoretical_probabilities",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__scripts__plot_distributions.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 11
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_027",
+  "language": "python",
+  "originalName": "template_code",
+  "injectedName": "TEMPLATE_CODE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TEMPLATE_CODE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class AccountChartTemplate(models.AbstractModel):\n    _inherit = 'account.chart.template'\n\n    @template(model='account.journal')\n    def _get_simplified_journal(self, TEMPLATE_CODE):\n        \"\"\"Add a journal for simplified invoices.\n\n        Its default income account is aligned with the regular Sales journal.\n        When that journal isn't available yet (e.g. while gathering the journals\n        during the initial chart-template load) we fall back to the company's\n        income account, which is exactly what the Sales journal is set to.\n        \"\"\"\n        sale_journal = self.ref('sale', raise_if_not_found=False)\n        default_account = (\n            sale_journal.default_account_id\n            if sale_journal\n            else self.env.company.income_account_id\n        )\n        journal_vals = {\n            'name': self.env._(\"Simplified Invoice\"),\n            'type': 'sale',\n            'code': 'SINV',\n            'show_on_dashboard': False,\n        }\n        if default_account:\n            journal_vals['default_account_id'] = default_account.id\n        return {'simplified_journal': journal_vals}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_020",
+  "language": "cpp",
+  "originalName": "fi_ext",
+  "injectedName": "FI_EXT",
+  "identifierKind": "variable",
+  "violatedRuleId": "GODOT-VARIABLE-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'FI_EXT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "OpenXRFoveatedInsetViewport::~OpenXRFoveatedInsetViewport() {\n\tOpenXRFoveatedInsetExtension *FI_EXT = OpenXRFoveatedInsetExtension::get_singleton();\n\tif (!FI_EXT) {\n\t\t// Silently fail, this is likely being called after we instantiated our class for\n\t\t// populating ClassDB.\n\t\treturn;\n\t}\n\n\tFI_EXT->unregister_viewport(get_viewport_rid());\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_046",
+  "language": "python",
+  "originalName": "basic_receipt",
+  "injectedName": "BASIC_RECEIPT",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'BASIC_RECEIPT' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def order_receipt_generate_html(self, BASIC_RECEIPT=False):\n    content = super().order_receipt_generate_html(BASIC_RECEIPT)\n    if any((\n        self.company_id.account_fiscal_country_id.code != 'TW',\n        not self.config_id.is_ecpay_enabled,\n        not self.l10n_tw_edi_is_print,\n        self.l10n_tw_edi_is_b2b,\n        self.ecpay_error,\n    )):\n        return content\n\n    ecpay_certificate_receipt = self.env['ir.qweb']._render(\n        'l10n_tw_edi_ecpay_pos.ecpay_certificate_receipt',\n        values=self.order_receipt_generate_data(BASIC_RECEIPT),\n    )\n    ecpay_transaction_receipt = self.env['ir.qweb']._render(\n        'l10n_tw_edi_ecpay_pos.ecpay_transaction_receipt',\n        values=self.order_receipt_generate_data(BASIC_RECEIPT),\n    )\n    separator = '<div style=\"display:block; clear:both; height:4mm;\"></div>'\n    return separator.join([content, ecpay_certificate_receipt, ecpay_transaction_receipt])",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

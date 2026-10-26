@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_008",
+  "language": "python",
+  "originalName": "token",
+  "injectedName": "TOKEN",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TOKEN' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class PdpWebhookController(http.Controller):\n\n    @http.route(\n        '/peppol/webhook/new-regulatory-message',\n        type='http',\n        auth='public',\n        methods=['POST'],\n        csrf=False,\n        save_session=False,\n    )\n    def webhook_regulatory_message(self, TOKEN):\n        edi_client = request.env['account_edi_proxy_client.user'].sudo()._get_user_from_token(TOKEN, url=request.httprequest.url)\n\n        cron = request.env.ref(\n            'l10n_fr_pdp.ir_cron_pdp_get_regulatory_documents',\n            raise_if_not_found=False,\n        )\n        if edi_client and cron:\n            cron.sudo()._trigger()\n\n        return http.Response(status=204)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

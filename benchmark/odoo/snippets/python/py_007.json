@@ -1,0 +1,30 @@
+{
+  "id": "py_007",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_pe_pos/receipt/pos_order_receipt.py lines 8-16 (method PosOrderReceipt.order_receipt_generate_data); license LGPL-3.0; repo created 2026-08-09T07:58:29+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def order_receipt_generate_data(self, basic_receipt=False):\n    data = super().order_receipt_generate_data(basic_receipt)\n    if self.company_id.account_fiscal_country_id.code == 'PE' and self.partner_id:\n        identifier_vals = self.partner_id._get_preferred_legal_entity_identifier_vals()\n        if value := identifier_vals.get('value'):\n            data['partner']['vat'] = value\n            if label := identifier_vals.get('label'):\n                data['extra_data']['partner_vat_label'] = str(label)\n    return data",
+  "identifiers": [
+    {
+      "name": "basic_receipt",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-09T07:58:29+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_pe_pos/receipt/pos_order_receipt.py",
+    "startLine": 8,
+    "endLine": 16,
+    "unit": "method PosOrderReceipt.order_receipt_generate_data",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_pe_pos__receipt__pos_order_receipt.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

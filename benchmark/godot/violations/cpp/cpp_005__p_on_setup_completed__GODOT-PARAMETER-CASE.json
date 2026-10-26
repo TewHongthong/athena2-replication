@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_005",
+  "language": "cpp",
+  "originalName": "p_on_setup_completed",
+  "injectedName": "P_ON_SETUP_COMPLETED",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_ON_SETUP_COMPLETED' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AndroidSDKManager::run_setup(const Callable &P_ON_SETUP_COMPLETED, const Callable &p_on_setup_cancelled) {\n\ton_setup_cancelled = p_on_setup_cancelled;\n\tif (!is_java_sdk_setup()) {\n\t\ton_setup_completed = callable_mp(this, &AndroidSDKManager::run_setup).bind(P_ON_SETUP_COMPLETED, p_on_setup_cancelled);\n\t\t_show_setup_dialog(PROMPTING_JAVA_SDK_SETUP);\n\t} else if (!is_android_sdk_setup()) {\n\t\ton_setup_completed = callable_mp(this, &AndroidSDKManager::run_setup).bind(P_ON_SETUP_COMPLETED, p_on_setup_cancelled);\n\t\t_show_setup_dialog(PROMPTING_ANDROID_SDK_SETUP);\n\t} else {\n\t\ton_setup_completed = Callable();\n\t\ton_setup_cancelled = Callable();\n\t\tif (P_ON_SETUP_COMPLETED.is_valid()) {\n\t\t\tP_ON_SETUP_COMPLETED.call_deferred();\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

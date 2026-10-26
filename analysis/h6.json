@@ -1,0 +1,16 @@
+{
+  "aware_only": 0,
+  "blind_only": 17,
+  "catch_rate_aware": 1.0,
+  "catch_rate_aware_lower": 0.9278424754944854,
+  "catch_rate_blind": 1.0,
+  "caught_aware": 40,
+  "caught_blind": 40,
+  "false_alarms_aware": 1,
+  "false_alarms_blind": 18,
+  "n": 340,
+  "n_breaking": 40,
+  "n_harmless": 300,
+  "p": 1.52587890625e-05,
+  "supports": true
+}

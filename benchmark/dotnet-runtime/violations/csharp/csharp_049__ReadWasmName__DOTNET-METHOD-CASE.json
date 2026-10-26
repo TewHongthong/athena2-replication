@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_049",
+  "language": "csharp",
+  "originalName": "ReadWasmName",
+  "injectedName": "read_wasm_name",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'read_wasm_name' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static string read_wasm_name(ReadOnlySpan<byte> image, ref int offset, int end)\n{\n    uint length = ReadWasmUleb32(image, ref offset, end);\n    if (length > int.MaxValue || length > end - offset)\n        throw new BadImageFormatException(\"WASM import name extends beyond the import section.\");\n\n    string name = Encoding.UTF8.GetString(image.Slice(offset, (int)length));\n    offset += (int)length;\n    return name;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

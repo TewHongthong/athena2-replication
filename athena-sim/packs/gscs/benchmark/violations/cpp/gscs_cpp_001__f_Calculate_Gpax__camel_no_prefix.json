@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_001",
+  "language": "cpp",
+  "originalName": "f_Calculate_Gpax",
+  "injectedName": "calculateGpax",
+  "identifierKind": "function",
+  "violatedRuleId": "GSCS-FUNC-RETURN-PREFIX",
+  "injectionMethod": "camel_no_prefix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'calculateGpax' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Z][A-Za-z0-9]*_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "class student_Type {\npublic:\n    /* Function Objective: Compute the GPAX of one student\n       Input parameters : f_point_total (float) weighted grade points, f_credit_total (float) registered credits\n       Function description: Divide the weighted grade points by the registered credits, capped at the maximum GPAX\n       Return Value : float GPAX value\n       Created By : Programmer A\n       Create Date: 2026-09-28\n       Revised By:\n       Revised Date:\n    */\n    float calculateGpax(float f_point_total, float f_credit_total) {\n        const float MAX_GPAX = 4.0f;\n        float f_gpax = 0.0f;\n        // check that credits were registered\n        if (f_credit_total > 0) {\n            f_gpax = f_point_total / f_credit_total;\n        }\n        // else no credit registered, keep GPAX at zero\n        else {\n            f_gpax = 0.0f;\n        }\n        return f_gpax < MAX_GPAX ? f_gpax : MAX_GPAX;\n    }\n};",
+  "occurrencesRenamed": 1
+}

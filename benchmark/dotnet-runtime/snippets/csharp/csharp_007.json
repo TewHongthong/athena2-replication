@@ -1,0 +1,30 @@
+{
+  "id": "csharp_007",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Common/src/Interop/OpenBSD/Interop.Process.cs lines 33-70 (method Process.ListAllPids); license MIT; repo created 2026-06-24T15:36:48+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal static unsafe int[] ListAllPids()\n{\n    kinfo_proc* entries = GetProcInfo(0, false, out int numProcesses);\n    try\n    {\n        if (numProcesses <= 0)\n        {\n            throw new Win32Exception(SR.CantGetAllPids);\n        }\n\n        var list = new ReadOnlySpan<kinfo_proc>(entries, numProcesses);\n        var pids = new int[numProcesses];\n\n        // walk through process list and skip kernel threads\n        int idx = 0;\n        for (int i = 0; i < list.Length; i++)\n        {\n            if (list[i].p_ppid == 0)\n            {\n                // skip kernel threads\n                numProcesses -= 1;\n            }\n            else\n            {\n                pids[idx] = list[i].p_pid;\n                idx += 1;\n            }\n        }\n\n        // Remove extra elements\n        Array.Resize<int>(ref pids, numProcesses);\n        return pids;\n    }\n    finally\n    {\n        NativeMemory.Free(entries);\n    }\n}",
+  "identifiers": [
+    {
+      "name": "ListAllPids",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-24T15:36:48+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Common/src/Interop/OpenBSD/Interop.Process.cs",
+    "startLine": 33,
+    "endLine": 70,
+    "unit": "method Process.ListAllPids",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Common__src__Interop__OpenBSD__Interop.Process.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 3
+}

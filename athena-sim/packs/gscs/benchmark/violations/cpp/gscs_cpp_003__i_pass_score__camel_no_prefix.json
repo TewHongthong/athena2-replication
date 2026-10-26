@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_cpp_003",
+  "language": "cpp",
+  "originalName": "i_pass_score",
+  "injectedName": "passScore",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GSCS-VAR-TYPED-PREFIX",
+  "injectionMethod": "camel_no_prefix",
+  "split": "dev",
+  "expectedViolationReasons": [
+    "name 'passScore' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "/* Function Objective: Count the scores that reach the pass mark\n   Input parameters : i_score_list (integer array) all scores, i_score_total (integer) number of scores, passScore (integer) pass mark\n   Function description: Walk through the scores and count every score that is at least the pass mark\n   Return Value : int number of passed scores\n   Created By : Programmer A\n   Create Date: 2026-09-28\n   Revised By:\n   Revised Date:\n*/\nint i_Count_Passed(const int i_score_list[], int i_score_total, int passScore) {\n    int i_passed_total = 0;\n    // count every score that reaches the pass mark\n    for (int i_index = 0; i_index < i_score_total; i_index++) {\n        // check the score against the pass mark\n        if (i_score_list[i_index] >= passScore) {\n            i_passed_total = i_passed_total + 1;\n        }\n        // else the score is below the pass mark, skip it\n        else {\n            i_passed_total = i_passed_total + 0;\n        }\n    }\n    return i_passed_total;\n}",
+  "occurrencesRenamed": 3
+}

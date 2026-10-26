@@ -1,0 +1,30 @@
+{
+  "id": "csharp_004",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tasks/WasmBuildTasks/GenerateXunitTestClassList.cs lines 140-167 (method GenerateXunitTestClassList.HasRunnableTestMethod); license MIT; repo created 2026-08-28T13:30:15+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private static bool HasRunnableTestMethod(MetadataReader reader, TypeDefinition type, HashSet<string> excluded)\n{\n    // GetMethods() only returns methods declared on this type, so a test class is not picked up\n    // through tests it inherits from a shared base class.\n    foreach (MethodDefinitionHandle handle in type.GetMethods())\n    {\n        MethodDefinition method = reader.GetMethodDefinition(handle);\n\n        bool isTest = false;\n        HashSet<string> categories = new(StringComparer.OrdinalIgnoreCase);\n        foreach (CustomAttributeHandle attributeHandle in method.GetCustomAttributes())\n        {\n            CustomAttribute attribute = reader.GetCustomAttribute(attributeHandle);\n            if (!TryGetAttributeTypeName(reader, attribute, out string? attributeName))\n                continue;\n\n            if (s_testMethodAttributeNames.Contains(attributeName))\n                isTest = true;\n            else if (attributeName == TestCategoryAttributeName && TryGetCategory(reader, attribute, out string? category))\n                categories.Add(category);\n        }\n\n        if (isTest && !categories.Overlaps(excluded))\n            return true;\n    }\n\n    return false;\n}",
+  "identifiers": [
+    {
+      "name": "HasRunnableTestMethod",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-28T13:30:15+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tasks/WasmBuildTasks/GenerateXunitTestClassList.cs",
+    "startLine": 140,
+    "endLine": 167,
+    "unit": "method GenerateXunitTestClassList.HasRunnableTestMethod",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tasks__WasmBuildTasks__GenerateXunitTestClassList.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "dev",
+  "unitIndex": 4
+}

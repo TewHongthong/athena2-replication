@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_025",
+  "language": "cpp",
+  "originalName": "p_id",
+  "injectedName": "P_ID",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_ID' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void VisualShaderGroup::set_output_port_type(int P_ID, VisualShaderNode::PortType p_type) {\n\tERR_FAIL_INDEX(P_ID, output_ports.size());\n\n\tif (output_ports[P_ID].type == p_type) {\n\t\treturn;\n\t}\n\n\toutput_ports.write[P_ID].type = p_type;\n\temit_changed();\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

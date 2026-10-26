@@ -1,0 +1,30 @@
+{
+  "id": "py_082",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/populate/generators/misc.py lines 165-172 (method Eval.convert_to_kwargs); license LGPL-3.0; repo created 2026-06-10T20:34:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@classmethod\ndef convert_to_kwargs(cls, attrs):\n    kwargs = super().convert_to_kwargs(attrs)\n\n    if 'eval' in attrs:\n        kwargs['expr'] = attrs['eval']\n\n    return kwargs",
+  "identifiers": [
+    {
+      "name": "attrs",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-10T20:34:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/populate/generators/misc.py",
+    "startLine": 165,
+    "endLine": 172,
+    "unit": "method Eval.convert_to_kwargs",
+    "corpusFile": "corpus/python/odoo__odoo__addons__populate__generators__misc.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 10
+}

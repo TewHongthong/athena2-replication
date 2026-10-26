@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_055",
+  "language": "cpp",
+  "originalName": "new_server",
+  "injectedName": "NEW_SERVER",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'NEW_SERVER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "PhysicsServer2D *PhysicsServer2DManager::NEW_SERVER(const String &p_name) {\n\tint id = find_server_id(p_name);\n\tif (id == -1) {\n\t\treturn nullptr;\n\t} else {\n\t\tVariant ret;\n\t\tCallable::CallError ce;\n\t\tphysics_2d_servers[id].create_callback.callp(nullptr, 0, ret, ce);\n\t\tERR_FAIL_COND_V(ce.error != Callable::CallError::CALL_OK, nullptr);\n\t\treturn Object::cast_to<PhysicsServer2D>(ret.get_validated_object());\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

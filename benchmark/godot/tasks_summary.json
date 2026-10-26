@@ -1,0 +1,60 @@
+{
+ "by_kind": {
+  "all": {
+   "function": 3,
+   "method": 39,
+   "parameter": 34,
+   "variable": 24
+  },
+  "dev": {
+   "function": 2,
+   "method": 10,
+   "parameter": 12,
+   "variable": 6
+  },
+  "test": {
+   "function": 1,
+   "method": 29,
+   "parameter": 22,
+   "variable": 18
+  }
+ },
+ "by_method": {
+  "all": {
+   "casing_swap": 100
+  },
+  "dev": {
+   "casing_swap": 30
+  },
+  "test": {
+   "casing_swap": 70
+  }
+ },
+ "by_rule": {
+  "all": {
+   "GODOT-FUNCTION-CASE": 3,
+   "GODOT-METHOD-CASE": 39,
+   "GODOT-PARAMETER-CASE": 34,
+   "GODOT-VARIABLE-CASE": 24
+  },
+  "dev": {
+   "GODOT-FUNCTION-CASE": 2,
+   "GODOT-METHOD-CASE": 10,
+   "GODOT-PARAMETER-CASE": 12,
+   "GODOT-VARIABLE-CASE": 6
+  },
+  "test": {
+   "GODOT-FUNCTION-CASE": 1,
+   "GODOT-METHOD-CASE": 29,
+   "GODOT-PARAMETER-CASE": 22,
+   "GODOT-VARIABLE-CASE": 18
+  }
+ },
+ "by_split": {
+  "dev": 30,
+  "test": 70
+ },
+ "language": "cpp",
+ "pack": "godot",
+ "tasks": 100
+}

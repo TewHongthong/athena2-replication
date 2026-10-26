@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_011",
+  "language": "cpp",
+  "originalName": "tile_set_changed",
+  "injectedName": "TILE_SET_CHANGED",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TILE_SET_CHANGED' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileMapLayerEditorTilesPlugin::TILE_SET_CHANGED() {\n\t_update_fix_selected_and_hovered();\n\t_update_tile_set_sources_list();\n\t_update_source_display();\n\t_update_patterns_list();\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

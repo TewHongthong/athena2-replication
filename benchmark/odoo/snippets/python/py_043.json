@@ -1,0 +1,30 @@
+{
+  "id": "py_043",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/payment_paypal/models/payment_token.py lines 11-18 (method PaymentToken._build_display_name); license LGPL-3.0; repo created 2026-09-11T16:26:48+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _build_display_name(self, *args, should_pad=True, **kwargs):\n    \"\"\"Override of `payment` to only pad the display name of card tokens.\n\n    The payment details of PayPal wallet tokens are not card digits, so they must not be padded.\n    \"\"\"\n    if self.provider_code != \"paypal\" or self.payment_method_code == \"card\":\n        return super()._build_display_name(*args, should_pad=should_pad, **kwargs)\n    return super()._build_display_name(*args, should_pad=False, **kwargs)",
+  "identifiers": [
+    {
+      "name": "should_pad",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-11T16:26:48+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/payment_paypal/models/payment_token.py",
+    "startLine": 11,
+    "endLine": 18,
+    "unit": "method PaymentToken._build_display_name",
+    "corpusFile": "corpus/python/odoo__odoo__addons__payment_paypal__models__payment_token.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 1
+}

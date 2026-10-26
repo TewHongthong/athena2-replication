@@ -1,0 +1,45 @@
+{
+  "id": "gscs_python_004",
+  "language": "python",
+  "source": "authored:gscs-seed",
+  "sourceDetail": "hand-authored seed written to follow the GSCS document; not real-world code",
+  "standardId": "GSCS",
+  "split": "test",
+  "codeContext": "class counter_Type:\n    def __init__(self):\n        self.i_count_total = 0\n    # Function Objective: Increase the counter by a step\n    # Input parameters : i_step_size (integer) amount to add\n    # Function description: Add the step to the counter, but never let the counter pass the maximum count\n    # Return Value : void\n    # Created By : Programmer A\n    # Create Date: 2026-09-28\n    # Revised By:\n    # Revised Date:\n    def Add_Count(self, i_step_size):\n        MAX_COUNT = 100\n        bln_Is_Full = self.i_count_total + i_step_size > MAX_COUNT\n        # check whether the counter would pass the limit\n        if bln_Is_Full:\n            self.i_count_total = MAX_COUNT\n        # else the counter still fits under the limit\n        else:\n            self.i_count_total = self.i_count_total + i_step_size",
+  "identifiers": [
+    {
+      "name": "counter_Type",
+      "kind": "class",
+      "isCompliant": true
+    },
+    {
+      "name": "i_count_total",
+      "kind": "field",
+      "isCompliant": true
+    },
+    {
+      "name": "Add_Count",
+      "kind": "procedure",
+      "isCompliant": true
+    },
+    {
+      "name": "i_step_size",
+      "kind": "parameter",
+      "isCompliant": true
+    },
+    {
+      "name": "MAX_COUNT",
+      "kind": "constant",
+      "isCompliant": true
+    },
+    {
+      "name": "bln_Is_Full",
+      "kind": "boolean_variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "authored": "2026-09-28",
+    "license": "project-internal"
+  }
+}

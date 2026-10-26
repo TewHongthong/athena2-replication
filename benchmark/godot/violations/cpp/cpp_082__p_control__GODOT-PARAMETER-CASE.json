@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_082",
+  "language": "cpp",
+  "originalName": "p_control",
+  "injectedName": "P_CONTROL",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_CONTROL' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void add_control_over_atlas_tiles(Control *P_CONTROL, bool scaled = true) {\n\tif (scaled) {\n\t\tbase_tiles_drawing_root->add_child(P_CONTROL);\n\t} else {\n\t\tbase_tiles_root_control->add_child(P_CONTROL);\n\t}\n\tP_CONTROL->set_anchors_and_offsets_preset(Control::PRESET_FULL_RECT);\n\tP_CONTROL->set_mouse_filter(Control::MOUSE_FILTER_PASS);\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

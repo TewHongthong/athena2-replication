@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_059",
+  "language": "cpp",
+  "originalName": "p_frame",
+  "injectedName": "P_FRAME",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_FRAME' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void ShaderGraph::attach_node_to_frame(int p_node, int P_FRAME) {\n\tERR_FAIL_COND(!nodes.has(p_node));\n\n\tnodes[p_node].node->set_frame(P_FRAME);\n\n\tRef<VisualShaderNodeFrame> vsnode_frame = nodes[P_FRAME].node;\n\tif (vsnode_frame.is_valid()) {\n\t\tvsnode_frame->add_attached_node(p_node);\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

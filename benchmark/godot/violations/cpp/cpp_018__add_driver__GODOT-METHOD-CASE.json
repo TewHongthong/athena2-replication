@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_018",
+  "language": "cpp",
+  "originalName": "add_driver",
+  "injectedName": "ADD_DRIVER",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'ADD_DRIVER' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void AudioDriverManager::ADD_DRIVER(AudioDriver *p_driver) {\n\tERR_FAIL_COND(driver_count >= MAX_DRIVERS);\n\tdrivers[driver_count - 1] = p_driver;\n\n\t// Last driver is always our dummy driver\n\tdrivers[driver_count++] = &AudioDriverManager::dummy_driver;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "dev"
+}

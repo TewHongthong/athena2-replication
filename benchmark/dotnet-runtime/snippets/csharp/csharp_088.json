@@ -1,0 +1,30 @@
+{
+  "id": "csharp_088",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonUnionTypeStructuralClassifier.cs lines 718-726 (method PocoPropertyClassifierInfo.IsPropertyNameEquivalent); license MIT; repo created 2026-08-17T19:25:22+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public bool IsPropertyNameEquivalent(PocoPropertyClassifierInfo other)\n{\n    Debug.Assert(IsCaseSensitive == other.IsCaseSensitive);\n\n    return string.Equals(\n        Name,\n        other.Name,\n        IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase);\n}",
+  "identifiers": [
+    {
+      "name": "IsPropertyNameEquivalent",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-17T19:25:22+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonUnionTypeStructuralClassifier.cs",
+    "startLine": 718,
+    "endLine": 726,
+    "unit": "method PocoPropertyClassifierInfo.IsPropertyNameEquivalent",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Text.Json__src__System__Text__Json__Serialization__JsonUnionTypeStructuralClassifier.cs.md"
+  },
+  "pack": "dotnet-runtime",
+  "split": "test",
+  "unitIndex": 17
+}

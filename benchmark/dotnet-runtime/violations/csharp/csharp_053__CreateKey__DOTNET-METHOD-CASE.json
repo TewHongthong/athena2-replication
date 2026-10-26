@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_053",
+  "language": "csharp",
+  "originalName": "CreateKey",
+  "injectedName": "create_key",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_key' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal static ZipCryptoKeys create_key(ReadOnlySpan<char> password)\n{\n    // Initialize keys with standard ZipCrypto initial values\n    uint key0 = 305419896;\n    uint key1 = 591751049;\n    uint key2 = 878082192;\n\n    // Feed the password's UTF-8 bytes into the key schedule. UTF-8 (rather than ASCII)\n    // preserves non-ASCII passwords; interop with tools that assume a different code page\n    // is documented as a caveat.\n    byte[] passwordBytes = ArrayPool<byte>.Shared.Rent(Encoding.UTF8.GetMaxByteCount(password.Length));\n    try\n    {\n        int byteCount = Encoding.UTF8.GetBytes(password, passwordBytes);\n        for (int i = 0; i < byteCount; i++)\n        {\n            UpdateKeys(ref key0, ref key1, ref key2, passwordBytes[i]);\n        }\n    }\n    finally\n    {\n        ClearSensitiveData(passwordBytes);\n        ArrayPool<byte>.Shared.Return(passwordBytes);\n    }\n\n    return new ZipCryptoKeys(key0, key1, key2);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

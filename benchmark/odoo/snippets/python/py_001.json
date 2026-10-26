@@ -1,0 +1,30 @@
+{
+  "id": "py_001",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_in/wizard/account_payment_register.py lines 8-24 (method AccountPaymentRegister.default_get); license LGPL-3.0; repo created 2026-08-24T05:29:38+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "@api.model\ndef default_get(self, fields_list):\n    res = super().default_get(fields_list)\n    if self.env.company.account_fiscal_country_id.code == 'IN' and 'withhold' in fields_list:\n        active_model = self.env.context.get('active_model')\n        active_ids = self.env.context.get('active_ids', [])\n        move_count = 0\n        if active_model == 'account.move':\n            move_count = len(active_ids)\n        elif active_model == 'account.move.line':\n            move_count = len(self.env['account.move.line'].browse(active_ids).mapped('move_id'))\n        # In India, hide withholding options for group payments and use \"Withhold\" instead of \"Withhold and Pay\" for individual payments.\n        if move_count > 1:\n            res['withhold'] = 'payment'\n        elif res['withhold'] == 'withhold_pay':\n            res['withhold'] = 'withhold'\n    return res",
+  "identifiers": [
+    {
+      "name": "fields_list",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-24T05:29:38+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_in/wizard/account_payment_register.py",
+    "startLine": 8,
+    "endLine": 24,
+    "unit": "method AccountPaymentRegister.default_get",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_in__wizard__account_payment_register.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 1
+}

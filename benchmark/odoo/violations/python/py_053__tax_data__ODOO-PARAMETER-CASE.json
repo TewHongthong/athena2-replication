@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_053",
+  "language": "python",
+  "originalName": "tax_data",
+  "injectedName": "TAX_DATA",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TAX_DATA' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class AccountChartTemplate(models.AbstractModel):\n    _inherit = 'account.chart.template'\n\n    @template('gf')\n    def _get_gf_template_data(self):\n        return {\n            'code_digits': '6',\n            'parent': 'fr_comp',\n        }\n\n    def _deref_account_tags(self, template_code, TAX_DATA):\n        if template_code == 'gf':\n            template_code = 'fr_comp'\n        return super()._deref_account_tags(template_code, TAX_DATA)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

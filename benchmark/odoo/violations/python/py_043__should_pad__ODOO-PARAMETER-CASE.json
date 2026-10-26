@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_043",
+  "language": "python",
+  "originalName": "should_pad",
+  "injectedName": "SHOULD_PAD",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SHOULD_PAD' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _build_display_name(self, *args, SHOULD_PAD=True, **kwargs):\n    \"\"\"Override of `payment` to only pad the display name of card tokens.\n\n    The payment details of PayPal wallet tokens are not card digits, so they must not be padded.\n    \"\"\"\n    if self.provider_code != \"paypal\" or self.payment_method_code == \"card\":\n        return super()._build_display_name(*args, should_pad=SHOULD_PAD, **kwargs)\n    return super()._build_display_name(*args, should_pad=False, **kwargs)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

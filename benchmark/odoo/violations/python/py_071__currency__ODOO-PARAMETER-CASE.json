@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_071",
+  "language": "python",
+  "originalName": "currency",
+  "injectedName": "CURRENCY",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'CURRENCY' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _check_for_qr_code_errors(self, qr_method, amount, CURRENCY, debtor_partner, free_communication, structured_communication):\n    if qr_method == 'emv_qr' and self.country_code == 'MM':\n        if self.proxy_type != 'merchant_id':\n            return _(\"The account identifier type of an MMQR code must be a Merchant ID.\")\n        if not self.l10n_mm_merchant_name:\n            return _(\"Missing Merchant Name (Myanmar Unicode).\")\n\n    return super()._check_for_qr_code_errors(qr_method, amount, CURRENCY, debtor_partner, free_communication, structured_communication)",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

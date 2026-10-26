@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_020",
+  "language": "python",
+  "originalName": "template_code",
+  "injectedName": "TEMPLATE_CODE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'TEMPLATE_CODE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "class AccountChartTemplate(models.AbstractModel):\n    _inherit = 'account.chart.template'\n\n    @template('mq')\n    def _get_mq_template_data(self):\n        return {\n            'code_digits': '6',\n            'parent': 'fr_comp',\n        }\n\n    def _deref_account_tags(self, TEMPLATE_CODE, tax_data):\n        if TEMPLATE_CODE == 'mq':\n            TEMPLATE_CODE = 'fr_comp'\n        return super()._deref_account_tags(TEMPLATE_CODE, tax_data)",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "dev"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "cpp_058",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_randomizer.cpp lines 332-354 (method AudioStreamPlaybackRandomizer::start); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamPlaybackRandomizer::start(double p_from_pos) {\n\tplaying = playback;\n\t{\n\t\t// GH-10238 : Pitch_scale is multiplicative, so picking a random number for it without log\n\t\t// conversion will bias it towards higher pitches (0.5 is down one octave, 2.0 is up one octave).\n\t\t// See: https://pressbooks.pub/sound/chapter/pitch-and-frequency-in-music/\n\t\tfloat range_from = Math::log(1.0f / randomizer->random_pitch_scale);\n\t\tfloat range_to = Math::log(randomizer->random_pitch_scale);\n\n\t\tpitch_scale = Math::exp(range_from + Math::randf() * (range_to - range_from));\n\t}\n\t{\n\t\tfloat range_from = -randomizer->random_volume_offset_db;\n\t\tfloat range_to = randomizer->random_volume_offset_db;\n\n\t\tfloat volume_offset_db = range_from + Math::randf() * (range_to - range_from);\n\t\tvolume_scale = Math::db_to_linear(volume_offset_db);\n\t}\n\n\tif (playing.is_valid()) {\n\t\tplaying->start(p_from_pos);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "volume_offset_db",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_randomizer.cpp",
+    "startLine": 332,
+    "endLine": 354,
+    "unit": "method AudioStreamPlaybackRandomizer::start",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_randomizer.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 25
+}

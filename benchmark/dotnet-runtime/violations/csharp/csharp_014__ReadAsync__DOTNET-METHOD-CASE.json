@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_014",
+  "language": "csharp",
+  "originalName": "ReadAsync",
+  "injectedName": "read_async",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'read_async' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "public override ValueTask<int> read_async(Memory<byte> buffer, CancellationToken cancellationToken = default)\n{\n    ThrowIfDisposed();\n    ThrowIfCantRead();\n    ThrowIfBeyondEndOfStream();\n    return ReadAsyncCore(buffer, cancellationToken);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "dev"
+}

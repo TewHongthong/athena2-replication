@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_085",
+  "language": "cpp",
+  "originalName": "p_session",
+  "injectedName": "P_SESSION",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_SESSION' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void OpenXRSpatialContainerSelfRenderingExtension::on_session_created(const XrSession P_SESSION) {\n\tif (!is_enabled()) {\n\t\treturn;\n\t}\n\n\tERR_FAIL_NULL(OpenXRAPI::get_singleton());\n\tOpenXRAPI::get_singleton()->register_frame_info_extension(this);\n\tOpenXRAPI::get_singleton()->register_projection_layer_extension(this);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

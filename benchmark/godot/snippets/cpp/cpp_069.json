@@ -1,0 +1,30 @@
+{
+  "id": "cpp_069",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/debugger/canvas_item_manipulator.cpp lines 2280-2288 (method CanvasItemManipulator::set_callbacks); license MIT; repo created 2026-09-22T14:00:37-03:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void CanvasItemManipulator::set_callbacks(const Callable &p_find_items_start, const Callable &p_point_selected, const Callable &p_get_selection, const Callable &p_local_xform, const Callable &p_global_xform, const Callable &p_local_mouse_pos, const Callable &p_plugin_input) {\n\tfind_items_start_callback = p_find_items_start;\n\tpoint_selected_callback = p_point_selected;\n\tget_selection_callback = p_get_selection;\n\tlocal_transform_callback = p_local_xform;\n\tglobal_transform_callback = p_global_xform;\n\tlocal_mouse_pos_callback = p_local_mouse_pos;\n\tplugin_input_callback = p_plugin_input;\n}",
+  "identifiers": [
+    {
+      "name": "set_callbacks",
+      "kind": "method",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-22T14:00:37-03:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/debugger/canvas_item_manipulator.cpp",
+    "startLine": 2280,
+    "endLine": 2288,
+    "unit": "method CanvasItemManipulator::set_callbacks",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__debugger__canvas_item_manipulator.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 32
+}

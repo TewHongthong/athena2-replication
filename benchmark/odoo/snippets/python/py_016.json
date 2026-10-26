@@ -1,0 +1,30 @@
+{
+  "id": "py_016",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/l10n_fr_pdp/models/account_edi_cii.py lines 27-50 (method L10nFRAccountEdiCii._l10n_fr_pdp_cii_check_peppol_fields); license LGPL-3.0; repo created 2026-08-31T19:39:54+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _l10n_fr_pdp_cii_check_peppol_fields(self, vals, constraints):\n    \"\"\"\n    [BR-FR-12] - Since the electronic invoice must be sent and is awaiting\n    lifecycle status updates in return, the Buyer's email address (BT-34) is\n    REQUIRED.\n    [BR-FR-13] - Since the electronic invoice must be sent and is awaiting\n    lifecycle status updates in return, the Seller's email address (BT-34) is\n    REQUIRED.\n    \"\"\"\n    if vals['company']._get_peppol_proxy_type() == 'pdp':\n        constraints.update({\n            'buyer_peppol_eas': self._check_required_fields(\n                vals['customer'].commercial_partner_id, 'routing_scheme'\n            ),\n            'buyer_peppol_endpoint': self._check_required_fields(\n                vals['customer'].commercial_partner_id, 'routing_endpoint'\n            ),\n            'seller_peppol_eas': self._check_required_fields(\n                vals['supplier'].commercial_partner_id, 'routing_scheme'\n            ),\n            'seller_peppol_endpoint': self._check_required_fields(\n                vals['supplier'].commercial_partner_id, 'routing_endpoint'\n            ),\n        })",
+  "identifiers": [
+    {
+      "name": "constraints",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-08-31T19:39:54+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/l10n_fr_pdp/models/account_edi_cii.py",
+    "startLine": 27,
+    "endLine": 50,
+    "unit": "method L10nFRAccountEdiCii._l10n_fr_pdp_cii_check_peppol_fields",
+    "corpusFile": "corpus/python/odoo__odoo__addons__l10n_fr_pdp__models__account_edi_cii.py.md"
+  },
+  "pack": "odoo",
+  "split": "dev",
+  "unitIndex": 4
+}

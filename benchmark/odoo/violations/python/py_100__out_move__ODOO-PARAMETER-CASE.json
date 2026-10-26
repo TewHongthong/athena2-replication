@@ -1,0 +1,17 @@
+{
+  "snippetId": "py_100",
+  "language": "python",
+  "originalName": "out_move",
+  "injectedName": "OUT_MOVE",
+  "identifierKind": "parameter",
+  "violatedRuleId": "ODOO-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'OUT_MOVE' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "def _allocate_moves(self, in_move, OUT_MOVE):\n    \"\"\" Assign out move as the in move's destination (create MTO link) and\n    share reference across source documents.\"\"\"\n    allocated_location = in_move.picking_type_id.allocated_location_id\n    in_move.move_dest_ids |= OUT_MOVE\n    OUT_MOVE.procure_method = 'make_to_order'\n    if (out_ref := OUT_MOVE.reference_ids) and (in_source := in_move._get_source_document()):\n        in_source._add_reference(out_ref)\n    if (in_ref := in_move.reference_ids) and (out_source := OUT_MOVE._get_source_document()):\n        out_source._add_reference(in_ref)\n\n    # If in move is not done yet and an allocated location is defined, update its\n    # destination to use the allocated location. Out move's source location will\n    # be updated only when the operation is done (see `_apply_allocation`).\n    if allocated_location and in_move.state != 'done':\n        in_move.location_dest_id = allocated_location._get_putaway_strategy(\n            in_move.product_id,\n            quantity=in_move.product_qty,\n            packaging=in_move.packaging_uom_id\n        )\n        in_move.move_line_ids.location_dest_id = in_move.location_dest_id",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "odoo",
+  "split": "test"
+}

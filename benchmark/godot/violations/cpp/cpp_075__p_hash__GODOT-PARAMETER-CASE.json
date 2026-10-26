@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_075",
+  "language": "cpp",
+  "originalName": "p_hash",
+  "injectedName": "P_HASH",
+  "identifierKind": "parameter",
+  "violatedRuleId": "GODOT-PARAMETER-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'P_HASH' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "static uint32_t hash(const PhysicsBodyKey &P_HASH) {\n\tuint32_t h = hash_murmur3_one_32(P_HASH.physics_layer);\n\th = hash_murmur3_one_real(P_HASH.linear_velocity.x);\n\th = hash_murmur3_one_real(P_HASH.linear_velocity.y, h);\n\th = hash_murmur3_one_real(P_HASH.angular_velocity, h);\n\tif (P_HASH.one_way_collision) {\n\t\th = hash_murmur3_one_32(P_HASH.y_origin, h);\n\t}\n\treturn h;\n}",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

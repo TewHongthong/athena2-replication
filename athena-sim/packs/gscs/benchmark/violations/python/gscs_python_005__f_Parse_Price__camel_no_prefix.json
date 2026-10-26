@@ -1,0 +1,15 @@
+{
+  "snippetId": "gscs_python_005",
+  "language": "python",
+  "originalName": "f_Parse_Price",
+  "injectedName": "parsePrice",
+  "identifierKind": "function",
+  "violatedRuleId": "GSCS-FUNC-RETURN-PREFIX",
+  "injectionMethod": "camel_no_prefix",
+  "split": "test",
+  "expectedViolationReasons": [
+    "name 'parsePrice' matches forbidden pattern '^(?!(?:bln|bl|ch|uc|us|ul|by|str|dt|s|l|f|d|b|i)_[A-Z][A-Za-z0-9]*_[A-Za-z0-9])'"
+  ],
+  "codeContextWithViolation": "# Function Objective: Read a price from text\n# Input parameters : str_price_text (string) price written as text\n# Function description: Convert the text to a number rounded to two decimals; text that is not a number gives zero\n# Return Value : float price\n# Created By : Programmer A\n# Create Date: 2026-09-28\n# Revised By:\n# Revised Date:\ndef parsePrice(str_price_text):\n    MISSING_PRICE = 0.0\n    f_price = MISSING_PRICE\n    try:\n        # convert the text to a number\n        f_price = float(str_price_text)\n    except ValueError:\n        # the text is not a number, keep the default price\n        f_price = MISSING_PRICE\n    finally:\n        # the value is ready, round it to two decimals\n        f_price = round(f_price, 2)\n    return f_price",
+  "occurrencesRenamed": 1
+}

@@ -1,0 +1,30 @@
+{
+  "id": "cpp_073",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_wav.cpp lines 490-514 (method AudioStreamWAV::get_length); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "double AudioStreamWAV::get_length() const {\n\tuint64_t len = data.size();\n\tswitch (format) {\n\t\tcase AudioStreamWAV::FORMAT_8_BITS:\n\t\t\tlen /= 1;\n\t\t\tbreak;\n\t\tcase AudioStreamWAV::FORMAT_16_BITS:\n\t\t\tlen /= 2;\n\t\t\tbreak;\n\t\tcase AudioStreamWAV::FORMAT_IMA_ADPCM:\n\t\t\tlen *= 2;\n\t\t\tbreak;\n\t\tcase AudioStreamWAV::FORMAT_QOA:\n\t\t\tqoa_desc desc = {};\n\t\t\tqoa_decode_header(data.ptr(), len, &desc);\n\t\t\tlen = desc.samples * desc.channels;\n\t\t\tbreak;\n\t}\n\n\tif (stereo) {\n\t\tlen /= 2;\n\t}\n\n\treturn double(len) / mix_rate;\n}",
+  "identifiers": [
+    {
+      "name": "len",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_wav.cpp",
+    "startLine": 490,
+    "endLine": 514,
+    "unit": "method AudioStreamWAV::get_length",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_wav.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 28
+}

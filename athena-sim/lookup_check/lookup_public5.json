@@ -1,0 +1,257 @@
+{
+ "AIRBNB_JS|javascript|boolean_variable|rename": [
+  "AIRBNB-BOOLEAN-VARIABLE-ISHAS"
+ ],
+ "AIRBNB_JS|javascript|class|rename": [
+  "AIRBNB-CLASS-PASCAL",
+  "AIRBNB-ACRONYM-CASING"
+ ],
+ "AIRBNB_JS|javascript|constant|rename": [
+  "AIRBNB-CONST-LOCAL-CAMEL",
+  "AIRBNB-CONST-UPPER"
+ ],
+ "AIRBNB_JS|javascript|field|rename": [
+  "AIRBNB-FIELD-NO-UNDERSCORE"
+ ],
+ "AIRBNB_JS|javascript|function|comment": [
+  "AIRBNB-COMMENT-SPACING",
+  "AIRBNB-COMMENT-MULTILINE",
+  "AIRBNB-COMMENT-TODO"
+ ],
+ "AIRBNB_JS|javascript|function|rename": [
+  "AIRBNB-FUNCTION-CAMEL"
+ ],
+ "AIRBNB_JS|javascript|method|comment": [
+  "AIRBNB-COMMENT-FIXME"
+ ],
+ "AIRBNB_JS|javascript|method|rename": [
+  "AIRBNB-METHOD-CAMEL",
+  "AIRBNB-METHOD-BOOLEAN-ISHAS"
+ ],
+ "AIRBNB_JS|javascript|module|rename": [
+  "AIRBNB-MODULE-CLASS-EXPORT-PASCAL",
+  "AIRBNB-MODULE-FUNCTION-EXPORT-CAMEL"
+ ],
+ "AIRBNB_JS|javascript|parameter|rename": [
+  "AIRBNB-PARAM-DESCRIPTIVE"
+ ],
+ "AIRBNB_JS|javascript|property|rename": [
+  "AIRBNB-PROPERTY-CAMEL"
+ ],
+ "AIRBNB_JS|javascript|variable|comment": [
+  "AIRBNB-COMMENT-LINE"
+ ],
+ "AIRBNB_JS|javascript|variable|rename": [
+  "AIRBNB-VAR-DESCRIPTIVE",
+  "AIRBNB-VARIABLE-CAMEL"
+ ],
+ "DOTNET_DESIGN|csharp|boolean_variable|rename": [
+  "DOTNET-BOOLEAN-AFFIRMATIVE-PREFIX"
+ ],
+ "DOTNET_DESIGN|csharp|class|comment": [
+  "DOTNET-XMLDOC-TYPE-SUMMARY"
+ ],
+ "DOTNET_DESIGN|csharp|class|rename": [
+  "DOTNET-CLASS-PASCAL-NOUN"
+ ],
+ "DOTNET_DESIGN|csharp|constant|rename": [
+  "DOTNET-CONSTANT-PASCAL"
+ ],
+ "DOTNET_DESIGN|csharp|enum_member|comment": [
+  "DOTNET-XMLDOC-ENUM-MEMBER-SUMMARY"
+ ],
+ "DOTNET_DESIGN|csharp|enum_member|rename": [
+  "DOTNET-ENUM-MEMBER-PASCAL-NOPREFIX"
+ ],
+ "DOTNET_DESIGN|csharp|enum|rename": [
+  "DOTNET-ENUM-NO-ENUM-FLAGS-SUFFIX",
+  "DOTNET-ENUM-SINGULAR-OR-PLURAL"
+ ],
+ "DOTNET_DESIGN|csharp|field|rename": [
+  "DOTNET-FIELD-PASCAL-NOPREFIX"
+ ],
+ "DOTNET_DESIGN|csharp|interface|rename": [
+  "DOTNET-INTERFACE-I-PREFIX"
+ ],
+ "DOTNET_DESIGN|csharp|method|comment": [
+  "DOTNET-XMLDOC-METHOD-FULL",
+  "DOTNET-XMLDOC-METHOD-EXCEPTION"
+ ],
+ "DOTNET_DESIGN|csharp|method|rename": [
+  "DOTNET-METHOD-VERB-PASCAL"
+ ],
+ "DOTNET_DESIGN|csharp|namespace|rename": [
+  "DOTNET-NAMESPACE-DOTTED-PASCAL"
+ ],
+ "DOTNET_DESIGN|csharp|parameter|rename": [
+  "DOTNET-PARAMETER-CAMEL-DESCRIPTIVE"
+ ],
+ "DOTNET_DESIGN|csharp|property|comment": [
+  "DOTNET-XMLDOC-PROPERTY-VALUE"
+ ],
+ "DOTNET_DESIGN|csharp|property|rename": [
+  "DOTNET-PROPERTY-NOUN-PASCAL"
+ ],
+ "DOTNET_DESIGN|csharp|type_parameter|comment": [
+  "DOTNET-XMLDOC-TYPEPARAM"
+ ],
+ "DOTNET_DESIGN|csharp|type_parameter|rename": [
+  "DOTNET-TYPE-PARAM-T-PREFIX"
+ ],
+ "DOTNET_DESIGN|csharp|variable|rename": [
+  "DOTNET-NO-HUNGARIAN-NO-UNDERSCORE",
+  "DOTNET-VARIABLE-CAMEL-DESCRIPTIVE"
+ ],
+ "GOOGLE_JAVA|java|class|comment": [
+  "GJAVA-JAVADOC-CLASS-REQUIRED",
+  "GJAVA-JAVADOC-PARAGRAPHS"
+ ],
+ "GOOGLE_JAVA|java|class|rename": [
+  "GJAVA-CLASS-PASCAL"
+ ],
+ "GOOGLE_JAVA|java|constant|rename": [
+  "GJAVA-CONSTANT-UPPER-SNAKE"
+ ],
+ "GOOGLE_JAVA|java|enum_member|rename": [
+  "GJAVA-ENUM-MEMBER-UPPER-SNAKE"
+ ],
+ "GOOGLE_JAVA|java|enum|rename": [
+  "GJAVA-ENUM-PASCAL"
+ ],
+ "GOOGLE_JAVA|java|field|comment": [
+  "GJAVA-JAVADOC-FIELD-REQUIRED",
+  "GJAVA-JAVADOC-AS-NEEDED"
+ ],
+ "GOOGLE_JAVA|java|field|rename": [
+  "GJAVA-FIELD-CAMEL",
+  "GJAVA-FIELD-NO-HUNGARIAN"
+ ],
+ "GOOGLE_JAVA|java|interface|rename": [
+  "GJAVA-INTERFACE-PASCAL"
+ ],
+ "GOOGLE_JAVA|java|method|comment": [
+  "GJAVA-JAVADOC-METHOD-REQUIRED",
+  "GJAVA-JAVADOC-SUMMARY-FRAGMENT"
+ ],
+ "GOOGLE_JAVA|java|method|rename": [
+  "GJAVA-METHOD-CAMEL",
+  "GJAVA-METHOD-TEST-UNDERSCORE"
+ ],
+ "GOOGLE_JAVA|java|package|rename": [
+  "GJAVA-PACKAGE-LOWERCASE"
+ ],
+ "GOOGLE_JAVA|java|parameter|rename": [
+  "GJAVA-PARAMETER-CAMEL",
+  "GJAVA-PARAMETER-NO-SINGLE-CHAR"
+ ],
+ "GOOGLE_JAVA|java|type_parameter|rename": [
+  "GJAVA-TYPE-PARAM-STYLE"
+ ],
+ "GOOGLE_JAVA|java|variable|rename": [
+  "GJAVA-IDENT-ASCII",
+  "GJAVA-VARIABLE-CAMEL"
+ ],
+ "GOOGLE_TS|typescript|class|comment": [
+  "GTS-JSDOC-CLASS"
+ ],
+ "GOOGLE_TS|typescript|class|rename": [
+  "GTS-CLASS-PASCAL"
+ ],
+ "GOOGLE_TS|typescript|constant|rename": [
+  "GTS-CONSTANT-CASE"
+ ],
+ "GOOGLE_TS|typescript|enum_member|rename": [
+  "GTS-ENUM-MEMBER-CONST"
+ ],
+ "GOOGLE_TS|typescript|enum|rename": [
+  "GTS-ENUM-PASCAL"
+ ],
+ "GOOGLE_TS|typescript|field|rename": [
+  "GTS-FIELD-CAMEL"
+ ],
+ "GOOGLE_TS|typescript|function|comment": [
+  "GTS-JSDOC-TOPLEVEL-EXPORT"
+ ],
+ "GOOGLE_TS|typescript|function|rename": [
+  "GTS-FUNCTION-CAMEL"
+ ],
+ "GOOGLE_TS|typescript|interface|rename": [
+  "GTS-INTERFACE-PASCAL"
+ ],
+ "GOOGLE_TS|typescript|method|comment": [
+  "GTS-JSDOC-METHOD-PARAMS"
+ ],
+ "GOOGLE_TS|typescript|method|rename": [
+  "GTS-METHOD-CAMEL"
+ ],
+ "GOOGLE_TS|typescript|module|comment": [
+  "GTS-COMMENT-STYLE-SEPARATION",
+  "GTS-JSDOC-MARKDOWN"
+ ],
+ "GOOGLE_TS|typescript|module|rename": [
+  "GTS-MODULE-ALIAS-CAMEL"
+ ],
+ "GOOGLE_TS|typescript|parameter|comment": [
+  "GTS-JSDOC-PARAM-PROPERTY"
+ ],
+ "GOOGLE_TS|typescript|parameter|rename": [
+  "GTS-PARAMETER-CAMEL"
+ ],
+ "GOOGLE_TS|typescript|property|rename": [
+  "GTS-PROPERTY-CAMEL"
+ ],
+ "GOOGLE_TS|typescript|type_parameter|rename": [
+  "GTS-TYPEPARAM-CASE"
+ ],
+ "GOOGLE_TS|typescript|variable|rename": [
+  "GTS-VARIABLE-CAMEL"
+ ],
+ "PEP8|python|class|comment": [
+  "PEP8-DOC-CLASS"
+ ],
+ "PEP8|python|class|rename": [
+  "PEP8-EXCEPTION-ERROR-SUFFIX",
+  "PEP8-CLASS-CAPWORDS"
+ ],
+ "PEP8|python|constant|rename": [
+  "PEP8-CONST-UPPER"
+ ],
+ "PEP8|python|field|rename": [
+  "PEP8-FIELD-NONPUBLIC-UNDERSCORE",
+  "PEP8-FIELD-PUBLIC-NO-PREFIX",
+  "PEP8-FIELD-NAME-MANGLE"
+ ],
+ "PEP8|python|function|comment": [
+  "PEP8-DOC-FUNC"
+ ],
+ "PEP8|python|function|rename": [
+  "PEP8-FUNC-SNAKE"
+ ],
+ "PEP8|python|method|comment": [
+  "PEP8-DOC-METHOD"
+ ],
+ "PEP8|python|method|rename": [
+  "PEP8-METHOD-SNAKE"
+ ],
+ "PEP8|python|module|comment": [
+  "PEP8-DOC-MODULE",
+  "PEP8-COMMENT-BLOCK-STYLE"
+ ],
+ "PEP8|python|module|rename": [
+  "PEP8-MODULE-SNAKE"
+ ],
+ "PEP8|python|package|rename": [
+  "PEP8-PACKAGE-LOWER"
+ ],
+ "PEP8|python|parameter|rename": [
+  "PEP8-PARAM-SELF-CLS",
+  "PEP8-PARAM-KEYWORD-TRAILING-UNDERSCORE"
+ ],
+ "PEP8|python|variable|comment": [
+  "PEP8-COMMENT-INLINE-STYLE"
+ ],
+ "PEP8|python|variable|rename": [
+  "PEP8-AVOID-CONFUSING-CHARS",
+  "PEP8-VAR-SNAKE"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "py_089",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "addons/google_calendar/models/google_event_sync.py lines 149-155 (method GoogleEventSync._get_post_sync_values); license LGPL-3.0; repo created 2026-09-15T19:55:01+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def _get_post_sync_values(self, request_values, google_values):\n    \"\"\" Return the values to be written in the event right after its insertion in Google side. \"\"\"\n    writeable_values = {\n        'google_id': request_values['id'],\n        'need_sync': False,\n    }\n    return writeable_values",
+  "identifiers": [
+    {
+      "name": "google_values",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-09-15T19:55:01+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "addons/google_calendar/models/google_event_sync.py",
+    "startLine": 149,
+    "endLine": 155,
+    "unit": "method GoogleEventSync._get_post_sync_values",
+    "corpusFile": "corpus/python/odoo__odoo__addons__google_calendar__models__google_event_sync.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 6
+}

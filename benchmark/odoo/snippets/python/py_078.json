@@ -1,0 +1,30 @@
+{
+  "id": "py_078",
+  "language": "python",
+  "source": "github:odoo/odoo@65afaad766f31102688257ec09e44414204ffb08",
+  "sourceDetail": "odoo/http/server.py lines 99-112 (method HTTPSocket.__init__); license LGPL-3.0; repo created 2026-06-01T15:52:58+00:00; curated by athena-curation-1.0",
+  "standardId": "ODOO",
+  "codeContext": "def __init__(self, client_sock, client_addr, *, prelude=b''):\n    self.sock = client_sock\n    self.addr = client_addr\n    self.ip = client_addr[0]  # until we find the X-Forwarded-For header\n\n    self.conn = h11.Connection(\n        h11.SERVER,\n        max_incomplete_event_size=MAX_INCOMPLETE_EVENT_SIZE,\n    )\n    if prelude:\n        self.conn.receive_data(prelude)\n\n    self.h11request = None\n    self.h11response = None",
+  "identifiers": [
+    {
+      "name": "client_sock",
+      "kind": "parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "odoo/odoo",
+    "repoUrl": "https://github.com/odoo/odoo",
+    "license": "LGPL-3.0",
+    "repoCreatedAt": "2026-06-01T15:52:58+00:00",
+    "commit": "65afaad766f31102688257ec09e44414204ffb08",
+    "path": "odoo/http/server.py",
+    "startLine": 99,
+    "endLine": 112,
+    "unit": "method HTTPSocket.__init__",
+    "corpusFile": "corpus/python/odoo__odoo__odoo__http__server.py.md"
+  },
+  "pack": "odoo",
+  "split": "test",
+  "unitIndex": 3
+}

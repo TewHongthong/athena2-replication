@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_087",
+  "language": "cpp",
+  "originalName": "set_id",
+  "injectedName": "SET_ID",
+  "identifierKind": "method",
+  "violatedRuleId": "GODOT-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'SET_ID' does not match snake_case pattern"
+  ],
+  "codeContextWithViolation": "void TileSetAtlasSourceEditor::TileSetAtlasSourceProxyObject::SET_ID(int p_id) {\n\tERR_FAIL_COND(p_id < 0);\n\tif (source_id == p_id) {\n\t\treturn;\n\t}\n\tERR_FAIL_COND_MSG(tile_set->has_source(p_id), vformat(\"Cannot change TileSet Atlas Source ID. Another source exists with id %d.\", p_id));\n\n\tint previous_source = source_id;\n\tsource_id = p_id; // source_id must be updated before, because it's used by the source list update.\n\ttile_set->set_source_id(previous_source, p_id);\n\temit_signal(CoreStringName(changed), \"id\");\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot",
+  "split": "test"
+}

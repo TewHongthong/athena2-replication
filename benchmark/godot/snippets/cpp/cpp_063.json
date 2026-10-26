@@ -1,0 +1,30 @@
+{
+  "id": "cpp_063",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "editor/shader/shader_text_editor.cpp lines 1272-1305 (method ShaderTextEditor::set_edited_resource); license MIT; repo created 2026-07-16T17:49:37+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void ShaderTextEditor::set_edited_resource(const Ref<Resource> &p_res) {\n\tif (p_res.is_null() || edited_res == p_res) {\n\t\treturn;\n\t}\n\tif (edited_res.is_valid()) {\n\t\tedited_res->disconnect_changed(callable_mp(this, &ShaderTextEditor::_shader_changed));\n\t}\n\n\tRef<Shader> shader = p_res;\n\tRef<ShaderInclude> shader_inc = p_res;\n\tif (shader.is_null() && shader_inc.is_null()) {\n\t\treturn;\n\t}\n\n\tedited_res = p_res;\n\t_load_theme_settings();\n\n\tString code;\n\tif (shader.is_valid()) {\n\t\tcode = shader->get_code();\n\t} else if (shader_inc.is_valid()) {\n\t\tcode = shader_inc->get_code();\n\t}\n\tcode_editor->get_text_editor()->set_text(code);\n\tcode_editor->get_text_editor()->clear_undo_history();\n\tcallable_mp((TextEdit *)code_editor->get_text_editor(), &TextEdit::set_h_scroll).call_deferred(0);\n\tcallable_mp((TextEdit *)code_editor->get_text_editor(), &TextEdit::set_v_scroll).call_deferred(0);\n\tcode_editor->get_text_editor()->tag_saved_version();\n\n\t_validate_script();\n\tcode_editor->update_line_and_column();\n\n\tedited_res->connect_changed(callable_mp(this, &ShaderTextEditor::_shader_changed));\n}",
+  "identifiers": [
+    {
+      "name": "shader_inc",
+      "kind": "variable",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-16T17:49:37+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "editor/shader/shader_text_editor.cpp",
+    "startLine": 1272,
+    "endLine": 1305,
+    "unit": "method ShaderTextEditor::set_edited_resource",
+    "corpusFile": "corpus/cpp/godotengine__godot__editor__shader__shader_text_editor.cpp.md"
+  },
+  "pack": "godot",
+  "split": "test",
+  "unitIndex": 50
+}

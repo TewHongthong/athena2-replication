@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_034",
+  "language": "csharp",
+  "originalName": "AddSection",
+  "injectedName": "add_section",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'add_section' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "private static void add_section(List<byte> module, byte sectionCode, List<byte> sectionBody)\n{\n    module.Add(sectionCode);\n    WriteULEB(module, (uint)sectionBody.Count);\n    module.AddRange(sectionBody);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}

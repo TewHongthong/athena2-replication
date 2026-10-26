@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_052",
+  "language": "csharp",
+  "originalName": "CreateCharMapErrorPInvokeAttribute",
+  "injectedName": "create_char_map_error_p_invoke_attribute",
+  "identifierKind": "method",
+  "violatedRuleId": "DOTNET-METHOD-CASE",
+  "injectionMethod": "casing_swap",
+  "expectedViolationReasons": [
+    "name 'create_char_map_error_p_invoke_attribute' does not match PascalCase pattern"
+  ],
+  "codeContextWithViolation": "internal CILParser.AttributeValue<MethodImportAttributes>\n    create_char_map_error_p_invoke_attribute(IToken setting)\n    => new(\n        setting.Text == \"on\"\n            ? MethodImportAttributes.ThrowOnUnmappableCharEnable\n            : MethodImportAttributes.ThrowOnUnmappableCharDisable,\n        0,\n        true);",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime",
+  "split": "test"
+}
