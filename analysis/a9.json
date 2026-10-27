@@ -1,0 +1,578 @@
+{
+ "h3": [
+  {
+   "pack": "godot",
+   "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+   "tasks": 70,
+   "files": 35,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.08203163585667046
+  },
+  {
+   "pack": "godot",
+   "model": "openai:google/gemini-3.1-flash-lite",
+   "tasks": 70,
+   "files": 35,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.08203163585667046
+  },
+  {
+   "pack": "godot",
+   "model": "openai:openai/gpt-6-luna",
+   "tasks": 70,
+   "files": 35,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.08203163585667046
+  },
+  {
+   "pack": "godot",
+   "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+   "tasks": 70,
+   "files": 35,
+   "higher": 5,
+   "lower": 1,
+   "equal": 64,
+   "files_with_difference": 5,
+   "mean_diff_pp": 3.3333333333328574,
+   "upper_lower_share_tasks": 0.06598390004275284,
+   "upper_lower_share_files": 0.1285010363413007
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+   "tasks": 70,
+   "files": 56,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.052089527208779414
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:google/gemini-3.1-flash-lite",
+   "tasks": 70,
+   "files": 56,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.052089527208779414
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:openai/gpt-6-luna",
+   "tasks": 70,
+   "files": 56,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.052089527208779414
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+   "tasks": 70,
+   "files": 56,
+   "higher": 12,
+   "lower": 1,
+   "equal": 57,
+   "files_with_difference": 12,
+   "mean_diff_pp": 5.714285714281429,
+   "upper_lower_share_tasks": 0.06598390004275284,
+   "upper_lower_share_files": 0.08193215952933158
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+   "tasks": 70,
+   "files": 51,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.057047952360442744
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:google/gemini-3.1-flash-lite",
+   "tasks": 70,
+   "files": 51,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.057047952360442744
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:openai/gpt-6-luna",
+   "tasks": 70,
+   "files": 51,
+   "higher": 3,
+   "lower": 0,
+   "equal": 67,
+   "files_with_difference": 3,
+   "mean_diff_pp": 1.4285714285700002,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.057047952360442744
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+   "tasks": 70,
+   "files": 51,
+   "higher": 0,
+   "lower": 0,
+   "equal": 70,
+   "files_with_difference": 0,
+   "mean_diff_pp": 0.0,
+   "upper_lower_share_tasks": 0.041893344066888556,
+   "upper_lower_share_files": 0.057047952360442744
+  }
+ ],
+ "h2": [
+  {
+   "pack": "godot",
+   "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+   "none": 0.9857142857142858,
+   "room": 0.014285714285714235,
+   "gain": 0.014285714285714285,
+   "closed": 1.0000000000000036
+  },
+  {
+   "pack": "godot",
+   "model": "openai:google/gemini-3.1-flash-lite",
+   "none": 0.9904761904761904,
+   "room": 0.009523809523809601,
+   "gain": 0.009523809523814286,
+   "closed": 1.000000000000492
+  },
+  {
+   "pack": "godot",
+   "model": "openai:openai/gpt-6-luna",
+   "none": 0.9952380952380953,
+   "room": 0.004761904761904745,
+   "gain": 0.0047619047619000005,
+   "closed": 0.9999999999990037
+  },
+  {
+   "pack": "godot",
+   "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+   "none": 0.9285714285714286,
+   "room": 0.0714285714285714,
+   "gain": 0.06666666666661429,
+   "closed": 0.9333333333326005
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+   "none": 0.9857142857142858,
+   "room": 0.014285714285714235,
+   "gain": 0.014285714285714285,
+   "closed": 1.0000000000000036
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:google/gemini-3.1-flash-lite",
+   "none": 0.9857142857142858,
+   "room": 0.014285714285714235,
+   "gain": 0.014285714285714285,
+   "closed": 1.0000000000000036
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:openai/gpt-6-luna",
+   "none": 1.0,
+   "room": 0.0,
+   "gain": 0.0,
+   "closed": null
+  },
+  {
+   "pack": "dotnet-runtime",
+   "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+   "none": 0.9142857142857143,
+   "room": 0.08571428571428574,
+   "gain": 0.07142857142852858,
+   "closed": 0.8333333333328332
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+   "none": 1.0,
+   "room": 0.0,
+   "gain": 0.0,
+   "closed": null
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:google/gemini-3.1-flash-lite",
+   "none": 1.0,
+   "room": 0.0,
+   "gain": 0.0,
+   "closed": null
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:openai/gpt-6-luna",
+   "none": 1.0,
+   "room": 0.0,
+   "gain": 0.0,
+   "closed": null
+  },
+  {
+   "pack": "odoo",
+   "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+   "none": 0.9714285714285714,
+   "room": 0.02857142857142858,
+   "gain": 0.028571428571400003,
+   "closed": 0.9999999999989998
+  }
+ ],
+ "relations": [
+  {
+   "pack": "godot",
+   "file": "godot/godot_ontology.json",
+   "relations": {
+    "APPLIES_TO": 66,
+    "DEFINED_IN": 14
+   },
+   "nodes": {
+    "Language": 1,
+    "IdentifierKind": 15,
+    "Standard": 1,
+    "NamingRule": 14
+   },
+   "n_overrides_or_conflicts": 0
+  },
+  {
+   "pack": "godot",
+   "file": "godot/llm/llm_ontology.json",
+   "relations": {
+    "APPLIES_TO": 30,
+    "DEFINED_IN": 8
+   },
+   "nodes": {
+    "Standard": 1,
+    "Language": 1,
+    "IdentifierKind": 10,
+    "NamingRule": 8
+   },
+   "n_overrides_or_conflicts": 0
+  },
+  {
+   "pack": "dotnet-runtime",
+   "file": "dotnet-runtime/dotnet_ontology.json",
+   "relations": {
+    "APPLIES_TO": 20,
+    "DEFINED_IN": 10
+   },
+   "nodes": {
+    "Language": 1,
+    "IdentifierKind": 4,
+    "Standard": 1,
+    "NamingRule": 10
+   },
+   "n_overrides_or_conflicts": 0
+  },
+  {
+   "pack": "dotnet-runtime",
+   "file": "dotnet-runtime/llm/llm_ontology.json",
+   "relations": {
+    "APPLIES_TO": 16,
+    "DEFINED_IN": 8
+   },
+   "nodes": {
+    "Standard": 1,
+    "Language": 1,
+    "IdentifierKind": 4,
+    "NamingRule": 8
+   },
+   "n_overrides_or_conflicts": 0
+  },
+  {
+   "pack": "odoo",
+   "file": "odoo/odoo_ontology.json",
+   "relations": {
+    "APPLIES_TO": 8,
+    "DEFINED_IN": 4
+   },
+   "nodes": {
+    "Language": 1,
+    "IdentifierKind": 4,
+    "Standard": 1,
+    "NamingRule": 4
+   },
+   "n_overrides_or_conflicts": 0
+  },
+  {
+   "pack": "odoo",
+   "file": "odoo/llm/llm_ontology.json",
+   "relations": {
+    "APPLIES_TO": 40,
+    "DEFINED_IN": 19
+   },
+   "nodes": {
+    "Standard": 1,
+    "Language": 1,
+    "IdentifierKind": 5,
+    "NamingRule": 19
+   },
+   "n_overrides_or_conflicts": 0
+  }
+ ],
+ "per_task": [
+  {
+   "variant": "human",
+   "pack": "godot",
+   "tasks": 70,
+   "min": 4,
+   "median": 4.0,
+   "max": 6,
+   "no_rule": 0,
+   "differs_between_models": 0
+  },
+  {
+   "variant": "human",
+   "pack": "dotnet-runtime",
+   "tasks": 70,
+   "min": 1,
+   "median": 1.0,
+   "max": 1,
+   "no_rule": 0,
+   "differs_between_models": 0
+  },
+  {
+   "variant": "human",
+   "pack": "odoo",
+   "tasks": 70,
+   "min": 1,
+   "median": 1.0,
+   "max": 1,
+   "no_rule": 0,
+   "differs_between_models": 0
+  },
+  {
+   "variant": "draft",
+   "pack": "godot",
+   "tasks": 70,
+   "min": 2,
+   "median": 2.0,
+   "max": 4,
+   "no_rule": 0,
+   "differs_between_models": 0
+  },
+  {
+   "variant": "draft",
+   "pack": "dotnet-runtime",
+   "tasks": 70,
+   "min": 1,
+   "median": 1.0,
+   "max": 1,
+   "no_rule": 0,
+   "differs_between_models": 0
+  },
+  {
+   "variant": "draft",
+   "pack": "odoo",
+   "tasks": 70,
+   "min": 0,
+   "median": 0.0,
+   "max": 0,
+   "no_rule": 70,
+   "differs_between_models": 0
+  }
+ ],
+ "coverage": [
+  {
+   "pack": "godot",
+   "language": "cpp",
+   "kind": "function",
+   "tasks": 1,
+   "core_checked": 1,
+   "human_rule": 1,
+   "draft_rule": 1,
+   "draft_known": 1
+  },
+  {
+   "pack": "godot",
+   "language": "cpp",
+   "kind": "method",
+   "tasks": 29,
+   "core_checked": 29,
+   "human_rule": 29,
+   "draft_rule": 29,
+   "draft_known": 29
+  },
+  {
+   "pack": "godot",
+   "language": "cpp",
+   "kind": "parameter",
+   "tasks": 22,
+   "core_checked": 22,
+   "human_rule": 22,
+   "draft_rule": 22,
+   "draft_known": 22
+  },
+  {
+   "pack": "godot",
+   "language": "cpp",
+   "kind": "variable",
+   "tasks": 18,
+   "core_checked": 18,
+   "human_rule": 18,
+   "draft_rule": 18,
+   "draft_known": 18
+  },
+  {
+   "pack": "dotnet-runtime",
+   "language": "csharp",
+   "kind": "method",
+   "tasks": 70,
+   "core_checked": 70,
+   "human_rule": 70,
+   "draft_rule": 70,
+   "draft_known": 70
+  },
+  {
+   "pack": "odoo",
+   "language": "python",
+   "kind": "parameter",
+   "tasks": 70,
+   "core_checked": 70,
+   "human_rule": 70,
+   "draft_rule": 0,
+   "draft_known": 70
+  }
+ ],
+ "h6": [
+  {
+   "set": "all",
+   "language": "all",
+   "check": "aware",
+   "TN": 321,
+   "TP": 40,
+   "FP": 3
+  },
+  {
+   "set": "all",
+   "language": "all",
+   "check": "blind",
+   "TN": 289,
+   "TP": 40,
+   "FP": 35
+  },
+  {
+   "set": "fresh",
+   "language": "cpp",
+   "check": "aware",
+   "TN": 100
+  },
+  {
+   "set": "fresh",
+   "language": "cpp",
+   "check": "blind",
+   "TN": 100
+  },
+  {
+   "set": "fresh",
+   "language": "csharp",
+   "check": "aware",
+   "TN": 99,
+   "FP": 1
+  },
+  {
+   "set": "fresh",
+   "language": "csharp",
+   "check": "blind",
+   "TN": 98,
+   "FP": 2
+  },
+  {
+   "set": "fresh",
+   "language": "python",
+   "check": "aware",
+   "TN": 100
+  },
+  {
+   "set": "fresh",
+   "language": "python",
+   "check": "blind",
+   "TN": 84,
+   "FP": 16
+  },
+  {
+   "set": "hand",
+   "language": "cpp",
+   "check": "aware",
+   "TN": 10,
+   "TP": 15,
+   "FP": 1
+  },
+  {
+   "set": "hand",
+   "language": "cpp",
+   "check": "blind",
+   "TN": 3,
+   "TP": 15,
+   "FP": 8
+  },
+  {
+   "set": "hand",
+   "language": "csharp",
+   "check": "aware",
+   "TN": 8,
+   "TP": 19,
+   "FP": 1
+  },
+  {
+   "set": "hand",
+   "language": "csharp",
+   "check": "blind",
+   "TN": 3,
+   "TP": 19,
+   "FP": 6
+  },
+  {
+   "set": "hand",
+   "language": "python",
+   "check": "aware",
+   "TN": 4,
+   "TP": 6
+  },
+  {
+   "set": "hand",
+   "language": "python",
+   "check": "blind",
+   "TN": 1,
+   "TP": 6,
+   "FP": 3
+  }
+ ]
+}
