@@ -1,9 +1,16 @@
-cff-version: 1.1.0
+cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
+type: software
+title: 'Replication package for "Does Ontology-Guided Rule Selection Generalize to Independent Coding Standards?"'
 authors:
-- family-names: Tew
-  given-names: Hongthong
-orcid: https://orcid.org/0009-0003-6651-0396
-title:Replication package for "Does Ontology-Guided Rule Selection Generalize to Independent Coding Standards?"
-version: 1.2.0
-date-released: 2026-10-28
+  - family-names: Hongthong
+    given-names: Tew
+    affiliation: "Mae Fah Luang University"
+    orcid: "https://orcid.org/0009-0003-6651-0396"
+  - family-names: Chondamrongkul
+    given-names: Nacha
+    affiliation: "School of Applied Digital Technology, Mae Fah Luang University"
+version: 1.3.0
+date-released: 2026-10-29
+doi: 10.5281/zenodo.23656296
+repository-code: "https://github.com/TewHongthong/athena2-replication"
