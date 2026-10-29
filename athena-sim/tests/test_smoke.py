@@ -389,8 +389,8 @@ class EndToEnd(unittest.TestCase):
         self.assertIn("consecutive", out + err)
 
 
-@unittest.skipUnless(os.path.isdir(os.environ.get("ATHENA_CORPUS", os.path.join(ROOT, "..", "athena-corpus"))),
-                     "athena-corpus not found (set ATHENA_CORPUS)")
+@unittest.skipUnless(os.path.isdir(os.path.join(os.environ.get("ATHENA_CORPUS", os.path.join(ROOT, "..", "athena-corpus")), "benchmark")),
+                     "athena-corpus/benchmark not found (set ATHENA_CORPUS)")
 class Public5(unittest.TestCase):
     def test_pack_loads_and_graph_hits_expected_rule(self):
         pack = load_pack("public5", None)

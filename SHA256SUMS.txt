@@ -1,7 +1,7 @@
 bafd3014df06f9ff5907e917dc677032b46b3580c7a0d761b3a8f54c7dbc3c69  ./.gitignore
 899675dd4dbcb7205b2afecf16ba6401b4528eb2a3ce73370bde1a707ed6560b  ./.zenodo.json
 1421a04fed48abc1f409f0590b7b313c169660f1665c2b5f7f9566fdebb1d381  ./ADDENDUM_v2.md
-cdc198847d7e8504db4fb727d10479a385cbb2934e1b0bd3da794157b6a5ac98  ./CITATION.cff
+454ba628530177ac59f23624553068edd7e45bc27f3cde7562a204e2958fdd7d  ./CITATION.cff
 3ea18e6dc0f9a22e0e118b42e7f4ba6e42c62a39dc42d82e95b9d1930182b86e  ./HYPOTHESES_v2.md
 78d88511b662c30ad5e121d5fab5afdc03641b4accef78ef361e678ca73b225d  ./LICENSE
 b96dec85840b3079199163354c78d35071adfa34e9e2dabde7230215e3014bbe  ./README.md
@@ -1007,7 +1007,7 @@ a18312bce4e902f489625e9ffbc8f8770b5b6024a11deced2e1677f09882b9cd  ./athena-sim/s
 f2907566c8627f5a2913438f345c62c60593773cb5974ae13129a059ea146ce9  ./athena-sim/tests/test_agreement.py
 be86317fcc115632bf37a0909a9a6dc32d8f8004ca4862e907752911f232acaf  ./athena-sim/tests/test_blind.py
 414734fe1d4e909d37579dab514063fba3aae74ab53fbac3b20d591a8933d4ac  ./athena-sim/tests/test_bm25.py
-2caec29c9076a6ba7aef72e650256c57c40ea466ff7f6869d3eef6f6cb25eecf  ./athena-sim/tests/test_comment_units.py
+61f5dea9207dcd27417c6bf6aa25fa39f7bd3de6b8417c6555cec372373ea0b5  ./athena-sim/tests/test_comment_units.py
 db8731783afbc12fc10761e911afc6ba58eb9c9787aaf6376df58266ad478b41  ./athena-sim/tests/test_confirmatory.py
 62a65343cfbddd537ab183ed5aa7c0fbd75e80a45370156318e01513c48dbaf6  ./athena-sim/tests/test_count_prefix.py
 ca945839ba74e48dc9aa78868ea9cf32e31642f045cce7cb211da193551076e4  ./athena-sim/tests/test_dense.py
@@ -1019,7 +1019,7 @@ b65667d9eabf3e3e8a185106ba5c35f8d476c118b202519e78e8a2d345279be9  ./athena-sim/t
 cd71ae09867a48a2c26dfaa0ce7e6b1d42f24710e1cb44902e58f3b19530c8e4  ./athena-sim/tests/test_precedence.py
 900a4b3721b970c50e7a0f5fdbcc1a2f8fd39e642bab75af0f5010824666deca  ./athena-sim/tests/test_report_variants.py
 bba0de6f0a86adb5978c097bc0408b46d4ab007b8e0b1f0c9cf74bd786094627  ./athena-sim/tests/test_secondary.py
-2ae5f8572607d11118d4650c1f484ab69f1ae875908fd9a5f7e986d0410c6676  ./athena-sim/tests/test_smoke.py
+6dc433089ebdc1f33906ee73b059851b07234adca5ac9f0bf838b78b29ce7c7d  ./athena-sim/tests/test_smoke.py
 a1ddbca70a70db40ffc97090ece53ddd79d1a7d7f3f74fb06ded05edc74b2aa6  ./athena-sim/tests/test_vol2_pack.py
 d154237dfca677eacfbed82cf0db332eee19519a70557ff5065d67e0a6aa14da  ./athena-sim/vendor/output_validator.py
 54dd099ced2458e99f2e1e7bf496f761d02baa4bea3a26cd38959e32f9ba4e87  ./benchmark/CURATION_REPORT.md

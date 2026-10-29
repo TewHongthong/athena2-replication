@@ -217,7 +217,8 @@ class ExtractionFixtures(unittest.TestCase):
         self.assertEqual(sig, {"params": 3, "returns": True, "throws": False})
 
 
-@unittest.skipUnless(os.path.isdir(CORPUS), "athena-corpus not found (set ATHENA_CORPUS)")
+@unittest.skipUnless(os.path.isdir(os.path.join(CORPUS, "benchmark")),
+                     "athena-corpus/benchmark not found (set ATHENA_CORPUS)")
 class Loader(unittest.TestCase):
     def test_public5_comment_units_carry_expected_elements(self):
         pack = load_pack("public5", None)
