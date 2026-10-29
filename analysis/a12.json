@@ -1,0 +1,2193 @@
+{
+ "part1": {
+  "cells": [
+   {
+    "pack": "godot",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 69,
+    "none_accept": 1,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "0/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9904761904761905,
+    "all_accept": 69,
+    "none_accept": 0,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "1/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 68,
+    "none_accept": 0,
+    "split": 2,
+    "split_share": 0.02857142857142857,
+    "distribution": {
+     "1/3": 1,
+     "2/3": 1,
+     "3/3": 68
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9952380952380953,
+    "all_accept": 69,
+    "none_accept": 0,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "2/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9904761904761905,
+    "all_accept": 69,
+    "none_accept": 0,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "1/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9285714285714286,
+    "all_accept": 56,
+    "none_accept": 0,
+    "split": 14,
+    "split_share": 0.2,
+    "distribution": {
+     "1/3": 1,
+     "2/3": 13,
+     "3/3": 56
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9619047619047619,
+    "all_accept": 65,
+    "none_accept": 1,
+    "split": 4,
+    "split_share": 0.05714285714285714,
+    "distribution": {
+     "0/3": 1,
+     "1/3": 1,
+     "2/3": 3,
+     "3/3": 65
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9523809523809523,
+    "all_accept": 61,
+    "none_accept": 0,
+    "split": 9,
+    "split_share": 0.12857142857142856,
+    "distribution": {
+     "1/3": 1,
+     "2/3": 8,
+     "3/3": 61
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9285714285714286,
+    "all_accept": 58,
+    "none_accept": 0,
+    "split": 12,
+    "split_share": 0.17142857142857143,
+    "distribution": {
+     "1/3": 3,
+     "2/3": 9,
+     "3/3": 58
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9666666666666667,
+    "all_accept": 65,
+    "none_accept": 0,
+    "split": 5,
+    "split_share": 0.07142857142857142,
+    "distribution": {
+     "1/3": 2,
+     "2/3": 3,
+     "3/3": 65
+    }
+   },
+   {
+    "pack": "godot",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9952380952380953,
+    "all_accept": 69,
+    "none_accept": 0,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "2/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 69,
+    "none_accept": 1,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "0/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9904761904761905,
+    "all_accept": 69,
+    "none_accept": 0,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "1/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9952380952380953,
+    "all_accept": 69,
+    "none_accept": 0,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "2/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 69,
+    "none_accept": 1,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "0/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 69,
+    "none_accept": 1,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "0/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 69,
+    "none_accept": 1,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "0/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 69,
+    "none_accept": 1,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "0/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9952380952380953,
+    "all_accept": 69,
+    "none_accept": 0,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "2/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9142857142857143,
+    "all_accept": 56,
+    "none_accept": 1,
+    "split": 13,
+    "split_share": 0.18571428571428572,
+    "distribution": {
+     "0/3": 1,
+     "1/3": 2,
+     "2/3": 11,
+     "3/3": 56
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9285714285714286,
+    "all_accept": 57,
+    "none_accept": 0,
+    "split": 13,
+    "split_share": 0.18571428571428572,
+    "distribution": {
+     "1/3": 2,
+     "2/3": 11,
+     "3/3": 57
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9476190476190476,
+    "all_accept": 63,
+    "none_accept": 2,
+    "split": 5,
+    "split_share": 0.07142857142857142,
+    "distribution": {
+     "0/3": 2,
+     "2/3": 5,
+     "3/3": 63
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9380952380952381,
+    "all_accept": 63,
+    "none_accept": 1,
+    "split": 6,
+    "split_share": 0.08571428571428572,
+    "distribution": {
+     "0/3": 1,
+     "1/3": 4,
+     "2/3": 2,
+     "3/3": 63
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.8476190476190476,
+    "all_accept": 49,
+    "none_accept": 4,
+    "split": 17,
+    "split_share": 0.24285714285714285,
+    "distribution": {
+     "0/3": 4,
+     "1/3": 3,
+     "2/3": 14,
+     "3/3": 49
+    }
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 69,
+    "none_accept": 1,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "0/3": 1,
+     "3/3": 69
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9857142857142858,
+    "all_accept": 67,
+    "none_accept": 0,
+    "split": 3,
+    "split_share": 0.04285714285714286,
+    "distribution": {
+     "2/3": 3,
+     "3/3": 67
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9809523809523809,
+    "all_accept": 68,
+    "none_accept": 1,
+    "split": 1,
+    "split_share": 0.014285714285714285,
+    "distribution": {
+     "0/3": 1,
+     "2/3": 1,
+     "3/3": 68
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:openai/gpt-6-luna",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "none",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9714285714285714,
+    "all_accept": 64,
+    "none_accept": 0,
+    "split": 6,
+    "split_share": 0.08571428571428572,
+    "distribution": {
+     "2/3": 6,
+     "3/3": 64
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "fulldoc",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "chunk",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9428571428571428,
+    "all_accept": 59,
+    "none_accept": 0,
+    "split": 11,
+    "split_share": 0.15714285714285714,
+    "distribution": {
+     "1/3": 1,
+     "2/3": 10,
+     "3/3": 59
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "bm25",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9761904761904762,
+    "all_accept": 65,
+    "none_accept": 0,
+    "split": 5,
+    "split_share": 0.07142857142857142,
+    "distribution": {
+     "2/3": 5,
+     "3/3": 65
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "dense",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 0.9619047619047619,
+    "all_accept": 62,
+    "none_accept": 0,
+    "split": 8,
+    "split_share": 0.11428571428571428,
+    "distribution": {
+     "2/3": 8,
+     "3/3": 62
+    }
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "graph",
+    "tasks": 70,
+    "trials": 210,
+    "trial_share": 1.0,
+    "all_accept": 70,
+    "none_accept": 0,
+    "split": 0,
+    "split_share": 0.0,
+    "distribution": {
+     "3/3": 70
+    }
+   }
+  ],
+  "pooled": [
+   {
+    "condition": "none",
+    "tasks": 840,
+    "split": 35,
+    "split_share": 0.041666666666666664,
+    "distribution": {
+     "0/3": 4,
+     "1/3": 4,
+     "2/3": 31,
+     "3/3": 801
+    }
+   },
+   {
+    "condition": "fulldoc",
+    "tasks": 840,
+    "split": 20,
+    "split_share": 0.023809523809523808,
+    "distribution": {
+     "0/3": 1,
+     "1/3": 3,
+     "2/3": 17,
+     "3/3": 819
+    }
+   },
+   {
+    "condition": "chunk",
+    "tasks": 840,
+    "split": 27,
+    "split_share": 0.03214285714285714,
+    "distribution": {
+     "0/3": 3,
+     "1/3": 4,
+     "2/3": 23,
+     "3/3": 810
+    }
+   },
+   {
+    "condition": "bm25",
+    "tasks": 840,
+    "split": 26,
+    "split_share": 0.030952380952380953,
+    "distribution": {
+     "0/3": 3,
+     "1/3": 8,
+     "2/3": 18,
+     "3/3": 811
+    }
+   },
+   {
+    "condition": "dense",
+    "tasks": 840,
+    "split": 32,
+    "split_share": 0.0380952380952381,
+    "distribution": {
+     "0/3": 5,
+     "1/3": 5,
+     "2/3": 27,
+     "3/3": 803
+    }
+   },
+   {
+    "condition": "graph",
+    "tasks": 840,
+    "split": 1,
+    "split_share": 0.0011904761904761906,
+    "distribution": {
+     "0/3": 1,
+     "2/3": 1,
+     "3/3": 838
+    }
+   }
+  ],
+  "always_disagree": []
+ },
+ "part2": {
+  "margin_pp": 5.0,
+  "rows": [
+   {
+    "pack": "godot",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 35,
+    "mean_diff_pp": -0.9523809523814286,
+    "ci_low_pp": -3.0769230769246154,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 1.5384615384623077,
+    "se_pp": 0.9358969028058279,
+    "mdd80_pp": 2.621994928578517,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "godot",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 35,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "godot",
+    "model": "openai:openai/gpt-6-luna",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 35,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "godot",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 35,
+    "mean_diff_pp": -0.47619047619000004,
+    "ci_low_pp": -2.1164021164,
+    "ci_high_pp": 1.0582010582,
+    "half_width_pp": 1.5873015873000003,
+    "se_pp": 0.8252757686876687,
+    "mdd80_pp": 2.31208039442219,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "godot",
+    "model": "all models",
+    "scope": "standard",
+    "units": 280,
+    "clusters": 35,
+    "mean_diff_pp": -0.35714285714285715,
+    "ci_low_pp": -1.0256410256403845,
+    "ci_high_pp": 0.19157088122586208,
+    "half_width_pp": 0.6086059534331233,
+    "se_pp": 0.30879167353818326,
+    "mdd80_pp": 0.8651061880609398,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 56,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 56,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:openai/gpt-6-luna",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 56,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 56,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "dotnet-runtime",
+    "model": "all models",
+    "scope": "standard",
+    "units": 280,
+    "clusters": 56,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 51,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:google/gemini-3.1-flash-lite",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 51,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:openai/gpt-6-luna",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 51,
+    "mean_diff_pp": 0.0,
+    "ci_low_pp": 0.0,
+    "ci_high_pp": 0.0,
+    "half_width_pp": 0.0,
+    "se_pp": 0.0,
+    "mdd80_pp": 0.0,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "odoo",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "scope": "cell",
+    "units": 70,
+    "clusters": 51,
+    "mean_diff_pp": -5.714285714280001,
+    "ci_low_pp": -8.675799086749315,
+    "ci_high_pp": -2.898550724634783,
+    "half_width_pp": 2.8886241810572666,
+    "se_pp": 1.4807726803609087,
+    "mdd80_pp": 4.148510852684641,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "odoo",
+    "model": "all models",
+    "scope": "standard",
+    "units": 280,
+    "clusters": 51,
+    "mean_diff_pp": -1.4285714285700002,
+    "ci_low_pp": -2.1689497716873287,
+    "ci_high_pp": -0.7246376811586958,
+    "half_width_pp": 0.7221560452643166,
+    "se_pp": 0.3701931700902272,
+    "mdd80_pp": 1.0371277131711603,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   },
+   {
+    "pack": "all standards",
+    "model": "all models",
+    "scope": "pooled",
+    "units": 840,
+    "clusters": 142,
+    "mean_diff_pp": -0.5952380952376191,
+    "ci_low_pp": -0.9478672985772513,
+    "ci_high_pp": -0.2764612954184834,
+    "half_width_pp": 0.33570300157938393,
+    "se_pp": 0.17199779013776711,
+    "mdd80_pp": 0.48186646639806485,
+    "margin_pp": 5.0,
+    "mdd_above_margin": false
+   }
+  ],
+  "rules_sent": {
+   "dotnet-runtime": 1.0,
+   "godot": 2.6285714285714286,
+   "odoo": 0.0
+  },
+  "note_packs_without_rules": [
+   "odoo"
+  ]
+ },
+ "part3": {
+  "available": true,
+  "flagged": [
+   {
+    "pack": "dotnet-runtime",
+    "split": "dev",
+    "unit": "csharp_003__Main__DOTNET-METHOD-CASE",
+    "language": "csharp",
+    "kind_from_unit": "DOTNET-METHOD-CASE",
+    "from": "main",
+    "to": "Main",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 1
+   },
+   {
+    "pack": "dotnet-runtime",
+    "split": "test",
+    "unit": "csharp_098__DivideSmallPrime__DOTNET-METHOD-CASE",
+    "language": "csharp",
+    "kind_from_unit": "DOTNET-METHOD-CASE",
+    "from": "divide_small_prime",
+    "to": "DivideSmallPrime",
+    "aware": true,
+    "blind": true,
+    "binding_reasons": [
+     "merge/capture: [\"('ext', 'DivideSmallPrime')\", \"('src', 'LocalFunction', 20)\"] -> ('src', 'LocalFunction', 20)"
+    ],
+    "declaration_reasons": [
+     "external name DivideSmallPrime used in the scope"
+    ],
+    "occurrences_renamed": 1
+   },
+   {
+    "pack": "odoo",
+    "split": "dev",
+    "unit": "py_004__date__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "DATE",
+    "to": "date",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "dev",
+    "unit": "py_009__limit__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "LIMIT",
+    "to": "limit",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 3
+   },
+   {
+    "pack": "odoo",
+    "split": "dev",
+    "unit": "py_011__session__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "SESSION",
+    "to": "session",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 7
+   },
+   {
+    "pack": "odoo",
+    "split": "dev",
+    "unit": "py_025__field__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "FIELD",
+    "to": "field",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 5
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_037__incoming__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "INCOMING",
+    "to": "incoming",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_043__should_pad__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "SHOULD_PAD",
+    "to": "should_pad",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_050__headers__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "HEADERS",
+    "to": "headers",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_054__topics__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "TOPICS",
+    "to": "topics",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_059__body__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "BODY",
+    "to": "body",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_065__font__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "FONT",
+    "to": "font",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_067__iterable__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "ITERABLE",
+    "to": "iterable",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_070__topic__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "TOPIC",
+    "to": "topic",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 8
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_081__key__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "KEY",
+    "to": "key",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_093__attachments__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "ATTACHMENTS",
+    "to": "attachments",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 9
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_095__codepoint__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "CODEPOINT",
+    "to": "codepoint",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 2
+   },
+   {
+    "pack": "odoo",
+    "split": "test",
+    "unit": "py_097__rule__ODOO-PARAMETER-CASE",
+    "language": "python",
+    "kind_from_unit": "ODOO-PARAMETER-CASE",
+    "from": "RULE",
+    "to": "rule",
+    "aware": false,
+    "blind": true,
+    "binding_reasons": [],
+    "declaration_reasons": [],
+    "occurrences_renamed": 1
+   }
+  ],
+  "counts": {
+   "dotnet-runtime:all": 100,
+   "dotnet-runtime:aware": 1,
+   "dotnet-runtime:blind": 2,
+   "godot:all": 100,
+   "odoo:all": 100,
+   "odoo:blind": 16
+  },
+  "no_verdict": {}
+ },
+ "part4": {
+  "cell_a": {
+   "pack": "godot",
+   "condition": "none",
+   "model_token": "luna",
+   "parameter_trials": 66,
+   "available": 11,
+   "rows": [
+    {
+     "unit": "cpp_040__p_other__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 0,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_other",
+     "injected": "P_OTHER",
+     "suggested": "other",
+     "core_ok": true,
+     "selection_suggested": "p_other",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_046__p_other__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 0,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_other",
+     "injected": "P_OTHER",
+     "suggested": "other",
+     "core_ok": true,
+     "selection_suggested": "p_other",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_046__p_other__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 1,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_other",
+     "injected": "P_OTHER",
+     "suggested": "other",
+     "core_ok": true,
+     "selection_suggested": "p_other",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_046__p_other__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 2,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_other",
+     "injected": "P_OTHER",
+     "suggested": "other",
+     "core_ok": true,
+     "selection_suggested": "p_other",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_062__p_data_type__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 2,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_data_type",
+     "injected": "P_DATA_TYPE",
+     "suggested": "data_type",
+     "core_ok": true,
+     "selection_suggested": "p_data_type",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_067__p_node__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 2,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_node",
+     "injected": "P_NODE",
+     "suggested": "node",
+     "core_ok": true,
+     "selection_suggested": "p_node",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_093__p_other__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 1,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_other",
+     "injected": "P_OTHER",
+     "suggested": "other",
+     "core_ok": true,
+     "selection_suggested": "p_other",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_095__p_control__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 0,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_control",
+     "injected": "P_CONTROL",
+     "suggested": "control",
+     "core_ok": true,
+     "selection_suggested": "p_control",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_095__p_control__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 2,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_control",
+     "injected": "P_CONTROL",
+     "suggested": "control",
+     "core_ok": true,
+     "selection_suggested": "p_control",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    },
+    {
+     "unit": "cpp_096__p_other__GODOT-PARAMETER-CASE",
+     "model": "openai:openai/gpt-6-luna",
+     "repeat": 1,
+     "kind": "parameter",
+     "rule": "GODOT-PARAMETER-CASE",
+     "original": "p_other",
+     "injected": "P_OTHER",
+     "suggested": "other",
+     "core_ok": true,
+     "selection_suggested": "p_other",
+     "selection_prefix": true,
+     "selection_core_ok": true
+    }
+   ]
+  },
+  "cell_b": {
+   "pack": "dotnet-runtime",
+   "condition": "dense",
+   "available": 37,
+   "rows": [
+    {
+     "unit": "csharp_031__PortableCallHelpersGeneratorRejectsUnsupportedSignatureTokens__DOTNET-METHOD-CASE",
+     "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+     "repeat": 2,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "portable_call_helpers_generator_rejects_unsupported_signature_tokens",
+     "suggested": "PortableCallHelpersGenerator_RejectsUnsupportedSignatureTokens",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p012",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p020",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 11. We use language keywords instead of BCL types (e.g. `int, string, float` instead of `Int32, String, Single`, etc) for both type references as well ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_032__DecryptCek__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 0,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "decrypt_cek",
+     "suggested": null,
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p012",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p005",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p020",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 11. We use language keywords instead of BCL types (e.g. `int, string, float` instead of `Int32, String, Single`, etc) for both type references as well ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_035__ApplyAttribute__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 1,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "apply_attribute",
+     "suggested": "apply_attribute_value",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p020",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p005",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 19. Make all internal and private types static or sealed unless derivation from them is required. As with any implementation detail, they can be chang ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_037__LabeledExpand__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 0,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "labeled_expand",
+     "suggested": "expandLabeledInfo",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p018",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p009",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 17. When using labels (for goto), indent the label one less than the current indentation. C# Coding Style 10. We only permit ( not enforce ) `var` whe ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_039__ClampNative__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 2,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "clamp_native",
+     "suggested": "clamp",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p012",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p020",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 11. We use language keywords instead of BCL types (e.g. `int, string, float` instead of `Int32, String, Single`, etc) for both type references as well ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_042__CreateFloat32BitsSerializedInitializer__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 0,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "create_float32_bits_serialized_initializer",
+     "suggested": "create_float_serialized_initializer",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p012",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p016",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 11. We use language keywords instead of BCL types (e.g. `int, string, float` instead of `Int32, String, Single`, etc) for both type references as well ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_049__ReadWasmName__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 2,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "read_wasm_name",
+     "suggested": null,
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p015",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p013",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 10. We only permit ( not enforce ) `var` when the type is explicitly named on the right-hand side, typically due to either `new` or an explicit cast,  ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_050__VerifyLowering__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 2,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "verify_lowering",
+     "suggested": "Test_verify_lowering",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p012",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p020",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 11. We use language keywords instead of BCL types (e.g. `int, string, float` instead of `Int32, String, Single`, etc) for both type references as well ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_052__CreateCharMapErrorPInvokeAttribute__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 0,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "create_char_map_error_p_invoke_attribute",
+     "suggested": "createCharMapErrorPInvokeAttribute",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p011",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p005",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p017",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 10. We only permit ( not enforce ) `var` when the type is explicitly named on the right-hand side, typically due to either `new` or an explicit cast,  ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    },
+    {
+     "unit": "csharp_053__CreateKey__DOTNET-METHOD-CASE",
+     "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+     "repeat": 2,
+     "kind": "method",
+     "rule": "DOTNET-METHOD-CASE",
+     "injected": "create_key",
+     "suggested": "createKey",
+     "retrieved_n": 3,
+     "retrieved": [
+      {
+       "id": "p017",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p020",
+       "heading": "C# Coding Style"
+      },
+      {
+       "id": "p004",
+       "heading": "C# Coding Style"
+      }
+     ],
+     "dense_context": ".NET runtime C# coding style - the 3 passage(s) most similar to the code: C# Coding Style 16. When including non-ASCII characters in the source code use Unicode escape sequences (\\uXXXX) instead of literal characters. Literal non-ASCII char ...",
+     "selection_context": ".NET runtime C# coding style - rules retrieved for a method in csharp (most important first): [MUST] DOTNET-METHOD-CASE: Method names use PascalCase. checks: casing=PascalCase",
+     "selection_core_ok": true
+    }
+   ]
+  }
+ },
+ "settings": {
+  "resamples": 10000,
+  "seed": 20261018,
+  "margin_pp": 5.0,
+  "meta_runs": [
+   "runs/test_dotnet-runtime_gemini31fl_meta",
+   "runs/test_dotnet-runtime_gemma4_local_meta",
+   "runs/test_dotnet-runtime_luna_meta",
+   "runs/test_dotnet-runtime_qwen35_9b_meta",
+   "runs/test_godot_gemini31fl_meta",
+   "runs/test_godot_gemma4_local_meta",
+   "runs/test_godot_luna_meta",
+   "runs/test_godot_qwen35_9b_meta",
+   "runs/test_odoo_gemini31fl_meta",
+   "runs/test_odoo_gemma4_local_meta",
+   "runs/test_odoo_luna_meta",
+   "runs/test_odoo_qwen35_9b_meta"
+  ],
+  "llm_runs": [
+   "runs/test_dotnet-runtime_gemini31fl_llm",
+   "runs/test_dotnet-runtime_gemma4_local_llm",
+   "runs/test_dotnet-runtime_luna_llm",
+   "runs/test_dotnet-runtime_qwen35_9b_llm",
+   "runs/test_godot_gemini31fl_llm",
+   "runs/test_godot_gemma4_local_llm",
+   "runs/test_godot_luna_llm",
+   "runs/test_godot_qwen35_9b_llm",
+   "runs/test_odoo_gemini31fl_llm",
+   "runs/test_odoo_gemma4_local_llm",
+   "runs/test_odoo_luna_llm",
+   "runs/test_odoo_qwen35_9b_llm"
+  ],
+  "python": "3.14.4"
+ }
+}
