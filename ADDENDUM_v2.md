@@ -73,3 +73,33 @@ Second, for H4 the difference the design could detect is reported next to the eq
 Third, the renames to fresh names of H6 that the scope-aware check flags are listed one by one, with the language, the identifier kind, the name before and after, and the reason the binding check or the declaration check gives, next to the flags the scope-blind word screen raises on the same renames; the number of each and the number of renames for which a check gives no verdict are reported. The labelled renames are those `make_h6_labels.py` builds, rebuilt for this analysis from the frozen benchmark.
 
 Fourth, two cells are read by hand and quoted. For GPT-6 Luna on the Godot standard, the first ten parameter trials by unit identifier whose proposed name lacks the `p_` or `r_` prefix are quoted with the original name, the injected name and the suggestion, next to the suggestion the selection condition gives for the same unit; the condition read is `none`, because the prefix rule lies outside the core rules and such a name is what addendum A8 counts. For the dense retrieval condition on the .NET runtime standard, the passages retrieved for the first ten units by identifier whose suggestion `core_ok` rejects in that condition are quoted with their identifiers and heading paths, next to the rules selection sends for those units. No count is derived from either reading; it is reported to show what the proportions of Table IV and of A8 rest on. The first of the two readings was changed after the selection condition of GPT-6 Luna on the Godot standard was found to hold no trial that `core_ok` rejects; it is stated here because the wording of the rest of this addendum was fixed before its analysis was computed.
+
+## A13. The accuracy of the inferred kind, the paired outcomes behind the
+## differences of H3, and the source file clusters of the test split (exploratory)
+
+Three analyses of the frozen runs, added after the test results were seen. They
+carry no decision rule and call no model again. Provisional values of all three
+were computed while this addendum was planned, so none of them is confirmatory.
+
+First, the kind the pipeline infers is compared with the kind in the unit
+metadata on the test split, per standard, with the pairs it confuses and the
+trials whose kind is wrong and whose core_ok still passes. A drop in compliance
+bounds what a wrong kind can cost; it does not give the rate at which the kind
+is wrong, because two kinds can select the same casing rule.
+
+Second, the wins, ties and losses of the paired tasks behind every mean
+difference of H3 are reported next to that difference, for selection against
+the full document and against no standard. A cell in which no task differs
+shows that the two prompts agree on the tasks of this benchmark; it is not a
+bound on the size of a difference, and a count of cells that pass the registered
+rule does not separate the two.
+
+Third, the number of source file clusters among the test tasks of each standard
+is reported, with the tasks per cluster and the largest cluster. This is the
+number the cluster bootstrap resamples, and it is smaller than the number of
+files in the pinned corpus.
+
+The records of a run's csv include the records of every run that shares its
+keys, so a trial can appear more than once there. One record per unit, repeat
+and model is kept, the last one read, which is the rule report.load_trials
+applies to the json records.

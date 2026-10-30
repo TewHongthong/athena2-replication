@@ -10,7 +10,7 @@ authors:
   - family-names: Chondamrongkul
     given-names: Nacha
     affiliation: "School of Applied Digital Technology, Mae Fah Luang University"
-version: 1.4.0
+version: 1.5.0
 date-released: 2026-10-30
 doi: 10.5281/zenodo.23656296
 repository-code: "https://github.com/TewHongthong/athena2-replication"

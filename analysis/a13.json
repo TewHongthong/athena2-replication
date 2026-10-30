@@ -1,0 +1,1629 @@
+{
+ "part1": {
+  "available": true,
+  "models": {
+   "gemini31fl": {
+    "units": 90,
+    "before": 0.9888888888888889,
+    "after": 1.0,
+    "delta_pp": 1.1111111111111112,
+    "discordant_down": 0,
+    "discordant_up": 1,
+    "mcnemar_p": 1.0,
+    "identity_values": [
+     [
+      "google/gemini-3.1-flash-lite",
+      "Google"
+     ]
+    ],
+    "identity_changed": false,
+    "flagged": false
+   },
+   "gemma4_local": {
+    "units": 90,
+    "before": 1.0,
+    "after": 1.0,
+    "delta_pp": 0.0,
+    "discordant_down": 0,
+    "discordant_up": 0,
+    "mcnemar_p": 1.0,
+    "identity_values": [
+     [
+      "gemma-4-26b-a4b-it-ud-q4_k_m",
+      "None"
+     ]
+    ],
+    "identity_changed": false,
+    "flagged": false
+   },
+   "luna": {
+    "units": 90,
+    "before": 1.0,
+    "after": 1.0,
+    "delta_pp": 0.0,
+    "discordant_down": 0,
+    "discordant_up": 0,
+    "mcnemar_p": 1.0,
+    "identity_values": [
+     [
+      "openai/gpt-6-luna",
+      "OpenAI"
+     ]
+    ],
+    "identity_changed": false,
+    "flagged": false
+   },
+   "qwen35_9b": {
+    "units": 90,
+    "before": 0.8888888888888888,
+    "after": 0.9222222222222223,
+    "delta_pp": 3.3333333333333335,
+    "discordant_down": 3,
+    "discordant_up": 6,
+    "mcnemar_p": 0.5078125,
+    "identity_values": [
+     [
+      "qwen3.5-9b-ud-q8_k_xl",
+      "None"
+     ]
+    ],
+    "identity_changed": false,
+    "flagged": false
+   }
+  },
+  "rows": [
+   [
+    "gemini31fl",
+    90,
+    "98.9",
+    "100.0",
+    "+1.1",
+    0,
+    1,
+    "1.000",
+    "same",
+    "no"
+   ],
+   [
+    "gemma4_local",
+    90,
+    "100.0",
+    "100.0",
+    "+0.0",
+    0,
+    0,
+    "1.000",
+    "same",
+    "no"
+   ],
+   [
+    "luna",
+    90,
+    "100.0",
+    "100.0",
+    "+0.0",
+    0,
+    0,
+    "1.000",
+    "same",
+    "no"
+   ],
+   [
+    "qwen35_9b",
+    90,
+    "88.9",
+    "92.2",
+    "+3.3",
+    3,
+    6,
+    "0.508",
+    "same",
+    "no"
+   ]
+  ],
+  "any_flagged": false
+ },
+ "part2": {
+  "available": true,
+  "endpoint_names": [
+   "Uncensored",
+   "flashnext",
+   "qwen35b"
+  ],
+  "cells": {
+   "openai:Uncensored|godot|none": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|godot|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|godot|chunk": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|godot|bm25": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|godot|dense": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:Uncensored|godot|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|dotnet-runtime|none": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|dotnet-runtime|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|dotnet-runtime|chunk": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|dotnet-runtime|bm25": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:Uncensored|dotnet-runtime|dense": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|dotnet-runtime|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|odoo|none": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|odoo|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|odoo|chunk": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|odoo|bm25": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|odoo|dense": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:Uncensored|odoo|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|godot|none": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:flashnext:instruct|godot|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|godot|chunk": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:flashnext:instruct|godot|bm25": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:flashnext:instruct|godot|dense": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|godot|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|dotnet-runtime|none": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|dotnet-runtime|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|dotnet-runtime|chunk": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|dotnet-runtime|bm25": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|dotnet-runtime|dense": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|dotnet-runtime|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|odoo|none": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|odoo|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|odoo|chunk": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|odoo|bm25": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|odoo|dense": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:flashnext:instruct|odoo|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|godot|none": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:qwen35b|godot|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|godot|chunk": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|godot|bm25": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|godot|dense": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|godot|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|dotnet-runtime|none": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|dotnet-runtime|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|dotnet-runtime|chunk": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|dotnet-runtime|bm25": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:qwen35b|dotnet-runtime|dense": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:qwen35b|dotnet-runtime|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|odoo|none": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|odoo|fulldoc": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|odoo|chunk": {
+    "units": 30,
+    "core_ok": 0.9666666666666667
+   },
+   "openai:qwen35b|odoo|bm25": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|odoo|dense": {
+    "units": 30,
+    "core_ok": 1.0
+   },
+   "openai:qwen35b|odoo|graph": {
+    "units": 30,
+    "core_ok": 1.0
+   }
+  },
+  "rows": [
+   [
+    "Qwen3.8 27B (matched by elimination)",
+    "openai:Uncensored",
+    "godot",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "96.7",
+    "100.0"
+   ],
+   [
+    "Qwen3.8 27B (matched by elimination)",
+    "openai:Uncensored",
+    "dotnet-runtime",
+    "100.0",
+    "100.0",
+    "100.0",
+    "96.7",
+    "100.0",
+    "100.0"
+   ],
+   [
+    "Qwen3.8 27B (matched by elimination)",
+    "openai:Uncensored",
+    "odoo",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0"
+   ],
+   [
+    "Qwen3.8 Flash-Next",
+    "openai:flashnext:instruct",
+    "godot",
+    "96.7",
+    "100.0",
+    "96.7",
+    "96.7",
+    "100.0",
+    "100.0"
+   ],
+   [
+    "Qwen3.8 Flash-Next",
+    "openai:flashnext:instruct",
+    "dotnet-runtime",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0"
+   ],
+   [
+    "Qwen3.8 Flash-Next",
+    "openai:flashnext:instruct",
+    "odoo",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0"
+   ],
+   [
+    "Qwen3.5 35B-A3B",
+    "openai:qwen35b",
+    "godot",
+    "96.7",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0",
+    "100.0"
+   ],
+   [
+    "Qwen3.5 35B-A3B",
+    "openai:qwen35b",
+    "dotnet-runtime",
+    "100.0",
+    "100.0",
+    "100.0",
+    "96.7",
+    "96.7",
+    "100.0"
+   ],
+   [
+    "Qwen3.5 35B-A3B",
+    "openai:qwen35b",
+    "odoo",
+    "100.0",
+    "100.0",
+    "96.7",
+    "100.0",
+    "100.0",
+    "100.0"
+   ]
+  ],
+  "names_in_the_plan": {
+   "openai:qwen35b": "Qwen3.5 35B-A3B",
+   "openai:flashnext:instruct": "Qwen3.8 Flash-Next",
+   "openai:Uncensored": "Qwen3.8 27B (matched by elimination)"
+  },
+  "backends_not_in_the_plan": [],
+  "lowest_cell": 0.9666666666666667,
+  "highest_cell": 1.0
+ },
+ "part3": {
+  "available": true,
+  "conditions": {
+   "none": {
+    "trials": 2520,
+    "prompt_tokens": 420.9214285714286,
+    "completion_tokens": 148.39642857142857,
+    "latency_s": 4.189184523809524,
+    "usd_per_100_billed_trials": 0.021172464285714288,
+    "billed_trials": 1260,
+    "unbilled_trials": 1260
+   },
+   "fulldoc": {
+    "trials": 2520,
+    "prompt_tokens": 5696.504761904762,
+    "completion_tokens": 129.63888888888889,
+    "latency_s": 5.001643253968254,
+    "usd_per_100_billed_trials": 0.1131055992063492,
+    "billed_trials": 1260,
+    "unbilled_trials": 1260
+   },
+   "chunk": {
+    "trials": 2520,
+    "prompt_tokens": 681.6630952380953,
+    "completion_tokens": 142.98968253968255,
+    "latency_s": 4.071008730158731,
+    "usd_per_100_billed_trials": 0.02513885317460317,
+    "billed_trials": 1260,
+    "unbilled_trials": 1260
+   },
+   "bm25": {
+    "trials": 2520,
+    "prompt_tokens": 742.3765873015873,
+    "completion_tokens": 147.34285714285716,
+    "latency_s": 4.012973809523809,
+    "usd_per_100_billed_trials": 0.02644403571428571,
+    "billed_trials": 1260,
+    "unbilled_trials": 1260
+   },
+   "dense": {
+    "trials": 2520,
+    "prompt_tokens": 600.7297619047619,
+    "completion_tokens": 156.3734126984127,
+    "latency_s": 4.270227380952381,
+    "usd_per_100_billed_trials": 0.024713222222222223,
+    "billed_trials": 1260,
+    "unbilled_trials": 1260
+   },
+   "graph": {
+    "trials": 2520,
+    "prompt_tokens": 485.2547619047619,
+    "completion_tokens": 130.9484126984127,
+    "latency_s": 3.5915087301587305,
+    "usd_per_100_billed_trials": 0.02113248015873016,
+    "billed_trials": 1260,
+    "unbilled_trials": 1260
+   }
+  },
+  "condition_rows": [
+   [
+    "none",
+    2520,
+    "421",
+    "148",
+    "4.19",
+    "0.021",
+    1260
+   ],
+   [
+    "fulldoc",
+    2520,
+    "5,697",
+    "130",
+    "5.00",
+    "0.113",
+    1260
+   ],
+   [
+    "chunk",
+    2520,
+    "682",
+    "143",
+    "4.07",
+    "0.025",
+    1260
+   ],
+   [
+    "bm25",
+    2520,
+    "742",
+    "147",
+    "4.01",
+    "0.026",
+    1260
+   ],
+   [
+    "dense",
+    2520,
+    "601",
+    "156",
+    "4.27",
+    "0.025",
+    1260
+   ],
+   [
+    "graph",
+    2520,
+    "485",
+    "131",
+    "3.59",
+    "0.021",
+    1260
+   ]
+  ],
+  "pack_rows": [
+   [
+    "godot",
+    "389",
+    "2,119",
+    "544",
+    "558",
+    "532",
+    "533",
+    "4.0x"
+   ],
+   [
+    "dotnet-runtime",
+    "430",
+    "2,262",
+    "675",
+    "770",
+    "624",
+    "445",
+    "5.1x"
+   ],
+   [
+    "odoo",
+    "444",
+    "12,708",
+    "827",
+    "898",
+    "647",
+    "478",
+    "26.6x"
+   ]
+  ],
+  "fulldoc_over_selection": {
+   "godot": 3.977904700614056,
+   "dotnet-runtime": 5.08498201438849,
+   "odoo": 26.575213968841954
+  },
+  "pooled_ratio": 11.739204247155397
+ },
+ "part4": {
+  "available": true,
+  "cells": {
+   "gscs|openai:gemma-4-26b-a4b-it-ud-q4_k_m|graph|test": {
+    "units": 122,
+    "core_ok": 1.0,
+    "trials": 366,
+    "at_output_limit": 0,
+    "finish": {
+     "stop": 366
+    }
+   },
+   "gscs|openai:gemma-4-26b-a4b-it-ud-q4_k_m|none|test": {
+    "units": 122,
+    "core_ok": 0.3551912568306011,
+    "trials": 366,
+    "at_output_limit": 0,
+    "finish": {
+     "stop": 366
+    }
+   },
+   "gscs|openai:qwen3.5-9b-ud-q8_k_xl|graph|test": {
+    "units": 122,
+    "core_ok": 0.9590163934426229,
+    "trials": 366,
+    "at_output_limit": 1,
+    "finish": {
+     "stop": 365,
+     "length": 1
+    }
+   },
+   "gscs|openai:qwen3.5-9b-ud-q8_k_xl|none|test": {
+    "units": 122,
+    "core_ok": 0.1885245901639344,
+    "trials": 366,
+    "at_output_limit": 10,
+    "finish": {
+     "stop": 356,
+     "length": 10
+    }
+   }
+  },
+  "rows": [
+   [
+    "gscs",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "test",
+    "graph",
+    122,
+    "100.0",
+    366,
+    0
+   ],
+   [
+    "gscs",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "test",
+    "none",
+    122,
+    "35.5",
+    366,
+    0
+   ],
+   [
+    "gscs",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "test",
+    "graph",
+    122,
+    "95.9",
+    366,
+    1
+   ],
+   [
+    "gscs",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "test",
+    "none",
+    122,
+    "18.9",
+    366,
+    10
+   ]
+  ],
+  "h2_points": {
+   "gscs|openai:gemma-4-26b-a4b-it-ud-q4_k_m|test": {
+    "zero_shot": 0.3551912568306011,
+    "selection": 1.0,
+    "gain_pp": 64.48087431693989,
+    "at_output_limit": 0
+   },
+   "gscs|openai:qwen3.5-9b-ud-q8_k_xl|test": {
+    "zero_shot": 0.1885245901639344,
+    "selection": 0.9590163934426229,
+    "gain_pp": 77.04918032786885,
+    "at_output_limit": 11
+   }
+  },
+  "packs_seen": [
+   "gscs"
+  ],
+  "packs_missing": [
+   "public5"
+  ],
+  "finish_reasons": [
+   {
+    "pack": "gscs",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "graph",
+    "finish": "stop",
+    "trials": 366
+   },
+   {
+    "pack": "gscs",
+    "model": "openai:gemma-4-26b-a4b-it-ud-q4_k_m",
+    "condition": "none",
+    "finish": "stop",
+    "trials": 366
+   },
+   {
+    "pack": "gscs",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "graph",
+    "finish": "length",
+    "trials": 1
+   },
+   {
+    "pack": "gscs",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "graph",
+    "finish": "stop",
+    "trials": 365
+   },
+   {
+    "pack": "gscs",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "none",
+    "finish": "length",
+    "trials": 10
+   },
+   {
+    "pack": "gscs",
+    "model": "openai:qwen3.5-9b-ud-q8_k_xl",
+    "condition": "none",
+    "finish": "stop",
+    "trials": 356
+   }
+  ],
+  "trials_at_the_output_limit": 11,
+  "total_at_output_limit": 11
+ },
+ "part5": {
+  "available": true,
+  "packs": {
+   "godot": {
+    "csv_rows_read": 7560,
+    "rows_without_a_kind_field": 5880,
+    "scored_trials": 840,
+    "distinct_tasks": 70,
+    "correct": 828,
+    "accuracy": 0.9857142857142858,
+    "ci_low": 0.9751969065741277,
+    "ci_high": 0.991809385271732,
+    "accuracy_lower_one_sided": 0.9769566546298061,
+    "wrong_trials": 12,
+    "wrong_tasks": 1,
+    "wrong_but_core_ok": 12
+   },
+   "dotnet-runtime": {
+    "csv_rows_read": 7350,
+    "rows_without_a_kind_field": 5880,
+    "scored_trials": 840,
+    "distinct_tasks": 70,
+    "correct": 840,
+    "accuracy": 1.0,
+    "ci_low": 0.9954476533707379,
+    "ci_high": 1.0,
+    "accuracy_lower_one_sided": 0.9964400039208929,
+    "wrong_trials": 0,
+    "wrong_tasks": 0,
+    "wrong_but_core_ok": 0
+   },
+   "odoo": {
+    "csv_rows_read": 7560,
+    "rows_without_a_kind_field": 5880,
+    "scored_trials": 840,
+    "distinct_tasks": 70,
+    "correct": 840,
+    "accuracy": 1.0,
+    "ci_low": 0.9954476533707379,
+    "ci_high": 1.0,
+    "accuracy_lower_one_sided": 0.9964400039208929,
+    "wrong_trials": 0,
+    "wrong_tasks": 0,
+    "wrong_but_core_ok": 0
+   }
+  },
+  "rows": [
+   [
+    "godot",
+    840,
+    70,
+    "98.6",
+    "[97.5, 99.2]",
+    12,
+    1,
+    12
+   ],
+   [
+    "dotnet-runtime",
+    840,
+    70,
+    "100.0",
+    "[99.5, 100.0]",
+    0,
+    0,
+    0
+   ],
+   [
+    "odoo",
+    840,
+    70,
+    "100.0",
+    "[99.5, 100.0]",
+    0,
+    0,
+    0
+   ]
+  ],
+  "confusions": [
+   {
+    "pack": "godot",
+    "metadata_kind": "method",
+    "inferred_kind": "function",
+    "trials": 12
+   }
+  ],
+  "kind_status": [
+   {
+    "pack": "dotnet-runtime",
+    "status": "ok",
+    "trials": 840
+   },
+   {
+    "pack": "godot",
+    "status": "ok",
+    "trials": 840
+   },
+   {
+    "pack": "odoo",
+    "status": "ambiguous",
+    "trials": 48
+   },
+   {
+    "pack": "odoo",
+    "status": "ok",
+    "trials": 792
+   }
+  ]
+ },
+ "part6": {
+  "available": true,
+  "cells": {
+   "godot|openai:gemma-4-26b-a4b-it-ud-q4_k_m|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "godot|openai:gemma-4-26b-a4b-it-ud-q4_k_m|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 1,
+    "ties": 69,
+    "losses": 0,
+    "mean_diff_pp": 1.4285714285714286,
+    "all_tasks_identical": false
+   },
+   "godot|openai:google/gemini-3.1-flash-lite|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "godot|openai:google/gemini-3.1-flash-lite|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 1,
+    "ties": 69,
+    "losses": 0,
+    "mean_diff_pp": 0.9523809523809524,
+    "all_tasks_identical": false
+   },
+   "godot|openai:openai/gpt-6-luna|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "godot|openai:openai/gpt-6-luna|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 1,
+    "ties": 69,
+    "losses": 0,
+    "mean_diff_pp": 0.4761904761904762,
+    "all_tasks_identical": false
+   },
+   "godot|openai:qwen3.5-9b-ud-q8_k_xl|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 5,
+    "ties": 64,
+    "losses": 1,
+    "mean_diff_pp": 3.3333333333333335,
+    "all_tasks_identical": false
+   },
+   "godot|openai:qwen3.5-9b-ud-q8_k_xl|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 35,
+    "wins": 14,
+    "ties": 55,
+    "losses": 1,
+    "mean_diff_pp": 6.666666666666667,
+    "all_tasks_identical": false
+   },
+   "dotnet-runtime|openai:gemma-4-26b-a4b-it-ud-q4_k_m|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "dotnet-runtime|openai:gemma-4-26b-a4b-it-ud-q4_k_m|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 1,
+    "ties": 69,
+    "losses": 0,
+    "mean_diff_pp": 1.4285714285714286,
+    "all_tasks_identical": false
+   },
+   "dotnet-runtime|openai:google/gemini-3.1-flash-lite|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "dotnet-runtime|openai:google/gemini-3.1-flash-lite|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 1,
+    "ties": 69,
+    "losses": 0,
+    "mean_diff_pp": 1.4285714285714286,
+    "all_tasks_identical": false
+   },
+   "dotnet-runtime|openai:openai/gpt-6-luna|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "dotnet-runtime|openai:openai/gpt-6-luna|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "dotnet-runtime|openai:qwen3.5-9b-ud-q8_k_xl|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 12,
+    "ties": 57,
+    "losses": 1,
+    "mean_diff_pp": 5.714285714285715,
+    "all_tasks_identical": false
+   },
+   "dotnet-runtime|openai:qwen3.5-9b-ud-q8_k_xl|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 56,
+    "wins": 13,
+    "ties": 57,
+    "losses": 0,
+    "mean_diff_pp": 7.142857142857144,
+    "all_tasks_identical": false
+   },
+   "odoo|openai:gemma-4-26b-a4b-it-ud-q4_k_m|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "odoo|openai:gemma-4-26b-a4b-it-ud-q4_k_m|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "odoo|openai:google/gemini-3.1-flash-lite|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "odoo|openai:google/gemini-3.1-flash-lite|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "odoo|openai:openai/gpt-6-luna|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 3,
+    "ties": 67,
+    "losses": 0,
+    "mean_diff_pp": 1.4285714285714286,
+    "all_tasks_identical": false
+   },
+   "odoo|openai:openai/gpt-6-luna|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "odoo|openai:qwen3.5-9b-ud-q8_k_xl|graph-vs-fulldoc": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 0,
+    "ties": 70,
+    "losses": 0,
+    "mean_diff_pp": 0.0,
+    "all_tasks_identical": true
+   },
+   "odoo|openai:qwen3.5-9b-ud-q8_k_xl|graph-vs-none": {
+    "tasks": 70,
+    "clusters": 51,
+    "wins": 6,
+    "ties": 64,
+    "losses": 0,
+    "mean_diff_pp": 2.857142857142857,
+    "all_tasks_identical": false
+   }
+  },
+  "rows": [
+   [
+    "godot",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "godot",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "none",
+    70,
+    1,
+    69,
+    0,
+    "+1.43",
+    "no"
+   ],
+   [
+    "godot",
+    "google/gemini-3.1-flash-lite",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "godot",
+    "google/gemini-3.1-flash-lite",
+    "none",
+    70,
+    1,
+    69,
+    0,
+    "+0.95",
+    "no"
+   ],
+   [
+    "godot",
+    "openai/gpt-6-luna",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "godot",
+    "openai/gpt-6-luna",
+    "none",
+    70,
+    1,
+    69,
+    0,
+    "+0.48",
+    "no"
+   ],
+   [
+    "godot",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "fulldoc",
+    70,
+    5,
+    64,
+    1,
+    "+3.33",
+    "no"
+   ],
+   [
+    "godot",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "none",
+    70,
+    14,
+    55,
+    1,
+    "+6.67",
+    "no"
+   ],
+   [
+    "dotnet-runtime",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "dotnet-runtime",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "none",
+    70,
+    1,
+    69,
+    0,
+    "+1.43",
+    "no"
+   ],
+   [
+    "dotnet-runtime",
+    "google/gemini-3.1-flash-lite",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "dotnet-runtime",
+    "google/gemini-3.1-flash-lite",
+    "none",
+    70,
+    1,
+    69,
+    0,
+    "+1.43",
+    "no"
+   ],
+   [
+    "dotnet-runtime",
+    "openai/gpt-6-luna",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "dotnet-runtime",
+    "openai/gpt-6-luna",
+    "none",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "dotnet-runtime",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "fulldoc",
+    70,
+    12,
+    57,
+    1,
+    "+5.71",
+    "no"
+   ],
+   [
+    "dotnet-runtime",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "none",
+    70,
+    13,
+    57,
+    0,
+    "+7.14",
+    "no"
+   ],
+   [
+    "odoo",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "odoo",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "none",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "odoo",
+    "google/gemini-3.1-flash-lite",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "odoo",
+    "google/gemini-3.1-flash-lite",
+    "none",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "odoo",
+    "openai/gpt-6-luna",
+    "fulldoc",
+    70,
+    3,
+    67,
+    0,
+    "+1.43",
+    "no"
+   ],
+   [
+    "odoo",
+    "openai/gpt-6-luna",
+    "none",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "odoo",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "fulldoc",
+    70,
+    0,
+    70,
+    0,
+    "+0.00",
+    "yes"
+   ],
+   [
+    "odoo",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "none",
+    70,
+    6,
+    64,
+    0,
+    "+2.86",
+    "no"
+   ]
+  ],
+  "identical_cells_vs_fulldoc": 9,
+  "cells_vs_fulldoc": 12,
+  "cells_with_a_loss_vs_fulldoc": 2
+ },
+ "part7": {
+  "available": true,
+  "packs": {
+   "godot": {
+    "tasks": 70,
+    "clusters": 35,
+    "tasks_per_cluster": 2.0,
+    "largest_cluster": 3,
+    "singletons": 15
+   },
+   "dotnet-runtime": {
+    "tasks": 70,
+    "clusters": 56,
+    "tasks_per_cluster": 1.25,
+    "largest_cluster": 3,
+    "singletons": 47
+   },
+   "odoo": {
+    "tasks": 70,
+    "clusters": 51,
+    "tasks_per_cluster": 1.3725490196078431,
+    "largest_cluster": 3,
+    "singletons": 38
+   }
+  },
+  "rows": [
+   [
+    "godot",
+    70,
+    35,
+    "2.00",
+    3,
+    15
+   ],
+   [
+    "dotnet-runtime",
+    70,
+    56,
+    "1.25",
+    3,
+    47
+   ],
+   [
+    "odoo",
+    70,
+    51,
+    "1.37",
+    3,
+    38
+   ]
+  ]
+ },
+ "part8": {
+  "available": true,
+  "rows": [
+   [
+    "godot",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "panel",
+    "98.6",
+    "100.0",
+    "+1.43"
+   ],
+   [
+    "godot",
+    "google/gemini-3.1-flash-lite",
+    "panel",
+    "99.0",
+    "100.0",
+    "+0.95"
+   ],
+   [
+    "godot",
+    "openai/gpt-6-luna",
+    "panel",
+    "99.5",
+    "100.0",
+    "+0.48"
+   ],
+   [
+    "godot",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "panel",
+    "92.9",
+    "99.5",
+    "+6.67"
+   ],
+   [
+    "dotnet-runtime",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "panel",
+    "98.6",
+    "100.0",
+    "+1.43"
+   ],
+   [
+    "dotnet-runtime",
+    "google/gemini-3.1-flash-lite",
+    "panel",
+    "98.6",
+    "100.0",
+    "+1.43"
+   ],
+   [
+    "dotnet-runtime",
+    "openai/gpt-6-luna",
+    "panel",
+    "100.0",
+    "100.0",
+    "+0.00"
+   ],
+   [
+    "dotnet-runtime",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "panel",
+    "91.4",
+    "98.6",
+    "+7.14"
+   ],
+   [
+    "odoo",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "panel",
+    "100.0",
+    "100.0",
+    "+0.00"
+   ],
+   [
+    "odoo",
+    "google/gemini-3.1-flash-lite",
+    "panel",
+    "100.0",
+    "100.0",
+    "+0.00"
+   ],
+   [
+    "odoo",
+    "openai/gpt-6-luna",
+    "panel",
+    "100.0",
+    "100.0",
+    "+0.00"
+   ],
+   [
+    "odoo",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "panel",
+    "97.1",
+    "100.0",
+    "+2.86"
+   ],
+   [
+    "gscs",
+    "gemma-4-26b-a4b-it-ud-q4_k_m",
+    "anchor",
+    "35.5",
+    "100.0",
+    "+64.48"
+   ],
+   [
+    "gscs",
+    "qwen3.5-9b-ud-q8_k_xl",
+    "anchor",
+    "18.9",
+    "95.9",
+    "+77.05"
+   ]
+  ],
+  "points": 14,
+  "zero_shot_min": 0.1885245901639344,
+  "zero_shot_max": 1.0,
+  "spearman_rho": -1.0
+ },
+ "settings": {
+  "meta_runs": [
+   "runs/test_dotnet-runtime_gemini31fl_meta",
+   "runs/test_dotnet-runtime_gemma4_local_meta",
+   "runs/test_dotnet-runtime_luna_meta",
+   "runs/test_dotnet-runtime_qwen35_9b_meta",
+   "runs/test_godot_gemini31fl_meta",
+   "runs/test_godot_gemma4_local_meta",
+   "runs/test_godot_luna_meta",
+   "runs/test_godot_qwen35_9b_meta",
+   "runs/test_odoo_gemini31fl_meta",
+   "runs/test_odoo_gemma4_local_meta",
+   "runs/test_odoo_luna_meta",
+   "runs/test_odoo_qwen35_9b_meta"
+  ],
+  "infer_runs": [
+   "runs/test_dotnet-runtime_gemini31fl_infer",
+   "runs/test_dotnet-runtime_gemma4_local_infer",
+   "runs/test_dotnet-runtime_luna_infer",
+   "runs/test_dotnet-runtime_qwen35_9b_infer",
+   "runs/test_godot_gemini31fl_infer",
+   "runs/test_godot_gemma4_local_infer",
+   "runs/test_godot_luna_infer",
+   "runs/test_godot_qwen35_9b_infer",
+   "runs/test_odoo_gemini31fl_infer",
+   "runs/test_odoo_gemma4_local_infer",
+   "runs/test_odoo_luna_infer",
+   "runs/test_odoo_qwen35_9b_infer"
+  ],
+  "canary_runs": [
+   "runs/canary_before_gemini31fl_dotnet-runtime",
+   "runs/canary_before_gemini31fl_godot",
+   "runs/canary_before_gemini31fl_odoo",
+   "runs/canary_before_gemma4_local_dotnet-runtime",
+   "runs/canary_before_gemma4_local_godot",
+   "runs/canary_before_gemma4_local_odoo",
+   "runs/canary_before_luna_dotnet-runtime",
+   "runs/canary_before_luna_godot",
+   "runs/canary_before_luna_odoo",
+   "runs/canary_before_qwen35_9b_dotnet-runtime",
+   "runs/canary_before_qwen35_9b_godot",
+   "runs/canary_before_qwen35_9b_odoo",
+   "runs/canary_after_gemini31fl_dotnet-runtime",
+   "runs/canary_after_gemini31fl_godot",
+   "runs/canary_after_gemini31fl_odoo",
+   "runs/canary_after_gemma4_local_dotnet-runtime",
+   "runs/canary_after_gemma4_local_godot",
+   "runs/canary_after_gemma4_local_odoo",
+   "runs/canary_after_luna_dotnet-runtime",
+   "runs/canary_after_luna_godot",
+   "runs/canary_after_luna_odoo",
+   "runs/canary_after_qwen35_9b_dotnet-runtime",
+   "runs/canary_after_qwen35_9b_godot",
+   "runs/canary_after_qwen35_9b_odoo"
+  ],
+  "supplementary_runs": [
+   "runs/pilot_tankflashnext_dotnet-runtime_infer",
+   "runs/pilot_tankflashnext_dotnet-runtime_llm",
+   "runs/pilot_tankflashnext_dotnet-runtime_meta",
+   "runs/pilot_tankflashnext_godot_infer",
+   "runs/pilot_tankflashnext_godot_llm",
+   "runs/pilot_tankflashnext_godot_meta",
+   "runs/pilot_tankflashnext_odoo_infer",
+   "runs/pilot_tankflashnext_odoo_llm",
+   "runs/pilot_tankflashnext_odoo_meta",
+   "runs/pilot_tankqwen35b_dotnet-runtime_infer",
+   "runs/pilot_tankqwen35b_dotnet-runtime_llm",
+   "runs/pilot_tankqwen35b_dotnet-runtime_meta",
+   "runs/pilot_tankqwen35b_godot_infer",
+   "runs/pilot_tankqwen35b_godot_llm",
+   "runs/pilot_tankqwen35b_godot_meta",
+   "runs/pilot_tankqwen35b_odoo_infer",
+   "runs/pilot_tankqwen35b_odoo_llm",
+   "runs/pilot_tankqwen35b_odoo_meta",
+   "runs/pilot_tankuncensored_dotnet-runtime_infer",
+   "runs/pilot_tankuncensored_dotnet-runtime_llm",
+   "runs/pilot_tankuncensored_dotnet-runtime_meta",
+   "runs/pilot_tankuncensored_godot_infer",
+   "runs/pilot_tankuncensored_godot_llm",
+   "runs/pilot_tankuncensored_godot_meta",
+   "runs/pilot_tankuncensored_odoo_infer",
+   "runs/pilot_tankuncensored_odoo_llm",
+   "runs/pilot_tankuncensored_odoo_meta"
+  ],
+  "anchor_runs": [
+   "runs/anchor_gscs_gemma4_local",
+   "runs/anchor_gscs_qwen35_9b"
+  ],
+  "model_field": "backend",
+  "cluster_field": "file",
+  "python": "3.14.4"
+ }
+}
