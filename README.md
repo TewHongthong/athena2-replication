@@ -59,6 +59,10 @@ Python 3.12 or later (under Python 3.10, five Odoo files that hold 57 of the 1,6
 networkx 3.4 or later, and git. The tree-sitter library athena-corpus/curation/libtsall.so is built for Linux x86-64;
 its build script is in the same folder.
 
+## Study 2 (registered amendment)
+
+HYPOTHESES_v2_study2.md registers a second study of Vol. 2, written after the results of the registered study were known. It was added to this package before the benchmark of Study 2 was built; the ontologies, benchmark, runs and analyses of Study 2 are added in later versions.
+
 ## License
 
 Code: MIT (LICENSE). Ontologies and standard documents: the license of the source document, and code excerpts: the
