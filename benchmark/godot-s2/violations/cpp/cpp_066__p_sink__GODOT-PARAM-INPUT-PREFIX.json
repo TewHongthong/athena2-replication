@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_066",
+  "language": "cpp",
+  "originalName": "p_sink",
+  "injectedName": "sink",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'sink' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "static void check_enum(const GDScriptParser::EnumNode *p_enum, GDScriptParser &sink) {\n\tcheck_identifier(p_enum->identifier, sink);\n\tfor (const GDScriptParser::EnumNode::Value &value : p_enum->values) {\n\t\tcheck_identifier(value.identifier, sink);\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "csharp_052",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/TestCases/VirtualMethodGenerics/NonGVM.cs lines 165-171 (struct Test9); license MIT; repo created 2026-06-25T21:22:29+03:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "struct Test9<T> : ITest9\n{\n    private T _value;\n    public Test9(T value) => _value = value;\n    public int Test9Method() => 42;\n    public override string ToString() => \"Test9\";\n}",
+  "identifiers": [
+    {
+      "name": "_value",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-25T21:22:29+03:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/TestCases/VirtualMethodGenerics/NonGVM.cs",
+    "startLine": 165,
+    "endLine": 171,
+    "unit": "struct Test9",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.ReadyToRun.Tests__TestCases__VirtualMethodGenerics__NonGVM.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 17,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

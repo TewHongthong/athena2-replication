@@ -1,0 +1,54 @@
+{
+ "kind_agreement": {
+  "n": 100,
+  "same": 91
+ },
+ "kind_metadata_to_inferred": {
+  "input_parameter -> input_parameter": 88,
+  "input_parameter -> output_parameter": 9,
+  "output_parameter -> output_parameter": 3
+ },
+ "language": "cpp",
+ "method_assignment": {
+  "dev": {
+   "assigned": {
+    "prefix_strip": 15,
+    "prefix_swap": 15
+   },
+   "balanced": true,
+   "forced": {
+    "prefix_strip": 0,
+    "prefix_swap": 7
+   },
+   "target": {
+    "prefix_strip": 15,
+    "prefix_swap": 15
+   },
+   "tasks": 30
+  },
+  "test": {
+   "assigned": {
+    "prefix_strip": 35,
+    "prefix_swap": 35
+   },
+   "balanced": true,
+   "forced": {
+    "prefix_strip": 0,
+    "prefix_swap": 16
+   },
+   "target": {
+    "prefix_strip": 35,
+    "prefix_swap": 35
+   },
+   "tasks": 70
+  }
+ },
+ "pack": "godot-s2",
+ "seed": "athena2-s2-v1",
+ "study1_overlap": {
+  "contains_a_study1_task": 0,
+  "same_unit": 34
+ },
+ "tasks_inside_another_task": 0,
+ "units_not_top_level": 9
+}

@@ -1,0 +1,45 @@
+{
+  "id": "csharp_004",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509MruCache.cs lines 273-307 (class GCWatcher); license MIT; repo created 2026-07-15T14:08:26-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "        private sealed class GCWatcher\n        {\n            private readonly WeakReference<X509MruCache<T>> _ownerRef;\n\n            internal GCWatcher(X509MruCache<T> owner)\n            {\n                _ownerRef = new WeakReference<X509MruCache<T>>(owner);\n            }\n\n            ~GCWatcher()\n            {\n                if (!_ownerRef.TryGetTarget(out X509MruCache<T>? owner))\n                {\n                    return;\n                }\n\n                GC.ReRegisterForFinalize(this);\n\n                if (GC.GetGeneration(this) == GC.MaxGeneration)\n                {\n                    try\n                    {\n                        owner.PruneForGC();\n                    }\n                    catch\n                    {\n                        // Eat any exception so we don't terminate the finalizer thread.\n#if DEBUG\n                        // Except in DEBUG, as we really shouldn't be hitting any exceptions here.\n                        throw;\n#endif\n                    }\n                }\n            }\n        }",
+  "identifiers": [
+    {
+      "name": "_ownerRef",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-15T14:08:26-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509MruCache.cs",
+    "startLine": 273,
+    "endLine": 307,
+    "unit": "class GCWatcher",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Security.Cryptography__src__System__Security__Cryptography__X509Certificates__X509MruCache.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 2,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": false
+  }
+}

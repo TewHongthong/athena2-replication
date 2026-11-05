@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_022",
+  "language": "csharp",
+  "originalName": "_target",
+  "injectedName": "s_target",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_target' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class GCInfoX86_1 : IGCInfo\n{\n    private readonly Target s_target;\n\n    internal GCInfoX86_1(Target target)\n    {\n        s_target = target;\n    }\n\n    IGCInfoHandle IGCInfo.DecodePlatformSpecificGCInfo(TargetPointer gcInfoAddress, uint gcVersion)\n        => new GCInfoHelpers.X86.X86GCInfo(s_target, gcInfoAddress, gcVersion);\n\n    IGCInfoHandle IGCInfo.DecodeInterpreterGCInfo(TargetPointer gcInfoAddress, uint gcVersion)\n        => new GcInfoDecoder<InterpreterGCInfoTraits>(s_target, gcInfoAddress, gcVersion);\n\n    GCInfoHeader IGCInfo.GetHeader(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetHeader();\n\n    uint IGCInfo.GetCodeLength(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetCodeLength();\n\n    uint IGCInfo.GetCalleePoppedArgumentsSize(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetCalleePoppedArgumentsSize();\n\n    IReadOnlyList<InterruptibleRange> IGCInfo.GetInterruptibleRanges(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetInterruptibleRanges();\n\n    IReadOnlyList<uint> IGCInfo.GetSafePoints(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetSafePoints();\n\n    IReadOnlyList<GCSlotLifetime> IGCInfo.GetSlotLifetimes(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetSlotLifetimes();\n\n    IReadOnlyList<LiveSlot> IGCInfo.EnumerateLiveSlots(IGCInfoHandle gcInfoHandle, uint instructionOffset, GcSlotEnumerationOptions options)\n        => AssertCorrectHandle(gcInfoHandle).EnumerateLiveSlots(instructionOffset, options);\n\n    bool IGCInfo.IsGcSafe(IGCInfoHandle gcInfoHandle, uint instructionOffset)\n        => AssertCorrectHandle(gcInfoHandle).IsGcSafe(instructionOffset);\n\n    bool IGCInfo.TryGetGenericContextStorage(IGCInfoHandle gcInfoHandle, GenericContextLoc contextKind, uint instructionOffset, out GenericContextStorage storage)\n        => AssertCorrectHandle(gcInfoHandle).TryGetGenericContextStorage(contextKind, instructionOffset, out storage);\n\n    TargetPointer IGCInfo.GetAmbientSP(IGCInfoHandle gcInfoHandle, uint codeOffset, TargetPointer fp, TargetPointer sp)\n        => AssertCorrectHandle(gcInfoHandle).GetAmbientSP(codeOffset, fp, sp);\n\n    private static IGCInfoDecoder AssertCorrectHandle(IGCInfoHandle gcInfoHandle)\n    {\n        if (gcInfoHandle is not IGCInfoDecoder handle)\n            throw new System.ArgumentException(\"Invalid GC info handle\", nameof(gcInfoHandle));\n\n        return handle;\n    }\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

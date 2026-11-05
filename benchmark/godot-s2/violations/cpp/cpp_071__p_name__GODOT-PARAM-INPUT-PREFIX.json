@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_071",
+  "language": "cpp",
+  "originalName": "p_name",
+  "injectedName": "r_name",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_name' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "int RegExMatch::get_end(const Variant &r_name) const {\n\tint id = _find(r_name);\n\n\tif (id < 0) {\n\t\treturn -1;\n\t}\n\n\treturn data[id].end;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

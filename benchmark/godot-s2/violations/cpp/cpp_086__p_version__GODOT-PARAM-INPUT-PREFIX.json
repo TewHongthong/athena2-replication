@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_086",
+  "language": "cpp",
+  "originalName": "p_version",
+  "injectedName": "version",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'version' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "HashMap<String, bool *> OpenXRSpatialContainerSelfRenderingExtension::get_requested_extensions(XrVersion version) {\n\tHashMap<String, bool *> request_extensions;\n\n\trequest_extensions[XR_EXT_SPATIAL_CONTAINER_SELF_RENDERING_EXTENSION_NAME] = &spatial_container_self_rendering_ext;\n\treturn request_extensions;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

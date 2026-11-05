@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_087",
+  "language": "cpp",
+  "originalName": "p_resource",
+  "injectedName": "resource",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'resource' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "ScriptEditorBase *ShaderTextEditor::create_editor(const Ref<Resource> &resource) {\n\t// Check class name for Shader to ensure it is not a VisualShader even when the visual shader module is disabled\n\tif (resource->is_class(\"Shader\") || Object::cast_to<ShaderInclude>(*resource)) {\n\t\treturn memnew(ShaderTextEditor);\n\t}\n\treturn nullptr;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "csharp_016",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.DependencyAnalysisFramework.Tests/TestGraph.cs lines 15-71 (class TestNode); license MIT; repo created 2026-09-01T13:06:32+09:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public class TestNode : ComputedStaticDependencyNode<TestGraph>\n{\n    private readonly string _data;\n    private static readonly CombinedDependencyListEntry[] s_emptyDynamicList = new CombinedDependencyListEntry[0];\n\n    public TestNode(string data)\n    {\n        _data = data;\n    } \n\n    public string Data\n    {\n        get\n        {\n            return _data;\n        }\n    }\n\n    protected override string GetName(TestGraph context)\n    {\n        return _data;\n    }\n\n    public override bool HasDynamicDependencies\n    {\n        get\n        {\n            return true;\n        }\n    }\n\n    public override IEnumerable<CombinedDependencyListEntry> SearchDynamicDependencies(List<DependencyNodeCore<TestGraph>> markedNodes, int firstNode, TestGraph context)\n    {\n        if (context._dynamicDependencyComputer == null)\n            return s_emptyDynamicList;\n\n        IEnumerable<CombinedDependencyListEntry> returnValue = s_emptyDynamicList;\n        List<CombinedDependencyListEntry> returnValueWithData = null;\n        for (int i = firstNode; i < markedNodes.Count; i++)\n        {\n            Tuple<string,string> nextResult = context._dynamicDependencyComputer(this.Data, ((TestNode)markedNodes[i]).Data);\n\n            if (nextResult != null)\n            {\n                if (returnValueWithData == null)\n                {\n                    returnValueWithData = new List<DependencyNodeCore<TestGraph>.CombinedDependencyListEntry>();\n                    returnValue = returnValueWithData;\n                }\n\n                returnValueWithData.Add(new CombinedDependencyListEntry(context.GetNode(nextResult.Item1), markedNodes[i], nextResult.Item2));\n            }\n        }\n\n        return returnValue;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "s_emptyDynamicList",
+      "kind": "static_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-01T13:06:32+09:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.DependencyAnalysisFramework.Tests/TestGraph.cs",
+    "startLine": 15,
+    "endLine": 71,
+    "unit": "class TestNode",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.DependencyAnalysisFramework.Tests__TestGraph.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 1,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "static_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": true,
+      "threadstatic": false
+    },
+    "topLevel": false
+  }
+}

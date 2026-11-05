@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_043",
+  "language": "csharp",
+  "originalName": "_records",
+  "injectedName": "s_records",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_records' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public readonly struct DnsResult<T>\n{\n    private readonly IReadOnlyList<T>? s_records;\n\n    /// <summary>Gets the DNS response code returned by the server.</summary>\n    [CLSCompliant(false)]\n    public DnsResponseCode ResponseCode { get; }\n\n    /// <summary>\n    /// Gets the records returned by the server. The list is empty on error or NODATA responses.\n    /// </summary>\n    public IReadOnlyList<T> Records => s_records ?? Array.Empty<T>();\n\n    /// <summary>\n    /// Gets the duration for which a negative response (NXDOMAIN or NODATA) may be cached.\n    /// </summary>\n    /// <remarks>\n    /// The value is derived from the SOA minimum TTL in the authority section, per RFC 2308 §5.\n    /// Availability is best-effort and platform-dependent; the value is <see cref=\"TimeSpan.Zero\"/>\n    /// when not applicable or unavailable.\n    /// </remarks>\n    public TimeSpan NegativeCacheTtl { get; }\n\n    internal DnsResult(DnsResponseCode responseCode, IReadOnlyList<T>? records, TimeSpan negativeCacheTtl)\n    {\n        ResponseCode = responseCode;\n        s_records = records;\n        NegativeCacheTtl = negativeCacheTtl;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

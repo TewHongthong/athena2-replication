@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_009",
+  "language": "cpp",
+  "originalName": "p_polygon",
+  "injectedName": "r_polygon",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_polygon' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void GenericTilePolygonEditor::set_polygon(int p_polygon_index, const Vector<Point2> &r_polygon) {\n\tERR_FAIL_INDEX(p_polygon_index, (int)polygons.size());\n\tERR_FAIL_COND(r_polygon.size() < 3);\n\tpolygons[p_polygon_index] = r_polygon;\n\tbutton_edit->set_pressed(true);\n\tbase_control->queue_redraw();\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

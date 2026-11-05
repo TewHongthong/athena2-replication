@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_043",
+  "language": "cpp",
+  "originalName": "p_popup_warning",
+  "injectedName": "popup_warning",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'popup_warning' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "bool CanvasItemManipulator::is_node_movable(const Node *p_node, bool popup_warning) {\n\tif (is_node_locked(p_node)) {\n\t\treturn false;\n\t}\n\n\tif (Object::cast_to<Control>(p_node) && Object::cast_to<Container>(p_node->get_parent())) {\n\t\tif (popup_warning) {\n\t\t\temit_signal(\"unmovable_items_warn_requested\", TTRC(\"Children of a container get their position and size determined only by their parent.\"));\n\t\t}\n\t\treturn false;\n\t}\n\n\treturn true;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "cpp_001",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_microphone.cpp lines 112-123 (method AudioStreamPlaybackMicrophone::start); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamPlaybackMicrophone::start(double p_from_pos) {\n\tif (active) {\n\t\treturn;\n\t}\n\n\tinput_ofs = 0;\n\n\tif (AudioServer::get_singleton()->set_input_device_active(true) == OK) {\n\t\tactive = true;\n\t\tbegin_resample();\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_from_pos",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_microphone.cpp",
+    "startLine": 112,
+    "endLine": 123,
+    "unit": "method AudioStreamPlaybackMicrophone::start",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_microphone.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 6,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

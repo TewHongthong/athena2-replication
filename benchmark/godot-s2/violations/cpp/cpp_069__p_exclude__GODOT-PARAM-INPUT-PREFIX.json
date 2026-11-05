@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_069",
+  "language": "cpp",
+  "originalName": "p_exclude",
+  "injectedName": "r_exclude",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_exclude' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void PhysicsPointQueryParameters3D::set_exclude(const TypedArray<RID> &r_exclude) {\n\tparameters.exclude.clear();\n\tfor (int i = 0; i < r_exclude.size(); i++) {\n\t\tparameters.exclude.insert(r_exclude[i]);\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

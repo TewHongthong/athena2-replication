@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_033",
+  "language": "csharp",
+  "originalName": "_element0",
+  "injectedName": "element0",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'element0' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "[StructLayout(LayoutKind.Sequential)]\ninternal struct DNS_ADDR\n{\n    // SOCKET_ADDRESS-like: 32 bytes of SOCKADDR_STORAGE-ish + extras.\n    // DnsApi documents this struct as 64 bytes total with the first 32\n    // being the SOCKADDR (IPv4/IPv6 SOCKADDR fits within).\n    public MaxSaBuffer MaxSa;\n    public uint DnsAddrUserDword0;\n    public uint DnsAddrUserDword1;\n    public uint DnsAddrUserDword2;\n    public uint DnsAddrUserDword3;\n    public uint DnsAddrUserDword4;\n    public uint DnsAddrUserDword5;\n    public uint DnsAddrUserDword6;\n    public uint DnsAddrUserDword7;\n\n    [InlineArray(32)]\n    internal struct MaxSaBuffer\n    {\n        private byte element0;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

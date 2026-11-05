@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_062",
+  "language": "csharp",
+  "originalName": "_dataTypes",
+  "injectedName": "dataTypes",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'dataTypes' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "private sealed class ContractUsageBuilder\n{\n    private readonly Dictionary<string, DataTypeUsageBuilder> dataTypes =\n        new(StringComparer.Ordinal);\n    private readonly Dictionary<string, GlobalUsageBuilder> _globals =\n        new(StringComparer.Ordinal);\n\n    public HashSet<ContractInterface> ContractsUsed { get; } = [];\n\n    public DataTypeUsageBuilder GetOrAddDataType(string name)\n    {\n        if (!dataTypes.TryGetValue(name, out DataTypeUsageBuilder? usage))\n            dataTypes[name] = usage = new DataTypeUsageBuilder(name);\n        return usage;\n    }\n\n    public void RecordGlobal(string name, string type, bool isOptional)\n    {\n        if (!_globals.TryGetValue(name, out GlobalUsageBuilder? usage))\n            _globals[name] = usage = new GlobalUsageBuilder(name);\n        usage.Type = MergeType(usage.Type, type, $\"Global '{name}'\");\n        usage.IsOptional &= isOptional;\n    }\n\n    public ContractVersionUsage Build(ContractVersion label) =>\n        new(\n            label,\n            dataTypes.Values\n                .OrderBy(usage => usage.Name, StringComparer.Ordinal)\n                .Select(usage => usage.Build())\n                .ToArray(),\n            _globals.Values\n                .OrderBy(usage => usage.Name, StringComparer.Ordinal)\n                .Select(usage => usage.Build())\n                .ToArray(),\n            ContractsUsed\n                .OrderBy(contract => contract.Name, StringComparer.Ordinal)\n                .ToArray());\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

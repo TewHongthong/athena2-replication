@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_063",
+  "language": "cpp",
+  "originalName": "r_view_pose_valid",
+  "injectedName": "p_view_pose_valid",
+  "identifierKind": "output_parameter",
+  "violatedRuleId": "GODOT-PARAM-OUTPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'p_view_pose_valid' does not start with required prefix 'r_'"
+  ],
+  "codeContextWithViolation": "XrResult OpenXRSpatialContainerExtension::locate_spatial_container_views(XrView *p_views, bool &p_view_pose_valid) {\n\tif (!is_spatial_container_active()) {\n\t\treturn XR_ERROR_INITIALIZATION_FAILED;\n\t}\n\n\tOpenXRAPI *openxr_api = OpenXRAPI::get_singleton();\n\tERR_FAIL_NULL_V(openxr_api, XR_ERROR_VALIDATION_FAILURE);\n\n\treturn rendering_mechanism->locate_spatial_container_views(\n\t\t\tspatial_container_data.spatial_container_rid,\n\t\t\tspatial_container_data.current_bounds_mode == XR_SPATIAL_CONTAINER_BOUNDS_MODE_IMMERSIVE_EXT ? openxr_api->get_play_space() : spatial_container_data.space_handle,\n\t\t\tp_views,\n\t\t\tp_view_pose_valid);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

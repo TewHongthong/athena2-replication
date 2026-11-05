@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_036",
+  "language": "csharp",
+  "originalName": "_state",
+  "injectedName": "t_state",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_state' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public sealed class WasmDelegateTarget\n{\n    private readonly int t_state;\n\n    public WasmDelegateTarget(int state)\n    {\n        t_state = state;\n    }\n\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public static int StaticTarget(int value) => value + 1;\n\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public int InstanceTarget(int value) => value + t_state;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

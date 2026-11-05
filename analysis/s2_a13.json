@@ -1,0 +1,68 @@
+[
+  {
+    "pack": "godot-s2",
+    "tasks": 70,
+    "agree": 57,
+    "kind_used_varies": [],
+    "error_keys": 0,
+    "runs": [
+      "s2test_luna_godot-s2_infer",
+      "s2test_gemini31fl_godot-s2_infer",
+      "s2test_gemma4_local_s2_godot-s2_infer",
+      "s2test_qwen35_9b_or_s2_godot-s2_infer"
+    ],
+    "rows": [
+      {
+        "kind": "input_parameter",
+        "kind_used": "input_parameter",
+        "owner": "method",
+        "tasks": 54
+      },
+      {
+        "kind": "input_parameter",
+        "kind_used": "output_parameter",
+        "owner": "method",
+        "tasks": 4
+      },
+      {
+        "kind": "input_parameter",
+        "kind_used": "parameter",
+        "owner": "function",
+        "tasks": 9
+      },
+      {
+        "kind": "output_parameter",
+        "kind_used": "output_parameter",
+        "owner": "method",
+        "tasks": 3
+      }
+    ]
+  },
+  {
+    "pack": "dotnet-runtime-s2",
+    "tasks": 45,
+    "agree": 45,
+    "kind_used_varies": [],
+    "error_keys": 0,
+    "runs": [
+      "s2test_luna_dotnet-runtime-s2_infer",
+      "s2test_gemini31fl_dotnet-runtime-s2_infer",
+      "s2test_gemma4_local_s2_dotnet-runtime-s2_infer",
+      "s2test_qwen35_9b_or_s2_dotnet-runtime-s2_infer"
+    ],
+    "rows": [
+      {
+        "kind": "instance_field",
+        "kind_used": "instance_field",
+        "owner": null,
+        "tasks": 44
+      },
+      {
+        "kind": "static_field",
+        "kind_used": "static_field",
+        "owner": null,
+        "tasks": 1
+      }
+    ]
+  }
+]

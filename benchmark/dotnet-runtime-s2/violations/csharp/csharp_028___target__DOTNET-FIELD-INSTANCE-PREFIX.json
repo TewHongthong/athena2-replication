@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_028",
+  "language": "csharp",
+  "originalName": "_target",
+  "injectedName": "t_target",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_target' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal readonly struct FeatureFlags_1 : IFeatureFlags\n{\n    private readonly Target t_target;\n\n    public FeatureFlags_1(Target target)\n    {\n        t_target = target;\n    }\n\n    bool IFeatureFlags.IsEnabled(RuntimeFeature feature)\n    {\n        string? globalName = feature switch\n        {\n            RuntimeFeature.COMInterop => Constants.Globals.FeatureCOMInterop,\n            RuntimeFeature.ComWrappers => Constants.Globals.FeatureComWrappers,\n            RuntimeFeature.ObjCMarshal => Constants.Globals.FeatureObjCMarshal,\n            RuntimeFeature.JavaMarshal => Constants.Globals.FeatureJavaMarshal,\n            RuntimeFeature.OnStackReplacement => Constants.Globals.FeatureOnStackReplacement,\n            RuntimeFeature.PortableEntrypoints => Constants.Globals.FeaturePortableEntrypoints,\n            RuntimeFeature.Webcil => Constants.Globals.FeatureWebcil,\n            _ => null,\n        };\n        return globalName is not null\n            && t_target.TryReadGlobal<byte>(globalName, out byte? value)\n            && value != 0;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

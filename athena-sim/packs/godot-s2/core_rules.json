@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "core": {
+    "cpp": {
+      "class": [
+        "GODOT-TYPE-CASE"
+      ],
+      "struct": [
+        "GODOT-TYPE-CASE"
+      ],
+      "union": [
+        "GODOT-TYPE-CASE"
+      ],
+      "enum": [
+        "GODOT-TYPE-CASE"
+      ],
+      "type_alias": [
+        "GODOT-TYPE-CASE"
+      ],
+      "type_parameter": [
+        "GODOT-TYPE-CASE"
+      ],
+      "namespace": [
+        "GODOT-NAMESPACE-CASE"
+      ],
+      "macro": [
+        "GODOT-MACRO-CASE"
+      ],
+      "constant": [
+        "GODOT-CONSTANT-CASE"
+      ],
+      "enum_member": [
+        "GODOT-CONSTANT-CASE"
+      ],
+      "function": [
+        "GODOT-FUNCTION-CASE"
+      ],
+      "method": [
+        "GODOT-METHOD-CASE"
+      ],
+      "variable": [
+        "GODOT-VARIABLE-CASE"
+      ],
+      "field": [
+        "GODOT-FIELD-CASE"
+      ],
+      "parameter": [
+        "GODOT-PARAMETER-CASE"
+      ],
+      "input_parameter": [
+        "GODOT-PARAMETER-CASE",
+        "GODOT-PARAM-INPUT-PREFIX"
+      ],
+      "output_parameter": [
+        "GODOT-PARAMETER-CASE",
+        "GODOT-PARAM-OUTPUT-PREFIX"
+      ]
+    }
+  },
+  "excluded": {
+    "GODOT-OTHER-IDENTIFIER-CASE": "Every kind this rule is assigned to already has a kind-specific snake_case rule as a core rule, so this duplicate rule is excluded to avoid duplicate targets for the gate and for violation injection.",
+    "GODOT-IDENTIFIER-FULL-WORDS": "Has no mechanically checkable attribute, and deciding whether a name is a full word depends on the meaning of the name.",
+    "GODOT-IDENTIFIER-ABBREVIATION-LIMIT": "Has no mechanically checkable attribute, and the exception for readability depends on context; it cannot be replaced by a fixed forbidden-word list drawn from this document."
+  }
+}

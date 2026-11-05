@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_014",
+  "language": "cpp",
+  "originalName": "p_selected",
+  "injectedName": "r_selected",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_selected' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void TileDataYSortEditor::draw_over_tile(CanvasItem *p_canvas_item, Transform2D p_transform, TileMapCell p_cell, bool r_selected) {\n\tTileData *tile_data = _get_tile_data(p_cell);\n\tERR_FAIL_NULL(tile_data);\n\n\tColor color = Color(1.0, 1.0, 1.0);\n\tif (r_selected) {\n\t\tColor grid_color = EDITOR_GET(\"editors/tiles_editor/grid_color\");\n\t\tColor selection_color = Color::from_hsv(Math::fposmod(grid_color.get_h() + 0.5, 1.0), grid_color.get_s(), grid_color.get_v(), 1.0);\n\t\tcolor = selection_color;\n\t}\n\tVector2 texture_origin = tile_data->get_texture_origin();\n\tTileSetSource *source = *(tile_set->get_source(p_cell.source_id));\n\tTileSetAtlasSource *atlas_source = Object::cast_to<TileSetAtlasSource>(source);\n\tif (atlas_source->is_position_in_tile_texture_region(p_cell.get_atlas_coords(), p_cell.alternative_tile, Vector2(0, tile_data->get_y_sort_origin()))) {\n\t\tRef<Texture2D> position_icon = TileSetEditor::get_singleton()->get_editor_theme_icon(SNAME(\"EditorPosition\"));\n\t\tp_canvas_item->draw_texture(position_icon, p_transform.xform(Vector2(0, tile_data->get_y_sort_origin())) - position_icon->get_size() / 2, color);\n\t} else {\n\t\tRef<Font> font = TileSetEditor::get_singleton()->get_theme_font(SNAME(\"bold\"), EditorStringName(EditorFonts));\n\t\tint font_size = TileSetEditor::get_singleton()->get_theme_font_size(SNAME(\"bold_size\"), EditorStringName(EditorFonts));\n\t\tString text = vformat(\"%s\", tile_data->get_y_sort_origin());\n\n\t\tVector2 string_size = font->get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size);\n\t\tp_canvas_item->draw_string_outline(font, p_transform.xform(-texture_origin) + Vector2i(-string_size.x / 2, string_size.y / 2), text, HORIZONTAL_ALIGNMENT_CENTER, string_size.x, font_size, 1, Color(0, 0, 0, 1));\n\t\tp_canvas_item->draw_string(font, p_transform.xform(-texture_origin) + Vector2i(-string_size.x / 2, string_size.y / 2), text, HORIZONTAL_ALIGNMENT_CENTER, string_size.x, font_size, color);\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

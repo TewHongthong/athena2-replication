@@ -1,0 +1,47 @@
+{
+  "id": "cpp_097",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream.cpp lines 88-96 (method AudioStreamPlayback::mix_audio); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Vector<AudioFrame> AudioStreamPlayback::mix_audio(float p_rate_scale, int p_frames) {\n\tVector<AudioFrame> res;\n\tres.resize(p_frames);\n\n\tint frames = mix(res.ptrw(), p_rate_scale, p_frames);\n\tres.resize(frames);\n\n\treturn res;\n}",
+  "identifiers": [
+    {
+      "name": "p_rate_scale",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream.cpp",
+    "startLine": 88,
+    "endLine": 96,
+    "unit": "method AudioStreamPlayback::mix_audio",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 8,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

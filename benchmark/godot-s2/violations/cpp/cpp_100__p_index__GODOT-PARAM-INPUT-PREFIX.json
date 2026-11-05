@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_100",
+  "language": "cpp",
+  "originalName": "p_index",
+  "injectedName": "r_index",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_index' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void BoneSpaceAdjuster3D::set_bone_name(int r_index, const StringName &p_bone_name) {\n\tERR_FAIL_INDEX(r_index, (int)settings.size());\n\tsettings[r_index].bone_name = p_bone_name;\n\tSkeleton3D *sk = get_skeleton();\n\tif (sk) {\n\t\tset_bone(r_index, sk->find_bone(settings[r_index].bone_name));\n\t}\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

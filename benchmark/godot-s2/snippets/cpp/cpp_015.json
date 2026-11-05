@@ -1,0 +1,47 @@
+{
+  "id": "cpp_015",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "editor/gui/editor_icon_manager.cpp lines 48-58 (method EditorIconManager::get_icon); license MIT; repo created 2026-07-09T20:21:35+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Ref<Texture2D> EditorIconManager::get_icon(const StringName &p_icon_name) {\n\tRef<AtlasTexture> *existing = singleton->icons.getptr(p_icon_name);\n\tif (existing) {\n\t\treturn *existing;\n\t}\n\tRef<AtlasTexture> icon;\n\ticon.instantiate();\n\ticon->set_atlas(singleton->get_editor_theme_icon(p_icon_name));\n\tsingleton->icons[p_icon_name] = icon;\n\treturn icon;\n}",
+  "identifiers": [
+    {
+      "name": "p_icon_name",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-09T20:21:35+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "editor/gui/editor_icon_manager.cpp",
+    "startLine": 48,
+    "endLine": 58,
+    "unit": "method EditorIconManager::get_icon",
+    "corpusFile": "corpus/cpp/godotengine__godot__editor__gui__editor_icon_manager.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 2,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

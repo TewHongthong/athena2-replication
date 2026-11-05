@@ -1,0 +1,47 @@
+{
+  "id": "cpp_032",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_polyphonic.cpp lines 339-344 (method AudioStreamPlaybackPolyphonic::set_sample_playback); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamPlaybackPolyphonic::set_sample_playback(const Ref<AudioSamplePlayback> &p_playback) {\n\tsample_playback = p_playback;\n\tif (sample_playback.is_valid()) {\n\t\tsample_playback->stream_playback = Ref<AudioStreamPlayback>(this);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_playback",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_polyphonic.cpp",
+    "startLine": 339,
+    "endLine": 344,
+    "unit": "method AudioStreamPlaybackPolyphonic::set_sample_playback",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_polyphonic.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 24,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

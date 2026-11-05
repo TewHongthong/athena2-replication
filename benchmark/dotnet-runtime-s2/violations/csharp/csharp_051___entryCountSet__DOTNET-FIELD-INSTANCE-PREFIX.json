@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_051",
+  "language": "csharp",
+  "originalName": "_entryCountSet",
+  "injectedName": "t_entryCountSet",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_entryCountSet' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class WasmExternallyCountedSection : WasmVectorSection\n{\n    private bool t_entryCountSet;\n\n    public WasmExternallyCountedSection(WasmSectionType type, Stream stream, Utf8String name, int sectionIndex)\n        : base(type, stream, name, sectionIndex)\n    {\n    }\n\n    public override int EmitToStream(Stream outputFileStream)\n    {\n        Debug.Assert(t_entryCountSet);\n        return base.EmitToStream(outputFileStream);\n    }\n\n    public void SetEntryCount(int entryCount)\n    {\n        t_entryCountSet = true;\n        EntryCount = entryCount;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

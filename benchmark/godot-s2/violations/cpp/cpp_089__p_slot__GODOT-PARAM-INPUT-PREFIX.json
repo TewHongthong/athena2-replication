@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_089",
+  "language": "cpp",
+  "originalName": "p_slot",
+  "injectedName": "slot",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'slot' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void TileSetEditor::update_layout(EditorDock::DockLayout p_layout, int slot) {\n\tif (slot != EditorDock::DOCK_SLOT_BOTTOM) {\n\t\tpatterns_mc->set_theme_type_variation(\"NoBorderHorizontalBottom\");\n\t\tpatterns_item_list->set_scroll_hint_mode(ItemList::SCROLL_HINT_MODE_TOP);\n\t} else {\n\t\tpatterns_mc->set_theme_type_variation(\"NoBorderHorizontal\");\n\t\tpatterns_item_list->set_scroll_hint_mode(ItemList::SCROLL_HINT_MODE_BOTH);\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

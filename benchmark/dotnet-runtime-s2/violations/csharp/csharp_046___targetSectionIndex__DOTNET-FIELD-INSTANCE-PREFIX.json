@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_046",
+  "language": "csharp",
+  "originalName": "_targetSectionIndex",
+  "injectedName": "s_targetSectionIndex",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_targetSectionIndex' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class WasmRelocationSection : WasmCustomSection\n{\n    private readonly int s_targetSectionIndex;\n    private readonly int _relocationCount;\n\n    public WasmRelocationSection(\n        Stream stream,\n        Utf8String name,\n        int sectionIndex,\n        int targetSectionIndex,\n        int relocationCount)\n        : base(stream, name, sectionIndex)\n    {\n        Debug.Assert(targetSectionIndex >= 0);\n        Debug.Assert(relocationCount >= 0);\n        s_targetSectionIndex = targetSectionIndex;\n        _relocationCount = relocationCount;\n    }\n\n    protected override int CustomPayloadPrefixSize => checked(\n        (int)DwarfHelper.SizeOfULEB128((ulong)s_targetSectionIndex) +\n        (int)DwarfHelper.SizeOfULEB128((ulong)_relocationCount));\n\n    protected override int EncodeCustomPayloadPrefix(Span<byte> destination)\n    {\n        int written = DwarfHelper.WriteULEB128(destination, (ulong)s_targetSectionIndex); // section: the index of the target section.\n        return written + DwarfHelper.WriteULEB128(destination.Slice(written), (ulong)_relocationCount); // count: count of entries to follow.\n    }\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

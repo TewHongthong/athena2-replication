@@ -1,0 +1,135 @@
+{
+  "run_id": "s2dev_gemini31fl_dotnet-runtime-s2_meta",
+  "harness_version": "0.1.0",
+  "status": "complete",
+  "started": "2026-11-01T14:28:31+00:00",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "args": {
+    "cmd": "run",
+    "pack": "dotnet-runtime-s2",
+    "corpus": null,
+    "ontology_variant": "human",
+    "task": "rename",
+    "conditions": "none,fulldoc,naming,chunk,bm25,dense,graph",
+    "embed_pin": "qwen3_embedding_06b",
+    "languages": null,
+    "per_language": 0,
+    "limit": 0,
+    "seed": 42,
+    "split": "dev",
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "no_oracle": false,
+    "backend": "openai:google/gemini-3.1-flash-lite",
+    "model_pin": "gemini31fl",
+    "pins": null,
+    "repeats": 1,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "omit_temperature": true,
+    "no_think": false,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "google-vertex"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      }
+    },
+    "frozen": null,
+    "allow_rerun": false,
+    "timeout": 180.0,
+    "retries": 5,
+    "workers": 4,
+    "max_errors": 20,
+    "price_in": 0.25,
+    "price_out": 1.5,
+    "no_store_prompt": false,
+    "run_id": "s2dev_gemini31fl_dotnet-runtime-s2_meta",
+    "out": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/athena-sim/runs",
+    "progress": 50,
+    "model_pin_sha256": "084cbaa850cd3961d15994053d1fff69119ab79db4ede83305e135e46517b529",
+    "embed_pin_sha256": "6974b1ce201c8bea297f6bf6e437e02c6c0030c3b9cf3b5f761a43510b03cb99"
+  },
+  "backend": {
+    "spec": "openai:google/gemini-3.1-flash-lite",
+    "is_llm": true,
+    "model": "google/gemini-3.1-flash-lite",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "google-vertex"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      }
+    }
+  },
+  "pack": {
+    "pack": "dotnet-runtime-s2",
+    "ontology": "dotnet_ontology.json",
+    "ontology_sha256": "83f51e79ecfcf021b66ad6ba50199378b8665eb02c6d5d8ac322b59701c2e7f8",
+    "ontology_variant": "human",
+    "rules_ontology_sha256": "83f51e79ecfcf021b66ad6ba50199378b8665eb02c6d5d8ac322b59701c2e7f8",
+    "core_rules_sha256": "06170bdbc3dd441b2d59907a702581fa892be8c2d6fe6ae49fd4fe2803c308e2",
+    "standard_document_sha256": "946ae20377f98773f2d9711eeb5669950c64c676983df84cadf3f871aa541323",
+    "benchmark_index_sha256": "30cb06bb2a76a715a618476ccc9aecca83bc930eadc4af894045736d290d3287",
+    "standard_document_id": "dotnet-runtime"
+  },
+  "conditions": [
+    "none",
+    "fulldoc",
+    "naming",
+    "chunk",
+    "bm25",
+    "dense",
+    "graph"
+  ],
+  "embedding": {
+    "embed_pin": "qwen3_embedding_06b",
+    "embed_pin_sha256": "6974b1ce201c8bea297f6bf6e437e02c6c0030c3b9cf3b5f761a43510b03cb99",
+    "model": "qwen3-embedding-0.6b-q8_0",
+    "cache": "/home/tew/.cache/athena2/embeddings/qwen3_embedding_06b-6974b1ce201c8bea.jsonl",
+    "cached_vectors": 1535,
+    "requests": 0
+  },
+  "split": "dev",
+  "frozen": null,
+  "oracle_free": null,
+  "n_units": 19,
+  "unit_ids": [
+    "csharp_004___ownerRef__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_016__s_emptyDynamicList__DOTNET-FIELD-STATIC-PREFIX",
+    "csharp_001___configurations__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_009___target__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_019___json__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_015___array__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_003___signatures__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_012___key__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_002___values__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_017___stub__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_011___addresses__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_007___json__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_018___reportedInfo__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_008___keyHashCode__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_006___definedI32Functions__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_010___segments__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_005___enumerator__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_013___lookup__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_014___aes__DOTNET-FIELD-INSTANCE-PREFIX"
+  ],
+  "finished": "2026-11-01T14:28:31+00:00",
+  "trials_ok": 0,
+  "trials_error": 0
+}

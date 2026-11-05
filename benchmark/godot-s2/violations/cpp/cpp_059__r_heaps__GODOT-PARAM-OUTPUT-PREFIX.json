@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_059",
+  "language": "cpp",
+  "originalName": "r_heaps",
+  "injectedName": "heaps",
+  "identifierKind": "output_parameter",
+  "violatedRuleId": "GODOT-PARAM-OUTPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'heaps' does not start with required prefix 'r_'"
+  ],
+  "codeContextWithViolation": "uint64_t MetalHeapAllocator::get_heaps(LocalVector<MTL::Heap *> &heaps) {\n\tuint64_t gen = generation.load(std::memory_order_relaxed);\n\tfor (uint32_t p = 0; p < POOL_COUNT; p++) {\n\t\tPool &pool = pools[p];\n\t\tSpinLockGuard lock(pool.mutex);\n\t\tfor (const Block &block : pool.blocks) {\n\t\t\tif (block.heap.get() != nullptr) {\n\t\t\t\theaps.push_back(block.heap.get());\n\t\t\t}\n\t\t}\n\t\tfor (MTL::Heap *heap : pool.dedicated_heaps) {\n\t\t\theaps.push_back(heap);\n\t\t}\n\t}\n\treturn gen;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

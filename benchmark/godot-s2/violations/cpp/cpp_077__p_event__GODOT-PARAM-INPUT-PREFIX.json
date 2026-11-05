@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_077",
+  "language": "cpp",
+  "originalName": "p_event",
+  "injectedName": "event",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'event' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "bool CanvasItemManipulator::gui_input(const Ref<InputEvent> &event) {\n\tbool accepted = _gui_input_rulers_and_guides(event) ||\n\t\t\tplugin_input_callback.call(event) ||\n\t\t\t_gui_input_open_scene_on_double_click(event) ||\n\t\t\t_gui_input_scale(event) ||\n\t\t\t_gui_input_pivot(event) ||\n\t\t\t_gui_input_resize(event) ||\n\t\t\t_gui_input_rotate(event) ||\n\t\t\t_gui_input_move(event) ||\n\t\t\t_gui_input_anchors(event) ||\n\t\t\t_gui_input_ruler_tool(event) ||\n\t\t\t_gui_input_select(event);\n\n\t_update_cursor_shape();\n\n\treturn accepted;\n}",
+  "occurrencesRenamed": 12,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

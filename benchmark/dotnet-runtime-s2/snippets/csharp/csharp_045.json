@@ -1,0 +1,44 @@
+{
+  "id": "csharp_045",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tools/ilasm/src/ILAssembler/CompilationResult.cs lines 11-51 (class CompilationResult); license MIT; repo created 2026-09-09T09:42:41-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public sealed class CompilationResult\n{\n    private readonly PEBuilder _peBuilder;\n    private readonly Blob _mvidFixup;\n\n    internal CompilationResult(PEBuilder peBuilder, Blob mvidFixup, ImmutableArray<byte>? portablePdb)\n    {\n        _peBuilder = peBuilder;\n        _mvidFixup = mvidFixup;\n        PortablePdb = portablePdb;\n    }\n\n    /// <summary>\n    /// Gets the serialized Portable PDB for the image, or <see langword=\"null\"/> when no PDB was requested.\n    /// </summary>\n    /// <remarks>\n    /// A PDB is produced when <see cref=\"Options.Debug\"/>, <see cref=\"Options.DebugMode\"/> or\n    /// <see cref=\"Options.Pdb\"/> is set; <c>.line</c> directives alone do not produce one.\n    /// It is not embedded in the image: the image's debug directory holds a CodeView entry that names the PDB path and carries this PDB's id, followed by a PdbChecksum\n    /// entry with the SHA-256 hash of these bytes with the 20-byte PDB id zeroed, and, with\n    /// <see cref=\"Options.Deterministic\"/>, a Reproducible entry. The PDB path is\n    /// <see cref=\"Options.PdbFilePath\"/> as given when set; otherwise it is <see cref=\"Options.OutputFileName\"/> with its\n    /// extension replaced by <c>.pdb</c>, or <c>assembly.pdb</c> when no output file name is set.\n    /// The caller writes these bytes to the file that path names; a file name alone names a file beside the image.\n    /// </remarks>\n    public ImmutableArray<byte>? PortablePdb { get; }\n\n    /// <summary>Serializes the compiled image into the specified builder.</summary>\n    /// <param name=\"builder\">The builder that receives the serialized image.</param>\n    /// <returns>The content identifier of the serialized image.</returns>\n    public BlobContentId Serialize(BlobBuilder builder)\n    {\n        BlobContentId contentId = _peBuilder.Serialize(builder);\n        if (!_mvidFixup.IsDefault)\n        {\n            new BlobWriter(_mvidFixup).WriteGuid(contentId.Guid);\n        }\n\n        return contentId;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_peBuilder",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-09T09:42:41-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tools/ilasm/src/ILAssembler/CompilationResult.cs",
+    "startLine": 11,
+    "endLine": 51,
+    "unit": "class CompilationResult",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tools__ilasm__src__ILAssembler__CompilationResult.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

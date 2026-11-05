@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_005",
+  "language": "csharp",
+  "originalName": "_enumerator",
+  "injectedName": "t_enumerator",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_enumerator' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class StackWalkHandleData\n{\n    private readonly IStackWalk _stackWalk;\n    private readonly ThreadData _threadData;\n    private IEnumerator<IStackDataFrameHandle>? t_enumerator;\n\n    public StackWalkHandleData(IStackWalk stackWalk, ThreadData threadData)\n    {\n        _stackWalk = stackWalk;\n        _threadData = threadData;\n    }\n\n    public IStackDataFrameHandle? Current { get; private set; }\n\n    [MemberNotNullWhen(true, nameof(Current))]\n    public bool IsValid => Current is not null;\n    public nuint LegacyHandle { get; set; }\n    public void Reset(byte[] contextBuffer, bool isFirst)\n    {\n        t_enumerator?.Dispose();\n        t_enumerator = _stackWalk\n            .CreateStackWalk(_threadData, contextBuffer, isFirst)\n            .Where(h => h.State is not (StackWalkState.Frame or StackWalkState.SkippedFrame))\n            .GetEnumerator();\n        Current = t_enumerator is not null && t_enumerator.MoveNext() ? t_enumerator.Current : null;\n        if (Current is null)\n            throw Marshal.GetExceptionForHR(HResults.E_FAIL)!;\n    }\n\n    public void Advance()\n    {\n        Current = t_enumerator is not null && t_enumerator.MoveNext() ? t_enumerator.Current : null;\n    }\n\n    public nuint GetHandle()\n    {\n        GCHandle gcHandle = GCHandle.Alloc(this);\n        return (nuint)GCHandle.ToIntPtr(gcHandle);\n    }\n\n    public void Dispose() => t_enumerator?.Dispose();\n}",
+  "occurrencesRenamed": 10,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

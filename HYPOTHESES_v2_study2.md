@@ -92,7 +92,7 @@ Notation: PACK is godot-s2 or dotnet-runtime-s2; PIN is luna, gemini31fl, qwen35
 
 1. Record this file in version control before the benchmark is built.
 2. The author writes the Study 2 ontologies; the core tables are generated from them and pass the loader checks.
-3. Build the benchmark: facets in the extractors, type-declaration units for C#, gate, task selection, injection, and validation with validate_benchmark.py --core (0 errors).
+3. Build the benchmark: facets in the extractors, type-declaration units for C#, gate, task selection, injection, and validation with validate_benchmark_s2.py --core (0 errors).
 4. Pin the locally served models at an output limit of 8,192 tokens.
 5. Development round: each PIN on each PACK, all eight conditions, one round, on the 30 dev tasks. Decide eligibility (Section 2.3); stop if no standard is included.
 6. Close the code and the documents. Freeze once for each (PACK, PIN, FAMILY), 16 files: meta = none, fulldoc, naming, chunk, bm25, dense, graph; infer = graph with --no-oracle.

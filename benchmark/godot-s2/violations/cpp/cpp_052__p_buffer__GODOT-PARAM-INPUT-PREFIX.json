@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_052",
+  "language": "cpp",
+  "originalName": "p_buffer",
+  "injectedName": "buffer",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'buffer' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "int AudioStreamPlaybackRandomizer::mix(AudioFrame *buffer, float p_rate_scale, int p_frames) {\n\tif (playing.is_valid()) {\n\t\tint mixed_samples = playing->mix(buffer, p_rate_scale * pitch_scale, p_frames);\n\t\tfor (int samp = 0; samp < mixed_samples; samp++) {\n\t\t\tbuffer[samp] *= volume_scale;\n\t\t}\n\t\treturn mixed_samples;\n\t} else {\n\t\tfor (int i = 0; i < p_frames; i++) {\n\t\t\tbuffer[i] = AudioFrame(0, 0);\n\t\t}\n\t\treturn p_frames;\n\t}\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_097",
+  "language": "cpp",
+  "originalName": "p_rate_scale",
+  "injectedName": "rate_scale",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'rate_scale' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "Vector<AudioFrame> AudioStreamPlayback::mix_audio(float rate_scale, int p_frames) {\n\tVector<AudioFrame> res;\n\tres.resize(p_frames);\n\n\tint frames = mix(res.ptrw(), rate_scale, p_frames);\n\tres.resize(frames);\n\n\treturn res;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

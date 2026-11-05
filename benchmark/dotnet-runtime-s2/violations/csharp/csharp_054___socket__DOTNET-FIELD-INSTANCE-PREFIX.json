@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_054",
+  "language": "csharp",
+  "originalName": "_socket",
+  "injectedName": "t_socket",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_socket' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "[Experimental(Experimentals.LowLevelTlsDiagId, UrlFormat = Experimentals.SharedUrlFormat)]\npublic sealed class TlsSocketSession : TlsSession\n{\n    private readonly SafeSocketHandle t_socket;\n\n    public TlsSocketSession(SafeSocketHandle socket)\n    {\n        ArgumentNullException.ThrowIfNull(socket);\n        t_socket = socket;\n    }\n\n    internal override void OnContextInitialized()\n    {\n        AttachSocket(t_socket);\n    }\n\n    /// <summary>The socket the session is bound to. Owned by the session.</summary>\n    public SafeSocketHandle Socket => t_socket;\n\n    /// <summary>Drives the TLS handshake to completion, sending and receiving via the socket.</summary>\n    public TlsOperationStatus Handshake() => HandshakeSocketCore();\n\n    /// <summary>Reads decrypted application bytes from the socket into <paramref name=\"buffer\"/>.</summary>\n    public TlsOperationStatus Read(Span<byte> buffer, out int bytesRead)\n        => ReadSocketCore(buffer, out bytesRead);\n\n    /// <summary>Encrypts and sends <paramref name=\"buffer\"/> as one or more TLS records over the socket.</summary>\n    public TlsOperationStatus Write(ReadOnlySpan<byte> buffer, out int bytesWritten)\n        => WriteSocketCore(buffer, out bytesWritten);\n\n    /// <summary>Sends a TLS <c>close_notify</c> alert on the socket.</summary>\n    public TlsOperationStatus Shutdown() => ShutdownSocketCore();\n\n    /// <summary>Server-side only. Requests a client certificate on the socket: a <c>CertificateRequest</c> for TLS 1.3 post-handshake authentication, or a renegotiation on TLS 1.2.</summary>\n    /// <remarks>\n    /// If the TLS 1.3 client did not offer post-handshake authentication, no request is sent:\n    /// the method returns <see cref=\"TlsOperationStatus.Complete\"/>, the handshake stays complete, no client\n    /// certificate is received, and the session remains usable.\n    /// </remarks>\n    public TlsOperationStatus RequestClientCertificate() => RequestClientCertificateSocketCore();\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_061",
+  "language": "cpp",
+  "originalName": "p_data",
+  "injectedName": "r_data",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_data' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioStreamWAV::set_data(const Vector<uint8_t> &r_data) {\n\tAudioServer::get_singleton()->lock();\n\n\tdata = r_data;\n\n\tAudioServer::get_singleton()->unlock();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

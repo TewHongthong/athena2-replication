@@ -1,0 +1,47 @@
+{
+  "id": "cpp_027",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/navigation_3d/navigation_server_3d_manager.cpp lines 134-145 (method NavigationServer3DManager::new_server); license MIT; repo created 2026-07-17T17:21:16+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "NavigationServer3D *NavigationServer3DManager::new_server(const String &p_name) {\n\tint id = find_server_id(p_name);\n\tif (id == -1) {\n\t\treturn nullptr;\n\t} else {\n\t\tVariant ret;\n\t\tCallable::CallError ce;\n\t\tnavigation_servers[id].create_callback.callp(nullptr, 0, ret, ce);\n\t\tERR_FAIL_COND_V(ce.error != Callable::CallError::CALL_OK, nullptr);\n\t\treturn Object::cast_to<NavigationServer3D>(ret.get_validated_object());\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_name",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-17T17:21:16+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/navigation_3d/navigation_server_3d_manager.cpp",
+    "startLine": 134,
+    "endLine": 145,
+    "unit": "method NavigationServer3DManager::new_server",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__navigation_3d__navigation_server_3d_manager.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 11,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_035",
+  "language": "csharp",
+  "originalName": "_value",
+  "injectedName": "s_value",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_value' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public readonly ref struct Utf8Span\n{\n    private readonly ReadOnlySpan<byte> s_value;\n\n    public Utf8Span(ReadOnlySpan<byte> value) => s_value = value;\n\n    public int Length => s_value.Length;\n\n    public bool IsEmpty => s_value.IsEmpty;\n\n    public ReadOnlySpan<byte> AsSpan() => s_value;\n\n    public byte[] ToArray() => s_value.ToArray();\n\n    public bool StartsWith(Utf8Span value) => s_value.StartsWith(value.AsSpan());\n\n    public bool EndsWith(Utf8Span value) => s_value.EndsWith(value.AsSpan());\n\n    // This is deliberately not a == operator because we don't want to make it easy\n    // to accidentally do UTF-8 vs UTF-16 string comparisons.\n    public bool StringEquals(string value)\n    {\n        if (s_value.Length < value.Length)\n            return false;\n\n        for (int i = 0; i < value.Length; i++)\n        {\n            int ch = s_value[i];\n            if (ch > 0x7F)\n                return Encoding.UTF8.GetString(s_value) == value;\n\n            // We are assuming here that valid UTF8 encoded byte > 0x7F cannot map to a character with code point <= 0x7F\n            if (ch != value[i])\n                return false;\n        }\n\n        return s_value.Length == value.Length; // All char ANSI, all matching\n    }\n\n    public override bool Equals(object obj) => false;\n\n    public override int GetHashCode()\n    {\n        HashCode h = default;\n        h.AddBytes(s_value);\n        return h.ToHashCode();\n    }\n\n    public override string ToString() => Encoding.UTF8.GetString(s_value);\n\n    public static implicit operator Utf8Span(ReadOnlySpan<byte> s) => new Utf8Span(s);\n\n    public static bool operator ==(Utf8Span left, Utf8Span right)\n        => left.s_value.SequenceEqual(right.s_value);\n\n    public static bool operator !=(Utf8Span left, Utf8Span right)\n        => !left.s_value.SequenceEqual(right.s_value);\n}",
+  "occurrencesRenamed": 18,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

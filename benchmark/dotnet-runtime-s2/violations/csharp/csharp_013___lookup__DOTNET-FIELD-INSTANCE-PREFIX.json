@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_013",
+  "language": "csharp",
+  "originalName": "_lookup",
+  "injectedName": "lookup",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'lookup' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class WasmR2RInfo : IWasmR2RInfo\n{\n    private readonly WasmFunctionTableIndexLookup lookup;\n\n    public WasmR2RInfo(Target target)\n    {\n        lookup = new WasmFunctionTableIndexLookup(target);\n    }\n\n    public bool TryGetVirtualIPBase(uint functionTableIndex, out ulong baseVirtualIP)\n        => lookup.TryGetVirtualIPBase(functionTableIndex, out baseVirtualIP);\n\n    public bool TryGetUnwindData(uint functionTableIndex, out TargetPointer unwindDataAddress)\n        => lookup.TryGetUnwindData(functionTableIndex, out unwindDataAddress);\n\n    public bool TryIsFunclet(uint functionTableIndex, out bool isFunclet)\n        => lookup.TryIsFunclet(functionTableIndex, out isFunclet);\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

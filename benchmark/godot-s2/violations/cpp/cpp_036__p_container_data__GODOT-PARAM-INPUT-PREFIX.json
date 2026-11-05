@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_036",
+  "language": "cpp",
+  "originalName": "p_container_data",
+  "injectedName": "r_container_data",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_container_data' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void OpenXRSpatialContainerSelfRenderingExtension::on_spatial_container_closed(const OpenXRSpatialContainerExtension::SpatialContainerData &r_container_data) {\n\tif (!is_enabled()) {\n\t\treturn;\n\t}\n\n\t_remove_spatial_container_from_render_set(r_container_data.spatial_container_handle);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

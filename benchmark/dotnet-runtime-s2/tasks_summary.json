@@ -1,0 +1,51 @@
+{
+ "by_kind": {
+  "all": {
+   "instance_field": 62,
+   "static_field": 2
+  },
+  "dev": {
+   "instance_field": 18,
+   "static_field": 1
+  },
+  "test": {
+   "instance_field": 44,
+   "static_field": 1
+  }
+ },
+ "by_method": {
+  "all": {
+   "prefix_strip": 32,
+   "prefix_swap": 32
+  },
+  "dev": {
+   "prefix_strip": 10,
+   "prefix_swap": 9
+  },
+  "test": {
+   "prefix_strip": 22,
+   "prefix_swap": 23
+  }
+ },
+ "by_rule": {
+  "all": {
+   "DOTNET-FIELD-INSTANCE-PREFIX": 62,
+   "DOTNET-FIELD-STATIC-PREFIX": 2
+  },
+  "dev": {
+   "DOTNET-FIELD-INSTANCE-PREFIX": 18,
+   "DOTNET-FIELD-STATIC-PREFIX": 1
+  },
+  "test": {
+   "DOTNET-FIELD-INSTANCE-PREFIX": 44,
+   "DOTNET-FIELD-STATIC-PREFIX": 1
+  }
+ },
+ "by_split": {
+  "dev": 19,
+  "test": 45
+ },
+ "language": "csharp",
+ "pack": "dotnet-runtime-s2",
+ "tasks": 64
+}

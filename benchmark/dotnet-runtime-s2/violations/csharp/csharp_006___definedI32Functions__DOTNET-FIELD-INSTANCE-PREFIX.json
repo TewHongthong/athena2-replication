@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_006",
+  "language": "csharp",
+  "originalName": "_definedI32Functions",
+  "injectedName": "s_definedI32Functions",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_definedI32Functions' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class WasmModuleInfo\n{\n    public uint DefinedFunctionCount { get; internal set; }\n    public uint ImportedFunctionCount { get; internal set; }\n    public IReadOnlyDictionary<string, (byte Kind, uint Index)> Exports => _exports;\n    public IReadOnlyList<int?> DefinedI32Functions => s_definedI32Functions;\n    public IReadOnlyList<(bool Active, int? Offset, long PayloadOffset, uint Size)> DataSegments => _dataSegments;\n    public IReadOnlyList<WasmElementSegmentInfo> ElementSegments => _elementSegments;\n\n    internal readonly Dictionary<string, (byte Kind, uint Index)> _exports = new(StringComparer.Ordinal);\n    internal readonly List<int?> s_definedI32Functions = new();\n    internal readonly List<(bool Active, int? Offset, long PayloadOffset, uint Size)> _dataSegments = new();\n    internal readonly List<WasmElementSegmentInfo> _elementSegments = new();\n\n    public int? GetExportedI32Function(string name)\n    {\n        if (!_exports.TryGetValue(name, out (byte Kind, uint Index) export) || export.Kind != 0)\n            return null;\n\n        if (export.Index < ImportedFunctionCount)\n            return null;\n\n        uint definedIndex = export.Index - ImportedFunctionCount;\n        return definedIndex < s_definedI32Functions.Count ? s_definedI32Functions[(int)definedIndex] : null;\n    }\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

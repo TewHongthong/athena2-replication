@@ -1,0 +1,45 @@
+{
+  "id": "csharp_015",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/Compiler/ObjectWriter/WasmSymbolManager.cs lines 40-56 (struct IndexSpaceArray); license MIT; repo created 2026-07-31T15:15:55-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private struct IndexSpaceArray<T>\n{\n    private T[] _array;\n\n    public IndexSpaceArray()\n    {\n        _array = new T[(int)WasmIndexSpace.Count];\n    }\n\n    public T this[WasmIndexSpace indexSpace]\n    {\n        get => _array[(int)indexSpace];\n        set => _array[(int)indexSpace] = value;\n    }\n\n    public IReadOnlyList<T> Values => _array;\n}",
+  "identifiers": [
+    {
+      "name": "_array",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-31T15:15:55-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/Compiler/ObjectWriter/WasmSymbolManager.cs",
+    "startLine": 40,
+    "endLine": 56,
+    "unit": "struct IndexSpaceArray",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__Compiler__ObjectWriter__WasmSymbolManager.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 1,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_031",
+  "language": "csharp",
+  "originalName": "_lo",
+  "injectedName": "s_lo",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_lo' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal struct DiyFp128\n{\n    // The sign is stored as Intel does (0 for positive, 0x8000_0000 for negative) so the XOR-based\n    // sign arithmetic in Multiply/AddSub ports verbatim.\n    internal uint _sign;\n    internal int _exponent;\n    internal ulong _hi; // fraction[0] == G_UX_MSD (most significant limb)\n    internal ulong s_lo; // fraction[1] == G_UX_LSD (least significant limb)\n\n    internal DiyFp128(uint sign, int exponent, ulong hi, ulong lo)\n    {\n        _sign = sign;\n        _exponent = exponent;\n        _hi = hi;\n        s_lo = lo;\n    }\n\n    internal readonly bool IsNegative => _sign != 0;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

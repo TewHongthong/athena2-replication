@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_004",
+  "language": "cpp",
+  "originalName": "p_pin_uv",
+  "injectedName": "r_pin_uv",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_pin_uv' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void Trail3D::set_pin_uv(bool r_pin_uv) {\n\tif (r_pin_uv != pin_uv) {\n\t\t_needs_rebuilding = true;\n\t}\n\tpin_uv = r_pin_uv;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

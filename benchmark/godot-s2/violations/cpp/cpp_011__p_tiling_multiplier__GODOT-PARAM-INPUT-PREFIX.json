@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_011",
+  "language": "cpp",
+  "originalName": "p_tiling_multiplier",
+  "injectedName": "r_tiling_multiplier",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_tiling_multiplier' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void Trail3D::set_tiling_multiplier(float r_tiling_multiplier) {\n\tif (r_tiling_multiplier != tiling_multiplier) {\n\t\t_needs_rebuilding = true;\n\t}\n\ttiling_multiplier = r_tiling_multiplier;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

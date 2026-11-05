@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_045",
+  "language": "csharp",
+  "originalName": "_peBuilder",
+  "injectedName": "s_peBuilder",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_peBuilder' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public sealed class CompilationResult\n{\n    private readonly PEBuilder s_peBuilder;\n    private readonly Blob _mvidFixup;\n\n    internal CompilationResult(PEBuilder peBuilder, Blob mvidFixup, ImmutableArray<byte>? portablePdb)\n    {\n        s_peBuilder = peBuilder;\n        _mvidFixup = mvidFixup;\n        PortablePdb = portablePdb;\n    }\n\n    /// <summary>\n    /// Gets the serialized Portable PDB for the image, or <see langword=\"null\"/> when no PDB was requested.\n    /// </summary>\n    /// <remarks>\n    /// A PDB is produced when <see cref=\"Options.Debug\"/>, <see cref=\"Options.DebugMode\"/> or\n    /// <see cref=\"Options.Pdb\"/> is set; <c>.line</c> directives alone do not produce one.\n    /// It is not embedded in the image: the image's debug directory holds a CodeView entry that names the PDB path and carries this PDB's id, followed by a PdbChecksum\n    /// entry with the SHA-256 hash of these bytes with the 20-byte PDB id zeroed, and, with\n    /// <see cref=\"Options.Deterministic\"/>, a Reproducible entry. The PDB path is\n    /// <see cref=\"Options.PdbFilePath\"/> as given when set; otherwise it is <see cref=\"Options.OutputFileName\"/> with its\n    /// extension replaced by <c>.pdb</c>, or <c>assembly.pdb</c> when no output file name is set.\n    /// The caller writes these bytes to the file that path names; a file name alone names a file beside the image.\n    /// </remarks>\n    public ImmutableArray<byte>? PortablePdb { get; }\n\n    /// <summary>Serializes the compiled image into the specified builder.</summary>\n    /// <param name=\"builder\">The builder that receives the serialized image.</param>\n    /// <returns>The content identifier of the serialized image.</returns>\n    public BlobContentId Serialize(BlobBuilder builder)\n    {\n        BlobContentId contentId = s_peBuilder.Serialize(builder);\n        if (!_mvidFixup.IsDefault)\n        {\n            new BlobWriter(_mvidFixup).WriteGuid(contentId.Guid);\n        }\n\n        return contentId;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

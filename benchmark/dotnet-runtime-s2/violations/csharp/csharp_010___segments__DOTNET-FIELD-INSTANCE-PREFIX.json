@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_010",
+  "language": "csharp",
+  "originalName": "_segments",
+  "injectedName": "s_segments",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_segments' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "private sealed class TrickleStream : Stream\n{\n    private Memory<ReadOnlyMemory<byte>> s_segments;\n\n    public TrickleStream(Memory<ReadOnlyMemory<byte>> segments)\n    {\n        s_segments = segments;\n    }\n\n    public override bool CanRead => true;\n    public override bool CanWrite => true;\n    public override bool CanSeek => false;\n\n    public override int Read(byte[] buffer, int offset, int count) => throw new NotImplementedException(\"Expected only async reads\");\n\n    public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) =>\n        ReadAsync(buffer.AsMemory(offset, count), cancellationToken).AsTask();\n\n    public override ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)\n    {\n        cancellationToken.ThrowIfCancellationRequested();\n\n        if (buffer.IsEmpty || s_segments.IsEmpty)\n        {\n            return new ValueTask<int>(0);\n        }\n\n        ReadOnlyMemory<byte> segment = s_segments.Span[0];\n        int toCopy = Math.Min(buffer.Length, segment.Length);\n\n        segment.Span.Slice(0, toCopy).CopyTo(buffer.Span);\n\n        if (toCopy == segment.Length)\n        {\n            s_segments = s_segments.Slice(1);\n        }\n        else\n        {\n            s_segments.Span[0] = segment.Slice(toCopy);\n        }\n\n        return new ValueTask<int>(toCopy);\n    }\n\n    public override void Flush() { }\n    public override void Write(byte[] buffer, int offset, int count) { }\n    public override Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) => Task.CompletedTask;\n    public override ValueTask WriteAsync(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default) => ValueTask.CompletedTask;\n\n    public override long Length => throw new NotImplementedException();\n    public override long Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }\n    public override void SetLength(long value) => throw new NotImplementedException();\n    public override long Seek(long offset, SeekOrigin origin) => throw new NotImplementedException();\n}",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

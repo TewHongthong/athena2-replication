@@ -1,0 +1,45 @@
+{
+  "id": "csharp_030",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Common/src/Interop/Windows/Dnsapi/Interop.DnsTypes.cs lines 36-46 (struct DNS_QUERY_CANCEL); license MIT; repo created 2026-07-08T15:54:01+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[StructLayout(LayoutKind.Sequential)]\ninternal struct DNS_QUERY_CANCEL\n{\n    public ReservedBuffer Reserved;\n\n    [InlineArray(32)]\n    internal struct ReservedBuffer\n    {\n        private byte _element0;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_element0",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-08T15:54:01+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Common/src/Interop/Windows/Dnsapi/Interop.DnsTypes.cs",
+    "startLine": 36,
+    "endLine": 46,
+    "unit": "struct DNS_QUERY_CANCEL",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Common__src__Interop__Windows__Dnsapi__Interop.DnsTypes.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 4,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": false
+  }
+}

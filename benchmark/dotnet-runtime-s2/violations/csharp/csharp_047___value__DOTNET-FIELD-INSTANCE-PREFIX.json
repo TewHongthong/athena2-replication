@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_047",
+  "language": "csharp",
+  "originalName": "_value",
+  "injectedName": "s_value",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_value' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public class AsyncGenericWrapper<T>\n{\n    private T s_value;\n\n    public AsyncGenericWrapper(T value) => s_value = value;\n\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public async Task<int> InvokeGetValueAsync()\n    {\n        await Task.Yield();\n        return AsyncGenericUtility.GetAsyncGenericValue();\n    }\n\n    // Not async, so both the task-returning method and its async variant are compiled from this IL.\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public Task<int> GetValueTask()\n    {\n        return Task.FromResult(AsyncGenericUtility.GetSharedInlineeValue());\n    }\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

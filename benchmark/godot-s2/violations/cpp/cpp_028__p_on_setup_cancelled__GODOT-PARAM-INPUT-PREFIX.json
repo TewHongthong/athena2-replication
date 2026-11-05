@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_028",
+  "language": "cpp",
+  "originalName": "p_on_setup_cancelled",
+  "injectedName": "r_on_setup_cancelled",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_on_setup_cancelled' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AndroidSDKManager::run_setup(const Callable &p_on_setup_completed, const Callable &r_on_setup_cancelled) {\n\ton_setup_cancelled = r_on_setup_cancelled;\n\tif (!is_java_sdk_setup()) {\n\t\ton_setup_completed = callable_mp(this, &AndroidSDKManager::run_setup).bind(p_on_setup_completed, r_on_setup_cancelled);\n\t\t_show_setup_dialog(PROMPTING_JAVA_SDK_SETUP);\n\t} else if (!is_android_sdk_setup()) {\n\t\ton_setup_completed = callable_mp(this, &AndroidSDKManager::run_setup).bind(p_on_setup_completed, r_on_setup_cancelled);\n\t\t_show_setup_dialog(PROMPTING_ANDROID_SDK_SETUP);\n\t} else {\n\t\ton_setup_completed = Callable();\n\t\ton_setup_cancelled = Callable();\n\t\tif (p_on_setup_completed.is_valid()) {\n\t\t\tp_on_setup_completed.call_deferred();\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

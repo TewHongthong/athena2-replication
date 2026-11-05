@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_056",
+  "language": "cpp",
+  "originalName": "p_create_callback",
+  "injectedName": "r_create_callback",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_create_callback' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void PhysicsServer3DManager::register_server(const String &p_name, const Callable &r_create_callback) {\n\t//ERR_FAIL_COND(!r_create_callback.is_valid());\n\tERR_FAIL_COND(find_server_id(p_name) != -1);\n\tphysics_servers.push_back(ClassInfo(p_name, r_create_callback));\n\ton_servers_changed();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 1,
+  "pack": "godot-s2",
+  "split": "test"
+}

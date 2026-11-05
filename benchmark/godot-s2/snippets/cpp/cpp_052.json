@@ -1,0 +1,47 @@
+{
+  "id": "cpp_052",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_randomizer.cpp lines 400-413 (method AudioStreamPlaybackRandomizer::mix); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "int AudioStreamPlaybackRandomizer::mix(AudioFrame *p_buffer, float p_rate_scale, int p_frames) {\n\tif (playing.is_valid()) {\n\t\tint mixed_samples = playing->mix(p_buffer, p_rate_scale * pitch_scale, p_frames);\n\t\tfor (int samp = 0; samp < mixed_samples; samp++) {\n\t\t\tp_buffer[samp] *= volume_scale;\n\t\t}\n\t\treturn mixed_samples;\n\t} else {\n\t\tfor (int i = 0; i < p_frames; i++) {\n\t\t\tp_buffer[i] = AudioFrame(0, 0);\n\t\t}\n\t\treturn p_frames;\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_buffer",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_randomizer.cpp",
+    "startLine": 400,
+    "endLine": 413,
+    "unit": "method AudioStreamPlaybackRandomizer::mix",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_randomizer.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 32,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "output_parameter",
+    "targetFacets": {
+      "indirection": "ptr",
+      "out_by_type": true,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": false,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

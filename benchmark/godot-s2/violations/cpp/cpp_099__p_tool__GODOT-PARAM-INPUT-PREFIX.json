@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_099",
+  "language": "cpp",
+  "originalName": "p_tool",
+  "injectedName": "r_tool",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_tool' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void CanvasItemManipulator::set_tool(Tool r_tool) {\n\tif (drag_type != DRAG_NONE) {\n\t\tcommit_drag();\n\t}\n\n\ttool = r_tool;\n\n\tif (r_tool == TOOL_EDIT_PIVOT && Input::get_singleton()->is_key_pressed(Key::SHIFT)) {\n\t\t// Special action that places temporary rotation pivot in the middle of the selection.\n\t\tArray selection;\n\t\tget_selection_callback.call(selection);\n\n\t\tif (!selection.is_empty()) {\n\t\t\tVector2 center;\n\t\t\tfor (const Variant &var : selection) {\n\t\t\t\tconst CanvasItem *ci = Object::cast_to<CanvasItem>(var);\n\t\t\t\tcenter += ci->get_viewport()->get_popup_base_transform().xform(ci->_edit_get_position());\n\t\t\t}\n\t\t\ttemp_pivot = center / selection.size();\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

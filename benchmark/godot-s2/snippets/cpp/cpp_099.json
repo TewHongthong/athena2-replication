@@ -1,0 +1,46 @@
+{
+  "id": "cpp_099",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/debugger/canvas_item_manipulator.cpp lines 2252-2273 (method CanvasItemManipulator::set_tool); license MIT; repo created 2026-09-22T14:00:37-03:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void CanvasItemManipulator::set_tool(Tool p_tool) {\n\tif (drag_type != DRAG_NONE) {\n\t\tcommit_drag();\n\t}\n\n\ttool = p_tool;\n\n\tif (p_tool == TOOL_EDIT_PIVOT && Input::get_singleton()->is_key_pressed(Key::SHIFT)) {\n\t\t// Special action that places temporary rotation pivot in the middle of the selection.\n\t\tArray selection;\n\t\tget_selection_callback.call(selection);\n\n\t\tif (!selection.is_empty()) {\n\t\t\tVector2 center;\n\t\t\tfor (const Variant &var : selection) {\n\t\t\t\tconst CanvasItem *ci = Object::cast_to<CanvasItem>(var);\n\t\t\t\tcenter += ci->get_viewport()->get_popup_base_transform().xform(ci->_edit_get_position());\n\t\t\t}\n\t\t\ttemp_pivot = center / selection.size();\n\t\t}\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_tool",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-22T14:00:37-03:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/debugger/canvas_item_manipulator.cpp",
+    "startLine": 2252,
+    "endLine": 2273,
+    "unit": "method CanvasItemManipulator::set_tool",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__debugger__canvas_item_manipulator.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 30,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_007",
+  "language": "csharp",
+  "originalName": "_json",
+  "injectedName": "json",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'json' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public sealed class ReadWasmProps : Microsoft.Build.Utilities.Task\n{\n    private JsonModelRoot? json;\n\n    [Required]\n    public string? JsonFilePath { get; set; }\n\n    [Output]\n    public ITaskItem[]? EmccProperties => json?.GetItems(nameof(EmccProperties));\n\n    [Output]\n    public ITaskItem[]? WasmOptConfigurationFlags => json?.GetItems(nameof(WasmOptConfigurationFlags));\n\n    [Output]\n    public ITaskItem[]? EmccDefaultExportedFunctions => json?.GetItems(nameof(EmccDefaultExportedFunctions));\n\n    [Output]\n    public ITaskItem[]? EmccDefaultExportedRuntimeMethods => json?.GetItems(nameof(EmccDefaultExportedRuntimeMethods));\n\n    [Output]\n    public ITaskItem[]? EmccDefaultIncomingModuleJSAPI => json?.GetItems(nameof(EmccDefaultIncomingModuleJSAPI));\n\n    [Output]\n    public ITaskItem[]? PropertiesThatTriggerRelinking => json?.GetItems(nameof(PropertiesThatTriggerRelinking));\n\n    public override bool Execute()\n    {\n        return JsonToItemsReader.TryRead(JsonFilePath, Log, out json);\n    }\n}",
+  "occurrencesRenamed": 8,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

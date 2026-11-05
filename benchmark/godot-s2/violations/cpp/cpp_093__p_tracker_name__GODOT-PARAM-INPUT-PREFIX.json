@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_093",
+  "language": "cpp",
+  "originalName": "p_tracker_name",
+  "injectedName": "tracker_name",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'tracker_name' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "TypedArray<Transform3D> OpenXRFoveatedInsetExtension::get_camera_offsets(const StringName &tracker_name) {\n\tTypedArray<Transform3D> camera_offsets;\n\n\tOpenXRAPI *openxr_api = OpenXRAPI::get_singleton();\n\tERR_FAIL_NULL_V(openxr_api, camera_offsets);\n\n\tif (tracker_name == XR_TRACKER_INSET) {\n\t\tif (openxr_api->get_view_configuration() != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET) {\n\t\t\t// It's possible our application was configured to support foveated inset,\n\t\t\t// but the current hardware used does not support it.\n\t\t\treturn camera_offsets;\n\t\t}\n\n\t\tERR_FAIL_COND_V(openxr_api->get_view_count() != 4, camera_offsets);\n\n\t\tXRServer *xr_server = XRServer::get_singleton();\n\t\tERR_FAIL_NULL_V(xr_server, camera_offsets);\n\n\t\tdouble world_scale = xr_server->get_world_scale();\n\n\t\tfor (uint32_t v = 2; v < 4; v++) {\n\t\t\tTransform3D t;\n\t\t\topenxr_api->get_view_offset(v, t);\n\n\t\t\t// Apply our world scale\n\t\t\tt.origin *= world_scale;\n\n\t\t\tcamera_offsets.push_back(t);\n\t\t}\n\t}\n\n\treturn camera_offsets;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

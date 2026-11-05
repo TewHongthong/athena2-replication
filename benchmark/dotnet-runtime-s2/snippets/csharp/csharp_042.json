@@ -1,0 +1,45 @@
+{
+  "id": "csharp_042",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmSections.cs lines 10-46 (class WasmSections); license MIT; repo created 2026-08-06T12:08:07-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class WasmSections\n{\n    private readonly List<SectionDataEmitter> _sections = new();\n    private readonly Dictionary<string, int> _sectionNameToIndex = new();\n\n    public int Count => _sections.Count;\n\n    public IReadOnlyList<SectionDataEmitter> Sections => _sections;\n\n    public SectionDataEmitter this[int sectionIndex] => _sections[sectionIndex];\n\n    public SectionDataEmitter this[string sectionName] => _sections[_sectionNameToIndex[sectionName]];\n\n    public TSection GetSection<TSection>(int sectionIndex)\n        where TSection : SectionDataEmitter\n    {\n        SectionDataEmitter section = _sections[sectionIndex];\n        return (TSection)section;\n    }\n\n    public TSection GetSection<TSection>(string sectionName)\n        where TSection : SectionDataEmitter\n    {\n        return GetSection<TSection>(_sectionNameToIndex[sectionName]);\n    }\n\n    public void Add(string sectionName, int sectionIndex, SectionDataEmitter section)\n    {\n        Debug.Assert(_sections.Count == sectionIndex);\n        _sections.Add(section);\n        _sectionNameToIndex.Add(sectionName, sectionIndex);\n    }\n\n    public bool Contains(string sectionName) => _sectionNameToIndex.ContainsKey(sectionName);\n\n    public int GetSectionIndex(string sectionName) => _sectionNameToIndex[sectionName];\n}",
+  "identifiers": [
+    {
+      "name": "_sectionNameToIndex",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T12:08:07-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmSections.cs",
+    "startLine": 10,
+    "endLine": 46,
+    "unit": "class WasmSections",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__Compiler__ObjectWriter__Wasm__WasmSections.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

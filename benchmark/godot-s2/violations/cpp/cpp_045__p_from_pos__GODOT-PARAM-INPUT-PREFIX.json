@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_045",
+  "language": "cpp",
+  "originalName": "p_from_pos",
+  "injectedName": "r_from_pos",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_from_pos' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioStreamPlaybackWAV::start(double r_from_pos) {\n\tif (base->format == AudioStreamWAV::FORMAT_IMA_ADPCM) {\n\t\t//no seeking in IMA_ADPCM\n\t\tfor (int i = 0; i < 2; i++) {\n\t\t\tima_adpcm[i].step_index = 0;\n\t\t\tima_adpcm[i].predictor = 0;\n\t\t\tima_adpcm[i].loop_step_index = 0;\n\t\t\tima_adpcm[i].loop_predictor = 0;\n\t\t\tima_adpcm[i].last_nibble = -1;\n\t\t\tima_adpcm[i].loop_pos = 0x7FFFFFFF;\n\t\t\tima_adpcm[i].window_ofs = 0;\n\t\t}\n\n\t\toffset = 0;\n\t} else {\n\t\tseek(r_from_pos);\n\t}\n\n\tsign = 1;\n\tactive = true;\n\tbegin_resample();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

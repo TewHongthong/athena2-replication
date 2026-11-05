@@ -1,0 +1,46 @@
+{
+  "id": "cpp_067",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_set_editor.cpp lines 742-779 (method TileSetEditor::edit); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileSetEditor::edit(Ref<TileSet> p_tile_set) {\n\tbool new_read_only_state = false;\n\tif (p_tile_set.is_valid()) {\n\t\tnew_read_only_state = EditorNode::get_singleton()->is_resource_read_only(p_tile_set);\n\t}\n\n\tif (p_tile_set == tile_set && new_read_only_state == read_only) {\n\t\treturn;\n\t}\n\n\t// Remove listener.\n\tif (tile_set.is_valid()) {\n\t\ttile_set->disconnect_changed(callable_mp(this, &TileSetEditor::_tile_set_changed));\n\t}\n\n\t// Change the edited object.\n\ttile_set = p_tile_set;\n\tsources_list->tile_set = p_tile_set;\n\n\t// Read-only status is false by default\n\tread_only = new_read_only_state;\n\n\t// Add the listener again and check for read-only status.\n\tif (tile_set.is_valid()) {\n\t\tsources_add_button->set_disabled(read_only);\n\t\tsources_advanced_menu_button->set_disabled(read_only);\n\t\tsource_sort_button->set_disabled(read_only);\n\n\t\ttile_set->connect_changed(callable_mp(this, &TileSetEditor::_tile_set_changed));\n\t\tif (first_edit) {\n\t\t\t_set_source_sort(EditorSettings::get_singleton()->get_project_metadata(\"editor_metadata\", \"tile_source_sort\", 0));\n\t\t\tfirst_edit = false;\n\t\t} else {\n\t\t\t_update_sources_list();\n\t\t}\n\t\t_update_patterns_list();\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_tile_set",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_set_editor.cpp",
+    "startLine": 742,
+    "endLine": 779,
+    "unit": "method TileSetEditor::edit",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_set_editor.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 18,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

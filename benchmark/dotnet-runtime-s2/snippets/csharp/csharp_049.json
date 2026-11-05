@@ -1,0 +1,45 @@
+{
+  "id": "csharp_049",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/mono/wasm/testassets/EntryPoints/PInvoke/UnmanagedCallbackManyArgs.cs lines 7-62 (class Test); license MIT; repo created 2026-07-20T13:29:27-05:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public unsafe partial class Test\n{\n    public unsafe static int Main(string[] args)\n    {\n        Console.WriteLine($\"main: {args.Length}\");\n\n        // Take the addresses of the [UnmanagedCallersOnly] methods so the trimmer keeps them\n        // and their native export symbols are generated (they are only referenced from native code).\n        GC.KeepAlive((IntPtr)(delegate* unmanaged<int, int, int, int, int, int, int, int, int>)&Sum8);\n        GC.KeepAlive((IntPtr)(delegate* unmanaged<int, int, int, int, int, int, int, int, int, int>)&Sum9);\n        GC.KeepAlive((IntPtr)(delegate* unmanaged<long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long, long>)&Sum16);\n        GC.KeepAlive((IntPtr)(delegate* unmanaged<int, int, int, int, int, int, int, int, int, int, int, int, void>)&Void12);\n\n        Console.WriteLine($\"TestOutput -> ManagedSum8 returned {CallSum8()}\");\n        Console.WriteLine($\"TestOutput -> ManagedSum9 returned {CallSum9()}\");\n        Console.WriteLine($\"TestOutput -> ManagedSum16 returned {CallSum16()}\");\n        CallVoid12();\n        Console.WriteLine($\"TestOutput -> ManagedVoid12 stored {s_void12}\");\n        return 42;\n    }\n\n    private static int s_void12;\n\n    // 8 args: exercises the specialized (<= MAX_INTERP_ENTRY_ARGS) entry path\n    [UnmanagedCallersOnly(EntryPoint = \"ManagedSum8\")]\n    public static int Sum8(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)\n        => a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8;\n\n    // 9 args: exercises the generic interp_entry_general path (> MAX_INTERP_ENTRY_ARGS)\n    [UnmanagedCallersOnly(EntryPoint = \"ManagedSum9\")]\n    public static int Sum9(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)\n        => a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9;\n\n    // 16 args with a 64-bit return, further stressing the many-args path\n    [UnmanagedCallersOnly(EntryPoint = \"ManagedSum16\")]\n    public static long Sum16(long a1, long a2, long a3, long a4, long a5, long a6, long a7, long a8,\n                             long a9, long a10, long a11, long a12, long a13, long a14, long a15, long a16)\n        => a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16;\n\n    // void return with > 8 args\n    [UnmanagedCallersOnly(EntryPoint = \"ManagedVoid12\")]\n    public static void Void12(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12)\n        => s_void12 = a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12;\n\n    [DllImport(\"local\", EntryPoint = \"call_sum8\")]\n    public static extern int CallSum8();\n\n    [DllImport(\"local\", EntryPoint = \"call_sum9\")]\n    public static extern int CallSum9();\n\n    [DllImport(\"local\", EntryPoint = \"call_sum16\")]\n    public static extern long CallSum16();\n\n    [DllImport(\"local\", EntryPoint = \"call_void12\")]\n    public static extern void CallVoid12();\n}",
+  "identifiers": [
+    {
+      "name": "s_void12",
+      "kind": "static_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-20T13:29:27-05:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/mono/wasm/testassets/EntryPoints/PInvoke/UnmanagedCallbackManyArgs.cs",
+    "startLine": 7,
+    "endLine": 62,
+    "unit": "class Test",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__mono__wasm__testassets__EntryPoints__PInvoke__UnmanagedCallbackManyArgs.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "static_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": true,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

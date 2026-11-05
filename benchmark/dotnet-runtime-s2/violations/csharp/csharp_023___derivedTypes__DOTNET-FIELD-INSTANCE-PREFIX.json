@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_023",
+  "language": "csharp",
+  "originalName": "_derivedTypes",
+  "injectedName": "derivedTypes",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'derivedTypes' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "[EditorBrowsable(EditorBrowsableState.Never)]\n[AttributeUsage(AttributeTargets.Class, Inherited = false)]\npublic sealed class IsClosedTypeAttribute : Attribute\n{\n    private Type[] derivedTypes = Type.EmptyTypes;\n\n    /// <summary>Initializes the attribute.</summary>\n    public IsClosedTypeAttribute()\n    {\n    }\n\n    /// <summary>Gets or sets the derived types of the closed type.</summary>\n    /// <value>An array of the derived types of the closed type. A <see langword=\"null\" /> value is normalized to an empty array.</value>\n    public Type[] DerivedTypes\n    {\n        get => derivedTypes;\n        set => derivedTypes = value ?? Type.EmptyTypes;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

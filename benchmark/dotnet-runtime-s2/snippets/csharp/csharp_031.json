@@ -1,0 +1,44 @@
+{
+  "id": "csharp_031",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128.cs lines 40-58 (struct DiyFp128); license MIT; repo created 2026-07-20T04:17:25+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal struct DiyFp128\n{\n    // The sign is stored as Intel does (0 for positive, 0x8000_0000 for negative) so the XOR-based\n    // sign arithmetic in Multiply/AddSub ports verbatim.\n    internal uint _sign;\n    internal int _exponent;\n    internal ulong _hi; // fraction[0] == G_UX_MSD (most significant limb)\n    internal ulong _lo; // fraction[1] == G_UX_LSD (least significant limb)\n\n    internal DiyFp128(uint sign, int exponent, ulong hi, ulong lo)\n    {\n        _sign = sign;\n        _exponent = exponent;\n        _hi = hi;\n        _lo = lo;\n    }\n\n    internal readonly bool IsNegative => _sign != 0;\n}",
+  "identifiers": [
+    {
+      "name": "_lo",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-20T04:17:25+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128.cs",
+    "startLine": 40,
+    "endLine": 58,
+    "unit": "struct DiyFp128",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Private.CoreLib__src__System__Number.DecimalIeee754.DiyFp128.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 1,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "internal",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": false
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "csharp_010",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Fuzzing/DotnetFuzzing/Fuzzers/WebSocketFuzzer.cs lines 154-207 (class TrickleStream); license MIT; repo created 2026-08-12T13:53:35+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private sealed class TrickleStream : Stream\n{\n    private Memory<ReadOnlyMemory<byte>> _segments;\n\n    public TrickleStream(Memory<ReadOnlyMemory<byte>> segments)\n    {\n        _segments = segments;\n    }\n\n    public override bool CanRead => true;\n    public override bool CanWrite => true;\n    public override bool CanSeek => false;\n\n    public override int Read(byte[] buffer, int offset, int count) => throw new NotImplementedException(\"Expected only async reads\");\n\n    public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) =>\n        ReadAsync(buffer.AsMemory(offset, count), cancellationToken).AsTask();\n\n    public override ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)\n    {\n        cancellationToken.ThrowIfCancellationRequested();\n\n        if (buffer.IsEmpty || _segments.IsEmpty)\n        {\n            return new ValueTask<int>(0);\n        }\n\n        ReadOnlyMemory<byte> segment = _segments.Span[0];\n        int toCopy = Math.Min(buffer.Length, segment.Length);\n\n        segment.Span.Slice(0, toCopy).CopyTo(buffer.Span);\n\n        if (toCopy == segment.Length)\n        {\n            _segments = _segments.Slice(1);\n        }\n        else\n        {\n            _segments.Span[0] = segment.Slice(toCopy);\n        }\n\n        return new ValueTask<int>(toCopy);\n    }\n\n    public override void Flush() { }\n    public override void Write(byte[] buffer, int offset, int count) { }\n    public override Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) => Task.CompletedTask;\n    public override ValueTask WriteAsync(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default) => ValueTask.CompletedTask;\n\n    public override long Length => throw new NotImplementedException();\n    public override long Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }\n    public override void SetLength(long value) => throw new NotImplementedException();\n    public override long Seek(long offset, SeekOrigin origin) => throw new NotImplementedException();\n}",
+  "identifiers": [
+    {
+      "name": "_segments",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-12T13:53:35+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Fuzzing/DotnetFuzzing/Fuzzers/WebSocketFuzzer.cs",
+    "startLine": 154,
+    "endLine": 207,
+    "unit": "class TrickleStream",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Fuzzing__DotnetFuzzing__Fuzzers__WebSocketFuzzer.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 1,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": false
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "run_id": "s2test_qwen35_9b_or_s2_dotnet-runtime-s2_meta",
+  "harness_version": "0.1.0",
+  "status": "complete",
+  "started": "2026-11-04T16:27:02+00:00",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "args": {
+    "cmd": "run",
+    "pack": "dotnet-runtime-s2",
+    "corpus": null,
+    "ontology_variant": "human",
+    "task": "rename",
+    "conditions": "none,fulldoc,naming,chunk,bm25,dense,graph",
+    "embed_pin": "qwen3_embedding_06b",
+    "languages": null,
+    "per_language": 0,
+    "limit": 0,
+    "seed": 42,
+    "split": "test",
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "no_oracle": false,
+    "backend": "openai:qwen/qwen3.5-9b",
+    "model_pin": "qwen35_9b_or_s2",
+    "pins": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/models/model_pins_s2_or.json",
+    "repeats": 3,
+    "temperature": 0.2,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "omit_temperature": false,
+    "no_think": false,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "deepinfra"
+        ],
+        "allow_fallbacks": false,
+        "quantizations": [
+          "bf16"
+        ],
+        "require_parameters": true
+      },
+      "reasoning": {
+        "enabled": false
+      }
+    },
+    "frozen": "frozen_dotnet-runtime-s2_qwen35_9b_or_s2_meta.json",
+    "allow_rerun": false,
+    "timeout": 180.0,
+    "retries": 5,
+    "workers": 4,
+    "max_errors": 20,
+    "price_in": 0.1,
+    "price_out": 0.15,
+    "no_store_prompt": false,
+    "run_id": "s2test_qwen35_9b_or_s2_dotnet-runtime-s2_meta",
+    "out": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/athena-sim/runs",
+    "progress": 100,
+    "model_pin_sha256": "7ba9c61b3d213ec2da23235ff5cca12a59d2e29a347f31d7e838d3c81a7269ec",
+    "embed_pin_sha256": "6974b1ce201c8bea297f6bf6e437e02c6c0030c3b9cf3b5f761a43510b03cb99"
+  },
+  "backend": {
+    "spec": "openai:qwen/qwen3.5-9b",
+    "is_llm": true,
+    "model": "qwen/qwen3.5-9b",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": 0.2,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "deepinfra"
+        ],
+        "allow_fallbacks": false,
+        "quantizations": [
+          "bf16"
+        ],
+        "require_parameters": true
+      },
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "pack": {
+    "pack": "dotnet-runtime-s2",
+    "ontology": "dotnet_ontology.json",
+    "ontology_sha256": "83f51e79ecfcf021b66ad6ba50199378b8665eb02c6d5d8ac322b59701c2e7f8",
+    "ontology_variant": "human",
+    "rules_ontology_sha256": "83f51e79ecfcf021b66ad6ba50199378b8665eb02c6d5d8ac322b59701c2e7f8",
+    "core_rules_sha256": "06170bdbc3dd441b2d59907a702581fa892be8c2d6fe6ae49fd4fe2803c308e2",
+    "standard_document_sha256": "946ae20377f98773f2d9711eeb5669950c64c676983df84cadf3f871aa541323",
+    "benchmark_index_sha256": "30cb06bb2a76a715a618476ccc9aecca83bc930eadc4af894045736d290d3287",
+    "standard_document_id": "dotnet-runtime"
+  },
+  "conditions": [
+    "none",
+    "fulldoc",
+    "naming",
+    "chunk",
+    "bm25",
+    "dense",
+    "graph"
+  ],
+  "embedding": {
+    "embed_pin": "qwen3_embedding_06b",
+    "embed_pin_sha256": "6974b1ce201c8bea297f6bf6e437e02c6c0030c3b9cf3b5f761a43510b03cb99",
+    "model": "qwen3-embedding-0.6b-q8_0",
+    "cache": "/home/tew/.cache/athena2/embeddings/qwen3_embedding_06b-6974b1ce201c8bea.jsonl",
+    "cached_vectors": 1650,
+    "requests": 0
+  },
+  "split": "test",
+  "frozen": {
+    "file": "frozen_dotnet-runtime-s2_qwen35_9b_or_s2_meta.json",
+    "sha256": "2de1daf96d74ada03ac2588b86193e01f464e7dfdd04ab4f9131f1ad804301cb",
+    "rerun": false
+  },
+  "oracle_free": null,
+  "n_units": 45,
+  "unit_ids": [
+    "csharp_061___comparer__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_049__s_void12__DOTNET-FIELD-STATIC-PREFIX",
+    "csharp_027___paddingBytesCount__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_021___current__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_037___fields__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_035___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_034___lockObject__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_028___target__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_026___padding__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_055___typesByName__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_025___servers__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_047___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_022___target__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_062___dataTypes__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_053___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_057___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_063___hasValue__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_036___state__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_039___usage__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_020___method__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_064___name__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_050___padding__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_042___sectionNameToIndex__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_040___position__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_044___writer__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_033___element0__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_048___executionManagerCore__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_059___padding__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_058___bytesWritten__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_045___peBuilder__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_032___chacha__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_041___wasmWellKnownGlobals__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_051___entryCountSet__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_031___lo__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_043___records__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_056___conformanceMode__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_024___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_046___targetSectionIndex__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_052___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_038___size__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_060___data__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_054___socket__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_030___element0__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_023___derivedTypes__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_029___current__DOTNET-FIELD-INSTANCE-PREFIX"
+  ],
+  "finished": "2026-11-04T16:27:13+00:00",
+  "trials_ok": 1,
+  "trials_error": 0
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_057",
+  "language": "cpp",
+  "originalName": "p_session",
+  "injectedName": "session",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'session' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void OpenXRSpatialContainerExtension::on_session_created(const XrSession session) {\n\tif (!can_create_spatial_container()) {\n\t\tprint_verbose(\"OpenXR: Unable to create spatial container!\");\n\t\treturn;\n\t}\n\n\t// Retrieve the bounds from the project settings.\n\tVector3 bounds = GLOBAL_GET_CACHED(Vector3, \"xr/openxr/extensions/spatial_container/bounds\");\n\tcreate_spatial_container(bounds);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

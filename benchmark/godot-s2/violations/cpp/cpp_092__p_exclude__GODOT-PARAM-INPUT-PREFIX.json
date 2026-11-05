@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_092",
+  "language": "cpp",
+  "originalName": "p_exclude",
+  "injectedName": "exclude",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'exclude' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void PhysicsTestMotionParameters2D::set_exclude_objects(const TypedArray<uint64_t> &exclude) {\n\tparameters.exclude_objects.clear();\n\tfor (int i = 0; i < exclude.size(); ++i) {\n\t\tObjectID object_id = exclude[i];\n\t\tERR_CONTINUE(object_id.is_null());\n\t\tparameters.exclude_objects.insert(object_id);\n\t}\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

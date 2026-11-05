@@ -1,0 +1,47 @@
+{
+  "id": "cpp_080",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/gdscript/gdscript_linter.cpp lines 72-84 (method OnreadyWithCast.check_variable); license MIT; repo created 2026-09-06T00:55:48+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "static void check_variable(const GDScriptParser::VariableNode *p_variable, GDScriptParser &p_sink) {\n\tif (!p_variable->onready || !p_variable->initializer || p_variable->initializer->type != GDScriptParser::Node::CAST) {\n\t\treturn;\n\t}\n\n\tconst GDScriptParser::CastNode *cast = static_cast<const GDScriptParser::CastNode *>(p_variable->initializer);\n\tif (!cast->operand || cast->operand->type != GDScriptParser::Node::GET_NODE) {\n\t\treturn;\n\t}\n\n\tconst GDScriptParser::GetNodeNode *get_node = static_cast<const GDScriptParser::GetNodeNode *>(cast->operand);\n\tp_sink.push_warning(cast, GDScriptWarning::ONREADY_WITH_CAST, (get_node->use_dollar ? \"$\" : \"%\") + get_node->full_path);\n}",
+  "identifiers": [
+    {
+      "name": "p_sink",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-06T00:55:48+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/gdscript/gdscript_linter.cpp",
+    "startLine": 72,
+    "endLine": 84,
+    "unit": "method OnreadyWithCast.check_variable",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__gdscript__gdscript_linter.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 8,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "output_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": true,
+      "owner": "method",
+      "owner_via": "class_body",
+      "pointee_const": false,
+      "prefix": "p_"
+    },
+    "topLevel": false
+  }
+}

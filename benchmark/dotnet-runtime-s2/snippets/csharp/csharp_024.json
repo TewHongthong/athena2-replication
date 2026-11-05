@@ -1,0 +1,44 @@
+{
+  "id": "csharp_024",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/QCallExceptionStatus.cs lines 12-17 (struct QCallExceptionStatus); license MIT; repo created 2026-09-03T13:29:14-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[NativeMarshalling(typeof(QCallExceptionStatusMarshaller))]\n[StructLayout(LayoutKind.Sequential)]\ninternal readonly struct QCallExceptionStatus\n{\n    private readonly nint _value;\n}",
+  "identifiers": [
+    {
+      "name": "_value",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-03T13:29:14-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/QCallExceptionStatus.cs",
+    "startLine": 12,
+    "endLine": 17,
+    "unit": "struct QCallExceptionStatus",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__System.Private.CoreLib__src__System__Runtime__CompilerServices__QCallExceptionStatus.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

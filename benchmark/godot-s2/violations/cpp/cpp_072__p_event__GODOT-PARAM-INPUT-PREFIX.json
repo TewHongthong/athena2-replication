@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_072",
+  "language": "cpp",
+  "originalName": "p_event",
+  "injectedName": "r_event",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_event' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void TileSetAtlasSourceEditor::shortcut_input(const Ref<InputEvent> &r_event) {\n\t// Check for shortcuts.\n\tif (ED_IS_SHORTCUT(\"tiles_editor/delete\", r_event)) {\n\t\tif (tools_button_group->get_pressed_button() == tool_select_button && !selection.is_empty()) {\n\t\t\t_menu_option(TILE_DELETE);\n\t\t\taccept_event();\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

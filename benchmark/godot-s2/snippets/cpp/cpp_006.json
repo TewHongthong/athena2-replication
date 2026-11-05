@@ -1,0 +1,46 @@
+{
+  "id": "cpp_006",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/3d/trail_3d.cpp lines 194-199 (method Trail3D::set_emitting); license MIT; repo created 2026-08-19T19:50:05+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void Trail3D::set_emitting(bool p_emitting) {\n\tif (emitting != p_emitting && p_emitting) {\n\t\tclear();\n\t}\n\temitting = p_emitting;\n}",
+  "identifiers": [
+    {
+      "name": "p_emitting",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-19T19:50:05+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/3d/trail_3d.cpp",
+    "startLine": 194,
+    "endLine": 199,
+    "unit": "method Trail3D::set_emitting",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__3d__trail_3d.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 5,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

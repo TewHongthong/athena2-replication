@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_011",
+  "language": "csharp",
+  "originalName": "_addresses",
+  "injectedName": "s_addresses",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_addresses' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public readonly struct SrvRecord\n{\n    private readonly IReadOnlyList<AddressRecord>? s_addresses;\n\n    /// <summary>Gets the domain name of the target host.</summary>\n    public string Target { get; }\n    /// <summary>Gets the port on the target host where the service is found.</summary>\n    [CLSCompliant(false)]\n    public ushort Port { get; }\n    /// <summary>Gets the priority of the target host. Lower values are preferred.</summary>\n    [CLSCompliant(false)]\n    public ushort Priority { get; }\n    /// <summary>Gets the relative weight for records with the same priority.</summary>\n    [CLSCompliant(false)]\n    public ushort Weight { get; }\n    /// <summary>Gets the time-to-live (TTL) of the record.</summary>\n    public TimeSpan Ttl { get; }\n    /// <summary>Gets the address records for the target host that were included in the additional section of the response, if any.</summary>\n    public IReadOnlyList<AddressRecord> Addresses => s_addresses ?? Array.Empty<AddressRecord>();\n\n    internal SrvRecord(string target, ushort port, ushort priority, ushort weight, TimeSpan ttl, IReadOnlyList<AddressRecord>? addresses)\n    {\n        Target = target;\n        Port = port;\n        Priority = priority;\n        Weight = weight;\n        Ttl = ttl;\n        s_addresses = addresses;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

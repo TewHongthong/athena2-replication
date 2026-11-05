@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_002",
+  "language": "cpp",
+  "originalName": "p_from",
+  "injectedName": "r_from",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_from' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "Ref<PhysicsRayQueryParameters3D> PhysicsRayQueryParameters3D::create(Vector3 r_from, Vector3 p_to, uint32_t p_mask, const TypedArray<RID> &p_exclude) {\n\tRef<PhysicsRayQueryParameters3D> params;\n\tparams.instantiate();\n\tparams->set_from(r_from);\n\tparams->set_to(p_to);\n\tparams->set_collision_mask(p_mask);\n\tparams->set_exclude(p_exclude);\n\treturn params;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

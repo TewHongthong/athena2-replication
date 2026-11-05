@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_049",
+  "language": "cpp",
+  "originalName": "p_bone",
+  "injectedName": "r_bone",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_bone' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void BoneSpaceAdjuster3D::set_bone(int p_index, int r_bone) {\n\tERR_FAIL_INDEX(p_index, (int)settings.size());\n\tsettings[p_index].bone = r_bone;\n\tSkeleton3D *sk = get_skeleton();\n\tif (sk) {\n\t\tif (settings[p_index].bone <= -1 || settings[p_index].bone >= sk->get_bone_count()) {\n\t\t\tWARN_PRINT(\"Apply bone index out of range!\");\n\t\t\tsettings[p_index].bone = -1;\n\t\t} else {\n\t\t\tsettings[p_index].bone_name = sk->get_bone_name(settings[p_index].bone);\n\t\t}\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

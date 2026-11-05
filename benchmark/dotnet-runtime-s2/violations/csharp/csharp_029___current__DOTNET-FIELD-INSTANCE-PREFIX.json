@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_029",
+  "language": "csharp",
+  "originalName": "_current",
+  "injectedName": "current",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'current' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal ref struct DnsTxtEnumerator\n{\n    private ReadOnlySpan<byte> _remaining;\n    private ReadOnlySpan<byte> current;\n\n    internal DnsTxtEnumerator(ReadOnlySpan<byte> data)\n    {\n        _remaining = data;\n        current = default;\n    }\n\n    public readonly ReadOnlySpan<byte> Current => current;\n\n    public bool MoveNext()\n    {\n        if (_remaining.Length == 0)\n        {\n            return false;\n        }\n\n        int len = _remaining[0];\n        if (1 + len > _remaining.Length)\n        {\n            return false;\n        }\n\n        current = _remaining.Slice(1, len);\n        _remaining = _remaining[(1 + len)..];\n        return true;\n    }\n\n    public readonly DnsTxtEnumerator GetEnumerator() => this;\n\n    public readonly bool IsValid => _remaining.IsEmpty;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "core": {
+    "csharp": {
+      "method": [
+        "DOTNET-METHOD-CASE"
+      ],
+      "local_function": [
+        "DOTNET-LOCAL-FUNCTION-CASE"
+      ],
+      "instance_field": [
+        "DOTNET-FIELD-INSTANCE-PREFIX"
+      ],
+      "static_field": [
+        "DOTNET-FIELD-STATIC-PREFIX"
+      ],
+      "threadstatic_field": [
+        "DOTNET-FIELD-THREADSTATIC-PREFIX"
+      ],
+      "public_field": [
+        "DOTNET-FIELD-PUBLIC-CASE"
+      ]
+    }
+  },
+  "excluded": {
+    "DOTNET-FIELD-NONPUBLIC-CASE": "The casing applies to the part of the name after the prefix, and the checker does not remove a prefix before it checks the casing.",
+    "DOTNET-FIELD-PUBLIC-NO-PREFIX": "The schema has no attribute that states that a name must not carry a prefix.",
+    "DOTNET-CONSTANT-CASE": "There is an exception for constant names that must match interop code, but the gate cannot separate this exception from kind constant alone.",
+    "DOTNET-CONSTANT-INTEROP-NAME": "Applies only to constants related to interop and requires comparing the name with external code; no mechanical attribute in this schema can replace that check."
+  }
+}

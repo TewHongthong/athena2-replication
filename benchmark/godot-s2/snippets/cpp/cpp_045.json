@@ -1,0 +1,47 @@
+{
+  "id": "cpp_045",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_wav.cpp lines 41-62 (method AudioStreamPlaybackWAV::start); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void AudioStreamPlaybackWAV::start(double p_from_pos) {\n\tif (base->format == AudioStreamWAV::FORMAT_IMA_ADPCM) {\n\t\t//no seeking in IMA_ADPCM\n\t\tfor (int i = 0; i < 2; i++) {\n\t\t\tima_adpcm[i].step_index = 0;\n\t\t\tima_adpcm[i].predictor = 0;\n\t\t\tima_adpcm[i].loop_step_index = 0;\n\t\t\tima_adpcm[i].loop_predictor = 0;\n\t\t\tima_adpcm[i].last_nibble = -1;\n\t\t\tima_adpcm[i].loop_pos = 0x7FFFFFFF;\n\t\t\tima_adpcm[i].window_ofs = 0;\n\t\t}\n\n\t\toffset = 0;\n\t} else {\n\t\tseek(p_from_pos);\n\t}\n\n\tsign = 1;\n\tactive = true;\n\tbegin_resample();\n}",
+  "identifiers": [
+    {
+      "name": "p_from_pos",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_wav.cpp",
+    "startLine": 41,
+    "endLine": 62,
+    "unit": "method AudioStreamPlaybackWAV::start",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_wav.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

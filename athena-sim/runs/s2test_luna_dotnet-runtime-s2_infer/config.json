@@ -1,0 +1,174 @@
+{
+  "run_id": "s2test_luna_dotnet-runtime-s2_infer",
+  "harness_version": "0.1.0",
+  "status": "complete",
+  "started": "2026-11-02T15:40:41+00:00",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "args": {
+    "cmd": "run",
+    "pack": "dotnet-runtime-s2",
+    "corpus": null,
+    "ontology_variant": "human",
+    "task": "rename",
+    "conditions": "graph",
+    "embed_pin": null,
+    "languages": null,
+    "per_language": 0,
+    "limit": 0,
+    "seed": 42,
+    "split": "test",
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "no_oracle": true,
+    "backend": "openai:openai/gpt-6-luna",
+    "model_pin": "luna",
+    "pins": null,
+    "repeats": 3,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "omit_temperature": true,
+    "no_think": false,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    },
+    "frozen": "frozen_dotnet-runtime-s2_luna_infer.json",
+    "allow_rerun": false,
+    "timeout": 180.0,
+    "retries": 5,
+    "workers": 4,
+    "max_errors": 20,
+    "price_in": 0.1,
+    "price_out": 0.5,
+    "no_store_prompt": false,
+    "run_id": "s2test_luna_dotnet-runtime-s2_infer",
+    "out": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/athena-sim/runs",
+    "progress": 100,
+    "model_pin_sha256": "60e5573eb2805c1347ce76b19041db6e586f16041e584edf2306acfdb3fad7de"
+  },
+  "backend": {
+    "spec": "openai:openai/gpt-6-luna",
+    "is_llm": true,
+    "model": "openai/gpt-6-luna",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": null,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "omit_temperature": true,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true
+      },
+      "reasoning": {
+        "effort": "medium"
+      }
+    }
+  },
+  "pack": {
+    "pack": "dotnet-runtime-s2",
+    "ontology": "dotnet_ontology.json",
+    "ontology_sha256": "83f51e79ecfcf021b66ad6ba50199378b8665eb02c6d5d8ac322b59701c2e7f8",
+    "ontology_variant": "human",
+    "rules_ontology_sha256": "83f51e79ecfcf021b66ad6ba50199378b8665eb02c6d5d8ac322b59701c2e7f8",
+    "core_rules_sha256": "06170bdbc3dd441b2d59907a702581fa892be8c2d6fe6ae49fd4fe2803c308e2",
+    "standard_document_sha256": "946ae20377f98773f2d9711eeb5669950c64c676983df84cadf3f871aa541323",
+    "benchmark_index_sha256": "30cb06bb2a76a715a618476ccc9aecca83bc930eadc4af894045736d290d3287",
+    "standard_document_id": "dotnet-runtime"
+  },
+  "conditions": [
+    "graph"
+  ],
+  "embedding": null,
+  "split": "test",
+  "frozen": {
+    "file": "frozen_dotnet-runtime-s2_luna_infer.json",
+    "sha256": "68bc6e41a298d05aae5899a8043f6d33c36a85d65da350d34fb5bb8ac5d3735b",
+    "rerun": false
+  },
+  "oracle_free": {
+    "pipeline_version": "0.1+s2",
+    "curation_sha256": {
+      "kind_infer.py": "f9e6ddc16d7c487f172e1ec96e06b33441166a0f3e036502b7bc6fa2ac613fb0",
+      "scope_check.py": "54dccd3c1ed543a241075a26331accdf906073e97a472b667a8aba76547572dd",
+      "scope_common.py": "04077407a957de6c20930bbaf5f1bbbb3425a35c3936b8fd62fba61d011dddc1",
+      "scope_py.py": "c3c019c125bb628295ad51c65cc55a1d25698c94eb35c13966b1959a6b67c007",
+      "scope_ts.py": "fd5d94ecc4bfc0e68c3132ebf7df7253fde4bc28fa3ac7cf8ffa72dfc95f6721",
+      "lang_python.py": "b4880ce0187ad9af373e27b5cb0613a760ea5d386e6f514d5a916603e1b20a94",
+      "lang_ts.py": "2eef0e0141b368c69726d3a5f74db8d613772a3633cb665b9b22232cfdda19d2",
+      "tsbind.py": "6184f9216667f6ac752da9d9189cce14c4c620db2dc2fef4a202516678c8fb63",
+      "libtsall.so": "3b2a0ad1cebda1b601810fa2889942b66935099781a1bc3ab150f4252239f466",
+      "facts.py": "1f5881e360f6ff23038812efb0509cb5f52741d95e7e5c75fe9d0d0cbd123e78",
+      "facets_s2.py": "e7e3eef5271e8595696ec4de5a619a0d8bf08c69352c8cd2a868ba1ea485ac25",
+      "kind_infer_s2.py": "8169105cd028110ff2102c155736219e3e159f843eb44777216a89ecbe3ec788",
+      "ALL": "472f40ed06a1916e0bf9fcee41c57ad5ce908e528fae8161f03741dfbb161df1"
+    }
+  },
+  "n_units": 45,
+  "unit_ids": [
+    "csharp_061___comparer__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_049__s_void12__DOTNET-FIELD-STATIC-PREFIX",
+    "csharp_027___paddingBytesCount__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_021___current__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_037___fields__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_035___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_034___lockObject__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_028___target__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_026___padding__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_055___typesByName__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_025___servers__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_047___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_022___target__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_062___dataTypes__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_053___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_057___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_063___hasValue__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_036___state__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_039___usage__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_020___method__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_064___name__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_050___padding__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_042___sectionNameToIndex__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_040___position__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_044___writer__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_033___element0__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_048___executionManagerCore__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_059___padding__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_058___bytesWritten__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_045___peBuilder__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_032___chacha__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_041___wasmWellKnownGlobals__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_051___entryCountSet__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_031___lo__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_043___records__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_056___conformanceMode__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_024___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_046___targetSectionIndex__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_052___value__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_038___size__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_060___data__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_054___socket__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_030___element0__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_023___derivedTypes__DOTNET-FIELD-INSTANCE-PREFIX",
+    "csharp_029___current__DOTNET-FIELD-INSTANCE-PREFIX"
+  ],
+  "finished": "2026-11-02T15:42:35+00:00",
+  "trials_ok": 135,
+  "trials_error": 0
+}

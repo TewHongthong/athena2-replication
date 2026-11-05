@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_039",
+  "language": "csharp",
+  "originalName": "_usage",
+  "injectedName": "t_usage",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_usage' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "private sealed class AttributeInfo\n{\n    private readonly AttributeUsageAttribute t_usage;\n    private readonly int _inheritanceLevel;\n\n    public AttributeInfo(AttributeUsageAttribute usage, int inheritanceLevel)\n    {\n        t_usage = usage;\n        _inheritanceLevel = inheritanceLevel;\n    }\n\n    public AttributeUsageAttribute Usage\n    {\n        get\n        {\n            return t_usage;\n        }\n    }\n\n    public int InheritanceLevel\n    {\n        get\n        {\n            return _inheritanceLevel;\n        }\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

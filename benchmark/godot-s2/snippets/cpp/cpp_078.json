@@ -1,0 +1,47 @@
+{
+  "id": "cpp_078",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "core/string/regex.cpp lines 134-142 (method RegExMatch::get_start); license MIT; repo created 2026-07-28T09:45:06-05:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "int RegExMatch::get_start(const Variant &p_name) const {\n\tint id = _find(p_name);\n\n\tif (id < 0) {\n\t\treturn -1;\n\t}\n\n\treturn data[id].start;\n}",
+  "identifiers": [
+    {
+      "name": "p_name",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-28T09:45:06-05:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "core/string/regex.cpp",
+    "startLine": 134,
+    "endLine": 142,
+    "unit": "method RegExMatch::get_start",
+    "corpusFile": "corpus/cpp/godotengine__godot__core__string__regex.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 8,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

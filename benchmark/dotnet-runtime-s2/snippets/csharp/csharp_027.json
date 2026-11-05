@@ -1,0 +1,45 @@
+{
+  "id": "csharp_027",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmByteArrayDataSegment.cs lines 18-68 (class WasmByteArrayDataSegment); license MIT; repo created 2026-09-04T10:29:22-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class WasmByteArrayDataSegment : IWasmDataSegment\n{\n    private readonly byte[] _contents;\n    private int _paddingBytesCount;\n\n    public WasmByteArrayDataSegment(\n        byte[] contents,\n        Utf8String name,\n        int fileAlignment)\n    {\n        Debug.Assert(BitOperations.IsPow2(fileAlignment));\n        _contents = contents;\n        Name = name;\n        FileAlignment = fileAlignment;\n    }\n\n    public Utf8String Name { get; }\n    public int FileAlignment { get; }\n    public int HeaderSize => WasmDataSegmentEncoding.GetHeaderSize(WasmDataSegmentType.Passive, initExpr: null);\n    public int ContentSize => checked(_contents.Length + _paddingBytesCount);\n\n    public int EncodeSize() => HeaderSize + ContentSize;\n\n    public int EmitToStream(Stream outputFileStream)\n    {\n        Span<byte> headerBuffer = stackalloc byte[HeaderSize];\n        int headerSize = WasmDataSegmentEncoding.EncodeHeader(\n            headerBuffer,\n            WasmDataSegmentType.Passive,\n            initExpr: null,\n            ContentSize);\n        Debug.Assert(headerSize == HeaderSize);\n\n        outputFileStream.Write(headerBuffer);\n        outputFileStream.Write(_contents);\n        WasmDataSegmentEncoding.EmitPadding(outputFileStream, _paddingBytesCount);\n        return headerSize + _contents.Length + _paddingBytesCount;\n    }\n\n    public int GetMemoryAddressOfOffset(int offsetInSegment)\n    {\n        Debug.Assert(offsetInSegment >= 0 && offsetInSegment <= _contents.Length);\n        return offsetInSegment;\n    }\n\n    public void SetTrailingPadding(int trailingBytesCount)\n    {\n        Debug.Assert(trailingBytesCount >= 0);\n        _paddingBytesCount = trailingBytesCount;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_paddingBytesCount",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-04T10:29:22-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmByteArrayDataSegment.cs",
+    "startLine": 18,
+    "endLine": 68,
+    "unit": "class WasmByteArrayDataSegment",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__Compiler__ObjectWriter__Wasm__WasmByteArrayDataSegment.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

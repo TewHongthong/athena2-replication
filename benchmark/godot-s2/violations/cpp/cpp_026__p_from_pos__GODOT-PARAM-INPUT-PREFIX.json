@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_026",
+  "language": "cpp",
+  "originalName": "p_from_pos",
+  "injectedName": "from_pos",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'from_pos' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioStreamGeneratorPlayback::start(double from_pos) {\n\tif (mixed == 0.0) {\n\t\tbegin_resample();\n\t}\n\tskips = 0;\n\tactive = true;\n\tmixed = 0.0;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

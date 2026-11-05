@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_001",
+  "language": "cpp",
+  "originalName": "p_from_pos",
+  "injectedName": "from_pos",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'from_pos' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioStreamPlaybackMicrophone::start(double from_pos) {\n\tif (active) {\n\t\treturn;\n\t}\n\n\tinput_ofs = 0;\n\n\tif (AudioServer::get_singleton()->set_input_device_active(true) == OK) {\n\t\tactive = true;\n\t\tbegin_resample();\n\t}\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

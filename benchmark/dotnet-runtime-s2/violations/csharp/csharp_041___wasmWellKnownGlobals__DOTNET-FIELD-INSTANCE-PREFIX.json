@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_041",
+  "language": "csharp",
+  "originalName": "_wasmWellKnownGlobals",
+  "injectedName": "wasmWellKnownGlobals",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'wasmWellKnownGlobals' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public partial class NodeFactory\n{\n    // The well-known wasm globals are immutable relocation targets. They are created\n    // lazily on first access (only wasm targets ever request them) so non-wasm compilations don't\n    // pay the allocation.\n    private FrozenDictionary<Utf8String, WasmWellKnownGlobalSymbolNode> wasmWellKnownGlobals;\n\n    public WasmWellKnownGlobalSymbolNode GetWellKnownWasmGlobalSymbol(Utf8String symbolName)\n    {\n        FrozenDictionary<Utf8String, WasmWellKnownGlobalSymbolNode> globals = wasmWellKnownGlobals;\n        if (globals is null)\n        {\n            globals = FrozenDictionary.Create<Utf8String, WasmWellKnownGlobalSymbolNode>([\n                new(new(WasmWellKnownGlobalSymbolNode.StackPointerName), new WasmWellKnownGlobalSymbolNode(WasmWellKnownGlobalSymbolNode.StackPointerName)),\n                new(new(WasmWellKnownGlobalSymbolNode.ImageBaseName), new WasmWellKnownGlobalSymbolNode(WasmWellKnownGlobalSymbolNode.ImageBaseName)),\n                new(new(WasmWellKnownGlobalSymbolNode.TableBaseName), new WasmWellKnownGlobalSymbolNode(WasmWellKnownGlobalSymbolNode.TableBaseName)),\n                new(new(WasmWellKnownGlobalSymbolNode.AsyncContinuationName), new WasmWellKnownGlobalSymbolNode(WasmWellKnownGlobalSymbolNode.AsyncContinuationName))\n            ]);\n\n            globals = Interlocked.CompareExchange(ref wasmWellKnownGlobals, globals, null) ?? globals;\n        }\n\n        return globals[symbolName];\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

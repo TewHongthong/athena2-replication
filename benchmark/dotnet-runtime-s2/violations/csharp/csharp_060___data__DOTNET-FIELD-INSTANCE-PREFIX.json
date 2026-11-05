@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_060",
+  "language": "csharp",
+  "originalName": "_data",
+  "injectedName": "t_data",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_data' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal readonly ref struct DnsTxtRecordData\n{\n    private readonly ReadOnlySpan<byte> t_data;\n\n    internal DnsTxtRecordData(ReadOnlySpan<byte> data)\n    {\n        t_data = data;\n    }\n\n    public DnsTxtEnumerator EnumerateStrings() => new DnsTxtEnumerator(t_data);\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

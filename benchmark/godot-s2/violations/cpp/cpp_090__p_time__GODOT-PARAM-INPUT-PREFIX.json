@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_090",
+  "language": "cpp",
+  "originalName": "p_time",
+  "injectedName": "time",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'time' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioStreamPlaybackWAV::seek(double time) {\n\tif (base->format == AudioStreamWAV::FORMAT_IMA_ADPCM) {\n\t\treturn; //no seeking in ima-adpcm\n\t}\n\n\tdouble max = base->get_length();\n\tif (time < 0) {\n\t\ttime = 0;\n\t} else if (time >= max) {\n\t\ttime = max - 0.001;\n\t}\n\n\toffset = int64_t(time * base->mix_rate);\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

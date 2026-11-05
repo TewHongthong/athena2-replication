@@ -1,0 +1,45 @@
+{
+  "id": "csharp_013",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/StackWalk/Context/Wasm/WasmR2RInfo.cs lines 12-29 (class WasmR2RInfo); license MIT; repo created 2026-07-21T10:22:49-05:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class WasmR2RInfo : IWasmR2RInfo\n{\n    private readonly WasmFunctionTableIndexLookup _lookup;\n\n    public WasmR2RInfo(Target target)\n    {\n        _lookup = new WasmFunctionTableIndexLookup(target);\n    }\n\n    public bool TryGetVirtualIPBase(uint functionTableIndex, out ulong baseVirtualIP)\n        => _lookup.TryGetVirtualIPBase(functionTableIndex, out baseVirtualIP);\n\n    public bool TryGetUnwindData(uint functionTableIndex, out TargetPointer unwindDataAddress)\n        => _lookup.TryGetUnwindData(functionTableIndex, out unwindDataAddress);\n\n    public bool TryIsFunclet(uint functionTableIndex, out bool isFunclet)\n        => _lookup.TryIsFunclet(functionTableIndex, out isFunclet);\n}",
+  "identifiers": [
+    {
+      "name": "_lookup",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T10:22:49-05:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/StackWalk/Context/Wasm/WasmR2RInfo.cs",
+    "startLine": 12,
+    "endLine": 29,
+    "unit": "class WasmR2RInfo",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__StackWalk__Context__Wasm__WasmR2RInfo.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

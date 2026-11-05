@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_068",
+  "language": "cpp",
+  "originalName": "p_volume_offset_db",
+  "injectedName": "r_volume_offset_db",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_volume_offset_db' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioStreamRandomizer::set_random_volume_offset_db(float r_volume_offset_db) {\n\tif (r_volume_offset_db < 0) {\n\t\tr_volume_offset_db = 0;\n\t}\n\trandom_volume_offset_db = r_volume_offset_db;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

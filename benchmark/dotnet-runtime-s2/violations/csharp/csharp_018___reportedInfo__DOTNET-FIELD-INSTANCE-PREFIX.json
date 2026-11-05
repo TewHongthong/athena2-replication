@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_018",
+  "language": "csharp",
+  "originalName": "_reportedInfo",
+  "injectedName": "reportedInfo",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'reportedInfo' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class InteropLogger(Logger logger)\n{\n    private readonly HashSet<string> reportedInfo = [];\n\n    public void Warning(string code, string message)\n        => logger.LogMessage($\"crossgen2 : warning {code}: {message}\");\n\n    /// <summary>\n    /// Reports an informational diagnostic once per distinct message, so that a type used by\n    /// many signatures does not produce the same line repeatedly.\n    /// </summary>\n    public void InfoHigh(string code, string message)\n    {\n        if (reportedInfo.Add($\"{code}:{message}\"))\n            logger.LogMessage($\"crossgen2 : message {code}: {message}\");\n    }\n\n    public void Verbose(string message)\n    {\n        if (logger.IsVerbose)\n            logger.LogMessage(message);\n    }\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_083",
+  "language": "cpp",
+  "originalName": "r_options",
+  "injectedName": "options",
+  "identifierKind": "output_parameter",
+  "violatedRuleId": "GODOT-PARAM-OUTPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'options' does not start with required prefix 'r_'"
+  ],
+  "codeContextWithViolation": "void ResourceImporterStreamedTexture::get_import_options(const String &p_path, List<ImportOption> *options, int p_preset) const {\n\toptions->push_back(ImportOption(PropertyInfo(Variant::BOOL, \"compress/high_quality\"), false));\n\toptions->push_back(ImportOption(PropertyInfo(Variant::INT, \"compress/hdr_compression\", PROPERTY_HINT_ENUM, \"Disabled,Opaque Only,Always\"), 1));\n\toptions->push_back(ImportOption(PropertyInfo(Variant::INT, \"compress/normal_map\", PROPERTY_HINT_ENUM, \"Detect,Enable,Disabled\"), 0));\n\toptions->push_back(ImportOption(PropertyInfo(Variant::INT, \"compress/channel_pack\", PROPERTY_HINT_ENUM, \"sRGB Friendly,Optimized\"), 0));\n\n\toptions->push_back(ImportOption(PropertyInfo(Variant::INT, \"roughness/mode\", PROPERTY_HINT_ENUM, \"Detect,Disabled,Red,Green,Blue,Alpha,Gray\"), 0));\n\toptions->push_back(ImportOption(PropertyInfo(Variant::STRING, \"roughness/src_normal\", PROPERTY_HINT_FILE, \"*.bmp,*.exr,*.jpeg,*.jpg,*.hdr,*.png,*.svg,*.tga,*.webp\"), \"\"));\n\n\toptions->push_back(ImportOption(PropertyInfo(Variant::INT, \"streaming/min_lod_override\", PROPERTY_HINT_ENUM, \"Settings,0,1,2,3,4,5,6,7,8,9,10,11,12,13\"), 0));\n\toptions->push_back(ImportOption(PropertyInfo(Variant::INT, \"streaming/max_lod_override\", PROPERTY_HINT_ENUM, \"Settings,0,1,2,3,4,5,6,7,8,9,10,11,12,13\"), 0));\n}",
+  "occurrencesRenamed": 9,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

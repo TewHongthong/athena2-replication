@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_047",
+  "language": "cpp",
+  "originalName": "p_res",
+  "injectedName": "res",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'res' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void ShaderTextEditor::set_edited_resource(const Ref<Resource> &res) {\n\tif (res.is_null() || edited_res == res) {\n\t\treturn;\n\t}\n\tif (edited_res.is_valid()) {\n\t\tedited_res->disconnect_changed(callable_mp(this, &ShaderTextEditor::_shader_changed));\n\t}\n\n\tRef<Shader> shader = res;\n\tRef<ShaderInclude> shader_inc = res;\n\tif (shader.is_null() && shader_inc.is_null()) {\n\t\treturn;\n\t}\n\n\tedited_res = res;\n\t_load_theme_settings();\n\n\tString code;\n\tif (shader.is_valid()) {\n\t\tcode = shader->get_code();\n\t} else if (shader_inc.is_valid()) {\n\t\tcode = shader_inc->get_code();\n\t}\n\tcode_editor->get_text_editor()->set_text(code);\n\tcode_editor->get_text_editor()->clear_undo_history();\n\tcallable_mp((TextEdit *)code_editor->get_text_editor(), &TextEdit::set_h_scroll).call_deferred(0);\n\tcallable_mp((TextEdit *)code_editor->get_text_editor(), &TextEdit::set_v_scroll).call_deferred(0);\n\tcode_editor->get_text_editor()->tag_saved_version();\n\n\t_validate_script();\n\tcode_editor->update_line_and_column();\n\n\tedited_res->connect_changed(callable_mp(this, &ShaderTextEditor::_shader_changed));\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

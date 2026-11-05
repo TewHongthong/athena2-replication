@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_015",
+  "language": "cpp",
+  "originalName": "p_icon_name",
+  "injectedName": "icon_name",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'icon_name' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "Ref<Texture2D> EditorIconManager::get_icon(const StringName &icon_name) {\n\tRef<AtlasTexture> *existing = singleton->icons.getptr(icon_name);\n\tif (existing) {\n\t\treturn *existing;\n\t}\n\tRef<AtlasTexture> icon;\n\ticon.instantiate();\n\ticon->set_atlas(singleton->get_editor_theme_icon(icon_name));\n\tsingleton->icons[icon_name] = icon;\n\treturn icon;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

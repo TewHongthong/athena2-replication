@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_024",
+  "language": "csharp",
+  "originalName": "_value",
+  "injectedName": "s_value",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_value' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "[NativeMarshalling(typeof(QCallExceptionStatusMarshaller))]\n[StructLayout(LayoutKind.Sequential)]\ninternal readonly struct QCallExceptionStatus\n{\n    private readonly nint s_value;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

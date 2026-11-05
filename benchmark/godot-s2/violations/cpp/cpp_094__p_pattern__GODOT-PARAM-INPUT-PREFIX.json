@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_094",
+  "language": "cpp",
+  "originalName": "p_pattern",
+  "injectedName": "r_pattern",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_pattern' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "Ref<RegEx> RegEx::create_from_string(const String &r_pattern, bool p_show_error) {\n\tRef<RegEx> ret;\n\tret.instantiate();\n\tret->compile(r_pattern, p_show_error);\n\treturn ret;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

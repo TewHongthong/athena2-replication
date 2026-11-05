@@ -1,0 +1,44 @@
+{
+  "id": "csharp_046",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmSection.cs lines 152-180 (class WasmRelocationSection); license MIT; repo created 2026-08-06T12:08:07-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class WasmRelocationSection : WasmCustomSection\n{\n    private readonly int _targetSectionIndex;\n    private readonly int _relocationCount;\n\n    public WasmRelocationSection(\n        Stream stream,\n        Utf8String name,\n        int sectionIndex,\n        int targetSectionIndex,\n        int relocationCount)\n        : base(stream, name, sectionIndex)\n    {\n        Debug.Assert(targetSectionIndex >= 0);\n        Debug.Assert(relocationCount >= 0);\n        _targetSectionIndex = targetSectionIndex;\n        _relocationCount = relocationCount;\n    }\n\n    protected override int CustomPayloadPrefixSize => checked(\n        (int)DwarfHelper.SizeOfULEB128((ulong)_targetSectionIndex) +\n        (int)DwarfHelper.SizeOfULEB128((ulong)_relocationCount));\n\n    protected override int EncodeCustomPayloadPrefix(Span<byte> destination)\n    {\n        int written = DwarfHelper.WriteULEB128(destination, (ulong)_targetSectionIndex); // section: the index of the target section.\n        return written + DwarfHelper.WriteULEB128(destination.Slice(written), (ulong)_relocationCount); // count: count of entries to follow.\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_targetSectionIndex",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T12:08:07-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmSection.cs",
+    "startLine": 152,
+    "endLine": 180,
+    "unit": "class WasmRelocationSection",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__Compiler__ObjectWriter__Wasm__WasmSection.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 3,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

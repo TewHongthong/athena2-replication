@@ -1,0 +1,44 @@
+{
+  "id": "csharp_054",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Net.Security/src/System/Net/Security/TlsSocketSession.cs lines 22-62 (class TlsSocketSession); license MIT; repo created 2026-07-23T11:47:31+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[Experimental(Experimentals.LowLevelTlsDiagId, UrlFormat = Experimentals.SharedUrlFormat)]\npublic sealed class TlsSocketSession : TlsSession\n{\n    private readonly SafeSocketHandle _socket;\n\n    public TlsSocketSession(SafeSocketHandle socket)\n    {\n        ArgumentNullException.ThrowIfNull(socket);\n        _socket = socket;\n    }\n\n    internal override void OnContextInitialized()\n    {\n        AttachSocket(_socket);\n    }\n\n    /// <summary>The socket the session is bound to. Owned by the session.</summary>\n    public SafeSocketHandle Socket => _socket;\n\n    /// <summary>Drives the TLS handshake to completion, sending and receiving via the socket.</summary>\n    public TlsOperationStatus Handshake() => HandshakeSocketCore();\n\n    /// <summary>Reads decrypted application bytes from the socket into <paramref name=\"buffer\"/>.</summary>\n    public TlsOperationStatus Read(Span<byte> buffer, out int bytesRead)\n        => ReadSocketCore(buffer, out bytesRead);\n\n    /// <summary>Encrypts and sends <paramref name=\"buffer\"/> as one or more TLS records over the socket.</summary>\n    public TlsOperationStatus Write(ReadOnlySpan<byte> buffer, out int bytesWritten)\n        => WriteSocketCore(buffer, out bytesWritten);\n\n    /// <summary>Sends a TLS <c>close_notify</c> alert on the socket.</summary>\n    public TlsOperationStatus Shutdown() => ShutdownSocketCore();\n\n    /// <summary>Server-side only. Requests a client certificate on the socket: a <c>CertificateRequest</c> for TLS 1.3 post-handshake authentication, or a renegotiation on TLS 1.2.</summary>\n    /// <remarks>\n    /// If the TLS 1.3 client did not offer post-handshake authentication, no request is sent:\n    /// the method returns <see cref=\"TlsOperationStatus.Complete\"/>, the handshake stays complete, no client\n    /// certificate is received, and the session remains usable.\n    /// </remarks>\n    public TlsOperationStatus RequestClientCertificate() => RequestClientCertificateSocketCore();\n}",
+  "identifiers": [
+    {
+      "name": "_socket",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-23T11:47:31+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Net.Security/src/System/Net/Security/TlsSocketSession.cs",
+    "startLine": 22,
+    "endLine": 62,
+    "unit": "class TlsSocketSession",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Net.Security__src__System__Net__Security__TlsSocketSession.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

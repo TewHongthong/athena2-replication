@@ -1,0 +1,44 @@
+{
+  "id": "csharp_039",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/mono/System.Private.CoreLib/src/System/Reflection/RuntimeCustomAttribute.cs lines 792-818 (class AttributeInfo); license MIT; repo created 2026-09-15T10:47:18+09:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "private sealed class AttributeInfo\n{\n    private readonly AttributeUsageAttribute _usage;\n    private readonly int _inheritanceLevel;\n\n    public AttributeInfo(AttributeUsageAttribute usage, int inheritanceLevel)\n    {\n        _usage = usage;\n        _inheritanceLevel = inheritanceLevel;\n    }\n\n    public AttributeUsageAttribute Usage\n    {\n        get\n        {\n            return _usage;\n        }\n    }\n\n    public int InheritanceLevel\n    {\n        get\n        {\n            return _inheritanceLevel;\n        }\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_usage",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-15T10:47:18+09:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/mono/System.Private.CoreLib/src/System/Reflection/RuntimeCustomAttribute.cs",
+    "startLine": 792,
+    "endLine": 818,
+    "unit": "class AttributeInfo",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__mono__System.Private.CoreLib__src__System__Reflection__RuntimeCustomAttribute.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 1,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "csharp_056",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs lines 7-57 (class CborReaderOptions); license MIT; repo created 2026-06-11T22:01:28+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public sealed class CborReaderOptions\n{\n    private CborConformanceMode _conformanceMode = CborConformanceMode.Strict;\n    private int _maxDepth = -1;\n\n    /// <summary>\n    ///   Initializes a new instance of the <see cref=\"CborReaderOptions\"/> class.\n    /// </summary>\n    public CborReaderOptions()\n    {\n    }\n\n    /// <summary>Gets or sets the conformance mode used when reading CBOR data.</summary>\n    /// <value>The conformance mode. The default is <see cref=\"CborConformanceMode.Strict\" />.</value>\n    /// <exception cref=\"ArgumentOutOfRangeException\">\n    ///   <paramref name=\"value\" /> is not a defined <see cref=\"CborConformanceMode\" /> value.\n    /// </exception>\n    public CborConformanceMode ConformanceMode\n    {\n        get => _conformanceMode;\n        set\n        {\n            CborConformanceModeHelpers.Validate(value);\n            _conformanceMode = value;\n        }\n    }\n\n    /// <summary>\n    ///   Gets or sets a value that indicates whether multiple root-level values are supported by the reader.\n    /// </summary>\n    /// <value>\n    ///   <see langword=\"true\" /> if multiple root-level values are supported; otherwise, <see langword=\"false\" />.\n    ///   The default is <see langword=\"false\" />.\n    /// </value>\n    public bool AllowMultipleRootLevelValues { get; set; }\n\n    /// <summary>\n    ///   Gets or sets the maximum depth allowed when reading CBOR data,\n    ///   with the default (-1) indicating the maximum depth should be chosen by the runtime.</summary>\n    /// <value>The maximum depth allowed when reading CBOR data.</value>\n    /// <exception cref=\"ArgumentOutOfRangeException\"><paramref name=\"value\" /> is less than -1.</exception>\n    public int MaxDepth\n    {\n        get => _maxDepth;\n        set\n        {\n            ArgumentOutOfRangeException.ThrowIfLessThan(value, -1);\n            _maxDepth = value;\n        }\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_conformanceMode",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-11T22:01:28+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs",
+    "startLine": 7,
+    "endLine": 57,
+    "unit": "class CborReaderOptions",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Formats.Cbor__src__System__Formats__Cbor__Reader__CborReaderOptions.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

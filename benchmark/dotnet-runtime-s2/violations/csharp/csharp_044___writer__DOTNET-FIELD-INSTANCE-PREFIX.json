@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_044",
+  "language": "csharp",
+  "originalName": "_writer",
+  "injectedName": "writer",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'writer' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public sealed class Holder\n{\n    private readonly ConcreteWriter writer = new ConcreteWriter();\n\n    public WriterBase Writer => writer;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

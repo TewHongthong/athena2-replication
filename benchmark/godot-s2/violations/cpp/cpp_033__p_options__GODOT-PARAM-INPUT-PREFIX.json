@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_033",
+  "language": "cpp",
+  "originalName": "p_options",
+  "injectedName": "options",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'options' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "MetalBuffer MetalHeapAllocator::new_buffer(NS::UInteger p_length, MTL::ResourceOptions options) {\n\tuint32_t pool_index = _pool_for_options(options);\n\tMTL::SizeAndAlign sa = device->heapBufferSizeAndAlign(p_length, options);\n\t// Placement-heap resources inherit the heap's hazard tracking; strip\n\t// hazard bits and pass storage/cache + untracked only.\n\tMTL::ResourceOptions heap_options = (options & (RESOURCE_STORAGE_MODE_MASK | RESOURCE_CPU_CACHE_MODE_MASK)) | MTL::ResourceHazardTrackingModeUntracked;\n\n\tMetalBuffer result;\n\tMTL::Heap *heap = nullptr;\n\tif (sa.size > _preferred_block_size(pool_index) / 2) {\n\t\tif (!_dedicated_allocate(pool_index, sa.size, result.allocation, heap)) {\n\t\t\treturn result;\n\t\t}\n\t\tresult.buffer = NS::TransferPtr(heap->newBuffer(p_length, heap_options, 0));\n\t} else {\n\t\tuint64_t offset = 0;\n\t\tif (!_pool_allocate(pool_index, sa.size, sa.align, result.allocation, heap, offset)) {\n\t\t\treturn result;\n\t\t}\n\t\tresult.buffer = NS::TransferPtr(heap->newBuffer(p_length, heap_options, offset));\n\t}\n\tif (!result.buffer) {\n\t\t_free_allocation(result.allocation);\n\t}\n\treturn result;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

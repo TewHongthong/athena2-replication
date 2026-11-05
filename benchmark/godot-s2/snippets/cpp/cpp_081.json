@@ -1,0 +1,47 @@
+{
+  "id": "cpp_081",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/visual_shader/shader_graph.cpp lines 1163-1180 (method ShaderGraph::get_reroute_parameter_name); license MIT; repo created 2026-08-25T02:46:01+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "String ShaderGraph::get_reroute_parameter_name(int p_reroute_node) const {\n\tERR_FAIL_COND_V(!nodes.has(p_reroute_node), \"\");\n\n\tconst ShaderGraph::Node *node = &nodes[p_reroute_node];\n\twhile (node->prev_connected_nodes.size() > 0) {\n\t\tint connected_node_id = node->prev_connected_nodes[0];\n\t\tnode = &nodes[connected_node_id];\n\t\tRef<VisualShaderNodeParameter> parameter_node = node->node;\n\t\tif (parameter_node.is_valid() && parameter_node->get_output_port_type(0) == VisualShaderNode::PORT_TYPE_SAMPLER) {\n\t\t\treturn parameter_node->get_parameter_name();\n\t\t}\n\t\tRef<VisualShaderNodeInput> input_node = node->node;\n\t\tif (input_node.is_valid() && input_node->get_output_port_type(0) == VisualShaderNode::PORT_TYPE_SAMPLER) {\n\t\t\treturn input_node->get_input_real_name();\n\t\t}\n\t}\n\treturn \"\";\n}",
+  "identifiers": [
+    {
+      "name": "p_reroute_node",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-25T02:46:01+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/visual_shader/shader_graph.cpp",
+    "startLine": 1163,
+    "endLine": 1180,
+    "unit": "method ShaderGraph::get_reroute_parameter_name",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__visual_shader__shader_graph.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 26,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

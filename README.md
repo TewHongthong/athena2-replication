@@ -61,7 +61,11 @@ its build script is in the same folder.
 
 ## Study 2 (registered amendment)
 
-HYPOTHESES_v2_study2.md registers a second study of Vol. 2, written after the results of the registered study were known. It was added to this package before the benchmark of Study 2 was built; the ontologies, benchmark, runs and analyses of Study 2 are added in later versions.
+HYPOTHESES_v2_study2.md registers a second study of Vol. 2, written after the results of the registered study were known; it was added to this package before the benchmark of Study 2 was built. The additions to its plan are in ADDENDUM_study2.md (S2-A1 to S2-A13), and every command of Study 2 is in athena-sim/README_study2.md.
+
+Study 2 adds: the harness (athena-sim/athena2_s2.py, athena-sim/athena_s2/); the packs (athena-sim/packs/godot-s2/, athena-sim/packs/dotnet-runtime-s2/); the benchmark construction (athena-corpus/curation/facets_s2.py, kind_infer_s2.py, tools/*_s2.py); the benchmark (benchmark/godot-s2/, benchmark/dotnet-runtime-s2/); the model pins (models/model_pins_s2.json, models/model_pins_s2_or.json); the frozen setups (athena-sim/frozen_*-s2_*.json with their ledgers); the runs (athena-sim/runs/s2dev_*, s2canary_*, s2test_*); the analysis (athena-sim/analyse_study2.py, analyse_s2_a12.py, analyse_s2_a13.py and their outputs in analysis/); and the tests (athena-sim/tests_s2/, athena-corpus/curation/tests_s2/).
+
+The runs of qwen35_9b_s2 under s2test_ and s2canary_before_ are the local runs of Qwen3.5-9B that stopped when the serving machine failed; they are kept and are not read by the analysis, which uses the hosted runs of qwen35_9b_or_s2 (ADDENDUM_study2.md, S2-A11). To reproduce the analysis, run the commands of athena-sim/README_study2.md from athena-sim/ with ATHENA_S2_BENCH set to the folder benchmark/ of this package.
 
 ## License
 

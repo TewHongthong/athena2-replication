@@ -1,0 +1,44 @@
+{
+  "id": "csharp_035",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/Internal/Text/Utf8Span.cs lines 11-68 (struct Utf8Span); license MIT; repo created 2026-06-07T20:36:33-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public readonly ref struct Utf8Span\n{\n    private readonly ReadOnlySpan<byte> _value;\n\n    public Utf8Span(ReadOnlySpan<byte> value) => _value = value;\n\n    public int Length => _value.Length;\n\n    public bool IsEmpty => _value.IsEmpty;\n\n    public ReadOnlySpan<byte> AsSpan() => _value;\n\n    public byte[] ToArray() => _value.ToArray();\n\n    public bool StartsWith(Utf8Span value) => _value.StartsWith(value.AsSpan());\n\n    public bool EndsWith(Utf8Span value) => _value.EndsWith(value.AsSpan());\n\n    // This is deliberately not a == operator because we don't want to make it easy\n    // to accidentally do UTF-8 vs UTF-16 string comparisons.\n    public bool StringEquals(string value)\n    {\n        if (_value.Length < value.Length)\n            return false;\n\n        for (int i = 0; i < value.Length; i++)\n        {\n            int ch = _value[i];\n            if (ch > 0x7F)\n                return Encoding.UTF8.GetString(_value) == value;\n\n            // We are assuming here that valid UTF8 encoded byte > 0x7F cannot map to a character with code point <= 0x7F\n            if (ch != value[i])\n                return false;\n        }\n\n        return _value.Length == value.Length; // All char ANSI, all matching\n    }\n\n    public override bool Equals(object obj) => false;\n\n    public override int GetHashCode()\n    {\n        HashCode h = default;\n        h.AddBytes(_value);\n        return h.ToHashCode();\n    }\n\n    public override string ToString() => Encoding.UTF8.GetString(_value);\n\n    public static implicit operator Utf8Span(ReadOnlySpan<byte> s) => new Utf8Span(s);\n\n    public static bool operator ==(Utf8Span left, Utf8Span right)\n        => left._value.SequenceEqual(right._value);\n\n    public static bool operator !=(Utf8Span left, Utf8Span right)\n        => !left._value.SequenceEqual(right._value);\n}",
+  "identifiers": [
+    {
+      "name": "_value",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-07T20:36:33-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/Internal/Text/Utf8Span.cs",
+    "startLine": 11,
+    "endLine": 68,
+    "unit": "struct Utf8Span",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__Internal__Text__Utf8Span.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

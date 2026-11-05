@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_018",
+  "language": "cpp",
+  "originalName": "p_feedback_rid",
+  "injectedName": "feedback_rid",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'feedback_rid' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "RID TextureStreaming::material_set_textures(RID feedback_rid, const Vector<RID> &p_textures) {\n\tERR_NOT_ON_RENDER_THREAD_V(RID());\n\tMutexLock lock(material_mutex);\n\n\tMaterialInfo *info = nullptr;\n\tif (feedback_rid.is_null()) {\n\t\tinfo = material_info_owner.allocate(feedback_rid);\n\t} else {\n\t\tinfo = material_info_owner.get_or_null(feedback_rid);\n\t}\n\n\tERR_FAIL_NULL_V(info, RID());\n\n\tif (p_textures.is_empty()) {\n\t\tmaterial_info_owner.free(feedback_rid);\n\t\treturn RID();\n\t}\n\n\tinfo->textures = p_textures;\n\n\treturn feedback_rid;\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

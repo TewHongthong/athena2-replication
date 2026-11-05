@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_061",
+  "language": "csharp",
+  "originalName": "_comparer",
+  "injectedName": "comparer",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'comparer' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class DispatchCellInfoComparer : IComparer<DispatchCellNode>\n{\n    private readonly CompilerComparer comparer = CompilerComparer.Instance;\n\n    public int Compare(DispatchCellNode x, DispatchCellNode y)\n    {\n        int result = comparer.Compare(x.TargetMethod, y.TargetMethod);\n        return result != 0 ? result : comparer.Compare(x.CallSiteIdentifier, y.CallSiteIdentifier);\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

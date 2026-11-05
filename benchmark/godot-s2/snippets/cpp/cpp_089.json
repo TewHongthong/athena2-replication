@@ -1,0 +1,47 @@
+{
+  "id": "cpp_089",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_set_editor.cpp lines 417-425 (method TileSetEditor::update_layout); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileSetEditor::update_layout(EditorDock::DockLayout p_layout, int p_slot) {\n\tif (p_slot != EditorDock::DOCK_SLOT_BOTTOM) {\n\t\tpatterns_mc->set_theme_type_variation(\"NoBorderHorizontalBottom\");\n\t\tpatterns_item_list->set_scroll_hint_mode(ItemList::SCROLL_HINT_MODE_TOP);\n\t} else {\n\t\tpatterns_mc->set_theme_type_variation(\"NoBorderHorizontal\");\n\t\tpatterns_item_list->set_scroll_hint_mode(ItemList::SCROLL_HINT_MODE_BOTH);\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_slot",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_set_editor.cpp",
+    "startLine": 417,
+    "endLine": 425,
+    "unit": "method TileSetEditor::update_layout",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_set_editor.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 10,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

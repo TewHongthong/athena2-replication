@@ -1,0 +1,45 @@
+{
+  "id": "csharp_023",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/IsClosedTypeAttribute.cs lines 12-30 (class IsClosedTypeAttribute); license MIT; repo created 2026-06-02T05:39:15+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[EditorBrowsable(EditorBrowsableState.Never)]\n[AttributeUsage(AttributeTargets.Class, Inherited = false)]\npublic sealed class IsClosedTypeAttribute : Attribute\n{\n    private Type[] _derivedTypes = Type.EmptyTypes;\n\n    /// <summary>Initializes the attribute.</summary>\n    public IsClosedTypeAttribute()\n    {\n    }\n\n    /// <summary>Gets or sets the derived types of the closed type.</summary>\n    /// <value>An array of the derived types of the closed type. A <see langword=\"null\" /> value is normalized to an empty array.</value>\n    public Type[] DerivedTypes\n    {\n        get => _derivedTypes;\n        set => _derivedTypes = value ?? Type.EmptyTypes;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_derivedTypes",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-02T05:39:15+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/IsClosedTypeAttribute.cs",
+    "startLine": 12,
+    "endLine": 30,
+    "unit": "class IsClosedTypeAttribute",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Private.CoreLib__src__System__Runtime__CompilerServices__IsClosedTypeAttribute.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

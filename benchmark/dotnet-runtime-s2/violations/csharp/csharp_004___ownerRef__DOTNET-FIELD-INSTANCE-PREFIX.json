@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_004",
+  "language": "csharp",
+  "originalName": "_ownerRef",
+  "injectedName": "ownerRef",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'ownerRef' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "        private sealed class GCWatcher\n        {\n            private readonly WeakReference<X509MruCache<T>> ownerRef;\n\n            internal GCWatcher(X509MruCache<T> owner)\n            {\n                ownerRef = new WeakReference<X509MruCache<T>>(owner);\n            }\n\n            ~GCWatcher()\n            {\n                if (!ownerRef.TryGetTarget(out X509MruCache<T>? owner))\n                {\n                    return;\n                }\n\n                GC.ReRegisterForFinalize(this);\n\n                if (GC.GetGeneration(this) == GC.MaxGeneration)\n                {\n                    try\n                    {\n                        owner.PruneForGC();\n                    }\n                    catch\n                    {\n                        // Eat any exception so we don't terminate the finalizer thread.\n#if DEBUG\n                        // Except in DEBUG, as we really shouldn't be hitting any exceptions here.\n                        throw;\n#endif\n                    }\n                }\n            }\n        }",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

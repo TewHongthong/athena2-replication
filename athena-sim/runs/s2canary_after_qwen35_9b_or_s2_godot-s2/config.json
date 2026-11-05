@@ -1,0 +1,143 @@
+{
+  "run_id": "s2canary_after_qwen35_9b_or_s2_godot-s2",
+  "harness_version": "0.1.0",
+  "status": "complete",
+  "started": "2026-11-04T16:27:24+00:00",
+  "python": "3.14.4",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "args": {
+    "cmd": "run",
+    "pack": "godot-s2",
+    "corpus": null,
+    "ontology_variant": "human",
+    "task": "rename",
+    "conditions": "none",
+    "embed_pin": null,
+    "languages": null,
+    "per_language": 0,
+    "limit": 0,
+    "seed": 42,
+    "split": "dev",
+    "top_k": null,
+    "chunk_k": 3,
+    "examples": 2,
+    "no_oracle": false,
+    "backend": "openai:qwen/qwen3.5-9b",
+    "model_pin": "qwen35_9b_or_s2",
+    "pins": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/models/model_pins_s2_or.json",
+    "repeats": 1,
+    "temperature": 0.2,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "base_url": "https://openrouter.ai/api/v1",
+    "omit_temperature": false,
+    "no_think": false,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "deepinfra"
+        ],
+        "allow_fallbacks": false,
+        "quantizations": [
+          "bf16"
+        ],
+        "require_parameters": true
+      },
+      "reasoning": {
+        "enabled": false
+      }
+    },
+    "frozen": null,
+    "allow_rerun": false,
+    "timeout": 180.0,
+    "retries": 5,
+    "workers": 4,
+    "max_errors": 20,
+    "price_in": 0.1,
+    "price_out": 0.15,
+    "no_store_prompt": false,
+    "run_id": "s2canary_after_qwen35_9b_or_s2_godot-s2",
+    "out": "/mnt/c/Users/tew_hon/Desktop/project2/athena2/athena-sim/runs",
+    "progress": 25,
+    "model_pin_sha256": "7ba9c61b3d213ec2da23235ff5cca12a59d2e29a347f31d7e838d3c81a7269ec"
+  },
+  "backend": {
+    "spec": "openai:qwen/qwen3.5-9b",
+    "is_llm": true,
+    "model": "qwen/qwen3.5-9b",
+    "base_url": "https://openrouter.ai/api/v1",
+    "reasoning_model": false,
+    "temperature": 0.2,
+    "max_tokens": 8192,
+    "reasoning_effort": null,
+    "extra_body": {
+      "provider": {
+        "order": [
+          "deepinfra"
+        ],
+        "allow_fallbacks": false,
+        "quantizations": [
+          "bf16"
+        ],
+        "require_parameters": true
+      },
+      "reasoning": {
+        "enabled": false
+      }
+    }
+  },
+  "pack": {
+    "pack": "godot-s2",
+    "ontology": "godot_ontology.json",
+    "ontology_sha256": "177496952d795448c743b747015b94a7576f0b16ea9468d2cdea86a67b6283fa",
+    "ontology_variant": "human",
+    "rules_ontology_sha256": "177496952d795448c743b747015b94a7576f0b16ea9468d2cdea86a67b6283fa",
+    "core_rules_sha256": "40059979cc08e61a7e5154d141e28d85d995e51af59fdd541e062c35c5261a6f",
+    "standard_document_sha256": "b55b6958c778fbb427c03e76a9ff0cdaa81678cc631c6ee474565b3e0729eaed",
+    "benchmark_index_sha256": "e49bc0f321a6f66fdd85265f1b1894adb8e8315f9c0af480234f032b3988e410",
+    "standard_document_id": "godot"
+  },
+  "conditions": [
+    "none"
+  ],
+  "embedding": null,
+  "split": "dev",
+  "frozen": null,
+  "oracle_free": null,
+  "n_units": 30,
+  "unit_ids": [
+    "cpp_021__p_arr__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_004__p_pin_uv__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_001__p_from_pos__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_024__p_buffer__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_009__p_polygon__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_008__p_port__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_025__p_path__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_005__p_path__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_029__p_driver__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_018__p_feedback_rid__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_003__p_rect__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_019__p_frames__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_014__p_selected__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_002__p_from__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_028__p_on_setup_cancelled__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_017__p_layout__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_022__p_atlas_coords__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_030__p_channels__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_026__p_from_pos__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_010__p_id__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_016__p_tile_map_layer_id__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_012__p_exclude__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_013__p_layout__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_006__p_emitting__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_007__p_name__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_023__p_id__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_027__p_name__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_011__p_tiling_multiplier__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_015__p_icon_name__GODOT-PARAM-INPUT-PREFIX",
+    "cpp_020__p_playback__GODOT-PARAM-INPUT-PREFIX"
+  ],
+  "finished": "2026-11-04T16:36:59+00:00",
+  "trials_ok": 30,
+  "trials_error": 0
+}

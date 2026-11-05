@@ -1,0 +1,44 @@
+{
+  "id": "csharp_043",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Net.NameResolution/src/System/Net/DnsResult.cs lines 13-42 (struct DnsResult); license MIT; repo created 2026-07-08T15:54:01+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public readonly struct DnsResult<T>\n{\n    private readonly IReadOnlyList<T>? _records;\n\n    /// <summary>Gets the DNS response code returned by the server.</summary>\n    [CLSCompliant(false)]\n    public DnsResponseCode ResponseCode { get; }\n\n    /// <summary>\n    /// Gets the records returned by the server. The list is empty on error or NODATA responses.\n    /// </summary>\n    public IReadOnlyList<T> Records => _records ?? Array.Empty<T>();\n\n    /// <summary>\n    /// Gets the duration for which a negative response (NXDOMAIN or NODATA) may be cached.\n    /// </summary>\n    /// <remarks>\n    /// The value is derived from the SOA minimum TTL in the authority section, per RFC 2308 §5.\n    /// Availability is best-effort and platform-dependent; the value is <see cref=\"TimeSpan.Zero\"/>\n    /// when not applicable or unavailable.\n    /// </remarks>\n    public TimeSpan NegativeCacheTtl { get; }\n\n    internal DnsResult(DnsResponseCode responseCode, IReadOnlyList<T>? records, TimeSpan negativeCacheTtl)\n    {\n        ResponseCode = responseCode;\n        _records = records;\n        NegativeCacheTtl = negativeCacheTtl;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_records",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-08T15:54:01+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Net.NameResolution/src/System/Net/DnsResult.cs",
+    "startLine": 13,
+    "endLine": 42,
+    "unit": "struct DnsResult",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Net.NameResolution__src__System__Net__DnsResult.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

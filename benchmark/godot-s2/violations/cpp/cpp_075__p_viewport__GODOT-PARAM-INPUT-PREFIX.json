@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_075",
+  "language": "cpp",
+  "originalName": "p_viewport",
+  "injectedName": "viewport",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'viewport' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void OpenXRFoveatedInsetExtension::unregister_viewport(RID viewport) {\n\tRenderingServer *rendering_server = RenderingServer::get_singleton();\n\tERR_FAIL_NULL(rendering_server);\n\n\trendering_server->call_on_render_thread(callable_mp(this, &OpenXRFoveatedInsetExtension::_unregister_viewport_rt).bind(viewport));\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

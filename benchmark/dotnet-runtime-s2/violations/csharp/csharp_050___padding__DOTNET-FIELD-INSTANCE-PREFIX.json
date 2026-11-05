@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_050",
+  "language": "csharp",
+  "originalName": "_padding",
+  "injectedName": "padding",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'padding' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal static partial class Sys\n{\n    [Flags]\n    internal enum HandleEvents : int\n    {\n        None = 0x00,\n        Read = 0x01,\n        Write = 0x02,\n        ReadClose = 0x04,\n        Close = 0x08,\n        Error = 0x10\n    }\n\n    [StructLayout(LayoutKind.Sequential)]\n    internal struct HandleEvent\n    {\n        public IntPtr Data;\n        public HandleEvents Events;\n        private int padding;\n    }\n\n    [LibraryImport(Libraries.SystemNative, EntryPoint = \"SystemNative_CreateHandleEventPort\")]\n    internal static unsafe partial Error CreateHandleEventPort(IntPtr* port);\n\n    [LibraryImport(Libraries.SystemNative, EntryPoint = \"SystemNative_CloseHandleEventPort\")]\n    internal static partial Error CloseHandleEventPort(IntPtr port);\n\n    [LibraryImport(Libraries.SystemNative, EntryPoint = \"SystemNative_CreateHandleEventBuffer\")]\n    internal static unsafe partial Error CreateHandleEventBuffer(int count, HandleEvent** buffer);\n\n    [LibraryImport(Libraries.SystemNative, EntryPoint = \"SystemNative_FreeHandleEventBuffer\")]\n    internal static unsafe partial Error FreeHandleEventBuffer(HandleEvent* buffer);\n\n    [LibraryImport(Libraries.SystemNative, EntryPoint = \"SystemNative_TryChangeHandleEventRegistration\")]\n    internal static partial Error TryChangeHandleEventRegistration(IntPtr port, SafeHandle socket, HandleEvents currentEvents, HandleEvents newEvents, IntPtr data);\n\n    [LibraryImport(Libraries.SystemNative, EntryPoint = \"SystemNative_TryChangeHandleEventRegistration\")]\n    internal static partial Error TryChangeHandleEventRegistration(IntPtr port, IntPtr socket, HandleEvents currentEvents, HandleEvents newEvents, IntPtr data);\n\n    [LibraryImport(Libraries.SystemNative, EntryPoint = \"SystemNative_WaitForHandleEvents\")]\n    internal static unsafe partial Error WaitForHandleEvents(IntPtr port, HandleEvent* buffer, int* count);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

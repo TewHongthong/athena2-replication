@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_037",
+  "language": "csharp",
+  "originalName": "_fields",
+  "injectedName": "fields",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'fields' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "private sealed class DataTypeUsageBuilder(string name)\n{\n    private readonly Dictionary<string, FieldUsageBuilder> fields =\n        new(StringComparer.Ordinal);\n\n    public string Name { get; } = name;\n    public bool UsesTypeSize { get; set; }\n\n    public void RecordField(string field, string type)\n    {\n        if (!fields.TryGetValue(field, out FieldUsageBuilder? usage))\n            fields[field] = usage = new FieldUsageBuilder(field);\n        usage.Type = MergeType(\n            usage.Type,\n            type,\n            $\"Data descriptor field '{Name}.{field}'\");\n    }\n\n    public DataTypeUsage Build() =>\n        new(\n            Name,\n            UsesTypeSize,\n            fields.Values\n                .OrderBy(usage => usage.Name, StringComparer.Ordinal)\n                .Select(usage => usage.Build())\n                .ToArray());\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

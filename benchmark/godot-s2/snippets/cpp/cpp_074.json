@@ -1,0 +1,47 @@
+{
+  "id": "cpp_074",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/gdscript/gdscript_linter.cpp lines 44-50 (method ConfusableIdentifier.check_identifier); license MIT; repo created 2026-09-06T00:55:48+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "static void check_identifier(const GDScriptParser::IdentifierNode *p_identifier, GDScriptParser &p_sink) {\n\tconst Ref<TextServer> &ts = TextServerManager::get_singleton()->get_primary_interface();\n\t// Check for synthetic nodes (`start_line != -1`) manually, since this is not called directly by `GDScriptLinter`.\n\tif (p_identifier && p_identifier->start_line != -1 && ts->has_feature(TextServer::FEATURE_UNICODE_SECURITY) && ts->spoof_check(p_identifier->name)) {\n\t\tp_sink.push_warning(p_identifier, GDScriptWarning::CONFUSABLE_IDENTIFIER, p_identifier->name.string());\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_sink",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-06T00:55:48+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/gdscript/gdscript_linter.cpp",
+    "startLine": 44,
+    "endLine": 50,
+    "unit": "method ConfusableIdentifier.check_identifier",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__gdscript__gdscript_linter.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "output_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": true,
+      "owner": "method",
+      "owner_via": "class_body",
+      "pointee_const": false,
+      "prefix": "p_"
+    },
+    "topLevel": false
+  }
+}

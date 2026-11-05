@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_002",
+  "language": "csharp",
+  "originalName": "_values",
+  "injectedName": "s_values",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_values' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public readonly struct TxtRecord\n{\n    private readonly IReadOnlyList<string>? s_values;\n\n    /// <summary>Gets the character-strings contained in the record.</summary>\n    public IReadOnlyList<string> Values => s_values ?? Array.Empty<string>();\n    /// <summary>Gets the time-to-live (TTL) of the record.</summary>\n    public TimeSpan Ttl { get; }\n\n    internal TxtRecord(IReadOnlyList<string> values, TimeSpan ttl)\n    {\n        s_values = values;\n        Ttl = ttl;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

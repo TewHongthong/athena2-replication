@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_017",
+  "language": "csharp",
+  "originalName": "_stub",
+  "injectedName": "t_stub",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_stub' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public sealed class WasmUnboxingStubTargetNode : DependencyNodeCore<NodeFactory>\n{\n    private readonly MethodDesc _targetMethod;\n    private readonly WasmSignature _signature;\n    private readonly WasmUnboxingStubNode t_stub;\n\n    public WasmUnboxingStubTargetNode(MethodDesc targetMethod, WasmSignature signature, WasmUnboxingStubNode stub)\n    {\n        _targetMethod = targetMethod;\n        _signature = signature;\n        t_stub = stub;\n    }\n\n    public override bool InterestingForDynamicDependencyAnalysis => false;\n\n    public override bool HasDynamicDependencies => false;\n\n    public override bool HasConditionalStaticDependencies => false;\n\n    public override bool StaticDependenciesAreComputed => true;\n\n    public override IEnumerable<CombinedDependencyListEntry> GetConditionalStaticDependencies(NodeFactory context) => null;\n\n    public override IEnumerable<DependencyListEntry> GetStaticDependencies(NodeFactory context)\n    {\n        DependencyList dependencies = new DependencyList();\n        dependencies.Add(t_stub, \"Wasm unboxing stub for target method\");\n        dependencies.Add(context.CompiledMethodNode(_targetMethod), \"Target method for Wasm unboxing stub\");\n        dependencies.Add(context.WasmR2RToInterpreterThunk(WasmLowering.GetSignature(_targetMethod)), \"Interpreter fallback for Wasm unboxing target\");\n        dependencies.Add(context.WasmInterpreterToR2RThunk(_signature), \"Interpreter-to-R2R thunk for Wasm unboxing stub target\");\n        return dependencies;\n    }\n\n    public override IEnumerable<CombinedDependencyListEntry> SearchDynamicDependencies(\n        List<DependencyNodeCore<NodeFactory>> markedNodes,\n        int firstNode,\n        NodeFactory context) => null;\n\n    protected override string GetName(NodeFactory factory) => $\"Wasm unboxing stub target for {_targetMethod}\";\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "cpp_009",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_data_editors.cpp lines 855-861 (method GenericTilePolygonEditor::set_polygon); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void GenericTilePolygonEditor::set_polygon(int p_polygon_index, const Vector<Point2> &p_polygon) {\n\tERR_FAIL_INDEX(p_polygon_index, (int)polygons.size());\n\tERR_FAIL_COND(p_polygon.size() < 3);\n\tpolygons[p_polygon_index] = p_polygon;\n\tbutton_edit->set_pressed(true);\n\tbase_control->queue_redraw();\n}",
+  "identifiers": [
+    {
+      "name": "p_polygon",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_data_editors.cpp",
+    "startLine": 855,
+    "endLine": 861,
+    "unit": "method GenericTilePolygonEditor::set_polygon",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_data_editors.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 30,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

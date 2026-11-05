@@ -1,0 +1,44 @@
+{
+  "id": "csharp_036",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/TestCases/Webcil/WasmDelegateConstructors.cs lines 8-22 (class WasmDelegateTarget); license MIT; repo created 2026-10-01T03:52:17+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public sealed class WasmDelegateTarget\n{\n    private readonly int _state;\n\n    public WasmDelegateTarget(int state)\n    {\n        _state = state;\n    }\n\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public static int StaticTarget(int value) => value + 1;\n\n    [MethodImpl(MethodImplOptions.NoInlining)]\n    public int InstanceTarget(int value) => value + _state;\n}",
+  "identifiers": [
+    {
+      "name": "_state",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-01T03:52:17+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.ReadyToRun.Tests/TestCases/Webcil/WasmDelegateConstructors.cs",
+    "startLine": 8,
+    "endLine": 22,
+    "unit": "class WasmDelegateTarget",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.ReadyToRun.Tests__TestCases__Webcil__WasmDelegateConstructors.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

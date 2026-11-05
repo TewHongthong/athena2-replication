@@ -1,0 +1,49 @@
+{
+ "by_kind": {
+  "all": {
+   "input_parameter": 97,
+   "output_parameter": 3
+  },
+  "dev": {
+   "input_parameter": 30
+  },
+  "test": {
+   "input_parameter": 67,
+   "output_parameter": 3
+  }
+ },
+ "by_method": {
+  "all": {
+   "prefix_strip": 50,
+   "prefix_swap": 50
+  },
+  "dev": {
+   "prefix_strip": 15,
+   "prefix_swap": 15
+  },
+  "test": {
+   "prefix_strip": 35,
+   "prefix_swap": 35
+  }
+ },
+ "by_rule": {
+  "all": {
+   "GODOT-PARAM-INPUT-PREFIX": 97,
+   "GODOT-PARAM-OUTPUT-PREFIX": 3
+  },
+  "dev": {
+   "GODOT-PARAM-INPUT-PREFIX": 30
+  },
+  "test": {
+   "GODOT-PARAM-INPUT-PREFIX": 67,
+   "GODOT-PARAM-OUTPUT-PREFIX": 3
+  }
+ },
+ "by_split": {
+  "dev": 30,
+  "test": 70
+ },
+ "language": "cpp",
+ "pack": "godot-s2",
+ "tasks": 100
+}

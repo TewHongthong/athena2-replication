@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_019",
+  "language": "csharp",
+  "originalName": "_json",
+  "injectedName": "json",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'json' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "public sealed class MonoRuntimeComponentManifestReadTask : Microsoft.Build.Utilities.Task\n{\n    private JsonModelRoot? json;\n\n    [Required]\n    public string? JsonFilePath { get; set; }\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeComponentSharedLibExt => json?.GetItems(nameof(_MonoRuntimeComponentSharedLibExt));\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeComponentStaticLibExt => json?.GetItems(nameof(_MonoRuntimeComponentStaticLibExt));\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeComponentLinking => json?.GetItems(nameof(_MonoRuntimeComponentLinking));\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeAvailableComponents => json?.GetItems(nameof(_MonoRuntimeAvailableComponents));\n\n    public override bool Execute()\n    {\n        return JsonToItemsReader.TryRead(JsonFilePath, Log, out json);\n    }\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

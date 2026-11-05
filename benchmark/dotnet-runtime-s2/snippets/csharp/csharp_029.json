@@ -1,0 +1,45 @@
+{
+  "id": "csharp_029",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Net.NameResolution/src/System/Net/DnsRecordParsing.cs lines 108-142 (struct DnsTxtEnumerator); license MIT; repo created 2026-08-06T09:55:59+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal ref struct DnsTxtEnumerator\n{\n    private ReadOnlySpan<byte> _remaining;\n    private ReadOnlySpan<byte> _current;\n\n    internal DnsTxtEnumerator(ReadOnlySpan<byte> data)\n    {\n        _remaining = data;\n        _current = default;\n    }\n\n    public readonly ReadOnlySpan<byte> Current => _current;\n\n    public bool MoveNext()\n    {\n        if (_remaining.Length == 0)\n        {\n            return false;\n        }\n\n        int len = _remaining[0];\n        if (1 + len > _remaining.Length)\n        {\n            return false;\n        }\n\n        _current = _remaining.Slice(1, len);\n        _remaining = _remaining[(1 + len)..];\n        return true;\n    }\n\n    public readonly DnsTxtEnumerator GetEnumerator() => this;\n\n    public readonly bool IsValid => _remaining.IsEmpty;\n}",
+  "identifiers": [
+    {
+      "name": "_current",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T09:55:59+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Net.NameResolution/src/System/Net/DnsRecordParsing.cs",
+    "startLine": 108,
+    "endLine": 142,
+    "unit": "struct DnsTxtEnumerator",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Net.NameResolution__src__System__Net__DnsRecordParsing.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 7,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

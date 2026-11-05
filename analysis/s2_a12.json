@@ -1,0 +1,63 @@
+{
+  "local_pin": "qwen35_9b_s2",
+  "hosted_pin": "qwen35_9b_or_s2",
+  "local_runs": [
+    "s2canary_before_qwen35_9b_s2_godot-s2",
+    "s2canary_before_qwen35_9b_s2_dotnet-runtime-s2"
+  ],
+  "hosted_runs": [
+    "s2canary_before_qwen35_9b_or_s2_godot-s2",
+    "s2canary_before_qwen35_9b_or_s2_dotnet-runtime-s2"
+  ],
+  "local_error_keys": 0,
+  "hosted_error_keys": 0,
+  "local_only_units": 0,
+  "hosted_only_units": 0,
+  "rows": [
+    {
+      "pack": "godot-s2",
+      "units": 30,
+      "local_pass": 14,
+      "hosted_pass": 12,
+      "local": 0.4666666666666667,
+      "hosted": 0.4,
+      "pass_local_only": 5,
+      "pass_hosted_only": 3,
+      "mcnemar_p": 0.7265625,
+      "same_name": 18,
+      "same_name_share": 0.6,
+      "unparsed_local": 0,
+      "unparsed_hosted": 1
+    },
+    {
+      "pack": "dotnet-runtime-s2",
+      "units": 19,
+      "local_pass": 7,
+      "hosted_pass": 5,
+      "local": 0.3684210526315789,
+      "hosted": 0.2631578947368421,
+      "pass_local_only": 5,
+      "pass_hosted_only": 3,
+      "mcnemar_p": 0.7265625,
+      "same_name": 7,
+      "same_name_share": 0.3684210526315789,
+      "unparsed_local": 0,
+      "unparsed_hosted": 0
+    },
+    {
+      "pack": "all",
+      "units": 49,
+      "local_pass": 21,
+      "hosted_pass": 17,
+      "local": 0.42857142857142855,
+      "hosted": 0.3469387755102041,
+      "pass_local_only": 10,
+      "pass_hosted_only": 6,
+      "mcnemar_p": 0.454498291015625,
+      "same_name": 25,
+      "same_name_share": 0.5102040816326531,
+      "unparsed_local": 0,
+      "unparsed_hosted": 1
+    }
+  ]
+}

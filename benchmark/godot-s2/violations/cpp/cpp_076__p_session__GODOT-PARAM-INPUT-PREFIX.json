@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_076",
+  "language": "cpp",
+  "originalName": "p_session",
+  "injectedName": "session",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'session' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void OpenXRSpatialContainerSelfRenderingExtension::on_session_created(const XrSession session) {\n\tif (!is_enabled()) {\n\t\treturn;\n\t}\n\n\tERR_FAIL_NULL(OpenXRAPI::get_singleton());\n\tOpenXRAPI::get_singleton()->register_frame_info_extension(this);\n\tOpenXRAPI::get_singleton()->register_projection_layer_extension(this);\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

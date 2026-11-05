@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_030",
+  "language": "cpp",
+  "originalName": "p_channels",
+  "injectedName": "channels",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'channels' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "AudioDriver::SpeakerMode AudioDriver::get_speaker_mode_by_total_channels(int channels) const {\n\tswitch (channels) {\n\t\tcase 4:\n\t\t\treturn SPEAKER_SURROUND_31;\n\t\tcase 6:\n\t\t\treturn SPEAKER_SURROUND_51;\n\t\tcase 8:\n\t\t\treturn SPEAKER_SURROUND_71;\n\t}\n\n\t// Default to STEREO\n\treturn SPEAKER_MODE_STEREO;\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

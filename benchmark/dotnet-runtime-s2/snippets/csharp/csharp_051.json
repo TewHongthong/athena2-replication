@@ -1,0 +1,45 @@
+{
+  "id": "csharp_051",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmSection.cs lines 258-278 (class WasmExternallyCountedSection); license MIT; repo created 2026-08-06T12:08:07-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class WasmExternallyCountedSection : WasmVectorSection\n{\n    private bool _entryCountSet;\n\n    public WasmExternallyCountedSection(WasmSectionType type, Stream stream, Utf8String name, int sectionIndex)\n        : base(type, stream, name, sectionIndex)\n    {\n    }\n\n    public override int EmitToStream(Stream outputFileStream)\n    {\n        Debug.Assert(_entryCountSet);\n        return base.EmitToStream(outputFileStream);\n    }\n\n    public void SetEntryCount(int entryCount)\n    {\n        _entryCountSet = true;\n        EntryCount = entryCount;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_entryCountSet",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T12:08:07-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/Common/Compiler/ObjectWriter/Wasm/WasmSection.cs",
+    "startLine": 258,
+    "endLine": 278,
+    "unit": "class WasmExternallyCountedSection",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__Common__Compiler__ObjectWriter__Wasm__WasmSection.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 6,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

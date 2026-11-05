@@ -1,0 +1,2 @@
+{"run_id": "s2test_qwen35_9b_s2_dotnet-runtime-s2_meta", "event": "start", "backend": "openai:qwen3.5-9b-ud-q8_k_xl", "rerun": false, "trials": 945, "ts": "2026-11-02T19:47:49+00:00"}
+{"run_id": "s2test_qwen35_9b_s2_dotnet-runtime-s2_meta", "event": "end", "status": "aborted (too many consecutive errors)", "trials_ok": 130, "trials_error": 20, "ts": "2026-11-02T20:47:08+00:00"}

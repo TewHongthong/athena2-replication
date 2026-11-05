@@ -1,0 +1,44 @@
+{
+  "id": "csharp_012",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKemCng.cs lines 19-72 (class CompositeMLKemCng); license MIT; repo created 2026-09-09T23:26:14-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "[Experimental(Experimentals.PostQuantumCryptographyDiagId, UrlFormat = Experimentals.SharedUrlFormat)]\npublic sealed partial class CompositeMLKemCng : CompositeMLKem\n{\n    private CngKey _key;\n\n    /// <summary>\n    ///   Initializes a new instance of the <see cref=\"CompositeMLKemCng\"/> class by using the specified\n    ///   <see cref=\"CngKey\"/>.\n    /// </summary>\n    /// <param name=\"key\">\n    ///   The key that will be used as input to the cryptographic operations performed by the current object.\n    /// </param>\n    /// <exception cref=\"ArgumentNullException\">\n    ///   <paramref name=\"key\"/> is <see langword=\"null\"/>.\n    /// </exception>\n    /// <exception cref=\"ArgumentException\">\n    ///   <paramref name=\"key\"/> does not specify a Composite ML-KEM algorithm group.\n    /// </exception>\n    /// <exception cref=\"PlatformNotSupportedException\">\n    ///   Cryptography Next Generation (CNG) classes are not supported on this system.\n    /// </exception>\n    [SupportedOSPlatform(\"windows\")]\n    public CompositeMLKemCng(CngKey key)\n        : base(AlgorithmFromHandleWithPlatformCheck(key, out CngKey duplicateKey))\n    {\n        _key = duplicateKey;\n    }\n\n    private static CompositeMLKemAlgorithm AlgorithmFromHandleWithPlatformCheck(\n        CngKey key,\n        out CngKey duplicateKey)\n    {\n        if (!Helpers.IsOSPlatformWindows)\n        {\n            throw new PlatformNotSupportedException();\n        }\n\n        return AlgorithmFromHandle(key, out duplicateKey);\n    }\n\n    private static partial CompositeMLKemAlgorithm AlgorithmFromHandle(CngKey key, out CngKey duplicateKey);\n\n    /// <summary>\n    ///   Gets a new <see cref=\"CngKey\" /> representing the key used by the current instance.\n    /// </summary>\n    /// <exception cref=\"ObjectDisposedException\">\n    ///   This instance has been disposed.\n    /// </exception>\n    /// <remarks>\n    ///   This <see cref=\"CngKey\"/> object is not the same as the one passed to <see cref=\"CompositeMLKemCng(CngKey)\"/>,\n    ///   if that constructor was used. However, it will point to the same CNG key.\n    /// </remarks>\n    public partial CngKey GetKey();\n}",
+  "identifiers": [
+    {
+      "name": "_key",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-09T23:26:14-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Common/src/System/Security/Cryptography/CompositeMLKemCng.cs",
+    "startLine": 19,
+    "endLine": 72,
+    "unit": "class CompositeMLKemCng",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Common__src__System__Security__Cryptography__CompositeMLKemCng.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

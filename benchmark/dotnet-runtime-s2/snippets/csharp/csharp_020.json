@@ -1,0 +1,44 @@
+{
+  "id": "csharp_020",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.ReadyToRun/Compiler/DependencyAnalysis/ReadyToRun/WasmMethodRelativeVirtualIPNode.cs lines 11-56 (class WasmMethodRelativeVirtualIPNode); license MIT; repo created 2026-09-14T14:18:46-07:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class WasmMethodRelativeVirtualIPNode : SortableDependencyNode, ISortableSymbolNode\n{\n    private readonly NodeFactory _factory;\n    private readonly MethodWithGCInfo _method;\n\n    public WasmMethodRelativeVirtualIPNode(NodeFactory factory, MethodWithGCInfo method)\n    {\n        _factory = factory;\n        _method = method;\n    }\n\n    public int Offset => unchecked((int)_factory.RuntimeFunctionsTable.GetWasmVirtualIP(_method, 0));\n\n    public bool RepresentsIndirectionCell => false;\n\n    public void AppendMangledName(NameMangler nameMangler, Utf8StringBuilder sb)\n    {\n        _method.AppendMangledName(nameMangler, sb);\n    }\n\n    protected override string GetName(NodeFactory factory) => $\"Wasm relative virtual IP: {_method.Method}\";\n\n    public override bool InterestingForDynamicDependencyAnalysis => false;\n    public override bool HasDynamicDependencies => false;\n    public override bool HasConditionalStaticDependencies => false;\n    public override bool StaticDependenciesAreComputed => true;\n\n    public override IEnumerable<DependencyListEntry> GetStaticDependencies(NodeFactory factory)\n    {\n        return new DependencyListEntry[] { new DependencyListEntry(_method, \"Method for relative virtual IP\") };\n    }\n\n    public override IEnumerable<CombinedDependencyListEntry> GetConditionalStaticDependencies(NodeFactory factory) => null;\n\n    public override IEnumerable<CombinedDependencyListEntry> SearchDynamicDependencies(\n        List<DependencyNodeCore<NodeFactory>> markedNodes,\n        int firstNode,\n        NodeFactory factory) => null;\n\n    public override int ClassCode => 1987324651;\n\n    public override int CompareToImpl(ISortableNode other, CompilerComparer comparer)\n    {\n        return comparer.Compare(_method.Method, ((WasmMethodRelativeVirtualIPNode)other)._method.Method);\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_method",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-14T14:18:46-07:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.ReadyToRun/Compiler/DependencyAnalysis/ReadyToRun/WasmMethodRelativeVirtualIPNode.cs",
+    "startLine": 11,
+    "endLine": 56,
+    "unit": "class WasmMethodRelativeVirtualIPNode",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.ReadyToRun__Compiler__DependencyAnalysis__ReadyToRun__WasmMethodRelativeVirtualIPNode.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

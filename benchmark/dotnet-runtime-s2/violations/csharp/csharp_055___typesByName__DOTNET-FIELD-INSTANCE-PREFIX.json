@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_055",
+  "language": "csharp",
+  "originalName": "_typesByName",
+  "injectedName": "typesByName",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'typesByName' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class DataTypeIndex\n{\n    private readonly Dictionary<INamedTypeSymbol, DataDescriptorType> _typesBySymbol;\n    private readonly Dictionary<string, DataDescriptorType> typesByName;\n\n    internal DataTypeIndex(Dictionary<INamedTypeSymbol, DataDescriptorType> typesBySymbol)\n    {\n        _typesBySymbol = typesBySymbol;\n        typesByName = new Dictionary<string, DataDescriptorType>(StringComparer.Ordinal);\n        foreach (DataDescriptorType type in typesBySymbol.Values)\n        {\n            foreach (string name in type.Names)\n                typesByName[name] = type;\n        }\n    }\n\n    public int Count => _typesBySymbol.Count;\n\n    public IEnumerable<DataDescriptorType> Types => _typesBySymbol.Values;\n\n    public bool TryGetDataType(ITypeSymbol? symbol, out DataDescriptorType info)\n    {\n        if (symbol is INamedTypeSymbol named)\n            return _typesBySymbol.TryGetValue(named.OriginalDefinition, out info!);\n\n        info = null!;\n        return false;\n    }\n\n    public bool IsDataType(ITypeSymbol? symbol) => TryGetDataType(symbol, out _);\n\n    /// <summary>Resolves a cDAC layout name from <c>GetTypeInfo(...)</c>.</summary>\n    public bool TryGetType(string name, out DataDescriptorType info) =>\n        typesByName.TryGetValue(name, out info!);\n\n    /// <summary>The discovered Data types that implement <paramref name=\"interfaceType\"/>.</summary>\n    public IEnumerable<DataDescriptorType> DataTypesImplementing(INamedTypeSymbol interfaceType) =>\n        _typesBySymbol.Values.Where(info =>\n            info.Symbol.AllInterfaces.Any(i =>\n                SymbolEqualityComparer.Default.Equals(\n                    i.OriginalDefinition, interfaceType.OriginalDefinition)));\n\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

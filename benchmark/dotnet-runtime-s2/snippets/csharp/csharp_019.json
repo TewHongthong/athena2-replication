@@ -1,0 +1,45 @@
+{
+  "id": "csharp_019",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tasks/MonoTargetsTasks/JsonToItems/JsonToItemsTasks.cs lines 6-29 (class MonoRuntimeComponentManifestReadTask); license MIT; repo created 2026-10-08T16:30:34+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public sealed class MonoRuntimeComponentManifestReadTask : Microsoft.Build.Utilities.Task\n{\n    private JsonModelRoot? _json;\n\n    [Required]\n    public string? JsonFilePath { get; set; }\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeComponentSharedLibExt => _json?.GetItems(nameof(_MonoRuntimeComponentSharedLibExt));\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeComponentStaticLibExt => _json?.GetItems(nameof(_MonoRuntimeComponentStaticLibExt));\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeComponentLinking => _json?.GetItems(nameof(_MonoRuntimeComponentLinking));\n\n    [Output]\n    public ITaskItem[]? _MonoRuntimeAvailableComponents => _json?.GetItems(nameof(_MonoRuntimeAvailableComponents));\n\n    public override bool Execute()\n    {\n        return JsonToItemsReader.TryRead(JsonFilePath, Log, out _json);\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_json",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-08T16:30:34+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tasks/MonoTargetsTasks/JsonToItems/JsonToItemsTasks.cs",
+    "startLine": 6,
+    "endLine": 29,
+    "unit": "class MonoRuntimeComponentManifestReadTask",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tasks__MonoTargetsTasks__JsonToItems__JsonToItemsTasks.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

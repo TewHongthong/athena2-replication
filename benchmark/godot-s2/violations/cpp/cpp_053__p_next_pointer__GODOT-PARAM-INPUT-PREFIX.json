@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_053",
+  "language": "cpp",
+  "originalName": "p_next_pointer",
+  "injectedName": "next_pointer",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'next_pointer' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void *OpenXRSpatialContainerExtension::set_system_properties_and_get_next_pointer(void *next_pointer) {\n\tif (!is_enabled()) {\n\t\treturn next_pointer;\n\t}\n\n\tspatial_container_properties.next = next_pointer;\n\treturn &spatial_container_properties;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

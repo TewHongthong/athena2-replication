@@ -1,0 +1,45 @@
+{
+  "id": "csharp_006",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tasks/Microsoft.NET.WebAssembly.Webcil/WasmModuleInfoReader.cs lines 11-36 (class WasmModuleInfo); license MIT; repo created 2026-09-29T00:38:13+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class WasmModuleInfo\n{\n    public uint DefinedFunctionCount { get; internal set; }\n    public uint ImportedFunctionCount { get; internal set; }\n    public IReadOnlyDictionary<string, (byte Kind, uint Index)> Exports => _exports;\n    public IReadOnlyList<int?> DefinedI32Functions => _definedI32Functions;\n    public IReadOnlyList<(bool Active, int? Offset, long PayloadOffset, uint Size)> DataSegments => _dataSegments;\n    public IReadOnlyList<WasmElementSegmentInfo> ElementSegments => _elementSegments;\n\n    internal readonly Dictionary<string, (byte Kind, uint Index)> _exports = new(StringComparer.Ordinal);\n    internal readonly List<int?> _definedI32Functions = new();\n    internal readonly List<(bool Active, int? Offset, long PayloadOffset, uint Size)> _dataSegments = new();\n    internal readonly List<WasmElementSegmentInfo> _elementSegments = new();\n\n    public int? GetExportedI32Function(string name)\n    {\n        if (!_exports.TryGetValue(name, out (byte Kind, uint Index) export) || export.Kind != 0)\n            return null;\n\n        if (export.Index < ImportedFunctionCount)\n            return null;\n\n        uint definedIndex = export.Index - ImportedFunctionCount;\n        return definedIndex < _definedI32Functions.Count ? _definedI32Functions[(int)definedIndex] : null;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_definedI32Functions",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-29T00:38:13+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tasks/Microsoft.NET.WebAssembly.Webcil/WasmModuleInfoReader.cs",
+    "startLine": 11,
+    "endLine": 36,
+    "unit": "class WasmModuleInfo",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tasks__Microsoft.NET.WebAssembly.Webcil__WasmModuleInfoReader.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "internal",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

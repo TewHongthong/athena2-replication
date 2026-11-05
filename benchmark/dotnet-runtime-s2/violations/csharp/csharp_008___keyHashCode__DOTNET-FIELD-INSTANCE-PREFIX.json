@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_008",
+  "language": "csharp",
+  "originalName": "_keyHashCode",
+  "injectedName": "keyHashCode",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'keyHashCode' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "private protected sealed class Node\n{\n    private readonly int keyHashCode;\n\n    internal string Key { get; }\n    internal T Value { get; set; }\n    internal Node? Next { get; set; }\n\n    internal Node(int hashCode, string key, T value)\n    {\n        Debug.Assert(key.GetHashCode() == hashCode);\n\n        Key = key;\n        keyHashCode = hashCode;\n        Value = value;\n    }\n\n    internal bool MatchesKey(int hashCode, string key)\n    {\n        return keyHashCode == hashCode && Key.Equals(key, StringComparison.Ordinal);\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

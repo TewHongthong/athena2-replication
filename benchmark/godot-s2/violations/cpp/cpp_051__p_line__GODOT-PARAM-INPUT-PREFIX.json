@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_051",
+  "language": "cpp",
+  "originalName": "p_line",
+  "injectedName": "line",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'line' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void ShaderTextEditor::goto_line_centered(int line, int p_column) {\n\tTextEditorBase::goto_line_centered(line, p_column);\n\n\tTextShaderPreview *preview = _get_preview(line);\n\tif (preview) {\n\t\tpreview_sbox->ensure_control_visible(preview);\n\t}\n\tpreview_timer->start();\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

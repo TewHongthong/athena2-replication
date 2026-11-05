@@ -1,0 +1,47 @@
+{
+  "id": "cpp_017",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_map_layer_editor.cpp lines 3540-3554 (method TileMapLayerEditorTerrainsPlugin::update_layout); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileMapLayerEditorTerrainsPlugin::update_layout(EditorDock::DockLayout p_layout, int p_slot) {\n\tbool is_vertical = (p_layout == EditorDock::DockLayout::DOCK_LAYOUT_VERTICAL);\n\t// Main Panel.\n\tmain_box_container->set_vertical(is_vertical);\n\ttilemap_tab_terrains->move_child(terrains_tree, is_vertical ? 1 : 0);\n\ttilemap_tab_terrains->set_vertical(is_vertical);\n\n\t// Toolbar.\n\ttilemap_tiles_tools_buttons->set_vertical(is_vertical);\n\ttools_settings->set_vertical(is_vertical);\n\ttools_settings_vsep->set_vertical(is_vertical);\n\n\twide_toolbar->set_visible(is_vertical);\n\tbucket_contiguous_checkbox->reparent(is_vertical ? wide_toolbar : tools_settings);\n}",
+  "identifiers": [
+    {
+      "name": "p_layout",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_map_layer_editor.cpp",
+    "startLine": 3540,
+    "endLine": 3554,
+    "unit": "method TileMapLayerEditorTerrainsPlugin::update_layout",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_map_layer_editor.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 77,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

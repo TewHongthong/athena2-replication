@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_029",
+  "language": "cpp",
+  "originalName": "p_driver",
+  "injectedName": "r_driver",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_driver' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioDriverManager::initialize(int r_driver) {\n\tGLOBAL_DEF_RST(\"audio/driver/enable_input\", false);\n\tGLOBAL_DEF_RST(PropertyInfo(Variant::INT, \"audio/driver/mix_rate\", PROPERTY_HINT_RANGE, \"11025,192000,1,or_greater,suffix:Hz\"), DEFAULT_MIX_RATE);\n\tGLOBAL_DEF_RST(PropertyInfo(Variant::INT, \"audio/driver/mix_rate.web\", PROPERTY_HINT_RANGE, \"0,192000,1,or_greater,suffix:Hz\"), 0); // Safer default output_latency for web (use browser default).\n\n\tint failed_driver = -1;\n\n\t// Check if there is a selected driver\n\tif (r_driver >= 0 && r_driver < driver_count) {\n\t\tif (drivers[r_driver]->init() == OK) {\n\t\t\tdrivers[r_driver]->set_singleton();\n\t\t\treturn;\n\t\t} else {\n\t\t\tfailed_driver = r_driver;\n\t\t}\n\t}\n\n\t// No selected driver, try them all in order\n\tfor (int i = 0; i < driver_count; i++) {\n\t\t// Don't re-init the driver if it failed above\n\t\tif (i == failed_driver) {\n\t\t\tcontinue;\n\t\t}\n\n\t\tif (drivers[i]->init() == OK) {\n\t\t\tdrivers[i]->set_singleton();\n\t\t\tbreak;\n\t\t}\n\t}\n\n\tif (driver_count > 1 && String(AudioDriver::get_singleton()->get_name()) == \"Dummy\") {\n\t\tWARN_PRINT(\"All audio drivers failed, falling back to the dummy driver.\");\n\t}\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

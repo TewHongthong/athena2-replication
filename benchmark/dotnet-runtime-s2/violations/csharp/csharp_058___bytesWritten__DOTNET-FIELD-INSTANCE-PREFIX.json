@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_058",
+  "language": "csharp",
+  "originalName": "_bytesWritten",
+  "injectedName": "bytesWritten",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'bytesWritten' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal ref struct DnsMessageWriter\n{\n    private readonly Span<byte> _destination;\n    private int bytesWritten;\n\n    public DnsMessageWriter(Span<byte> destination)\n    {\n        _destination = destination;\n        bytesWritten = 0;\n    }\n\n    public readonly int BytesWritten => bytesWritten;\n\n    // Writes the 12-byte message header at the current position.\n    public bool TryWriteHeader(in DnsMessageHeader header)\n    {\n        if (!header.TryWrite(_destination[bytesWritten..]))\n        {\n            return false;\n        }\n        bytesWritten += DnsMessageHeader.Size;\n        return true;\n    }\n\n    // Writes a question entry: encoded domain name + type + class.\n    // Expands compression pointers if present (safe for names from responses).\n    public bool TryWriteQuestion(\n        scoped DnsEncodedName name,\n        DnsRecordType type,\n        DnsRecordClass @class = DnsRecordClass.Internet)\n    {\n        // Reserve the trailing 4 bytes for TYPE + CLASS up front so that encoding the\n        // name cannot consume the space they require.\n        Span<byte> destination = _destination[bytesWritten..];\n        if (destination.Length < 4 ||\n            !name.TryCopyEncodedTo(destination[..^4], out int nameWritten))\n        {\n            return false;\n        }\n        bytesWritten += nameWritten;\n\n        BinaryPrimitives.WriteUInt16BigEndian(_destination[bytesWritten..], (ushort)type);\n        bytesWritten += 2;\n\n        BinaryPrimitives.WriteUInt16BigEndian(_destination[bytesWritten..], (ushort)@class);\n        bytesWritten += 2;\n\n        return true;\n    }\n}",
+  "occurrencesRenamed": 11,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

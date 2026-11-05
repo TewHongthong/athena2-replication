@@ -1,0 +1,47 @@
+{
+  "id": "cpp_072",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_set_atlas_source_editor.cpp lines 1733-1741 (method TileSetAtlasSourceEditor::shortcut_input); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileSetAtlasSourceEditor::shortcut_input(const Ref<InputEvent> &p_event) {\n\t// Check for shortcuts.\n\tif (ED_IS_SHORTCUT(\"tiles_editor/delete\", p_event)) {\n\t\tif (tools_button_group->get_pressed_button() == tool_select_button && !selection.is_empty()) {\n\t\t\t_menu_option(TILE_DELETE);\n\t\t\taccept_event();\n\t\t}\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_event",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_set_atlas_source_editor.cpp",
+    "startLine": 1733,
+    "endLine": 1741,
+    "unit": "method TileSetAtlasSourceEditor::shortcut_input",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_set_atlas_source_editor.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 35,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

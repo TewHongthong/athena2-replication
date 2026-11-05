@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_042",
+  "language": "csharp",
+  "originalName": "_sectionNameToIndex",
+  "injectedName": "sectionNameToIndex",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'sectionNameToIndex' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class WasmSections\n{\n    private readonly List<SectionDataEmitter> _sections = new();\n    private readonly Dictionary<string, int> sectionNameToIndex = new();\n\n    public int Count => _sections.Count;\n\n    public IReadOnlyList<SectionDataEmitter> Sections => _sections;\n\n    public SectionDataEmitter this[int sectionIndex] => _sections[sectionIndex];\n\n    public SectionDataEmitter this[string sectionName] => _sections[sectionNameToIndex[sectionName]];\n\n    public TSection GetSection<TSection>(int sectionIndex)\n        where TSection : SectionDataEmitter\n    {\n        SectionDataEmitter section = _sections[sectionIndex];\n        return (TSection)section;\n    }\n\n    public TSection GetSection<TSection>(string sectionName)\n        where TSection : SectionDataEmitter\n    {\n        return GetSection<TSection>(sectionNameToIndex[sectionName]);\n    }\n\n    public void Add(string sectionName, int sectionIndex, SectionDataEmitter section)\n    {\n        Debug.Assert(_sections.Count == sectionIndex);\n        _sections.Add(section);\n        sectionNameToIndex.Add(sectionName, sectionIndex);\n    }\n\n    public bool Contains(string sectionName) => sectionNameToIndex.ContainsKey(sectionName);\n\n    public int GetSectionIndex(string sectionName) => sectionNameToIndex[sectionName];\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

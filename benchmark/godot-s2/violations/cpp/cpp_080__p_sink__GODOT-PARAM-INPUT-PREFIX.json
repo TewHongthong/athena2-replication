@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_080",
+  "language": "cpp",
+  "originalName": "p_sink",
+  "injectedName": "r_sink",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_sink' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "static void check_variable(const GDScriptParser::VariableNode *p_variable, GDScriptParser &r_sink) {\n\tif (!p_variable->onready || !p_variable->initializer || p_variable->initializer->type != GDScriptParser::Node::CAST) {\n\t\treturn;\n\t}\n\n\tconst GDScriptParser::CastNode *cast = static_cast<const GDScriptParser::CastNode *>(p_variable->initializer);\n\tif (!cast->operand || cast->operand->type != GDScriptParser::Node::GET_NODE) {\n\t\treturn;\n\t}\n\n\tconst GDScriptParser::GetNodeNode *get_node = static_cast<const GDScriptParser::GetNodeNode *>(cast->operand);\n\tr_sink.push_warning(cast, GDScriptWarning::ONREADY_WITH_CAST, (get_node->use_dollar ? \"$\" : \"%\") + get_node->full_path);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

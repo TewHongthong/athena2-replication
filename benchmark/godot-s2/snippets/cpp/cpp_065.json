@@ -1,0 +1,47 @@
+{
+  "id": "cpp_065",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tiles_editor_plugin.cpp lines 533-540 (method TileSetEditorPlugin::edit); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileSetEditorPlugin::edit(Object *p_object) {\n\teditor->edit(Ref<TileSet>(p_object));\n\tif (p_object) {\n\t\tedited_tileset = p_object->get_instance_id();\n\t} else {\n\t\tedited_tileset = ObjectID();\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_object",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tiles_editor_plugin.cpp",
+    "startLine": 533,
+    "endLine": 540,
+    "unit": "method TileSetEditorPlugin::edit",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tiles_editor_plugin.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 33,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "output_parameter",
+    "targetFacets": {
+      "indirection": "ptr",
+      "out_by_type": true,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": false,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

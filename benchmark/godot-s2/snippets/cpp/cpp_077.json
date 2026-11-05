@@ -1,0 +1,47 @@
+{
+  "id": "cpp_077",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/debugger/canvas_item_manipulator.cpp lines 2220-2236 (method CanvasItemManipulator::gui_input); license MIT; repo created 2026-09-22T14:00:37-03:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "bool CanvasItemManipulator::gui_input(const Ref<InputEvent> &p_event) {\n\tbool accepted = _gui_input_rulers_and_guides(p_event) ||\n\t\t\tplugin_input_callback.call(p_event) ||\n\t\t\t_gui_input_open_scene_on_double_click(p_event) ||\n\t\t\t_gui_input_scale(p_event) ||\n\t\t\t_gui_input_pivot(p_event) ||\n\t\t\t_gui_input_resize(p_event) ||\n\t\t\t_gui_input_rotate(p_event) ||\n\t\t\t_gui_input_move(p_event) ||\n\t\t\t_gui_input_anchors(p_event) ||\n\t\t\t_gui_input_ruler_tool(p_event) ||\n\t\t\t_gui_input_select(p_event);\n\n\t_update_cursor_shape();\n\n\treturn accepted;\n}",
+  "identifiers": [
+    {
+      "name": "p_event",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-22T14:00:37-03:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/debugger/canvas_item_manipulator.cpp",
+    "startLine": 2220,
+    "endLine": 2236,
+    "unit": "method CanvasItemManipulator::gui_input",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__debugger__canvas_item_manipulator.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 27,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

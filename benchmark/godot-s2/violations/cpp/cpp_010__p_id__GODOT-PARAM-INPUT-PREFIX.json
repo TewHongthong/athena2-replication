@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_010",
+  "language": "cpp",
+  "originalName": "p_id",
+  "injectedName": "r_id",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_id' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "String VisualShaderNodeGroupOutput::generate_code(Shader::Mode p_mode, VisualShader::Type p_type, int r_id, const String *p_input_vars, const String *p_output_vars, bool p_for_preview) const {\n\tERR_FAIL_NULL_V(group, String());\n\n\tString code;\n\tfor (int i = 0; i < group->get_output_port_count(); i++) {\n\t\tif (p_input_vars[i].is_empty()) {\n\t\t\tcontinue;\n\t\t}\n\t\tcode += \"\tp_\" + group->get_output_port_name(i) + \" = \" + p_input_vars[i] + \";\\n\";\n\t}\n\treturn code;\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

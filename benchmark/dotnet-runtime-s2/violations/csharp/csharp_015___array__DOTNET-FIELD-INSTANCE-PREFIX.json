@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_015",
+  "language": "csharp",
+  "originalName": "_array",
+  "injectedName": "array",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'array' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "private struct IndexSpaceArray<T>\n{\n    private T[] array;\n\n    public IndexSpaceArray()\n    {\n        array = new T[(int)WasmIndexSpace.Count];\n    }\n\n    public T this[WasmIndexSpace indexSpace]\n    {\n        get => array[(int)indexSpace];\n        set => array[(int)indexSpace] = value;\n    }\n\n    public IReadOnlyList<T> Values => array;\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

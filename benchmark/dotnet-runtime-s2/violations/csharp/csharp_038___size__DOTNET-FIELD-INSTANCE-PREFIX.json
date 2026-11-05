@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_038",
+  "language": "csharp",
+  "originalName": "_size",
+  "injectedName": "size",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'size' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class PaddingWasmSection : IWasmSection\n{\n    private const int MinimumSectionSize = 3;\n\n    private readonly int size;\n    public PaddingWasmSection(int followingSectionAlignment, long currentOffset)\n    {\n        if (followingSectionAlignment is 1 or 0 || currentOffset % followingSectionAlignment == 0)\n        {\n            size = 0;\n            return;\n        }\n\n        int padding = (int)(AlignmentHelper.AlignUp(currentOffset, followingSectionAlignment) - currentOffset);\n        if (padding < MinimumSectionSize)\n        {\n            padding += followingSectionAlignment;\n        }\n        size = padding;\n        Debug.Assert(DwarfHelper.SizeOfULEB128((ulong)size) <= 5);\n    }\n\n    public WasmSectionType Type => WasmSectionType.Custom;\n\n    public int EmitToStream(Stream outputFileStream)\n    {\n        if (size == 0)\n        {\n            return 0;\n        }\n        int sectionSizeEncodingLength = 1;\n        int sectionPayloadLength = 0;\n        for (; sectionSizeEncodingLength <= 5; sectionSizeEncodingLength++)\n        {\n            sectionPayloadLength = size - 1 - sectionSizeEncodingLength;\n            if (DwarfHelper.SizeOfULEB128((ulong)sectionPayloadLength) <= sectionSizeEncodingLength)\n            {\n                break;\n            }\n        }\n\n        Span<byte> header = stackalloc byte[1 + sectionSizeEncodingLength];\n        header[0] = (byte)WasmSectionType.Custom;\n        DwarfHelper.WritePaddedULEB128(header.Slice(1), (ulong)sectionPayloadLength);\n        outputFileStream.Write(header);\n        WasmDataSegmentEncoding.EmitPadding(outputFileStream, sectionPayloadLength);\n\n        Debug.Assert(header.Length + sectionPayloadLength == size);\n        return size;\n    }\n\n    public int EncodeSize() => size;\n}",
+  "occurrencesRenamed": 9,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

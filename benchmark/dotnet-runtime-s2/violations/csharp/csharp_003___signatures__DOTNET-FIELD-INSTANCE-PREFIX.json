@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_003",
+  "language": "csharp",
+  "originalName": "_signatures",
+  "injectedName": "signatures",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'signatures' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class InternalCallSignatureCollector(InteropLogger log)\n{\n    private readonly Dictionary<string, MethodDesc> signatures = [];\n\n    public IReadOnlyDictionary<string, MethodDesc> Signatures => signatures;\n\n    public void ScanType(EcmaType type)\n    {\n        foreach (MethodDesc method in type.GetMethods())\n        {\n            if (!method.IsInternalCall)\n                continue;\n\n            // String constructors never reach a signature-derived thunk. They are compiled as static\n            // factories (\"String Ctor(args)\", see WasmLowering.GetStringCtorActualSignature), and the\n            // runtime special-cases them in both directions with hardcoded keys before it consults\n            // this table: GetCookieForCalliSig and GetPortableEntryPointToInterpreterThunk in\n            // src/coreclr/vm/wasm/helpers.cpp. Emitting the declared \"void .ctor(this, args)\" shape\n            // here would only add entries nothing can look up.\n            if (method.IsConstructor && method.OwningType.IsWellKnownType(WellKnownType.String))\n                continue;\n\n            // A generic has no single signature to generate a thunk from, so the interpreter\n            // would find none at call time - and a release build does not even assert on the\n            // miss, it takes the null cookie. CoreLib declares no such method today.\n            if (method.HasInstantiation || method.OwningType.HasInstantiation)\n            {\n                throw new LogAsErrorException(\n                    $\"Generic InternalCall method '{type}::{method.Name.ToString()}' has no single signature to generate a thunk from.\");\n            }\n\n            try\n            {\n                // A managed signature: the lowering adds the 'T' for an instance method and the\n                // trailing 'p' for the portable entry point parameter.\n                string signature = InteropSignature.GetMethodSignature(method);\n                if (signatures.TryAdd(signature, method))\n                    log.Verbose($\"Adding InternalCall signature {signature} for method '{type}.{method.Name.ToString()}'\");\n            }\n            catch (Exception ex) when (ex is not LogAsErrorException)\n            {\n                // Every non-generic InternalCall has a signature the lowering can describe, so a\n                // failure here is a bug in the generator rather than something the assembly did.\n                // Skipping it would silently drop a thunk and only fail once the interpreter tries\n                // to call the method.\n                throw new LogAsErrorException($\"Could not get the signature for InternalCall method '{type}::{method.Name.ToString()}': {ex.Message}\");\n            }\n        }\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

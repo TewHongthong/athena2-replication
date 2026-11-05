@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_034",
+  "language": "csharp",
+  "originalName": "_lockObject",
+  "injectedName": "t_lockObject",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_lockObject' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "        private readonly struct LockToken : IDisposable\n        {\n            private readonly object t_lockObject;\n\n            public LockToken(object lockObject)\n            {\n                Debug.Assert(lockObject != null);\n\n                t_lockObject = lockObject;\n\n                Debug.Assert(!Monitor.IsEntered(t_lockObject));\n\n#if DEBUG\n                bool success = Monitor.TryEnter(t_lockObject, 10000);\n                Debug.Assert(success, \"Timed out waiting for queue lock\");\n#else\n                Monitor.Enter(t_lockObject);\n#endif\n            }\n\n            public void Dispose()\n            {\n                Debug.Assert(Monitor.IsEntered(t_lockObject));\n                Monitor.Exit(t_lockObject);\n            }\n        }",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

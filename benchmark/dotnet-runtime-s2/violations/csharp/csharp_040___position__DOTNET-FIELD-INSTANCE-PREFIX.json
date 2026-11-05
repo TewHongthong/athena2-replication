@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_040",
+  "language": "csharp",
+  "originalName": "_position",
+  "injectedName": "t_position",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 't_position' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class StringCharStream : ICharStream\n{\n    private readonly string _text;\n    private int t_position;\n\n    internal StringCharStream(string text, string? sourceName = null)\n    {\n        _text = text;\n        SourceName = sourceName ?? string.Empty;\n    }\n\n    public int Index => t_position;\n\n    public int Size => _text.Length;\n\n    public string SourceName { get; }\n\n    public void Consume()\n    {\n        if (t_position >= _text.Length)\n        {\n            throw new InvalidOperationException(\"Cannot consume past the end of the character stream.\");\n        }\n\n        t_position++;\n    }\n\n    public int LA(int i)\n    {\n        if (i == 0)\n        {\n            return 0;\n        }\n\n        int offset = i < 0 ? i : i - 1;\n        int position = t_position + offset;\n        return (uint)position >= (uint)_text.Length ? TokenConstants.EOF : _text[position];\n    }\n\n    public int Mark() => -1;\n\n    public void Release(int marker)\n    {\n    }\n\n    public void Seek(int index)\n    {\n        ArgumentOutOfRangeException.ThrowIfNegative(index);\n        t_position = Math.Min(index, _text.Length);\n    }\n\n    public string GetText(Interval interval)\n    {\n        int start = Math.Max(0, interval.a);\n        int end = Math.Min(_text.Length - 1, interval.b);\n        return start > end ? string.Empty : _text.Substring(start, end - start + 1);\n    }\n}",
+  "occurrencesRenamed": 6,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

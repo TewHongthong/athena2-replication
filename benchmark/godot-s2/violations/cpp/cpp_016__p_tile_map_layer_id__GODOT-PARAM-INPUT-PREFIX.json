@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_016",
+  "language": "cpp",
+  "originalName": "p_tile_map_layer_id",
+  "injectedName": "tile_map_layer_id",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'tile_map_layer_id' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void TileMapLayerEditorTilesPlugin::edit(ObjectID tile_map_layer_id) {\n\t_stop_dragging(); // Avoids staying in a wrong drag state.\n\n\t// Disable sort button if the tileset is read-only\n\tTileMapLayer *edited_layer = _get_edited_layer();\n\tRef<TileSet> tile_set;\n\tif (edited_layer) {\n\t\ttile_set = edited_layer->get_tile_set();\n\t\tif (tile_set.is_valid()) {\n\t\t\tsource_sort_button->set_disabled(EditorNode::get_singleton()->is_resource_read_only(tile_set));\n\t\t}\n\t}\n\n\tTileMapLayer *new_tile_map_layer = ObjectDB::get_instance<TileMapLayer>(tile_map_layer_id);\n\tRef<TileSet> new_tile_set;\n\tif (new_tile_map_layer) {\n\t\tnew_tile_set = new_tile_map_layer->get_tile_set();\n\t}\n\n\tif (tile_set.is_valid() && tile_set != new_tile_set) {\n\t\t// Clear the selection.\n\t\ttile_set_selection.clear();\n\t\tpatterns_item_list->deselect_all();\n\t\ttile_map_selection.clear();\n\t\tselection_pattern.instantiate();\n\t}\n\n\tedited_tile_map_layer_id = tile_map_layer_id;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

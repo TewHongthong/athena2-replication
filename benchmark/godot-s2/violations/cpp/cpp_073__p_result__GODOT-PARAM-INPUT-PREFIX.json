@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_073",
+  "language": "cpp",
+  "originalName": "p_result",
+  "injectedName": "result",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'result' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "JoltCustomInstanceOverridesShape(const JoltCustomInstanceOverridesShapeSettings &p_settings, JPH::Shape::ShapeResult &result) :\n\t\tJPH::DecoratedShape(JoltCustomShapeSubType::INSTANCE_OVERRIDES, p_settings, result),\n\t\tobject_back_face_collision(p_settings.object_back_face_collision),\n\t\tshape_back_face_collision(p_settings.shape_back_face_collision) {\n\tif (!result.HasError()) {\n\t\tresult.Set(this);\n\t}\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

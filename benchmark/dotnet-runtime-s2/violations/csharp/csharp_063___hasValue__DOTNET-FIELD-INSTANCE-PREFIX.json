@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_063",
+  "language": "csharp",
+  "originalName": "_hasValue",
+  "injectedName": "hasValue",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'hasValue' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class CachedValue<T>\n{\n    private readonly Func<T> _initializer;\n    private T _value = default!;\n    private bool hasValue;\n\n    public CachedValue(Func<T> initializer)\n    {\n        _initializer = initializer;\n    }\n\n    public void Clear()\n    {\n        hasValue = false;\n    }\n\n    public static implicit operator T(CachedValue<T> cached)\n    {\n        if (!cached.hasValue)\n        {\n            cached._value = cached._initializer();\n            cached.hasValue = true;\n        }\n\n        return cached._value;\n    }\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

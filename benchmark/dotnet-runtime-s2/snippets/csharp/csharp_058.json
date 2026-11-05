@@ -1,0 +1,45 @@
+{
+  "id": "csharp_058",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Net.NameResolution/src/System/Net/DnsMessageWriter.cs lines 10-59 (struct DnsMessageWriter); license MIT; repo created 2026-08-06T09:55:59+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal ref struct DnsMessageWriter\n{\n    private readonly Span<byte> _destination;\n    private int _bytesWritten;\n\n    public DnsMessageWriter(Span<byte> destination)\n    {\n        _destination = destination;\n        _bytesWritten = 0;\n    }\n\n    public readonly int BytesWritten => _bytesWritten;\n\n    // Writes the 12-byte message header at the current position.\n    public bool TryWriteHeader(in DnsMessageHeader header)\n    {\n        if (!header.TryWrite(_destination[_bytesWritten..]))\n        {\n            return false;\n        }\n        _bytesWritten += DnsMessageHeader.Size;\n        return true;\n    }\n\n    // Writes a question entry: encoded domain name + type + class.\n    // Expands compression pointers if present (safe for names from responses).\n    public bool TryWriteQuestion(\n        scoped DnsEncodedName name,\n        DnsRecordType type,\n        DnsRecordClass @class = DnsRecordClass.Internet)\n    {\n        // Reserve the trailing 4 bytes for TYPE + CLASS up front so that encoding the\n        // name cannot consume the space they require.\n        Span<byte> destination = _destination[_bytesWritten..];\n        if (destination.Length < 4 ||\n            !name.TryCopyEncodedTo(destination[..^4], out int nameWritten))\n        {\n            return false;\n        }\n        _bytesWritten += nameWritten;\n\n        BinaryPrimitives.WriteUInt16BigEndian(_destination[_bytesWritten..], (ushort)type);\n        _bytesWritten += 2;\n\n        BinaryPrimitives.WriteUInt16BigEndian(_destination[_bytesWritten..], (ushort)@class);\n        _bytesWritten += 2;\n\n        return true;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_bytesWritten",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T09:55:59+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Net.NameResolution/src/System/Net/DnsMessageWriter.cs",
+    "startLine": 10,
+    "endLine": 59,
+    "unit": "struct DnsMessageWriter",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Net.NameResolution__src__System__Net__DnsMessageWriter.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

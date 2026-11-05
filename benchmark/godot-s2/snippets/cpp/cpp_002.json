@@ -1,0 +1,47 @@
+{
+  "id": "cpp_002",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/physics_3d/queries/physics_ray_query_parameters_3d.cpp lines 53-61 (method PhysicsRayQueryParameters3D::create); license MIT; repo created 2026-07-06T10:32:58+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "Ref<PhysicsRayQueryParameters3D> PhysicsRayQueryParameters3D::create(Vector3 p_from, Vector3 p_to, uint32_t p_mask, const TypedArray<RID> &p_exclude) {\n\tRef<PhysicsRayQueryParameters3D> params;\n\tparams.instantiate();\n\tparams->set_from(p_from);\n\tparams->set_to(p_to);\n\tparams->set_collision_mask(p_mask);\n\tparams->set_exclude(p_exclude);\n\treturn params;\n}",
+  "identifiers": [
+    {
+      "name": "p_from",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-06T10:32:58+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/physics_3d/queries/physics_ray_query_parameters_3d.cpp",
+    "startLine": 53,
+    "endLine": 61,
+    "unit": "method PhysicsRayQueryParameters3D::create",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__physics_3d__queries__physics_ray_query_parameters_3d.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 2,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

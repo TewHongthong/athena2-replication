@@ -1,0 +1,46 @@
+{
+  "id": "cpp_035",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/editor/tile_set_scenes_collection_source_editor.cpp lines 109-136 (method TileSetScenesCollectionSourceEditor::TileSetScenesCollectionProxyObject::edit); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileSetScenesCollectionSourceEditor::TileSetScenesCollectionProxyObject::edit(Ref<TileSet> p_tile_set, TileSetScenesCollectionSource *p_tile_set_scenes_collection_source, int p_source_id) {\n\tERR_FAIL_COND(p_tile_set.is_null());\n\tERR_FAIL_NULL(p_tile_set_scenes_collection_source);\n\tERR_FAIL_COND(p_source_id < 0);\n\tERR_FAIL_COND(p_tile_set->get_source(p_source_id) != p_tile_set_scenes_collection_source);\n\n\tif (tile_set == p_tile_set && tile_set_scenes_collection_source == p_tile_set_scenes_collection_source && source_id == p_source_id) {\n\t\treturn;\n\t}\n\n\t// Disconnect to changes.\n\tif (tile_set_scenes_collection_source.is_valid()) {\n\t\ttile_set_scenes_collection_source->disconnect(CoreStringName(property_list_changed), callable_mp((Object *)this, &Object::notify_property_list_changed));\n\t}\n\n\ttile_set = p_tile_set;\n\ttile_set_scenes_collection_source = p_tile_set_scenes_collection_source;\n\tsource_id = p_source_id;\n\n\t// Connect to changes.\n\tif (tile_set_scenes_collection_source.is_valid()) {\n\t\tif (!tile_set_scenes_collection_source->is_connected(CoreStringName(property_list_changed), callable_mp((Object *)this, &Object::notify_property_list_changed))) {\n\t\t\ttile_set_scenes_collection_source->connect(CoreStringName(property_list_changed), callable_mp((Object *)this, &Object::notify_property_list_changed));\n\t\t}\n\t}\n\n\tnotify_property_list_changed();\n}",
+  "identifiers": [
+    {
+      "name": "p_source_id",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/editor/tile_set_scenes_collection_source_editor.cpp",
+    "startLine": 109,
+    "endLine": 136,
+    "unit": "method TileSetScenesCollectionSourceEditor::TileSetScenesCollectionProxyObject::edit",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__editor__tile_set_scenes_collection_source_editor.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 6,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_032",
+  "language": "csharp",
+  "originalName": "_chacha",
+  "injectedName": "chacha",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'chacha' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class HpkeManagedChaCha20Poly1305AeadAdapter : HpkeManagedAeadAdapter\n{\n    private readonly ChaCha20Poly1305 chacha;\n\n    internal HpkeManagedChaCha20Poly1305AeadAdapter(ReadOnlySpan<byte> key)\n    {\n        chacha = new ChaCha20Poly1305(key);\n    }\n\n    internal override void Encrypt(\n        ReadOnlySpan<byte> plaintext,\n        ReadOnlySpan<byte> nonce,\n        ReadOnlySpan<byte> associatedData,\n        Span<byte> ciphertext,\n        Span<byte> tag)\n    {\n        chacha.Encrypt(nonce, plaintext, ciphertext, tag, associatedData);\n    }\n\n    internal override void Decrypt(\n        ReadOnlySpan<byte> ciphertext,\n        ReadOnlySpan<byte> nonce,\n        ReadOnlySpan<byte> associatedData,\n        ReadOnlySpan<byte> tag,\n        Span<byte> plaintext)\n    {\n        chacha.Decrypt(nonce, ciphertext, tag, plaintext, associatedData);\n    }\n\n    public override void Dispose() => chacha.Dispose();\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

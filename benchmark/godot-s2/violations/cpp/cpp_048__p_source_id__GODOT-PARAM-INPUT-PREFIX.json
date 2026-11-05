@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_048",
+  "language": "cpp",
+  "originalName": "p_source_id",
+  "injectedName": "r_source_id",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_source_id' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void TileSetAtlasSourceEditor::TileSetAtlasSourceProxyObject::edit(Ref<TileSet> p_tile_set, Ref<TileSetAtlasSource> p_tile_set_atlas_source, int r_source_id) {\n\tERR_FAIL_COND(p_tile_set_atlas_source.is_null());\n\tERR_FAIL_COND(r_source_id < 0);\n\tERR_FAIL_COND(p_tile_set.is_valid() && p_tile_set->get_source(r_source_id) != p_tile_set_atlas_source);\n\n\tif (p_tile_set == tile_set && p_tile_set_atlas_source == tile_set_atlas_source && r_source_id == source_id) {\n\t\treturn;\n\t}\n\n\t// Disconnect to changes.\n\tif (tile_set_atlas_source.is_valid()) {\n\t\ttile_set_atlas_source->disconnect(CoreStringName(property_list_changed), callable_mp((Object *)this, &Object::notify_property_list_changed));\n\t}\n\n\ttile_set = p_tile_set;\n\ttile_set_atlas_source = p_tile_set_atlas_source;\n\tsource_id = r_source_id;\n\n\t// Connect to changes.\n\tif (tile_set_atlas_source.is_valid()) {\n\t\tif (!tile_set_atlas_source->is_connected(CoreStringName(property_list_changed), callable_mp((Object *)this, &Object::notify_property_list_changed))) {\n\t\t\ttile_set_atlas_source->connect(CoreStringName(property_list_changed), callable_mp((Object *)this, &Object::notify_property_list_changed));\n\t\t}\n\t}\n\n\tnotify_property_list_changed();\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

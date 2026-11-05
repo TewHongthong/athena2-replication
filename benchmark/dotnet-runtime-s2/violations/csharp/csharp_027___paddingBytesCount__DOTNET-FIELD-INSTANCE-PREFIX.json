@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_027",
+  "language": "csharp",
+  "originalName": "_paddingBytesCount",
+  "injectedName": "paddingBytesCount",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'paddingBytesCount' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class WasmByteArrayDataSegment : IWasmDataSegment\n{\n    private readonly byte[] _contents;\n    private int paddingBytesCount;\n\n    public WasmByteArrayDataSegment(\n        byte[] contents,\n        Utf8String name,\n        int fileAlignment)\n    {\n        Debug.Assert(BitOperations.IsPow2(fileAlignment));\n        _contents = contents;\n        Name = name;\n        FileAlignment = fileAlignment;\n    }\n\n    public Utf8String Name { get; }\n    public int FileAlignment { get; }\n    public int HeaderSize => WasmDataSegmentEncoding.GetHeaderSize(WasmDataSegmentType.Passive, initExpr: null);\n    public int ContentSize => checked(_contents.Length + paddingBytesCount);\n\n    public int EncodeSize() => HeaderSize + ContentSize;\n\n    public int EmitToStream(Stream outputFileStream)\n    {\n        Span<byte> headerBuffer = stackalloc byte[HeaderSize];\n        int headerSize = WasmDataSegmentEncoding.EncodeHeader(\n            headerBuffer,\n            WasmDataSegmentType.Passive,\n            initExpr: null,\n            ContentSize);\n        Debug.Assert(headerSize == HeaderSize);\n\n        outputFileStream.Write(headerBuffer);\n        outputFileStream.Write(_contents);\n        WasmDataSegmentEncoding.EmitPadding(outputFileStream, paddingBytesCount);\n        return headerSize + _contents.Length + paddingBytesCount;\n    }\n\n    public int GetMemoryAddressOfOffset(int offsetInSegment)\n    {\n        Debug.Assert(offsetInSegment >= 0 && offsetInSegment <= _contents.Length);\n        return offsetInSegment;\n    }\n\n    public void SetTrailingPadding(int trailingBytesCount)\n    {\n        Debug.Assert(trailingBytesCount >= 0);\n        paddingBytesCount = trailingBytesCount;\n    }\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "csharp_048",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ExecutionManager/ExecutionManager_1.cs lines 9-42 (class ExecutionManager_1); license MIT; repo created 2026-08-06T01:56:01+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "public sealed class ExecutionManager_1 : IExecutionManager\n{\n    private IExecutionManager _executionManagerCore;\n\n    internal ExecutionManager_1(Target target)\n    {\n        TargetPointer addr = target.ReadGlobalPointer(Constants.Globals.ExecutionManagerCodeRangeMapAddress);\n        _executionManagerCore = new ExecutionManagerCore<NibbleMapConstantLookup>(target, addr);\n    }\n\n    public CodeBlockHandle? GetCodeBlockHandle(TargetCodePointer ip) => _executionManagerCore.GetCodeBlockHandle(ip);\n    public TargetPointer GetMethodDesc(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetMethodDesc(codeInfoHandle);\n    public TargetPointer GetStartAddress(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetStartAddress(codeInfoHandle);\n    public TargetPointer GetFuncletStartAddress(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetFuncletStartAddress(codeInfoHandle);\n    public void GetMethodRegionInfo(CodeBlockHandle codeInfoHandle, out uint hotSize, out TargetPointer coldStart, out uint coldSize) => _executionManagerCore.GetMethodRegionInfo(codeInfoHandle, out hotSize, out coldStart, out coldSize);\n    public TargetPointer NonVirtualEntry2MethodDesc(TargetCodePointer entrypoint) => _executionManagerCore.NonVirtualEntry2MethodDesc(entrypoint);\n    public TargetCodePointer GetDiagnosticCodeStartFromEntryPoint(TargetCodePointer entryPoint) => _executionManagerCore.GetDiagnosticCodeStartFromEntryPoint(entryPoint);\n    public bool IsFunclet(CodeBlockHandle codeInfoHandle) => _executionManagerCore.IsFunclet(codeInfoHandle);\n    public bool IsFilterFunclet(CodeBlockHandle codeInfoHandle) => _executionManagerCore.IsFilterFunclet(codeInfoHandle);\n    public TargetPointer GetUnwindInfo(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetUnwindInfo(codeInfoHandle);\n    public TargetPointer GetUnwindInfoBaseAddress(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetUnwindInfoBaseAddress(codeInfoHandle);\n    public TargetPointer GetDebugInfo(CodeBlockHandle codeInfoHandle, out bool hasFlagByte) => _executionManagerCore.GetDebugInfo(codeInfoHandle, out hasFlagByte);\n    public void GetGCInfo(CodeBlockHandle codeInfoHandle, out TargetPointer gcInfo, out uint gcVersion) => _executionManagerCore.GetGCInfo(codeInfoHandle, out gcInfo, out gcVersion);\n    public TargetNUInt GetRelativeOffset(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetRelativeOffset(codeInfoHandle);\n    public bool IsGcSafe(TargetCodePointer instructionPointer) => _executionManagerCore.IsGcSafe(instructionPointer);\n    public uint GetStackParameterSize(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetStackParameterSize(codeInfoHandle);\n    public List<ExceptionClauseInfo> GetExceptionClauses(CodeBlockHandle codeInfoHandle) => _executionManagerCore.GetExceptionClauses(codeInfoHandle);\n    public JitManagerInfo? GetJitManagerInfo(JitManagerKind kind) => _executionManagerCore.GetJitManagerInfo(kind);\n    public IEnumerable<ICodeHeapInfo> GetCodeHeapInfos(JitManagerKind kind) => _executionManagerCore.GetCodeHeapInfos(kind);\n    public IReadOnlyList<TargetPointer> GetDynamicFunctionTableEntries(TargetPointer tableAddress) => _executionManagerCore.GetDynamicFunctionTableEntries(tableAddress);\n    public CodeKind GetCodeKind(TargetCodePointer codeAddress) => _executionManagerCore.GetCodeKind(codeAddress);\n    public TargetPointer FindReadyToRunModule(TargetPointer address) => _executionManagerCore.FindReadyToRunModule(address);\n    public void Flush(FlushScope scope) => _executionManagerCore.Flush(scope);\n}",
+  "identifiers": [
+    {
+      "name": "_executionManagerCore",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-06T01:56:01+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/ExecutionManager/ExecutionManager_1.cs",
+    "startLine": 9,
+    "endLine": 42,
+    "unit": "class ExecutionManager_1",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__ExecutionManager__ExecutionManager_1.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

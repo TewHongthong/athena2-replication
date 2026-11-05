@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_096",
+  "language": "cpp",
+  "originalName": "p_src",
+  "injectedName": "src",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'src' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "bool FileAccessPackedByteArray::store_buffer(const uint8_t *src, uint64_t p_length) {\n\tif (!p_length) {\n\t\treturn true;\n\t}\n\n\tERR_FAIL_NULL_V(src, false);\n\n\tuint64_t left = data.size() - pos;\n\tuint64_t write = MIN(p_length, left);\n\n\tmemcpy(data.ptrw() + pos, src, write);\n\tpos += write;\n\n\tERR_FAIL_COND_V_MSG(write < p_length, false, \"Writing less data than requested.\");\n\n\treturn true;\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

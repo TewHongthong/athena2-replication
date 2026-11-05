@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_095",
+  "language": "cpp",
+  "originalName": "p_control",
+  "injectedName": "control",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'control' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void add_control_over_atlas_tiles(Control *control, bool scaled = true) {\n\tif (scaled) {\n\t\tbase_tiles_drawing_root->add_child(control);\n\t} else {\n\t\tbase_tiles_root_control->add_child(control);\n\t}\n\tcontrol->set_anchors_and_offsets_preset(Control::PRESET_FULL_RECT);\n\tcontrol->set_mouse_filter(Control::MOUSE_FILTER_PASS);\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

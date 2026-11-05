@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_064",
+  "language": "csharp",
+  "originalName": "_name",
+  "injectedName": "s_name",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_name' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal sealed class NamedAsyncValidateOptionsFilter<TOptions> :\n    IAsyncValidateOptions<TOptions>,\n    IOptionsValidatorNameMetadata\n    where TOptions : class\n{\n    private readonly string s_name;\n    private readonly IAsyncValidateOptions<TOptions> _inner;\n\n    internal NamedAsyncValidateOptionsFilter(string name, IAsyncValidateOptions<TOptions> inner)\n    {\n        ArgumentNullException.ThrowIfNull(inner);\n\n        s_name = name;\n        _inner = inner;\n    }\n\n    string? IOptionsValidatorNameMetadata.Name => s_name;\n\n    public ValidateOptionsResult Validate(string? name, TOptions options) =>\n        name is null || name == s_name\n            ? _inner.Validate(name, options)\n            : ValidateOptionsResult.Skip;\n\n    public Task<ValidateOptionsResult> ValidateAsync(\n        string? name,\n        TOptions options,\n        CancellationToken cancellationToken = default) =>\n        name is null || name == s_name\n            ? _inner.ValidateAsync(name, options, cancellationToken)\n            : Task.FromResult(ValidateOptionsResult.Skip);\n}",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

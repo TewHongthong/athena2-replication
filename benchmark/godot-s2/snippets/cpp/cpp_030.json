@@ -1,0 +1,47 @@
+{
+  "id": "cpp_030",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "servers/audio/audio_driver.cpp lines 134-146 (method AudioDriver::get_speaker_mode_by_total_channels); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "AudioDriver::SpeakerMode AudioDriver::get_speaker_mode_by_total_channels(int p_channels) const {\n\tswitch (p_channels) {\n\t\tcase 4:\n\t\t\treturn SPEAKER_SURROUND_31;\n\t\tcase 6:\n\t\t\treturn SPEAKER_SURROUND_51;\n\t\tcase 8:\n\t\t\treturn SPEAKER_SURROUND_71;\n\t}\n\n\t// Default to STEREO\n\treturn SPEAKER_MODE_STEREO;\n}",
+  "identifiers": [
+    {
+      "name": "p_channels",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "servers/audio/audio_driver.cpp",
+    "startLine": 134,
+    "endLine": 146,
+    "unit": "method AudioDriver::get_speaker_mode_by_total_channels",
+    "corpusFile": "corpus/cpp/godotengine__godot__servers__audio__audio_driver.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 11,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

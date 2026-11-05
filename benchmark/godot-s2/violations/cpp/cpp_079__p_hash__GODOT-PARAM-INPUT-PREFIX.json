@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_079",
+  "language": "cpp",
+  "originalName": "p_hash",
+  "injectedName": "r_hash",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_hash' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "static uint32_t hash(const PhysicsBodyKey &r_hash) {\n\tuint32_t h = hash_murmur3_one_32(r_hash.physics_layer);\n\th = hash_murmur3_one_real(r_hash.linear_velocity.x);\n\th = hash_murmur3_one_real(r_hash.linear_velocity.y, h);\n\th = hash_murmur3_one_real(r_hash.angular_velocity, h);\n\tif (r_hash.one_way_collision) {\n\t\th = hash_murmur3_one_32(r_hash.y_origin, h);\n\t}\n\treturn h;\n}",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_013",
+  "language": "cpp",
+  "originalName": "p_layout",
+  "injectedName": "layout",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'layout' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void TileMapLayerEditorTilesPlugin::update_layout(EditorDock::DockLayout layout, int p_slot) {\n\tbool is_vertical = (layout == EditorDock::DOCK_LAYOUT_VERTICAL);\n\tatlas_sources_split_container->set_vertical(is_vertical);\n\tatlas_sources_split_container->move_child(split_container_left_side, is_vertical ? -1 : 0);\n\tsplit_container_left_side->set_vertical(!is_vertical);\n\n\ttilemap_tiles_tools_buttons->set_vertical(is_vertical);\n\ttransform_toolbar->set_vertical(is_vertical);\n\ttools_settings->set_vertical(is_vertical);\n\ttools_settings_vsep->set_vertical(is_vertical);\n\ttransform_separator->set_vertical(is_vertical);\n\n\twide_toolbar->set_visible(is_vertical);\n\tbucket_contiguous_checkbox->reparent(is_vertical ? wide_toolbar : tools_settings);\n\tscatter_controls_container->reparent(is_vertical ? wide_toolbar : tools_settings);\n\n\tif (layout == EditorDock::DOCK_LAYOUT_FLOATING || (!is_vertical && p_slot != EditorDock::DOCK_SLOT_BOTTOM)) {\n\t\tpatterns_mc->set_theme_type_variation(\"NoBorderHorizontalBottom\");\n\t\tpatterns_item_list->set_scroll_hint_mode(ItemList::SCROLL_HINT_MODE_TOP);\n\t} else {\n\t\tpatterns_mc->set_theme_type_variation(is_vertical ? \"\" : \"NoBorderHorizontal\");\n\t\tpatterns_item_list->set_scroll_hint_mode(is_vertical ? ItemList::SCROLL_HINT_MODE_DISABLED : ItemList::SCROLL_HINT_MODE_BOTH);\n\t}\n\tpatterns_item_list->set_theme_type_variation(is_vertical ? \"ItemListSecondary\" : \"\");\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

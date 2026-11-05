@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_082",
+  "language": "cpp",
+  "originalName": "p_other",
+  "injectedName": "r_other",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_other' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "bool operator<(const TerrainConstraint &r_other) const {\n\tif (base_cell_coords == r_other.base_cell_coords) {\n\t\treturn bit < r_other.bit;\n\t}\n\treturn base_cell_coords < r_other.base_cell_coords;\n}",
+  "occurrencesRenamed": 4,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

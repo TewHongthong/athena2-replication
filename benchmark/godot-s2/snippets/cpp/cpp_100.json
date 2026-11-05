@@ -1,0 +1,47 @@
+{
+  "id": "cpp_100",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/3d/bone_space_adjuster_3d.cpp lines 147-154 (method BoneSpaceAdjuster3D::set_bone_name); license MIT; repo created 2026-08-30T17:49:03+09:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void BoneSpaceAdjuster3D::set_bone_name(int p_index, const StringName &p_bone_name) {\n\tERR_FAIL_INDEX(p_index, (int)settings.size());\n\tsettings[p_index].bone_name = p_bone_name;\n\tSkeleton3D *sk = get_skeleton();\n\tif (sk) {\n\t\tset_bone(p_index, sk->find_bone(settings[p_index].bone_name));\n\t}\n}",
+  "identifiers": [
+    {
+      "name": "p_index",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-30T17:49:03+09:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/3d/bone_space_adjuster_3d.cpp",
+    "startLine": 147,
+    "endLine": 154,
+    "unit": "method BoneSpaceAdjuster3D::set_bone_name",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__3d__bone_space_adjuster_3d.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 10,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

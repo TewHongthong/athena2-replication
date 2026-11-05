@@ -1,0 +1,88 @@
+{
+  "schema": "athena2-model-pins/1",
+  "description": "Request settings of the hosted Qwen3.5-9B pin of the Study 2 test round (ADDENDUM_study2.md, S2-A11), given to `athena2_s2.py` with `--pins ../models/model_pins_s2_or.json --model-pin qwen35_9b_or_s2`. The \"embeddings\" section is a copy of that of model_pins_s2.json (the SHA-256 of each entry is the same), so a run records the same embedding pin hash and reads the same query embeddings.",
+  "models": {
+    "qwen35_9b_or_s2": {
+      "panel_name": "Qwen3.5-9B (hosted)",
+      "status": "pinned",
+      "route": "OpenRouter, provider locked to DeepInfra at bf16 (no fallback)",
+      "request": {
+        "backend": "openai:qwen/qwen3.5-9b",
+        "base_url": "https://openrouter.ai/api/v1",
+        "temperature": 0.2,
+        "max_tokens": 8192,
+        "extra_body": {
+          "provider": {
+            "order": [
+              "deepinfra"
+            ],
+            "allow_fallbacks": false,
+            "quantizations": [
+              "bf16"
+            ],
+            "require_parameters": true
+          },
+          "reasoning": {
+            "enabled": false
+          }
+        },
+        "price_in": 0.1,
+        "price_out": 0.15
+      },
+      "identity": {
+        "vendor_model_id": "Qwen/Qwen3.5-9B (open weights, Apache-2.0, post-trained; thinking is on by default)",
+        "dated_snapshot": null,
+        "note": "The same open weights as qwen35_9b_s2, served by a hosted provider at bf16 instead of the local 8-bit GGUF (UD-Q8_K_XL). The provider does not state which weight revision it serves and sends no system fingerprint. Thinking is turned off with the OpenRouter reasoning parameter instead of the chat-template argument of the local server. DeepInfra is chosen among the three bf16 endpoints for its stated quantization, uptime and support of every parameter sent; if it becomes unavailable during the run, the replacement provider is reported."
+      },
+      "vendor_facts": {
+        "release_date": null,
+        "knowledge_cutoff": null,
+        "context_window": 262144
+      },
+      "study2": {
+        "replaces": "qwen35_9b_s2 in the test round (ADDENDUM_study2.md, S2-A11)",
+        "change": "same request settings (temperature 0.2, max_tokens 8192, thinking off); hosted bf16 deployment instead of the local llama-server"
+      },
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3.5-9B",
+        "https://openrouter.ai/qwen/qwen3.5-9b",
+        "https://openrouter.ai/api/v1/models/qwen/qwen3.5-9b/endpoints"
+      ]
+    }
+  },
+  "embeddings": {
+    "qwen3_embedding_06b": {
+      "panel_name": "Qwen3-Embedding-0.6B (embedding model of the dense retrieval condition)",
+      "status": "pinned",
+      "route": "local llama-server in embedding mode on the lab Windows machine, reached through an SSH tunnel; the address is read from $ATHENA_EMBED_BASE_URL and is not part of the pin",
+      "request": {
+        "model": "qwen3-embedding-0.6b-q8_0",
+        "query_template": "Instruct: Given an identifier and the code around it, retrieve the passages of the coding standard that apply to it\nQuery:{query}",
+        "document_template": "{text}",
+        "batch": 8
+      },
+      "identity": {
+        "vendor_model_id": "Qwen/Qwen3-Embedding-0.6B (open weights, Apache-2.0)",
+        "gguf_repository": "Qwen/Qwen3-Embedding-0.6B-GGUF",
+        "gguf_revision": "370f27d7550e0def9b39c1f16d3fbaa13aa67728",
+        "gguf_file": "Qwen3-Embedding-0.6B-Q8_0.gguf",
+        "gguf_size_bytes": 639150592,
+        "gguf_sha256_listed": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+        "gguf_sha256_local": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+        "llama_cpp_build": "version 0.6.0-dev (build 11433, commit 50569eb87), built with Clang 20.1.8 for Windows x86_64",
+        "server_alias": "qwen3-embedding-0.6b-q8_0",
+        "server_context": 8192,
+        "server_command": "llama-server.exe -m Qwen3-Embedding-0.6B-Q8_0.gguf --alias qwen3-embedding-0.6b-q8_0 --embedding --pooling last -c 8192 -b 8192 -ub 8192 -np 1 -ngl 99 --host 127.0.0.1 --port 8081",
+        "note": "Queries are embedded with the instruction of query_template and passages without one, as the model card prescribes; the instruction is fixed here and is not tuned. Vectors are L2-normalised by the harness and compared by dot product. gguf_sha256_listed is the LFS hash shown by the repository at the pinned revision; gguf_sha256_local, computed on the serving machine, matches it. A different llama.cpp build or server command is a different deployment."
+      },
+      "vendor_facts": {
+        "context_window": 32768,
+        "embedding_dimension": 1024
+      },
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+        "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B-GGUF"
+      ]
+    }
+  }
+}

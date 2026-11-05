@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_003",
+  "language": "cpp",
+  "originalName": "p_rect",
+  "injectedName": "r_rect",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_rect' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void StreamedTexture2D::draw_rect(RID p_canvas_item, const Rect2 &r_rect, bool p_tile, const Color &p_modulate, bool p_transpose) const {\n\tif ((w | h) == 0) {\n\t\treturn;\n\t}\n\tRenderingServer::get_singleton()->canvas_item_add_texture_rect(p_canvas_item, r_rect, texture, p_tile, p_modulate, p_transpose);\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "dev"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_084",
+  "language": "cpp",
+  "originalName": "p_other",
+  "injectedName": "r_other",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_other' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "bool operator==(const PhysicsBodyKey &r_other) const {\n\treturn physics_layer == r_other.physics_layer &&\n\t\t\tlinear_velocity == r_other.linear_velocity &&\n\t\t\tangular_velocity == r_other.angular_velocity &&\n\t\t\tone_way_collision == r_other.one_way_collision &&\n\t\t\tone_way_collision_margin == r_other.one_way_collision_margin &&\n\t\t\t(!one_way_collision || y_origin == r_other.y_origin);\n}",
+  "occurrencesRenamed": 7,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

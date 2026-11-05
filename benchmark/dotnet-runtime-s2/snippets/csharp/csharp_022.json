@@ -1,0 +1,44 @@
+{
+  "id": "csharp_022",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/GCInfo/GCInfoX86_1.cs lines 16-68 (class GCInfoX86_1); license MIT; repo created 2026-06-17T18:08:36+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class GCInfoX86_1 : IGCInfo\n{\n    private readonly Target _target;\n\n    internal GCInfoX86_1(Target target)\n    {\n        _target = target;\n    }\n\n    IGCInfoHandle IGCInfo.DecodePlatformSpecificGCInfo(TargetPointer gcInfoAddress, uint gcVersion)\n        => new GCInfoHelpers.X86.X86GCInfo(_target, gcInfoAddress, gcVersion);\n\n    IGCInfoHandle IGCInfo.DecodeInterpreterGCInfo(TargetPointer gcInfoAddress, uint gcVersion)\n        => new GcInfoDecoder<InterpreterGCInfoTraits>(_target, gcInfoAddress, gcVersion);\n\n    GCInfoHeader IGCInfo.GetHeader(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetHeader();\n\n    uint IGCInfo.GetCodeLength(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetCodeLength();\n\n    uint IGCInfo.GetCalleePoppedArgumentsSize(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetCalleePoppedArgumentsSize();\n\n    IReadOnlyList<InterruptibleRange> IGCInfo.GetInterruptibleRanges(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetInterruptibleRanges();\n\n    IReadOnlyList<uint> IGCInfo.GetSafePoints(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetSafePoints();\n\n    IReadOnlyList<GCSlotLifetime> IGCInfo.GetSlotLifetimes(IGCInfoHandle gcInfoHandle)\n        => AssertCorrectHandle(gcInfoHandle).GetSlotLifetimes();\n\n    IReadOnlyList<LiveSlot> IGCInfo.EnumerateLiveSlots(IGCInfoHandle gcInfoHandle, uint instructionOffset, GcSlotEnumerationOptions options)\n        => AssertCorrectHandle(gcInfoHandle).EnumerateLiveSlots(instructionOffset, options);\n\n    bool IGCInfo.IsGcSafe(IGCInfoHandle gcInfoHandle, uint instructionOffset)\n        => AssertCorrectHandle(gcInfoHandle).IsGcSafe(instructionOffset);\n\n    bool IGCInfo.TryGetGenericContextStorage(IGCInfoHandle gcInfoHandle, GenericContextLoc contextKind, uint instructionOffset, out GenericContextStorage storage)\n        => AssertCorrectHandle(gcInfoHandle).TryGetGenericContextStorage(contextKind, instructionOffset, out storage);\n\n    TargetPointer IGCInfo.GetAmbientSP(IGCInfoHandle gcInfoHandle, uint codeOffset, TargetPointer fp, TargetPointer sp)\n        => AssertCorrectHandle(gcInfoHandle).GetAmbientSP(codeOffset, fp, sp);\n\n    private static IGCInfoDecoder AssertCorrectHandle(IGCInfoHandle gcInfoHandle)\n    {\n        if (gcInfoHandle is not IGCInfoDecoder handle)\n            throw new System.ArgumentException(\"Invalid GC info handle\", nameof(gcInfoHandle));\n\n        return handle;\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_target",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-06-17T18:08:36+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/native/managed/cdac/Microsoft.Diagnostics.DataContractReader.Contracts/Contracts/GCInfo/GCInfoX86_1.cs",
+    "startLine": 16,
+    "endLine": 68,
+    "unit": "class GCInfoX86_1",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__native__managed__cdac__Microsoft.Diagnostics.DataContractReader.Contracts__Contracts__GCInfo__GCInfoX86_1.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

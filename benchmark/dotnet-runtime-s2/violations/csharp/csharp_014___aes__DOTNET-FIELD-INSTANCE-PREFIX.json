@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_014",
+  "language": "csharp",
+  "originalName": "_aes",
+  "injectedName": "aes",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'aes' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "    internal sealed class HpkeManagedAesAeadAdapter : HpkeManagedAeadAdapter\n    {\n        private readonly AesGcm aes;\n\n        internal HpkeManagedAesAeadAdapter(HpkeSuite suite, ReadOnlySpan<byte> key)\n        {\n#pragma warning disable CA1416\n            aes = new AesGcm(key, suite.AeadMetadata.Nt);\n#pragma warning restore CA1416\n        }\n\n        internal override void Encrypt(\n            ReadOnlySpan<byte> plaintext,\n            ReadOnlySpan<byte> nonce,\n            ReadOnlySpan<byte> associatedData,\n            Span<byte> ciphertext,\n            Span<byte> tag)\n        {\n#pragma warning disable CA1416\n            aes.Encrypt(nonce, plaintext, ciphertext, tag, associatedData);\n#pragma warning restore CA1416\n        }\n\n        internal override void Decrypt(\n            ReadOnlySpan<byte> ciphertext,\n            ReadOnlySpan<byte> nonce,\n            ReadOnlySpan<byte> associatedData,\n            ReadOnlySpan<byte> tag,\n            Span<byte> plaintext)\n        {\n#pragma warning disable CA1416\n            aes.Decrypt(nonce, ciphertext, tag, plaintext, associatedData);\n#pragma warning restore CA1416\n        }\n\n\n#pragma warning disable CA1416\n        public override void Dispose() => aes.Dispose();\n#pragma warning restore CA1416\n    }",
+  "occurrencesRenamed": 5,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

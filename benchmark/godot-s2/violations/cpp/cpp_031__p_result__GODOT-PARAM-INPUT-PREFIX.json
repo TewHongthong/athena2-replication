@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_031",
+  "language": "cpp",
+  "originalName": "p_result",
+  "injectedName": "r_result",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_result' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void complete(const T &r_result) {\n\tMutexLock<BinaryMutex> lock(mutex);\n\tresult = r_result;\n\tdone = true;\n\tcondvar.notify_all();\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

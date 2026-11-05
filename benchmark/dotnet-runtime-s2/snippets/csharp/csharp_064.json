@@ -1,0 +1,44 @@
+{
+  "id": "csharp_064",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/Microsoft.Extensions.Options/src/NamedAsyncValidateOptionsFilter.cs lines 15-45 (class NamedAsyncValidateOptionsFilter); license MIT; repo created 2026-08-13T18:10:15+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class NamedAsyncValidateOptionsFilter<TOptions> :\n    IAsyncValidateOptions<TOptions>,\n    IOptionsValidatorNameMetadata\n    where TOptions : class\n{\n    private readonly string _name;\n    private readonly IAsyncValidateOptions<TOptions> _inner;\n\n    internal NamedAsyncValidateOptionsFilter(string name, IAsyncValidateOptions<TOptions> inner)\n    {\n        ArgumentNullException.ThrowIfNull(inner);\n\n        _name = name;\n        _inner = inner;\n    }\n\n    string? IOptionsValidatorNameMetadata.Name => _name;\n\n    public ValidateOptionsResult Validate(string? name, TOptions options) =>\n        name is null || name == _name\n            ? _inner.Validate(name, options)\n            : ValidateOptionsResult.Skip;\n\n    public Task<ValidateOptionsResult> ValidateAsync(\n        string? name,\n        TOptions options,\n        CancellationToken cancellationToken = default) =>\n        name is null || name == _name\n            ? _inner.ValidateAsync(name, options, cancellationToken)\n            : Task.FromResult(ValidateOptionsResult.Skip);\n}",
+  "identifiers": [
+    {
+      "name": "_name",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-13T18:10:15+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/Microsoft.Extensions.Options/src/NamedAsyncValidateOptionsFilter.cs",
+    "startLine": 15,
+    "endLine": 45,
+    "unit": "class NamedAsyncValidateOptionsFilter",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__Microsoft.Extensions.Options__src__NamedAsyncValidateOptionsFilter.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "cpp_018",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/texture_streaming/texture_streaming.cpp lines 201-222 (method TextureStreaming::material_set_textures); license MIT; repo created 2026-08-26T13:28:15-06:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "RID TextureStreaming::material_set_textures(RID p_feedback_rid, const Vector<RID> &p_textures) {\n\tERR_NOT_ON_RENDER_THREAD_V(RID());\n\tMutexLock lock(material_mutex);\n\n\tMaterialInfo *info = nullptr;\n\tif (p_feedback_rid.is_null()) {\n\t\tinfo = material_info_owner.allocate(p_feedback_rid);\n\t} else {\n\t\tinfo = material_info_owner.get_or_null(p_feedback_rid);\n\t}\n\n\tERR_FAIL_NULL_V(info, RID());\n\n\tif (p_textures.is_empty()) {\n\t\tmaterial_info_owner.free(p_feedback_rid);\n\t\treturn RID();\n\t}\n\n\tinfo->textures = p_textures;\n\n\treturn p_feedback_rid;\n}",
+  "identifiers": [
+    {
+      "name": "p_feedback_rid",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-08-26T13:28:15-06:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/texture_streaming/texture_streaming.cpp",
+    "startLine": 201,
+    "endLine": 222,
+    "unit": "method TextureStreaming::material_set_textures",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__texture_streaming__texture_streaming.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 13,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

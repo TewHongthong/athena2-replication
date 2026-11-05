@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_081",
+  "language": "cpp",
+  "originalName": "p_reroute_node",
+  "injectedName": "reroute_node",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'reroute_node' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "String ShaderGraph::get_reroute_parameter_name(int reroute_node) const {\n\tERR_FAIL_COND_V(!nodes.has(reroute_node), \"\");\n\n\tconst ShaderGraph::Node *node = &nodes[reroute_node];\n\twhile (node->prev_connected_nodes.size() > 0) {\n\t\tint connected_node_id = node->prev_connected_nodes[0];\n\t\tnode = &nodes[connected_node_id];\n\t\tRef<VisualShaderNodeParameter> parameter_node = node->node;\n\t\tif (parameter_node.is_valid() && parameter_node->get_output_port_type(0) == VisualShaderNode::PORT_TYPE_SAMPLER) {\n\t\t\treturn parameter_node->get_parameter_name();\n\t\t}\n\t\tRef<VisualShaderNodeInput> input_node = node->node;\n\t\tif (input_node.is_valid() && input_node->get_output_port_type(0) == VisualShaderNode::PORT_TYPE_SAMPLER) {\n\t\t\treturn input_node->get_input_real_name();\n\t\t}\n\t}\n\treturn \"\";\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

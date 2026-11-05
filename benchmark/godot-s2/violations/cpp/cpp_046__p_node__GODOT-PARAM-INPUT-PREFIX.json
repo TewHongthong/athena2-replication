@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_046",
+  "language": "cpp",
+  "originalName": "p_node",
+  "injectedName": "node",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'node' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "bool ShaderGraph::depends_on_instance_parameter(int node) const {\n\tERR_FAIL_COND_V(!nodes.has(node), false);\n\n\tHashSet<int> visited;\n\treturn _depends_on_instance_parameter(node, visited);\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

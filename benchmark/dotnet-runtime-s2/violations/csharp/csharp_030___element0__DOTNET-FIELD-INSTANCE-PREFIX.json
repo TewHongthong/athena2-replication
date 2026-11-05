@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_030",
+  "language": "csharp",
+  "originalName": "_element0",
+  "injectedName": "element0",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'element0' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "[StructLayout(LayoutKind.Sequential)]\ninternal struct DNS_QUERY_CANCEL\n{\n    public ReservedBuffer Reserved;\n\n    [InlineArray(32)]\n    internal struct ReservedBuffer\n    {\n        private byte element0;\n    }\n}",
+  "occurrencesRenamed": 1,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

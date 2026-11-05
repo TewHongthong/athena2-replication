@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_060",
+  "language": "cpp",
+  "originalName": "p_name",
+  "injectedName": "r_name",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_name' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "PhysicsServer3D *PhysicsServer3DManager::new_server(const String &r_name) {\n\tint id = find_server_id(r_name);\n\tif (id == -1) {\n\t\treturn nullptr;\n\t} else {\n\t\tVariant ret;\n\t\tCallable::CallError ce;\n\t\tphysics_servers[id].create_callback.callp(nullptr, 0, ret, ce);\n\t\tERR_FAIL_COND_V(ce.error != Callable::CallError::CALL_OK, nullptr);\n\t\treturn Object::cast_to<PhysicsServer3D>(ret.get_validated_object());\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

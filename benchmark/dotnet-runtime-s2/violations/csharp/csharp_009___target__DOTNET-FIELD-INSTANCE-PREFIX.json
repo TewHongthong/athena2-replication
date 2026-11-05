@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_009",
+  "language": "csharp",
+  "originalName": "_target",
+  "injectedName": "s_target",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_target' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "internal readonly struct WindowsErrorReporting_1 : IWindowsErrorReporting\n{\n    private readonly Target s_target;\n\n    public WindowsErrorReporting_1(Target target)\n    {\n        s_target = target;\n    }\n\n    byte[] IWindowsErrorReporting.GetWatsonBuckets(TargetPointer threadPointer)\n    {\n        TargetPointer readFrom;\n        Data.Thread thread = s_target.ProcessedData.GetOrAdd<Data.Thread>(threadPointer);\n        TargetPointer exceptionTrackerPtr = s_target.ReadPointer(thread.ExceptionTracker);\n        Data.ExceptionInfo? exceptionInfo = (exceptionTrackerPtr == TargetPointer.Null) ? null : s_target.ProcessedData.GetOrAdd<Data.ExceptionInfo>(exceptionTrackerPtr);\n        if (exceptionInfo == null)\n            return Array.Empty<byte>();\n        TargetPointer thrownObject = exceptionInfo.ThrownObject;\n        if (thrownObject != TargetPointer.Null)\n        {\n            Data.Exception exception = s_target.ProcessedData.GetOrAdd<Data.Exception>(thrownObject);\n            if (exception.WatsonBuckets != TargetPointer.Null)\n            {\n                readFrom = s_target.Contracts.Object.GetArrayData(exception.WatsonBuckets, out _, out _, out _, out _, out _);\n            }\n            else\n            {\n                readFrom = thread.UEWatsonBucketTrackerBuckets ?? TargetPointer.Null;\n                if (readFrom == TargetPointer.Null)\n                {\n                    readFrom = exceptionInfo.ExceptionWatsonBucketTrackerBuckets ?? TargetPointer.Null;\n                }\n                else\n                {\n                    return Array.Empty<byte>();\n                }\n            }\n        }\n        else\n        {\n            readFrom = thread.UEWatsonBucketTrackerBuckets ?? TargetPointer.Null;\n        }\n\n        if (readFrom == TargetPointer.Null)\n            return Array.Empty<byte>();\n\n        byte[] rval = new byte[s_target.ReadGlobal<uint>(Constants.Globals.SizeOfGenericModeBlock)];\n        s_target.ReadBuffer(readFrom, rval);\n        return rval;\n    }\n}",
+  "occurrencesRenamed": 9,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

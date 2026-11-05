@@ -1,0 +1,44 @@
+{
+  "id": "csharp_040",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/tools/ilasm/src/ILAssembler/StringCharStream.cs lines 10-67 (class StringCharStream); license MIT; repo created 2026-10-02T03:59:46+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class StringCharStream : ICharStream\n{\n    private readonly string _text;\n    private int _position;\n\n    internal StringCharStream(string text, string? sourceName = null)\n    {\n        _text = text;\n        SourceName = sourceName ?? string.Empty;\n    }\n\n    public int Index => _position;\n\n    public int Size => _text.Length;\n\n    public string SourceName { get; }\n\n    public void Consume()\n    {\n        if (_position >= _text.Length)\n        {\n            throw new InvalidOperationException(\"Cannot consume past the end of the character stream.\");\n        }\n\n        _position++;\n    }\n\n    public int LA(int i)\n    {\n        if (i == 0)\n        {\n            return 0;\n        }\n\n        int offset = i < 0 ? i : i - 1;\n        int position = _position + offset;\n        return (uint)position >= (uint)_text.Length ? TokenConstants.EOF : _text[position];\n    }\n\n    public int Mark() => -1;\n\n    public void Release(int marker)\n    {\n    }\n\n    public void Seek(int index)\n    {\n        ArgumentOutOfRangeException.ThrowIfNegative(index);\n        _position = Math.Min(index, _text.Length);\n    }\n\n    public string GetText(Interval interval)\n    {\n        int start = Math.Max(0, interval.a);\n        int end = Math.Min(_text.Length - 1, interval.b);\n        return start > end ? string.Empty : _text.Substring(start, end - start + 1);\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_position",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-10-02T03:59:46+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/tools/ilasm/src/ILAssembler/StringCharStream.cs",
+    "startLine": 10,
+    "endLine": 67,
+    "unit": "class StringCharStream",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__tools__ilasm__src__ILAssembler__StringCharStream.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_swap",
+    "methodsAvailable": [
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

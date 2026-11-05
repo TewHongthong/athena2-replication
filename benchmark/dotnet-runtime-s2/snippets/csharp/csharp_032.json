@@ -1,0 +1,45 @@
+{
+  "id": "csharp_032",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HpkeManagedChaCha20Poly1305AeadAdapter.cs lines 7-37 (class HpkeManagedChaCha20Poly1305AeadAdapter); license MIT; repo created 2026-09-22T16:34:39+00:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class HpkeManagedChaCha20Poly1305AeadAdapter : HpkeManagedAeadAdapter\n{\n    private readonly ChaCha20Poly1305 _chacha;\n\n    internal HpkeManagedChaCha20Poly1305AeadAdapter(ReadOnlySpan<byte> key)\n    {\n        _chacha = new ChaCha20Poly1305(key);\n    }\n\n    internal override void Encrypt(\n        ReadOnlySpan<byte> plaintext,\n        ReadOnlySpan<byte> nonce,\n        ReadOnlySpan<byte> associatedData,\n        Span<byte> ciphertext,\n        Span<byte> tag)\n    {\n        _chacha.Encrypt(nonce, plaintext, ciphertext, tag, associatedData);\n    }\n\n    internal override void Decrypt(\n        ReadOnlySpan<byte> ciphertext,\n        ReadOnlySpan<byte> nonce,\n        ReadOnlySpan<byte> associatedData,\n        ReadOnlySpan<byte> tag,\n        Span<byte> plaintext)\n    {\n        _chacha.Decrypt(nonce, ciphertext, tag, plaintext, associatedData);\n    }\n\n    public override void Dispose() => _chacha.Dispose();\n}",
+  "identifiers": [
+    {
+      "name": "_chacha",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-22T16:34:39+00:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HpkeManagedChaCha20Poly1305AeadAdapter.cs",
+    "startLine": 7,
+    "endLine": 37,
+    "unit": "class HpkeManagedChaCha20Poly1305AeadAdapter",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__libraries__System.Security.Cryptography__src__System__Security__Cryptography__HpkeManagedChaCha20Poly1305AeadAdapter.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "test",
+  "unitIndex": 0,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

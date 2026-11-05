@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_016",
+  "language": "csharp",
+  "originalName": "s_emptyDynamicList",
+  "injectedName": "emptyDynamicList",
+  "identifierKind": "static_field",
+  "violatedRuleId": "DOTNET-FIELD-STATIC-PREFIX",
+  "injectionMethod": "prefix_strip",
+  "expectedViolationReasons": [
+    "name 'emptyDynamicList' does not start with required prefix 's_'"
+  ],
+  "codeContextWithViolation": "public class TestNode : ComputedStaticDependencyNode<TestGraph>\n{\n    private readonly string _data;\n    private static readonly CombinedDependencyListEntry[] emptyDynamicList = new CombinedDependencyListEntry[0];\n\n    public TestNode(string data)\n    {\n        _data = data;\n    } \n\n    public string Data\n    {\n        get\n        {\n            return _data;\n        }\n    }\n\n    protected override string GetName(TestGraph context)\n    {\n        return _data;\n    }\n\n    public override bool HasDynamicDependencies\n    {\n        get\n        {\n            return true;\n        }\n    }\n\n    public override IEnumerable<CombinedDependencyListEntry> SearchDynamicDependencies(List<DependencyNodeCore<TestGraph>> markedNodes, int firstNode, TestGraph context)\n    {\n        if (context._dynamicDependencyComputer == null)\n            return emptyDynamicList;\n\n        IEnumerable<CombinedDependencyListEntry> returnValue = emptyDynamicList;\n        List<CombinedDependencyListEntry> returnValueWithData = null;\n        for (int i = firstNode; i < markedNodes.Count; i++)\n        {\n            Tuple<string,string> nextResult = context._dynamicDependencyComputer(this.Data, ((TestNode)markedNodes[i]).Data);\n\n            if (nextResult != null)\n            {\n                if (returnValueWithData == null)\n                {\n                    returnValueWithData = new List<DependencyNodeCore<TestGraph>.CombinedDependencyListEntry>();\n                    returnValue = returnValueWithData;\n                }\n\n                returnValueWithData.Add(new CombinedDependencyListEntry(context.GetNode(nextResult.Item1), markedNodes[i], nextResult.Item2));\n            }\n        }\n\n        return returnValue;\n    }\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "dev"
+}

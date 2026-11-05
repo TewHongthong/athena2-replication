@@ -1,0 +1,45 @@
+{
+  "id": "csharp_003",
+  "language": "csharp",
+  "source": "github:dotnet/runtime@f7129355893d368ae3eccb0e957f779c62d4525d",
+  "sourceDetail": "src/coreclr/tools/aot/ILCompiler.ReadyToRun/PortableCallHelpers/InternalCallSignatureCollector.cs lines 50-99 (class InternalCallSignatureCollector); license MIT; repo created 2026-09-04T15:12:43+02:00; curated by athena-curation-1.0",
+  "standardId": "DOTNET",
+  "codeContext": "internal sealed class InternalCallSignatureCollector(InteropLogger log)\n{\n    private readonly Dictionary<string, MethodDesc> _signatures = [];\n\n    public IReadOnlyDictionary<string, MethodDesc> Signatures => _signatures;\n\n    public void ScanType(EcmaType type)\n    {\n        foreach (MethodDesc method in type.GetMethods())\n        {\n            if (!method.IsInternalCall)\n                continue;\n\n            // String constructors never reach a signature-derived thunk. They are compiled as static\n            // factories (\"String Ctor(args)\", see WasmLowering.GetStringCtorActualSignature), and the\n            // runtime special-cases them in both directions with hardcoded keys before it consults\n            // this table: GetCookieForCalliSig and GetPortableEntryPointToInterpreterThunk in\n            // src/coreclr/vm/wasm/helpers.cpp. Emitting the declared \"void .ctor(this, args)\" shape\n            // here would only add entries nothing can look up.\n            if (method.IsConstructor && method.OwningType.IsWellKnownType(WellKnownType.String))\n                continue;\n\n            // A generic has no single signature to generate a thunk from, so the interpreter\n            // would find none at call time - and a release build does not even assert on the\n            // miss, it takes the null cookie. CoreLib declares no such method today.\n            if (method.HasInstantiation || method.OwningType.HasInstantiation)\n            {\n                throw new LogAsErrorException(\n                    $\"Generic InternalCall method '{type}::{method.Name.ToString()}' has no single signature to generate a thunk from.\");\n            }\n\n            try\n            {\n                // A managed signature: the lowering adds the 'T' for an instance method and the\n                // trailing 'p' for the portable entry point parameter.\n                string signature = InteropSignature.GetMethodSignature(method);\n                if (_signatures.TryAdd(signature, method))\n                    log.Verbose($\"Adding InternalCall signature {signature} for method '{type}.{method.Name.ToString()}'\");\n            }\n            catch (Exception ex) when (ex is not LogAsErrorException)\n            {\n                // Every non-generic InternalCall has a signature the lowering can describe, so a\n                // failure here is a bug in the generator rather than something the assembly did.\n                // Skipping it would silently drop a thunk and only fail once the interpreter tries\n                // to call the method.\n                throw new LogAsErrorException($\"Could not get the signature for InternalCall method '{type}::{method.Name.ToString()}': {ex.Message}\");\n            }\n        }\n    }\n}",
+  "identifiers": [
+    {
+      "name": "_signatures",
+      "kind": "instance_field",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "dotnet/runtime",
+    "repoUrl": "https://github.com/dotnet/runtime",
+    "license": "MIT",
+    "repoCreatedAt": "2026-09-04T15:12:43+02:00",
+    "commit": "f7129355893d368ae3eccb0e957f779c62d4525d",
+    "path": "src/coreclr/tools/aot/ILCompiler.ReadyToRun/PortableCallHelpers/InternalCallSignatureCollector.cs",
+    "startLine": 50,
+    "endLine": 99,
+    "unit": "class InternalCallSignatureCollector",
+    "corpusFile": "corpus/csharp/dotnet__runtime__src__coreclr__tools__aot__ILCompiler.ReadyToRun__PortableCallHelpers__InternalCallSignatureCollector.cs.md"
+  },
+  "pack": "dotnet-runtime-s2",
+  "split": "dev",
+  "unitIndex": 2,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "instance_field",
+    "targetFacets": {
+      "access": "private",
+      "const": false,
+      "static": false,
+      "threadstatic": false
+    },
+    "topLevel": true
+  }
+}

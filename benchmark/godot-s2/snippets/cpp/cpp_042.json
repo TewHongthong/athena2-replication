@@ -1,0 +1,47 @@
+{
+  "id": "cpp_042",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "modules/tilemap/tile_map_layer.cpp lines 3482-3490 (method TileMapLayer::set_navigation_visibility_mode); license MIT; repo created 2026-07-19T15:16:43+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "void TileMapLayer::set_navigation_visibility_mode(TileMapLayer::DebugVisibilityMode p_show_navigation) {\n\tif (navigation_visibility_mode == p_show_navigation) {\n\t\treturn;\n\t}\n\tnavigation_visibility_mode = p_show_navigation;\n\tdirty.flags[DIRTY_FLAGS_LAYER_NAVIGATION_VISIBILITY_MODE] = true;\n\t_queue_internal_update();\n\temit_signal(CoreStringName(changed));\n}",
+  "identifiers": [
+    {
+      "name": "p_show_navigation",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-19T15:16:43+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "modules/tilemap/tile_map_layer.cpp",
+    "startLine": 3482,
+    "endLine": 3490,
+    "unit": "method TileMapLayer::set_navigation_visibility_mode",
+    "corpusFile": "corpus/cpp/godotengine__godot__modules__tilemap__tile_map_layer.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "test",
+  "unitIndex": 114,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": null,
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": null,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}

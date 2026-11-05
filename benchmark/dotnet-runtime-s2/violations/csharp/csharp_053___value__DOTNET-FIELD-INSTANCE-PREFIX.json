@@ -1,0 +1,17 @@
+{
+  "snippetId": "csharp_053",
+  "language": "csharp",
+  "originalName": "_value",
+  "injectedName": "s_value",
+  "identifierKind": "instance_field",
+  "violatedRuleId": "DOTNET-FIELD-INSTANCE-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 's_value' does not start with required prefix '_'"
+  ],
+  "codeContextWithViolation": "struct Test8 : ITest8\n{\n    private int s_value;\n    public Test8(int value) => s_value = value;\n    public int Test8Method() => s_value;\n    public override string ToString() => \"Test8\";\n}",
+  "occurrencesRenamed": 3,
+  "commentOccurrencesRenamed": 0,
+  "pack": "dotnet-runtime-s2",
+  "split": "test"
+}

@@ -1,0 +1,17 @@
+{
+  "snippetId": "cpp_032",
+  "language": "cpp",
+  "originalName": "p_playback",
+  "injectedName": "r_playback",
+  "identifierKind": "input_parameter",
+  "violatedRuleId": "GODOT-PARAM-INPUT-PREFIX",
+  "injectionMethod": "prefix_swap",
+  "expectedViolationReasons": [
+    "name 'r_playback' does not start with required prefix 'p_'"
+  ],
+  "codeContextWithViolation": "void AudioStreamPlaybackPolyphonic::set_sample_playback(const Ref<AudioSamplePlayback> &r_playback) {\n\tsample_playback = r_playback;\n\tif (sample_playback.is_valid()) {\n\t\tsample_playback->stream_playback = Ref<AudioStreamPlayback>(this);\n\t}\n}",
+  "occurrencesRenamed": 2,
+  "commentOccurrencesRenamed": 0,
+  "pack": "godot-s2",
+  "split": "test"
+}

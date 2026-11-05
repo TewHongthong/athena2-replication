@@ -1,0 +1,47 @@
+{
+  "id": "cpp_019",
+  "language": "cpp",
+  "source": "github:godotengine/godot@5ec712e220b7deac64d61dc9f968e72edb910039",
+  "sourceDetail": "scene/resources/audio/audio_stream_generator.cpp lines 127-152 (method AudioStreamGeneratorPlayback::push_buffer); license MIT; repo created 2026-07-21T20:23:50+02:00; curated by athena-curation-1.0",
+  "standardId": "GODOT",
+  "codeContext": "bool AudioStreamGeneratorPlayback::push_buffer(const PackedVector2Array &p_frames) {\n\tint to_write = p_frames.size();\n\tif (buffer.space_left() < to_write) {\n\t\treturn false;\n\t}\n\n\tconst Vector2 *r = p_frames.ptr();\n\tif constexpr (sizeof(real_t) == 4) {\n\t\t//write directly\n\t\tbuffer.write((const AudioFrame *)r, to_write);\n\t} else {\n\t\t//convert from double\n\t\tAudioFrame buf[2048];\n\t\tint ofs = 0;\n\t\twhile (to_write) {\n\t\t\tint w = MIN(to_write, 2048);\n\t\t\tfor (int i = 0; i < w; i++) {\n\t\t\t\tbuf[i] = AudioFrame(r[i + ofs]);\n\t\t\t}\n\t\t\tbuffer.write(buf, w);\n\t\t\tofs += w;\n\t\t\tto_write -= w;\n\t\t}\n\t}\n\treturn true;\n}",
+  "identifiers": [
+    {
+      "name": "p_frames",
+      "kind": "input_parameter",
+      "isCompliant": true
+    }
+  ],
+  "provenance": {
+    "repo": "godotengine/godot",
+    "repoUrl": "https://github.com/godotengine/godot",
+    "license": "MIT",
+    "repoCreatedAt": "2026-07-21T20:23:50+02:00",
+    "commit": "5ec712e220b7deac64d61dc9f968e72edb910039",
+    "path": "scene/resources/audio/audio_stream_generator.cpp",
+    "startLine": 127,
+    "endLine": 152,
+    "unit": "method AudioStreamGeneratorPlayback::push_buffer",
+    "corpusFile": "corpus/cpp/godotengine__godot__scene__resources__audio__audio_stream_generator.cpp.md"
+  },
+  "pack": "godot-s2",
+  "split": "dev",
+  "unitIndex": 13,
+  "study2": {
+    "injectionMethod": "prefix_strip",
+    "methodsAvailable": [
+      "prefix_strip",
+      "prefix_swap"
+    ],
+    "targetKindInferred": "input_parameter",
+    "targetFacets": {
+      "indirection": "lref",
+      "out_by_type": false,
+      "owner": "method",
+      "owner_via": "qualified",
+      "pointee_const": true,
+      "prefix": "p_"
+    },
+    "topLevel": true
+  }
+}
