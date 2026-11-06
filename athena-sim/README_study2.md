@@ -103,6 +103,20 @@ python analyse_s2_a13.py --out ../analysis/s2_a13.md --json ../analysis/s2_a13.j
 `analyse_s2_a13.py` counts the kind that the condition with the inferred kind used on the test tasks (S2-A13). Both
 read the trials with the rules of `athena_s2/analysis.py`, and neither enters a hypothesis.
 
+## Tests with the source file as the unit
+
+```
+python analyse_s2_a14.py --out ../analysis/s2_a14.md --json ../analysis/s2_a14.json
+```
+
+`analyse_s2_a14.py` repeats every sign test between two conditions that the manuscript reports, in both studies, with
+the source file as the unit: an exact sign test on the mean difference of the tasks of each file and an exact
+sign-flip test on the summed differences of each file, next to the cluster-bootstrap interval of the mean difference
+(S2-A14). It reads the Study 2 test runs that the analysis command uses (S2-A11) with the rules of
+`athena_s2/analysis.py` and the Study 1 test runs with the kind from metadata (`runs/test_*_meta`) with
+`athena.report.load_trials`, checks the recomputed task-level tests of Study 2 against `../analysis/study2.json`, and
+enters no hypothesis.
+
 ## Tests
 
 ```

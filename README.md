@@ -1,6 +1,6 @@
 # Athena-2 replication package
 
-Replication package of "Rule Selection from a Coding-Standard Ontology: A Pre-Registered Study of Identifier Naming on Three Project Standards".
+Replication package of "Rule Selection from a Coding-Standard Ontology: A Study of Identifier Naming on Three Project Standards".
 It holds the harness, the registered hypotheses and their freeze, the ontologies, the model pins, the trial
 records of every run, the benchmark files, and the scripts and outputs of the analyses.
 
@@ -61,7 +61,7 @@ its build script is in the same folder.
 
 ## Study 2 (registered amendment)
 
-HYPOTHESES_v2_study2.md registers a second study of Vol. 2, written after the results of the registered study were known; it was added to this package before the benchmark of Study 2 was built. The additions to its plan are in ADDENDUM_study2.md (S2-A1 to S2-A13), and every command of Study 2 is in athena-sim/README_study2.md.
+HYPOTHESES_v2_study2.md registers a second study of Vol. 2, written after the results of the registered study were known; it was added to this package before the benchmark of Study 2 was built. The additions to its plan are in ADDENDUM_study2.md (S2-A1 to S2-A14), and every command of Study 2 is in athena-sim/README_study2.md.
 
 Study 2 adds: the harness (athena-sim/athena2_s2.py, athena-sim/athena_s2/); the packs (athena-sim/packs/godot-s2/, athena-sim/packs/dotnet-runtime-s2/); the benchmark construction (athena-corpus/curation/facets_s2.py, kind_infer_s2.py, tools/*_s2.py); the benchmark (benchmark/godot-s2/, benchmark/dotnet-runtime-s2/); the model pins (models/model_pins_s2.json, models/model_pins_s2_or.json); the frozen setups (athena-sim/frozen_*-s2_*.json with their ledgers); the runs (athena-sim/runs/s2dev_*, s2canary_*, s2test_*); the analysis (athena-sim/analyse_study2.py, analyse_s2_a12.py, analyse_s2_a13.py and their outputs in analysis/); and the tests (athena-sim/tests_s2/, athena-corpus/curation/tests_s2/).
 

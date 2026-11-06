@@ -93,3 +93,24 @@ The manuscript explains the result of H4-S2 on Godot by the kind that the condit
 On the Godot test tasks the kind used equals the kind from metadata on 57 of the 70 tasks. Four input parameters were taken as output parameters, because their type is a pointer or a reference to a type that is not const, and nine as parameters of a function outside a class, which carry no prefix rule, because the snippet of a method defined inside a class body does not show the class. All 45 dotnet-runtime test tasks agree. The kind used of a task is the same in every model and round.
 
 The count reads the selection trials (condition graph) of the test infer runs that the analysis uses (S2-A11), with the reading rules of S2-A8, and is computed with `athena-sim/analyse_s2_a13.py`.
+
+## S2-A14. Sign tests that respect the source-file clusters (sensitivity analysis)
+
+The sign tests of this study and of Study 1 treat the tasks as independent units, while the intervals resample source files, because tasks drawn from one file are not independent. This entry adds a sensitivity analysis in which the tests also take the source file as the unit of independence. It was written after the results of both studies had been read and before the tests it describes were computed. It decides nothing: the registered tests and their verdicts stand as reported, and the analysis is not part of any hypothesis. It covers both studies and is placed here so that no file of Study 1 is changed.
+
+Comparisons. Every sign test whose result the manuscript reports, in the families of the registered analyses: in Study 2, selection against none (H1-S2, eight tests, Holm over the eight) and selection against TF-IDF, BM25 and dense retrieval (H3-S2, 24 tests, Holm over the 24); in Study 1, selection against none (12 tests, without correction, as reported) and selection against the three retrieval baselines (H3, 36 tests, Holm over the 36).
+
+Data. Study 2 uses the test runs that the command of S2-A11 names, read with the rules of S2-A8. Study 1 uses its test runs with the kind from metadata (`runs/test_*_meta`), read as its analysis reads them (the last record of each key). Selection is condition graph with the human ontology and the kind from metadata. As in the registered analyses, the score of a task is the mean of its three rounds, the difference of a task is selection minus the other condition, and the cluster of a task is its source file (the field `file`); the rounds of a task are never treated as separate units.
+
+Methods. For each comparison:
+
+1. The task-level sign test is recomputed as registered, as a check that the runs are read as in the analysis.
+2. File-level sign test: the mean difference of the tasks of each file is taken, files whose mean is zero are not counted, and an exact two-sided sign test is applied over the files. Each file has equal weight.
+3. File-level sign-flip test: the statistic is the mean difference over tasks, the difference the manuscript reports and the bootstrap estimates. Under the null hypothesis the sum of the task differences of a file is symmetric about zero, so its sign is flipped file by file; the two-sided p-value is the share of all sign patterns whose absolute sum is at least the observed one. The differences are multiples of 1/3, so the distribution is counted exactly, with no sampling and no seed.
+4. The 95% percentile interval of the mean difference over tasks from the cluster bootstrap over source files, with the resamples and the seed of the analysis.
+
+Both file-level tests assume that files are independent of one another. Holm's method is applied to each test separately within each family. A conclusion is significant when the adjusted p-value is below 0.05 and the mean difference over tasks is positive, the rule of the registered tests; a comparison whose conclusion differs from that of the registered test is reported as changed. The smallest p-value a file-level test can reach depends on the number of files that differ: with five such files it is 0.0625, so a comparison with few differing files cannot reach 0.05 whatever the size of the effect, and a changed conclusion is read with that number.
+
+Also reported: for each comparison, the tasks and files, the tasks and files better, worse and tied, and the mean difference weighted by task and by file; for each pack of both studies, the files of the test split and the tasks per file.
+
+The analysis is computed with `athena-sim/analyse_s2_a14.py`.

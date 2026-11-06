@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
-title: 'Replication package for "Rule Selection from a Coding-Standard Ontology: A Pre-Registered Study of Identifier Naming on Three Project Standards"'
+title: 'Replication package for "Rule Selection from a Coding-Standard Ontology: A Study of Identifier Naming on Three Project Standards"'
 authors:
   - family-names: Hongthong
     given-names: Tew
@@ -10,7 +10,7 @@ authors:
   - family-names: Chondamrongkul
     given-names: Nacha
     affiliation: "School of Applied Digital Technology, Mae Fah Luang University"
-version: 1.8.0
-date-released: 2026-11-05
+version: 1.9.0
+date-released: 2026-11-06
 doi: 10.5281/zenodo.23656296
 repository-code: "https://github.com/TewHongthong/athena2-replication"
