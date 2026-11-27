@@ -1,6 +1,6 @@
 # Athena-2 replication package
 
-Replication package of "Rule Selection from a Coding-Standard Ontology: A Study of Identifier Naming on Three Project Standards".
+Replication package of "Rule Selection Helps LLMs Follow Naming Conventions Only Beyond Their Default: Evidence from Project Coding Standards".
 It holds the harness, the registered hypotheses and their freeze, the ontologies, the model pins, the trial
 records of every run, the benchmark files, and the scripts and outputs of the analyses.
 
@@ -81,7 +81,7 @@ ADDENDUM_v2.md records every step taken after the freeze (A1-A14). Eight of them
   python3 analyse_a12.py --meta runs/test_*_meta --llm runs/test_*_llm --out ../analysis/a12.md --json ../analysis/a12.json    (A12)
   python3 analyse_a13.py --meta runs/test_*_meta --infer runs/test_*_infer --canary runs/canary_before_* runs/canary_after_* --supplementary runs/pilot_tank* --anchors runs/anchor_* --out ../analysis/a13.md --json ../analysis/a13.json    (A13)
   python3 analyse_a14.py --meta runs/test_*_meta --out ../analysis/a14.md --json ../analysis/a14.json    (A14)
-  python3 make_figures.py --a13 ../analysis/a13.json --out ../figures    (the two figures of the paper)
+  python3 make_figures.py --out ../figures    (the four data figures of the paper)
 The commands are run in athena-sim/. Their outputs are in analysis/ (a9.md, a9.json, a10.md, a10.json, a11.md, a11.json, a12.md, a12.json, a13.md, a13.json, a14.md, a14.json).
   python3 make_blind_sheet.py --out-dir DIR    and    python3 score_blind.py --sheet SHEET --key KEY --report REPORT    (A7)
 The files of the review of the verdicts of core_ok are in analysis/blind*/. Only the third round is used as evidence; the first two rounds are kept for the record (ADDENDUM_v2.md, A7).
